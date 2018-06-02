@@ -1,0 +1,70 @@
+language: java
+
+jdk:
+#  - openjdk8
+  - oraclejdk8
+
+env:
+  - MAVEN=3.5.3
+
+cache:
+  directories:
+    - ${HOME}/.m2
+
+
+before_install:
+  - chmod +x .travis/*
+  - echo ${GPG_PUBLIC_KEYS}  | base64 --decode > /tmp/frekele-pubkey.asc
+  - echo ${GPG_PRIVATE_KEYS} | base64 --decode > /tmp/frekele-privkey.asc
+  - echo ${GPG_OWNERTRUST}   | base64 --decode > /tmp/frekele-ownertrust.asc
+  #- gpg --keyserver pgp.mit.edu --recv-key ${FREKELE_GPGKEY}
+  - gpg --import /tmp/frekele-pubkey.asc
+  - gpg --import /tmp/frekele-privkey.asc
+  - gpg --import-ownertrust /tmp/frekele-ownertrust.asc
+  - export MVN_HOME=/tmp/maven-${MAVEN}
+  - mkdir ${MVN_HOME}
+  - export PATH=${MVN_HOME}/bin:$PATH
+  - sudo apt-get install -qq jq
+  - wget -O ~/codacy-coverage-reporter-assembly-latest.jar $(curl https://api.github.com/repos/codacy/codacy-coverage-reporter/releases/latest | jq -r .assets[0].browser_download_url)
+
+install:
+  - wget -qO- https://archive.apache.org/dist/maven/maven-3/${MAVEN}/binaries/apache-maven-${MAVEN}-bin.tar.gz | tar xz --strip 1 -C ${MVN_HOME}
+
+before_script:
+
+script:
+  - ${MVN_HOME}/bin/mvn --settings .travis/settings.xml install -Dgpg.skip -DskipUTs=false -DskipITs=false -B -V
+
+before_cache:
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+  - java -cp ~/codacy-coverage-reporter-assembly-latest.jar com.codacy.CodacyCoverageReporter -l Java -r target/site/jacoco/jacoco.xml
+
+after_failure:
+
+before_deploy:
+
+deploy:
+  -
+    provider: script
+    script:
+      - .travis/deploy.sh
+    skip_cleanup: true
+    on:
+      repo: frekele/focusnfe-api-client
+      branch: master
+      jdk: oraclejdk8
+  -
+    provider: script
+    script:
+      - .travis/deploy.sh
+    skip_cleanup: true
+    on:
+      repo: frekele/focusnfe-api-client
+      tags: true
+      jdk: oraclejdk8
+
+after_deploy:
+
+after_script:
