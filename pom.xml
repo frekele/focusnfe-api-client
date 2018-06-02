@@ -30,7 +30,7 @@
 
     <name>focusnfe-api-client</name>
 
-    <groupId>org.frekele.nfe</groupId>
+    <groupId>org.frekele.fiscal</groupId>
     <artifactId>focusnfe-api-client</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
