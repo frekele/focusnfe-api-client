@@ -1,0 +1,64 @@
+######################
+#    Directories     #
+######################
+/.cargo/
+/target/
+/.idea/
+/.tmp/
+/dist/
+######################
+
+
+######################
+#       Files        #
+######################
+focusnfe-api-client.iml
+######################
+
+
+######################
+#  Compiled Source   #
+######################
+*.class
+*.dll
+*.exe
+*.cache
+######################
+
+
+######################
+#      Packages      #
+######################
+# it’s better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+######################
+
+
+######################
+# OS generated files #
+######################
+*/.DS_Store
+.DS_Store
+.DS_Store?
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.lnk
+Desktop.ini
+######################
+
+
+######################
+# Logs and databases #
+######################
+*.log
+*.sqlite
+######################
