@@ -1,12 +1,10 @@
 ## FocusNFe Brazilian fiscal Issuer NF-e NFC-e Java REST API Client (Open Source) 
 
-
 ### REST Client - FocusNFe Brazilian fiscal Issuer NF-e NFC-e API
 
+![focusnfe](https://raw.githubusercontent.com/frekele/focusnfe-api-client/master/docs/img/focusnfe-logo.png)
 
 # Under construction, is not ready for use yet. :(
-
-
 
 Built-based on the documentation: [https://focusnfe.com.br/doc/](https://focusnfe.com.br/doc/)
 
