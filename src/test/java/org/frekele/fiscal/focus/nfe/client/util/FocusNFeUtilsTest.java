@@ -9,6 +9,8 @@ import org.testng.annotations.Test;
 
 import java.math.BigDecimal;
 
+import static org.testng.Assert.*;
+
 /**
  * @author frekele - Leandro Kersting de Freitas
  */
@@ -92,5 +94,88 @@ public class FocusNFeUtilsTest {
     @Test(expectedExceptions = {FocusNFeException.class})
     public void testThrowObjectWithError2() throws Exception {
         FocusNFeUtils.throwObject("", "value");
+    }
+
+    @Test
+    public void testEncodeBase64() throws Exception {
+        String value = "ksjldfoiw7t9834j7vtfwejf8wef";
+        String expectedValue = "a3NqbGRmb2l3N3Q5ODM0ajd2dGZ3ZWpmOHdlZg==";
+
+        String valueBase64 = FocusNFeUtils.encodeBase64(value);
+        assertEquals(valueBase64, expectedValue);
+    }
+
+    @Test(expectedExceptions = {FocusNFeException.class})
+    public void testEncodeBase64WithError() throws Exception {
+        FocusNFeUtils.encodeBase64("");
+    }
+
+    @Test(expectedExceptions = {FocusNFeException.class})
+    public void testEncodeBase64WithError2() throws Exception {
+        FocusNFeUtils.encodeBase64(null);
+    }
+
+    @Test
+    public void testDecodeBase64() throws Exception {
+        String valueBase64 = "eWdkZTc2MjNnZmZnaHVkZnRnMjNmZGJxZGY=";
+        String expectedValue = "ygde7623gffghudftg23fdbqdf";
+
+        String value = FocusNFeUtils.decodeBase64(valueBase64);
+        assertEquals(value, expectedValue);
+    }
+
+    @Test(expectedExceptions = {FocusNFeException.class})
+    public void testDecodeBase64WithError() throws Exception {
+        FocusNFeUtils.decodeBase64("");
+    }
+
+    @Test(expectedExceptions = {FocusNFeException.class})
+    public void testDecodeBase64WithError2() throws Exception {
+        FocusNFeUtils.decodeBase64(null);
+    }
+
+    @Test
+    public void testBuildAuthorization() throws Exception {
+        String username = "uigfy3j4vt83f743tyvh37t784";
+        String password = "37ht637848tc3yfrfwbrfcwy4";
+        String expectedValue = "dWlnZnkzajR2dDgzZjc0M3R5dmgzN3Q3ODQ6MzdodDYzNzg0OHRjM3lmcmZ3YnJmY3d5NA==";
+
+        String value = FocusNFeUtils.buildAuthorization(username, password);
+        assertEquals(value, expectedValue);
+    }
+
+    @Test
+    public void testBuildAuthorization2() throws Exception {
+        String username = "dg98vey8tj35gv34786tyjg7";
+        String password = "";
+        String expectedValue = "ZGc5OHZleTh0ajM1Z3YzNDc4NnR5amc3Og==";
+
+        String value = FocusNFeUtils.buildAuthorization(username, password);
+        assertEquals(value, expectedValue);
+
+        value = FocusNFeUtils.buildAuthorization(username, null);
+        assertEquals(value, expectedValue);
+    }
+
+    @Test
+    public void testBuildAuthorization3() throws Exception {
+        String username = "";
+        String password = "";
+        String expectedValue = "Og==";
+
+        String value = FocusNFeUtils.buildAuthorization(username, password);
+        assertEquals(value, expectedValue);
+
+        value = FocusNFeUtils.buildAuthorization(null, null);
+        assertEquals(value, expectedValue);
+    }
+
+    @Test
+    public void testBuildAuthorization4() throws Exception {
+        String username = "hfg78y5vjg37h47htybv87w4t";
+        String expectedValue = "aGZnNzh5NXZqZzM3aDQ3aHR5YnY4N3c0dDo=";
+
+        String value = FocusNFeUtils.buildAuthorization(username);
+        assertEquals(value, expectedValue);
     }
 }

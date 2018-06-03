@@ -9,6 +9,7 @@ import javax.ws.rs.core.MediaType;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
+import java.util.Base64;
 
 /**
  * @author frekele - Leandro Kersting de Freitas
@@ -66,5 +67,31 @@ public final class FocusNFeUtils {
             }
         }
         return body;
+    }
+
+    public static String encodeBase64(String value) {
+        if (value != null && !value.isEmpty()) {
+            return Base64.getEncoder().encodeToString(value.getBytes(Charset.forName("UTF-8")));
+        } else {
+            throw new FocusNFeException("value is null or empty.");
+        }
+    }
+
+    public static String decodeBase64(String base64Value) {
+        if (base64Value != null && !base64Value.isEmpty()) {
+            byte[] bytesValue = Base64.getDecoder().decode(base64Value);
+            return new String(bytesValue, Charset.forName("UTF-8"));
+        } else {
+            throw new FocusNFeException("base64Value is null or empty.");
+        }
+    }
+
+    public static String buildAuthorization(String username) {
+        return buildAuthorization(username, "");
+    }
+
+    public static String buildAuthorization(String username, String password) {
+        String authorization = (username == null ? "" : username) + ":" + (password == null ? "" : password);
+        return encodeBase64(authorization);
     }
 }
