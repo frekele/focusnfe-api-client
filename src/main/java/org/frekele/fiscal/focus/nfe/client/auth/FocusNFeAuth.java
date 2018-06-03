@@ -1,5 +1,7 @@
 package org.frekele.fiscal.focus.nfe.client.auth;
 
+import org.frekele.fiscal.focus.nfe.client.util.FocusNFeUtils;
+
 import java.io.Serializable;
 
 /**
@@ -13,19 +15,24 @@ public final class FocusNFeAuth implements Serializable {
 
     private final EnvironmentFocusNFeEnum environment;
 
+    private final String authorization;
+
     public FocusNFeAuth(String accessToken, EnvironmentFocusNFeEnum environment) {
         this.accessToken = accessToken;
         this.environment = environment;
+        this.authorization = FocusNFeUtils.buildAuthorization(accessToken);
     }
 
     public FocusNFeAuth(String accessToken, String environment) {
         this.accessToken = accessToken;
         this.environment = EnvironmentFocusNFeEnum.fromValue(environment);
+        this.authorization = FocusNFeUtils.buildAuthorization(accessToken);
     }
 
     private FocusNFeAuth(Builder builder) {
         accessToken = builder.accessToken;
         environment = builder.environment;
+        authorization = FocusNFeUtils.buildAuthorization(builder.accessToken);
     }
 
     public static Builder newBuilder() {
@@ -38,6 +45,10 @@ public final class FocusNFeAuth implements Serializable {
 
     public EnvironmentFocusNFeEnum getEnvironment() {
         return environment;
+    }
+
+    public String getAuthorization() {
+        return authorization;
     }
 
     public static final class Builder {
