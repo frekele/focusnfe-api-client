@@ -8,9 +8,12 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/05da720aaaec4ef9ac59a644a4c7ee91)](https://www.codacy.com/app/frekele/focusnfe-api-client?utm_source=github.com&utm_medium=referral&utm_content=frekele/focusnfe-api-client&utm_campaign=Badge_Coverage)
 
 
+![focusnfe](https://raw.githubusercontent.com/frekele/focusnfe-api-client/master/docs/img/focusnfe-logo.png)
+
+
 ### REST Client - FocusNFe Brazilian fiscal Issuer NF-e NFC-e API
 
-![focusnfe](https://raw.githubusercontent.com/frekele/focusnfe-api-client/master/docs/img/focusnfe-logo.png)
+<img src="./docs/img/focusnfe-fiscal-man.svg" height="400" width="600">
 
 # Under construction, is not ready for use yet. :(
 
