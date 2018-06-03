@@ -13,7 +13,7 @@
 
 ### REST Client - FocusNFe Brazilian fiscal Issuer NF-e NFC-e API
 
-<img src="./docs/img/focusnfe-fiscal-man.svg" height="500" width="500">
+<img src="./docs/img/focusnfe-fiscal-man.svg" height="400" width="600">
 
 # Under construction, is not ready for use yet. :(
 
