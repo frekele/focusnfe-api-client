@@ -13,10 +13,10 @@ import java.util.List;
 @XmlEnum(String.class)
 public enum NFeFinalidadeEmissaoEnum {
 
-    NORMAL("1", "Normal"),
-    COMPLEMENTAR("2", "Complementar"),
+    NOTA_NORMAL("1", "Nota normal"),
+    NOTA_COMPLEMENTAR("2", "Nota complementar"),
     NOTA_DE_AJUSTE("3", "Nota de ajuste"),
-    DEVOLUCAO("4", "Devolução");
+    DEVOLUCAO_MERCADORIA("4", "Devolução de mercadoria");
 
     private String code;
 
