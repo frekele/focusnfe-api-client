@@ -18,6 +18,7 @@ public enum NFePresencaCompradorEnum {
     OPERACAO_NAO_PRESENCIAL_PELA_INTERNET("2", "Operação não presencial, pela Internet"),
     OPERACAO_NAO_PRESENCIAL_TELEATENDIMENTO("3", "Operação não presencial, Teleatendimento"),
     OPERACAO_COM_NFCE_ENTREGA_DOMICILIO("4", "NFC-e em operação com entrega em domicílio"),
+    OPERACAO_PRESENCIAL_FORA_ESTABELECIMENTO("5", "Operação presencial, fora do estabelecimento;"),
     OPERACAO_NAO_PRESENCIAL_OUTROS("9", "Operação não presencial, outros");
 
     private String code;

@@ -13,9 +13,9 @@ import java.util.List;
 @XmlEnum(String.class)
 public enum NFeLocalDestinoEnum {
 
-    OPERACAO_INTERNA("0", "Operação interna"),
-    OPERACAO_INTERESTADUAL("1", "Operação interestadual"),
-    OPERACAO_EXTERIOR("2", "Operação com exterior");
+    OPERACAO_INTERNA("1", "Operação interna"),
+    OPERACAO_INTERESTADUAL("2", "Operação interestadual"),
+    OPERACAO_EXTERIOR("3", "Operação com exterior");
 
     private String code;
 
