@@ -3,6 +3,8 @@ package org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.autorizar;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFeEntity;
 
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -18,6 +20,7 @@ public class NFeDocumentoImportacao implements FocusNFeEntity {
     private static final long serialVersionUID = 1L;
 
     //Número do documento de importação DI/DSA/DA.
+    @Size(min = 1, max = 12)
     @JsonProperty("numero")
     private String numero;
 
@@ -26,10 +29,12 @@ public class NFeDocumentoImportacao implements FocusNFeEntity {
     private String data_registro;
 
     //Local do desembaraço aduaneiro.
+    @Size(min = 1, max = 60)
     @JsonProperty("local_desembaraco_aduaneiro")
     private String local_desembaraco_aduaneiro;
 
     //UF do desembaraço aduaneiro.
+    @Size(max = 2)
     @JsonProperty("uf_desembaraco_aduaneiro")
     private String uf_desembaraco_aduaneiro;
 
@@ -42,6 +47,7 @@ public class NFeDocumentoImportacao implements FocusNFeEntity {
     private String via_transporte;
 
     //Valor da AFRMM - Adicional ao Frete para Renovação da Marinha Mercante (obrigatório se marítimo)
+    @Digits(integer = 13, fraction = 2)
     @JsonProperty("valor_afrmm")
     private String valor_afrmm;
 
@@ -51,18 +57,22 @@ public class NFeDocumentoImportacao implements FocusNFeEntity {
 
     //CNPJ do adquirente ou do encomendante.
     //Informação obrigatória no caso de importação por conta e ordem ou por encomenda
+    @Size(max = 14)
     @JsonProperty("cnpj")
     private String cnpj;
 
     //Sigla da UF do adquirente ou do encomendante.
+    @Size(max = 2)
     @JsonProperty("uf_terceiro")
     private String uf_terceiro;
 
     //Código interno do exportador.
+    @Size(min = 1, max = 60)
     @JsonProperty("codigo_exportador")
     private String codigo_exportador;
 
     //Adições do documento de importação.
+    @Size(min = 1, max = 100)
     @JsonProperty("adicoes")
     private List<NFeAdicaoDocumentoImportacao> adicoes;
 
