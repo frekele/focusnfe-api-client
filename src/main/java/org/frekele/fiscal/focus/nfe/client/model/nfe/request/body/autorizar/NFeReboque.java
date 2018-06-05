@@ -18,17 +18,17 @@ public class NFeReboque implements FocusNFeEntity {
     private static final long serialVersionUID = 1L;
 
     //Placa do veículo de transporte.
-    @Size(max = 14)
+    @Size(max = 7)
     @JsonProperty("veiculo_placa")
     private String veiculoPlaca;
 
     //UF do veículo de transporte.
-    @Size(max = 11)
+    @Size(max = 2)
     @JsonProperty("veiculo_uf")
     private String veiculoUf;
 
     //RNTC (Registro Nacional de Transportador de Carga - ANTT) do veículo de transporte.
-    @Size(max = 11)
+    @Size(min = 1, max = 20)
     @JsonProperty("veiculo_rntc")
     private String veiculoRntc;
 
