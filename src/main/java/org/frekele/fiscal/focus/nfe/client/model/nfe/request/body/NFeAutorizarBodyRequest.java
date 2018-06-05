@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.frekele.fiscal.focus.nfe.client.converter.deserialize.OffsetDateTimeJsonDeserialize;
 import org.frekele.fiscal.focus.nfe.client.converter.serialize.OffsetDateTimeJsonSerialize;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFeEntity;
+import org.frekele.fiscal.focus.nfe.client.enumeration.NFeCodigoRegimeEspecialTributacaoEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeConsumidorFinalEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeFinalidadeEmissaoEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeIndicadorInscricaoEstadualDestinatarioEnum;
@@ -589,7 +590,7 @@ public class NFeAutorizarBodyRequest implements FocusNFeEntity {
 
     //(ISSQN) Código do regime especial de tributação
     @JsonProperty("codigo_regime_especial_tributacao")
-    private String codigoRegimeEspecialTributacao;
+    private NFeCodigoRegimeEspecialTributacaoEnum codigoRegimeEspecialTributacao;
 
     //Valor Retido de PIS.
     @Digits(integer = 13, fraction = 2)

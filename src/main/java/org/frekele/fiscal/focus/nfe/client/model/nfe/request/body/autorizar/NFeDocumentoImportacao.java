@@ -2,6 +2,8 @@ package org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.autorizar;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFeEntity;
+import org.frekele.fiscal.focus.nfe.client.enumeration.NFeFormaIntermedioEnum;
+import org.frekele.fiscal.focus.nfe.client.enumeration.NFeViaTransporteEnum;
 
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Size;
@@ -44,7 +46,7 @@ public class NFeDocumentoImportacao implements FocusNFeEntity {
 
     //Via de transporte internacional informada na DI
     @JsonProperty("via_transporte")
-    private String via_transporte;
+    private NFeViaTransporteEnum via_transporte;
 
     //Valor da AFRMM - Adicional ao Frete para Renovação da Marinha Mercante (obrigatório se marítimo)
     @Digits(integer = 13, fraction = 2)
@@ -53,7 +55,7 @@ public class NFeDocumentoImportacao implements FocusNFeEntity {
 
     //Forma de importação quanto a intermediação
     @JsonProperty("forma_intermedio")
-    private String forma_intermedio;
+    private NFeFormaIntermedioEnum forma_intermedio;
 
     //CNPJ do adquirente ou do encomendante.
     //Informação obrigatória no caso de importação por conta e ordem ou por encomenda

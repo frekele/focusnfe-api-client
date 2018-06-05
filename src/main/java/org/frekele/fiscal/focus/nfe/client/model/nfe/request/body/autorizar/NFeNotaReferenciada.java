@@ -2,6 +2,7 @@ package org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.autorizar;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFeEntity;
+import org.frekele.fiscal.focus.nfe.client.enumeration.NFeModeloEcfEnum;
 
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -99,7 +100,7 @@ public class NFeNotaReferenciada implements FocusNFeEntity {
 
     //Modelo do Documento Fiscal (cupom fiscal).
     @JsonProperty("modelo_ecf")
-    private String modeloEcf;
+    private NFeModeloEcfEnum modeloEcf;
 
     //Número de ordem sequencial do ECF (cupom fiscal).
     @Size(max = 3)
