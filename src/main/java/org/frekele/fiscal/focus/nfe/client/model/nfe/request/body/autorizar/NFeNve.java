@@ -18,7 +18,7 @@ public class NFeNve implements FocusNFeEntity {
     private static final long serialVersionUID = 1L;
 
     //Codificação opcional que detalha alguns NC<. Formato: duas letras maiúsculas e 4 algarismos
-    @Size(max = 14)
+    @Size(max = 6)
     @JsonProperty("nve")
     private String nve;
 
