@@ -16,6 +16,8 @@ public enum NFeModalidadeFreteEnum {
     POR_CONTA_EMITENTE("0", "Por conta do emitente"),
     POR_CONTA_DESTINATARIO("1", "Por conta do destinatário"),
     POR_CONTA_TERCEIROS("2", "Por conta de terceiros"),
+    TRANSPORTE_PROPRIO_POR_CONTA_REMETENTE("3", "Transporte Próprio por conta do Remetente"),
+    TRANSPORTE_PROPRIO_POR_CONTA_DESTINATARIO("4", "Transporte Próprio por conta do Destinatário"),
     SEM_FRETE("9", "Sem frete");
 
     private String code;
