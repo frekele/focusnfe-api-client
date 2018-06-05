@@ -2,10 +2,21 @@ package org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.autorizar;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFeEntity;
+import org.frekele.fiscal.focus.nfe.client.enumeration.NFeIcmsModalidadeBaseCalculoEnum;
+import org.frekele.fiscal.focus.nfe.client.enumeration.NFeIcmsModalidadeBaseCalculoStEnum;
+import org.frekele.fiscal.focus.nfe.client.enumeration.NFeIcmsMotivoDesoneracaoEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeIcmsOrigemEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeIcmsSituacaoTributariaEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeIncluiNoTotalEnum;
+import org.frekele.fiscal.focus.nfe.client.enumeration.NFeIpiSituacaoTributariaEnum;
+import org.frekele.fiscal.focus.nfe.client.enumeration.NFeIssqnIndicadorExigibilidadeEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFePisCofinsSituacaoTributariaEnum;
+import org.frekele.fiscal.focus.nfe.client.enumeration.NFeVeiculoCodigoCorDenatranEnum;
+import org.frekele.fiscal.focus.nfe.client.enumeration.NFeVeiculoCondicaoEnum;
+import org.frekele.fiscal.focus.nfe.client.enumeration.NFeVeiculoRestricaoEnum;
+import org.frekele.fiscal.focus.nfe.client.enumeration.NFeVeiculoTipoCombustivelEnum;
+import org.frekele.fiscal.focus.nfe.client.enumeration.NFeVeiculoTipoOperacaoEnum;
+import org.frekele.fiscal.focus.nfe.client.enumeration.NFeVeiculoVinEnum;
 
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
@@ -193,7 +204,7 @@ public class NFeItem implements FocusNFeEntity {
 
     //Tipo da operação.
     @JsonProperty("veiculo_tipo_operacao")
-    private String veiculo_tipo_operacao;
+    private NFeVeiculoTipoOperacaoEnum veiculo_tipo_operacao;
 
     //Chassi do veículo - VIN.
     @Size(max = 17)
@@ -237,7 +248,7 @@ public class NFeItem implements FocusNFeEntity {
 
     //Tipo de combustível (utilizar tabela do RENAVAM):
     @JsonProperty("veiculo_tipo_combustivel")
-    private String veiculo_tipo_combustivel;
+    private NFeVeiculoTipoCombustivelEnum veiculo_tipo_combustivel;
 
     //Número do motor.
     @Size(min = 1, max = 21)
@@ -281,11 +292,11 @@ public class NFeItem implements FocusNFeEntity {
 
     //Veículo tem VIN remarcado?
     @JsonProperty("veiculo_codigo_vin")
-    private String veiculo_codigo_vin;
+    private NFeVeiculoVinEnum veiculo_codigo_vin;
 
     //Condição do veículo.
     @JsonProperty("veiculo_condicao")
-    private String veiculo_condicao;
+    private NFeVeiculoCondicaoEnum veiculo_condicao;
 
     //Código Marca Modelo (utilizar tabela RENAVAM).
     @Size(min = 1, max = 6)
@@ -294,7 +305,7 @@ public class NFeItem implements FocusNFeEntity {
 
     //Código da cor segundo as regras de pré-cadastro do DENATRAN.
     @JsonProperty("veiculo_codigo_cor_denatran")
-    private String veiculo_codigo_cor_denatran;
+    private NFeVeiculoCodigoCorDenatranEnum veiculo_codigo_cor_denatran;
 
     //Quantidade máxima permitida de passageiros sentados, inclusive motorista.
     @Size(min = 1, max = 3)
@@ -303,7 +314,7 @@ public class NFeItem implements FocusNFeEntity {
 
     //Restrição.
     @JsonProperty("veiculo_restricao")
-    private String veiculo_restricao;
+    private NFeVeiculoRestricaoEnum veiculo_restricao;
 
     //Código de Produto da ANVISA
     @Size(max = 13)
@@ -433,7 +444,7 @@ public class NFeItem implements FocusNFeEntity {
 
     //Indicador da exigibilidade do ISS: (valor default: 1)
     @JsonProperty("issqn_indicador_exigibilidade")
-    private String issqn_indicador_exigibilidade;
+    private NFeIssqnIndicadorExigibilidadeEnum issqn_indicador_exigibilidade;
 
     //Código do serviço prestado dentro do município
     @Size(min = 1, max = 20)
@@ -472,7 +483,7 @@ public class NFeItem implements FocusNFeEntity {
 
     //Modalidade de determinação da base de cálculo do ICMS.
     @JsonProperty("icms_modalidade_base_calculo")
-    private String icms_modalidade_base_calculo;
+    private NFeIcmsModalidadeBaseCalculoEnum icms_modalidade_base_calculo;
 
     //Valor da base de cálculo do ICMS.
     @Digits(integer = 13, fraction = 2)
@@ -533,11 +544,11 @@ public class NFeItem implements FocusNFeEntity {
 
     //Motivo da desoneração do ICMS.
     @JsonProperty("icms_motivo_desoneracao")
-    private String icms_motivo_desoneracao;
+    private NFeIcmsMotivoDesoneracaoEnum icms_motivo_desoneracao;
 
     //Modalidade de determinação da base de cálculo do ICMS ST.
     @JsonProperty("icms_modalidade_base_calculo_st")
-    private String icms_modalidade_base_calculo_st;
+    private NFeIcmsModalidadeBaseCalculoStEnum icms_modalidade_base_calculo_st;
 
     //Percentual da margem de valor adicionado do ICMS ST.
     @Digits(integer = 3, fraction = 4)
@@ -621,7 +632,7 @@ public class NFeItem implements FocusNFeEntity {
 
     //Situação tributária do IPI.
     @JsonProperty("ipi_situacao_tributaria")
-    private String ipi_situacao_tributaria;
+    private NFeIpiSituacaoTributariaEnum ipi_situacao_tributaria;
 
     //Valor da base de cálculo do IPI.
     @Digits(integer = 13, fraction = 2)
