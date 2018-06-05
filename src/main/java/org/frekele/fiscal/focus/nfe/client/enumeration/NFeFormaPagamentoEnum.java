@@ -13,9 +13,19 @@ import java.util.List;
 @XmlEnum(String.class)
 public enum NFeFormaPagamentoEnum {
 
-    A_VISTA("0", "À vista"),
-    A_PRAZO("1", "À prazo"),
-    OUTROS("2", "outros");
+    DINHEIRO("01", "Dinheiro"),
+    CHEQUE("02", "Cheque"),
+    CARTAO_DE_CREDITO("03", "Cartão de Crédito"),
+    CARTAO_DE_DEBITO("04", "Cartão de Débito"),
+    CREDITO_LOJA("05", "Crédito Loja"),
+    VALE_ALIMENTACAO("10", "Vale Alimentação"),
+    VALE_REFEICAO("11", "Vale Refeição"),
+    VALE_PRESENTE("12", "Vale Presente"),
+    VALE_COMBUSTIVEL("13", "Vale Combustível"),
+    DUPLICATA_MERCANTIL("14", "Duplicata Mercantil"),
+    BOLETO_BANCARIO("15", "Boleto Bancário"),
+    SEM_PAGAMENTO("90", "Sem pagamento"),
+    OUTROS("99", "Outros");
 
     private String code;
 
