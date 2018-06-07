@@ -1,5 +1,6 @@
 package org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.requisicao;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFeEntity;
 
@@ -13,6 +14,7 @@ import java.util.List;
 /**
  * @author frekele - Leandro Kersting de Freitas
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class NFeVolumeTransportado implements FocusNFeEntity {
