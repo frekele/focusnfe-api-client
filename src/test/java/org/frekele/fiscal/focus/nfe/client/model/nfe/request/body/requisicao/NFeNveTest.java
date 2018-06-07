@@ -19,29 +19,29 @@ public class NFeNveTest {
     public void testNewInstance() throws Exception {
         String nve = "FR3476";
 
-        NFeNve nFeNve = new NFeNve();
-        nFeNve.setNve(nve);
+        NFeNve entity = new NFeNve();
+        entity.setNve(nve);
 
-        assertNotNull(nFeNve);
-        assertEquals(nve, nFeNve.getNve());
+        assertNotNull(entity);
+        assertEquals(nve, entity.getNve());
 
-        nFeNve = NFeNve.newBuilder()
+        entity = NFeNve.newBuilder()
             .withNve(nve)
             .build();
 
-        assertNotNull(nFeNve);
-        assertEquals(nve, nFeNve.getNve());
+        assertNotNull(entity);
+        assertEquals(nve, entity.getNve());
     }
 
     @Test
     public void testBeanValidation() throws Exception {
-        NFeNve nFeNve = new NFeNve("TG5676");
-        FocusNFeUtils.throwBeanValidation(nFeNve);
+        NFeNve entity = new NFeNve("TG5676");
+        FocusNFeUtils.throwBeanValidation(entity);
     }
 
     @Test(expectedExceptions = {ConstraintViolationException.class})
     public void testBeanValidationWithError() throws Exception {
-        NFeNve nFeNve = new NFeNve("TG56761");
-        FocusNFeUtils.throwBeanValidation(nFeNve);
+        NFeNve entity = new NFeNve("TG56761");
+        FocusNFeUtils.throwBeanValidation(entity);
     }
 }

@@ -22,38 +22,38 @@ public class NFeReboqueTest {
         NFeUnidadeFederativaEnum veiculoUf = NFeUnidadeFederativaEnum.RIO_GRANDE_DO_SUL;
         String veiculoRntc = "TAC-12345678";
 
-        NFeReboque nFeReboque = new NFeReboque();
-        nFeReboque.setVeiculoPlaca(veiculoPlaca);
-        nFeReboque.setVeiculoUf(veiculoUf);
-        nFeReboque.setVeiculoRntc(veiculoRntc);
+        NFeReboque entity = new NFeReboque();
+        entity.setVeiculoPlaca(veiculoPlaca);
+        entity.setVeiculoUf(veiculoUf);
+        entity.setVeiculoRntc(veiculoRntc);
 
-        assertNotNull(nFeReboque);
-        assertEquals(veiculoPlaca, nFeReboque.getVeiculoPlaca());
-        assertEquals(veiculoUf, nFeReboque.getVeiculoUf());
-        assertEquals(veiculoRntc, nFeReboque.getVeiculoRntc());
+        assertNotNull(entity);
+        assertEquals(veiculoPlaca, entity.getVeiculoPlaca());
+        assertEquals(veiculoUf, entity.getVeiculoUf());
+        assertEquals(veiculoRntc, entity.getVeiculoRntc());
 
-        nFeReboque = NFeReboque.newBuilder()
+        entity = NFeReboque.newBuilder()
             .withVeiculoPlaca(veiculoPlaca)
             .withVeiculoUf(veiculoUf)
             .withVeiculoRntc(veiculoRntc)
             .build();
 
-        assertNotNull(nFeReboque);
-        assertEquals(veiculoPlaca, nFeReboque.getVeiculoPlaca());
-        assertEquals(veiculoUf, nFeReboque.getVeiculoUf());
-        assertEquals(veiculoRntc, nFeReboque.getVeiculoRntc());
+        assertNotNull(entity);
+        assertEquals(veiculoPlaca, entity.getVeiculoPlaca());
+        assertEquals(veiculoUf, entity.getVeiculoUf());
+        assertEquals(veiculoRntc, entity.getVeiculoRntc());
     }
 
     @Test
     public void testBeanValidation() throws Exception {
-        NFeReboque nFeReboque = new NFeReboque();
-        FocusNFeUtils.throwBeanValidation(nFeReboque);
+        NFeReboque entity = new NFeReboque();
+        FocusNFeUtils.throwBeanValidation(entity);
     }
 
     @Test(expectedExceptions = {ConstraintViolationException.class})
     public void testBeanValidationWithError() throws Exception {
-        NFeReboque nFeReboque = new NFeReboque();
-        nFeReboque.setVeiculoRntc("");
-        FocusNFeUtils.throwBeanValidation(nFeReboque);
+        NFeReboque entity = new NFeReboque();
+        entity.setVeiculoRntc("");
+        FocusNFeUtils.throwBeanValidation(entity);
     }
 }
