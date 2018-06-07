@@ -25,27 +25,27 @@ public class NFeRastro implements FocusNFeEntity {
     //Número do lote do produto
     @Size(min = 1, max = 20)
     @JsonProperty("numero_lote")
-    private String numero_lote;
+    private String numeroLote;
 
     //Quantidade de produtos no Lote.
     @Digits(integer = 8, fraction = 3)
     @JsonProperty("quantidade_lote")
-    private String quantidade_lote;
+    private String quantidadeLote;
 
     //Data de Fabricaçao do medicamento
     @LocalDateJsonConverter
     @JsonProperty("data_fabricacao")
-    private LocalDate data_fabricacao;
+    private LocalDate dataFabricacao;
 
     //Data de Validade do medicamento
     @LocalDateJsonConverter
     @JsonProperty("data_validade")
-    private LocalDate data_validade;
+    private LocalDate dataValidade;
 
     //Código de agregação
     @Size(min = 1, max = 20)
     @JsonProperty("codigo_agregacao")
-    private String codigo_agregacao;
+    private String codigoAgregacao;
 
     public NFeRastro() {
         super();

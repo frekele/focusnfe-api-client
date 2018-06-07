@@ -27,37 +27,37 @@ public class NFeFormaPagamento implements FocusNFeEntity {
 
     //Forma de pagamento
     @JsonProperty("forma_pagamento")
-    private NFeFormaPagamentoEnum forma_pagamento;
+    private NFeFormaPagamentoEnum formaPagamento;
 
     //Valor do pagamento
     @Digits(integer = 13, fraction = 2)
     @BigDecimalJsonConverter
     @JsonProperty("valor_pagamento")
-    private BigDecimal valor_pagamento;
+    private BigDecimal valorPagamento;
 
     //Tipo de Integração para pagamento
     @JsonProperty("tipo_integracao")
-    private NFeTipoIntegracaoEnum tipo_integracao;
+    private NFeTipoIntegracaoEnum tipoIntegracao;
 
     //CNPJ da Credenciadora de cartão de crédito e/ou débito
     @Size(max = 14)
     @JsonProperty("cnpj_credenciadora")
-    private String cnpj_credenciadora;
+    private String cnpjCredenciadora;
 
     //Bandeira da operadora de cartão de crédito e/ou débito
     @JsonProperty("bandeira_operadora")
-    private NFeBandeiraOperadoraEnum bandeira_operadora;
+    private NFeBandeiraOperadoraEnum bandeiraOperadora;
 
     //Número de autorização da operação cartão de crédito e/ou débito
     @Size(min = 1, max = 20)
     @JsonProperty("numero_autorizacao")
-    private String numero_autorizacao;
+    private String numeroAutorizacao;
 
     //Valor do troco
     @Digits(integer = 13, fraction = 2)
     @BigDecimalJsonConverter
     @JsonProperty("valor_troco")
-    private BigDecimal valor_troco;
+    private BigDecimal valorTroco;
 
     public NFeFormaPagamento() {
         super();

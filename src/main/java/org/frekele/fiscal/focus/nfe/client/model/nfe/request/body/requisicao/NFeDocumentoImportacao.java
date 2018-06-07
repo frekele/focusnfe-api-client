@@ -34,34 +34,34 @@ public class NFeDocumentoImportacao implements FocusNFeEntity {
     //Data de registro do documento de importação.
     @LocalDateJsonConverter
     @JsonProperty("data_registro")
-    private LocalDate data_registro;
+    private LocalDate dataRegistro;
 
     //Local do desembaraço aduaneiro.
     @Size(min = 1, max = 60)
     @JsonProperty("local_desembaraco_aduaneiro")
-    private String local_desembaraco_aduaneiro;
+    private String localDesembaracoAduaneiro;
 
     //UF do desembaraço aduaneiro.
     @JsonProperty("uf_desembaraco_aduaneiro")
-    private NFeUnidadeFederativaEnum uf_desembaraco_aduaneiro;
+    private NFeUnidadeFederativaEnum ufDesembaracoAduaneiro;
 
     //Data do desembaraço aduaneiro.
     @LocalDateJsonConverter
     @JsonProperty("data_desembaraco_aduaneiro")
-    private LocalDate data_desembaraco_aduaneiro;
+    private LocalDate dataDesembaracoAduaneiro;
 
     //Via de transporte internacional informada na DI
     @JsonProperty("via_transporte")
-    private NFeViaTransporteEnum via_transporte;
+    private NFeViaTransporteEnum viaTransporte;
 
     //Valor da AFRMM - Adicional ao Frete para Renovação da Marinha Mercante (obrigatório se marítimo)
     @Digits(integer = 13, fraction = 2)
     @JsonProperty("valor_afrmm")
-    private String valor_afrmm;
+    private String valorAfrmm;
 
     //Forma de importação quanto a intermediação
     @JsonProperty("forma_intermedio")
-    private NFeFormaIntermedioEnum forma_intermedio;
+    private NFeFormaIntermedioEnum formaIntermedio;
 
     //CNPJ do adquirente ou do encomendante.
     //Informação obrigatória no caso de importação por conta e ordem ou por encomenda
@@ -71,12 +71,12 @@ public class NFeDocumentoImportacao implements FocusNFeEntity {
 
     //Sigla da UF do adquirente ou do encomendante.
     @JsonProperty("uf_terceiro")
-    private NFeUnidadeFederativaEnum uf_terceiro;
+    private NFeUnidadeFederativaEnum ufTerceiro;
 
     //Código interno do exportador.
     @Size(min = 1, max = 60)
     @JsonProperty("codigo_exportador")
-    private String codigo_exportador;
+    private String codigoExportador;
 
     //Adições do documento de importação.
     @Size(min = 1, max = 100)

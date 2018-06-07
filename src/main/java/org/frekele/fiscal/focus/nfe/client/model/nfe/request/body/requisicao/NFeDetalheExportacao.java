@@ -23,22 +23,22 @@ public class NFeDetalheExportacao implements FocusNFeEntity {
     //Número do ato concessório de Drawback
     @Size(max = 11)
     @JsonProperty("numero_drawback")
-    private String numero_drawback;
+    private String numeroDrawback;
 
     //Número do Registro de Exportação
     @Size(max = 12)
     @JsonProperty("numero_re")
-    private String numero_re;
+    private String numeroRe;
 
     //Chave de Acesso da NF-e recebida para exportação
     @Size(max = 44)
     @JsonProperty("chave_nfe")
-    private String chave_nfe;
+    private String chaveNfe;
 
     //Quantidade do item efetivamente exportado
     @Digits(integer = 11, fraction = 4)
     @JsonProperty("quantidade_exportado")
-    private String quantidade_exportado;
+    private String quantidadeExportado;
 
     public NFeDetalheExportacao() {
         super();

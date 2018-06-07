@@ -30,23 +30,23 @@ public class NFeAdicaoDocumentoImportacao implements FocusNFeEntity {
     //Número sequencial do item dentro da adição.
     @Size(min = 1, max = 3)
     @JsonProperty("numero_sequencial_item")
-    private String numero_sequencial_item;
+    private String numeroSequencialItem;
 
     //Código interno do fabricante estrangeiro.
     @Size(min = 1, max = 60)
     @JsonProperty("codigo_fabricante_estrangeiro")
-    private String codigo_fabricante_estrangeiro;
+    private String codigoFabricanteEstrangeiro;
 
     //Valor do desconto do item na adição.
     @Digits(integer = 13, fraction = 2)
     @BigDecimalJsonConverter
     @JsonProperty("valor_desconto")
-    private BigDecimal valor_desconto;
+    private BigDecimal valorDesconto;
 
     //Número do ato concessório de Drawback.
     @Size(max = 11)
     @JsonProperty("numero_drawback")
-    private String numero_drawback;
+    private String numeroDrawback;
 
     public NFeAdicaoDocumentoImportacao() {
         super();

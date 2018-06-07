@@ -452,25 +452,25 @@ public class NFeRequisicao implements FocusNFeEntity {
     @Digits(integer = 13, fraction = 2)
     @BigDecimalJsonConverter
     @JsonProperty("icms_base_calculo_st")
-    private BigDecimal icmsBaseCalculoST;
+    private BigDecimal icmsBaseCalculoSt;
 
     //Valor total do ICMS do substituto tributário. Calculado automaticamente se omitido.
     @Digits(integer = 13, fraction = 2)
     @BigDecimalJsonConverter
     @JsonProperty("icms_valor_total_st")
-    private BigDecimal icmsValorTotalST;
+    private BigDecimal icmsValorTotalSt;
 
     //Valor Total do FCP (Fundo de Combate à Pobreza) retido por substituição tributária. Calculado automaticamente se omitido.
     @Digits(integer = 13, fraction = 2)
     @BigDecimalJsonConverter
     @JsonProperty("fcp_valor_total_st")
-    private BigDecimal fcpValorTotalST;
+    private BigDecimal fcpValorTotalSt;
 
     //Valor Total do FCP (Fundo de Combate à Pobreza) retido anteriormente substituição tributária. Calculado automaticamente se omitido.
     @Digits(integer = 13, fraction = 2)
     @BigDecimalJsonConverter
     @JsonProperty("fcp_valor_total_retido_st")
-    private BigDecimal fcpValorTotalRetidoST;
+    private BigDecimal fcpValorTotalRetidoSt;
 
     //Valor total dos produtos. Calculado automaticamente se omitido.
     @Digits(integer = 13, fraction = 2)
