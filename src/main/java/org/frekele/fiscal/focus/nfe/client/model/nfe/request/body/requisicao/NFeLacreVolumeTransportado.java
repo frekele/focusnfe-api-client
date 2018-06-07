@@ -1,4 +1,4 @@
-package org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.autorizar;
+package org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.requisicao;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFeEntity;
@@ -13,16 +13,16 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class NFeNve implements FocusNFeEntity {
+public class NFeLacreVolumeTransportado implements FocusNFeEntity {
 
     private static final long serialVersionUID = 1L;
 
-    //Codificação opcional que detalha alguns NC<. Formato: duas letras maiúsculas e 4 algarismos
-    @Size(max = 6)
-    @JsonProperty("nve")
-    private String nve;
+    //Número do lacre.
+    @Size(min = 1, max = 60)
+    @JsonProperty("numero")
+    private String numero;
 
-    public NFeNve() {
+    public NFeLacreVolumeTransportado() {
         super();
     }
 

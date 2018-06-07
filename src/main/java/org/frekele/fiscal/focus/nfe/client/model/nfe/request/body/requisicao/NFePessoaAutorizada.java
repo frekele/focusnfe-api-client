@@ -1,4 +1,4 @@
-package org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.autorizar;
+package org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.requisicao;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFeEntity;
@@ -13,16 +13,21 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class NFeLacreVolumeTransportado implements FocusNFeEntity {
+public class NFePessoaAutorizada implements FocusNFeEntity {
 
     private static final long serialVersionUID = 1L;
 
-    //Número do lacre.
-    @Size(min = 1, max = 60)
-    @JsonProperty("numero")
-    private String numero;
+    //CNPJ autorizado
+    @Size(max = 14)
+    @JsonProperty("cnpj")
+    private String cnpj;
 
-    public NFeLacreVolumeTransportado() {
+    //CPF autorizado
+    @Size(max = 11)
+    @JsonProperty("cpf")
+    private String cpf;
+
+    public NFePessoaAutorizada() {
         super();
     }
 

@@ -1,4 +1,4 @@
-package org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.autorizar;
+package org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.requisicao;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.frekele.fiscal.focus.nfe.client.converter.BigDecimalJsonConverter;
@@ -15,13 +15,6 @@ import org.frekele.fiscal.focus.nfe.client.enumeration.NFePresencaCompradorEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeRegimeTributarioEmitenteEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeTipoDocumentoEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeUnidadeFederativaEnum;
-import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.autorizar.NFeDuplicataNotaFiscal;
-import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.autorizar.NFeFormaPagamento;
-import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.autorizar.NFeItem;
-import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.autorizar.NFeNotaReferenciada;
-import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.autorizar.NFePessoaAutorizada;
-import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.autorizar.NFeReboque;
-import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.autorizar.NFeVolumeTransportado;
 
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
@@ -39,7 +32,7 @@ import java.util.List;
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class NFeAutorizacao implements FocusNFeEntity {
+public class NFeRequisicao implements FocusNFeEntity {
 
     private static final long serialVersionUID = 1L;
 
@@ -826,7 +819,7 @@ public class NFeAutorizacao implements FocusNFeEntity {
     @JsonProperty("local_despacho")
     private String localDespacho;
 
-    public NFeAutorizacao() {
+    public NFeRequisicao() {
         super();
     }
 

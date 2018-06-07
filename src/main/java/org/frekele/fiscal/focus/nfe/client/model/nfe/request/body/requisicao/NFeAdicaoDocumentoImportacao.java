@@ -1,8 +1,7 @@
-package org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.autorizar;
+package org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.requisicao;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.frekele.fiscal.focus.nfe.client.converter.BigDecimalJsonConverter;
-import org.frekele.fiscal.focus.nfe.client.converter.LocalDateJsonConverter;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFeEntity;
 
 import javax.validation.constraints.Digits;
@@ -11,34 +10,43 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.math.BigDecimal;
-import java.time.LocalDate;
 
 /**
  * @author frekele - Leandro Kersting de Freitas
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class NFeDuplicataNotaFiscal implements FocusNFeEntity {
+public class NFeAdicaoDocumentoImportacao implements FocusNFeEntity {
 
     private static final long serialVersionUID = 1L;
 
-    //Número.
-    @Size(min = 1, max = 60)
+    //Número da adição.
+    @Size(min = 1, max = 3)
     @JsonProperty("numero")
     private String numero;
 
-    //Data de vencimento.
-    @LocalDateJsonConverter
-    @JsonProperty("data_vencimento")
-    private LocalDate dataVencimento;
+    //Número sequencial do item dentro da adição.
+    @Size(min = 1, max = 3)
+    @JsonProperty("numero_sequencial_item")
+    private String numero_sequencial_item;
 
-    //Valor.
+    //Código interno do fabricante estrangeiro.
+    @Size(min = 1, max = 60)
+    @JsonProperty("codigo_fabricante_estrangeiro")
+    private String codigo_fabricante_estrangeiro;
+
+    //Valor do desconto do item na adição.
     @Digits(integer = 13, fraction = 2)
     @BigDecimalJsonConverter
-    @JsonProperty("valor")
-    private BigDecimal valor;
+    @JsonProperty("valor_desconto")
+    private BigDecimal valor_desconto;
 
-    public NFeDuplicataNotaFiscal() {
+    //Número do ato concessório de Drawback.
+    @Size(max = 11)
+    @JsonProperty("numero_drawback")
+    private String numero_drawback;
+
+    public NFeAdicaoDocumentoImportacao() {
         super();
     }
 

@@ -1,7 +1,8 @@
-package org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.autorizar;
+package org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.requisicao;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFeEntity;
+import org.frekele.fiscal.focus.nfe.client.enumeration.NFeUnidadeFederativaEnum;
 
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -13,21 +14,25 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class NFePessoaAutorizada implements FocusNFeEntity {
+public class NFeReboque implements FocusNFeEntity {
 
     private static final long serialVersionUID = 1L;
 
-    //CNPJ autorizado
-    @Size(max = 14)
-    @JsonProperty("cnpj")
-    private String cnpj;
+    //Placa do veículo de transporte.
+    @Size(max = 7)
+    @JsonProperty("veiculo_placa")
+    private String veiculoPlaca;
 
-    //CPF autorizado
-    @Size(max = 11)
-    @JsonProperty("cpf")
-    private String cpf;
+    //UF do veículo de transporte.
+    @JsonProperty("veiculo_uf")
+    private NFeUnidadeFederativaEnum veiculoUf;
 
-    public NFePessoaAutorizada() {
+    //RNTC (Registro Nacional de Transportador de Carga - ANTT) do veículo de transporte.
+    @Size(min = 1, max = 20)
+    @JsonProperty("veiculo_rntc")
+    private String veiculoRntc;
+
+    public NFeReboque() {
         super();
     }
 
