@@ -14,7 +14,7 @@ import java.util.List;
 public enum NFeIncluiNoTotalEnum {
 
     NAO("0", "Não"),
-    SIM("1", "Sim");
+    SIM("1", "Sim");//(valor padrão)
 
     private String code;
 
