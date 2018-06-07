@@ -13,8 +13,6 @@ import java.math.BigDecimal;
  */
 public class BigDecimalJsonDeserialize extends StdDeserializer<BigDecimal> {
 
-    private static final int SCALE = 2;
-
     protected BigDecimalJsonDeserialize() {
         super(BigDecimal.class);
     }
@@ -22,9 +20,9 @@ public class BigDecimalJsonDeserialize extends StdDeserializer<BigDecimal> {
     @Override
     public BigDecimal deserialize(JsonParser jsonParser, DeserializationContext ctxt) throws IOException, JsonProcessingException {
         if (jsonParser != null) {
-            Long value = jsonParser.readValueAs(Long.class);
+            String value = jsonParser.readValueAs(String.class);
             if (value != null) {
-                return BigDecimal.valueOf(value, SCALE);
+                return new BigDecimal(value);
             }
         }
         return null;

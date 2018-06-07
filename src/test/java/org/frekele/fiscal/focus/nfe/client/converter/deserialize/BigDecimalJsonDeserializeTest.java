@@ -35,14 +35,15 @@ public class BigDecimalJsonDeserializeTest {
         BigDecimal resultValue = jsonDeserialize.deserialize(null, null);
         assertNull(resultValue);
 
-        when(jsonParser.readValueAs(Long.class)).thenReturn(null);
+        when(jsonParser.readValueAs(String.class)).thenReturn(null);
         resultValue = jsonDeserialize.deserialize(jsonParser, null);
         assertNull(resultValue);
 
-        long longValue = 5432;
-        when(jsonParser.readValueAs(Long.class)).thenReturn(longValue);
+        String stringValue = "12345.1234";
+        BigDecimal expected = new BigDecimal(stringValue);
+        when(jsonParser.readValueAs(String.class)).thenReturn(stringValue);
         resultValue = jsonDeserialize.deserialize(jsonParser, null);
         assertNotNull(resultValue);
-        assertEquals(BigDecimal.valueOf(longValue, 2), resultValue);
+        assertEquals(expected, resultValue);
     }
 }
