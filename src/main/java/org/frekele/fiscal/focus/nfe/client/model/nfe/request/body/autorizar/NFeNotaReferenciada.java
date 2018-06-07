@@ -3,6 +3,7 @@ package org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.autorizar;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFeEntity;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeModeloEcfEnum;
+import org.frekele.fiscal.focus.nfe.client.enumeration.NFeUnidadeFederativaEnum;
 
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -24,9 +25,8 @@ public class NFeNotaReferenciada implements FocusNFeEntity {
     private String chaveNfe;
 
     //UF do emitente (nota modelo 1).
-    @Size(max = 2)
     @JsonProperty("uf")
-    private String uf;
+    private NFeUnidadeFederativaEnum uf;
 
     //Ano e mês de emissão no formato AAMM (nota modelo 1).
     @Size(max = 4)
@@ -54,9 +54,8 @@ public class NFeNotaReferenciada implements FocusNFeEntity {
     private String numero;
 
     //UF do emitente (nota produtor rural).
-    @Size(max = 2)
     @JsonProperty("uf_nf_produtor")
-    private String ufNfProdutor;
+    private NFeUnidadeFederativaEnum ufNfProdutor;
 
     //Ano e mês de emissão no formato AAMM (nota produtor rural).
     @Size(max = 4)

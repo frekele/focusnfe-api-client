@@ -1,6 +1,7 @@
 package org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.autorizar;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.frekele.fiscal.focus.nfe.client.converter.BigDecimalJsonConverter;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFeEntity;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeBandeiraOperadoraEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeFormaPagamentoEnum;
@@ -11,6 +12,7 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.math.BigDecimal;
 
 /**
  * @author frekele - Leandro Kersting de Freitas
@@ -27,8 +29,9 @@ public class NFeFormaPagamento implements FocusNFeEntity {
 
     //Valor do pagamento
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("valor_pagamento")
-    private String valor_pagamento;
+    private BigDecimal valor_pagamento;
 
     //Tipo de Integração para pagamento
     @JsonProperty("tipo_integracao")
@@ -50,8 +53,9 @@ public class NFeFormaPagamento implements FocusNFeEntity {
 
     //Valor do troco
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("valor_troco")
-    private String valor_troco;
+    private BigDecimal valor_troco;
 
     public NFeFormaPagamento() {
         super();

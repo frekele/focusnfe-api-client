@@ -2,6 +2,7 @@ package org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.autorizar;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFeEntity;
+import org.frekele.fiscal.focus.nfe.client.enumeration.NFeUnidadeFederativaEnum;
 
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -23,9 +24,8 @@ public class NFeReboque implements FocusNFeEntity {
     private String veiculoPlaca;
 
     //UF do veículo de transporte.
-    @Size(max = 2)
     @JsonProperty("veiculo_uf")
-    private String veiculoUf;
+    private NFeUnidadeFederativaEnum veiculoUf;
 
     //RNTC (Registro Nacional de Transportador de Carga - ANTT) do veículo de transporte.
     @Size(min = 1, max = 20)

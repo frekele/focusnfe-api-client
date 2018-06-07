@@ -1,10 +1,9 @@
 package org.frekele.fiscal.focus.nfe.client.model.nfe.request.body;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.frekele.fiscal.focus.nfe.client.converter.deserialize.OffsetDateTimeJsonDeserialize;
-import org.frekele.fiscal.focus.nfe.client.converter.serialize.OffsetDateTimeJsonSerialize;
+import org.frekele.fiscal.focus.nfe.client.converter.BigDecimalJsonConverter;
+import org.frekele.fiscal.focus.nfe.client.converter.LocalDateJsonConverter;
+import org.frekele.fiscal.focus.nfe.client.converter.OffsetDateTimeJsonConverter;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFeEntity;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeCodigoRegimeEspecialTributacaoEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeConsumidorFinalEnum;
@@ -15,6 +14,7 @@ import org.frekele.fiscal.focus.nfe.client.enumeration.NFeModalidadeFreteEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFePresencaCompradorEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeRegimeTributarioEmitenteEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeTipoDocumentoEnum;
+import org.frekele.fiscal.focus.nfe.client.enumeration.NFeUnidadeFederativaEnum;
 import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.autorizar.NFeDuplicataNotaFiscal;
 import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.autorizar.NFeFormaPagamento;
 import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.autorizar.NFeItem;
@@ -30,6 +30,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.List;
 
@@ -61,16 +62,14 @@ public class NFeAutorizarBodyRequest implements FocusNFeEntity {
     //Data e hora de emissão da emissão da NFe.
     //Formato padrão ISO, exemplo: “2016-12-25T12:00-0300”.
     @NotNull
+    @OffsetDateTimeJsonConverter
     @JsonProperty("data_emissao")
-    @JsonDeserialize(using = OffsetDateTimeJsonDeserialize.class)
-    @JsonSerialize(using = OffsetDateTimeJsonSerialize.class)
     private OffsetDateTime dataEmissao;
 
     //Data e hora de entrada (em notas de entrada) ou saída (em notas de saída)
     //Formato padrão ISO, exemplo: “2016-12-25T12:00-0300”.
+    @OffsetDateTimeJsonConverter
     @JsonProperty("data_entrada_saida")
-    @JsonDeserialize(using = OffsetDateTimeJsonDeserialize.class)
-    @JsonSerialize(using = OffsetDateTimeJsonSerialize.class)
     private OffsetDateTime dataEntradaSaida;
 
     //Tipo da NFe.
@@ -155,9 +154,8 @@ public class NFeAutorizarBodyRequest implements FocusNFeEntity {
 
     //UF da empresa emitente.
     @NotNull
-    @Size(max = 2)
     @JsonProperty("uf_emitente")
-    private String ufEmitente;
+    private NFeUnidadeFederativaEnum ufEmitente;
 
     //CEP da empresa emitente.
     @Size(max = 8)
@@ -186,12 +184,12 @@ public class NFeAutorizarBodyRequest implements FocusNFeEntity {
     private String inscricaoMunicipalEmitente;
 
     //CNAE Fiscal da empresa emitente. Se este campo for informado também deverá ser informada a Inscrição Municipal do emitente.
+    @Size(max = 7)
     @JsonProperty("cnae_fiscal_emitente")
     private String cnaeFiscalEmitente;
 
     //Informar qual o regime tributário do emitente.
     @NotNull
-    @Size(max = 7)
     @JsonProperty("regime_tributario_emitente")
     private NFeRegimeTributarioEmitenteEnum regimeTributarioEmitente;
 
@@ -258,9 +256,8 @@ public class NFeAutorizarBodyRequest implements FocusNFeEntity {
 
     //UF do destinatário. Deve ser omitido em operações com o exterior.
     @NotNull
-    @Size(max = 2)
     @JsonProperty("uf_destinatario")
-    private String ufDestinatario;
+    private NFeUnidadeFederativaEnum ufDestinatario;
 
     //CEP do destinatário.
     @Size(max = 8)
@@ -353,9 +350,8 @@ public class NFeAutorizarBodyRequest implements FocusNFeEntity {
     private String municipioRetirada;
 
     //UF do local de retirada. (Informar apenas quando o local de retirada for diferente do destinatário.)
-    @Size(max = 2)
     @JsonProperty("uf_retirada")
-    private String ufRetirada;
+    private NFeUnidadeFederativaEnum ufRetirada;
 
     //
     //Entrega:
@@ -401,9 +397,8 @@ public class NFeAutorizarBodyRequest implements FocusNFeEntity {
     private String municipioEntrega;
 
     //UF do local de entrega. (Informar apenas quando o local de entrega for diferente do destinatário.)
-    @Size(max = 2)
     @JsonProperty("uf_entrega")
-    private String ufEntrega;
+    private NFeUnidadeFederativaEnum ufEntrega;
 
     //Pessoas autorizadas a acessar o XML da NF-e.
     @Size(max = 10)
@@ -417,82 +412,98 @@ public class NFeAutorizarBodyRequest implements FocusNFeEntity {
 
     //Valor total da base de cálculo do ICMS. Calculado automaticamente se omitido.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("icms_base_calculo")
     private BigDecimal icmsBaseCalculo;
 
     //Valor total do ICMS. Calculado automaticamente se omitido.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("icms_valor_total")
     private BigDecimal icmsValorTotal;
 
     //Valor total do ICMS Desonerado. Calculado automaticamente se omitido.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("icms_valor_total_desonerado")
     private BigDecimal icmsValorTotalDesonerado;
 
     //(apenas para venda interestadual para consumidor final)
     //Valor total do ICMS relativo Fundo de Combate à Pobreza (FCP) da UF de destino. Calculado automaticamente se omitido.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("fcp_valor_total_uf_destino")
     private BigDecimal fcpValorTotalUfDestino;
 
     //(apenas para venda interestadual para consumidor final) Valor total do ICMS Interestadual para a UF de destino. Calculado automaticamente se omitido.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("icms_valor_total_uf_destino")
     private BigDecimal icmsValorTotalUfDestino;
 
     //(apenas para venda interestadual para consumidor final) Valor total do ICMS Interestadual para a UF do remetente. Calculado automaticamente se omitido.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("icms_valor_total_uf_remetente")
     private BigDecimal icmsValorTotalUfRemetente;
 
     //Valor Total do FCP (Fundo de Combate à Pobreza). Calculado automaticamente se omitido.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("fcp_valor_total")
     private BigDecimal fcpValorTotal;
 
     //Valor total da base de cálculo do ICMS do substituto tributário. Calculado automaticamente se omitido.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("icms_base_calculo_st")
     private BigDecimal icmsBaseCalculoST;
 
     //Valor total do ICMS do substituto tributário. Calculado automaticamente se omitido.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("icms_valor_total_st")
     private BigDecimal icmsValorTotalST;
 
     //Valor Total do FCP (Fundo de Combate à Pobreza) retido por substituição tributária. Calculado automaticamente se omitido.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("fcp_valor_total_st")
     private BigDecimal fcpValorTotalST;
 
     //Valor Total do FCP (Fundo de Combate à Pobreza) retido anteriormente substituição tributária. Calculado automaticamente se omitido.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("fcp_valor_total_retido_st")
     private BigDecimal fcpValorTotalRetidoST;
 
     //Valor total dos produtos. Calculado automaticamente se omitido.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("valor_produtos")
     private BigDecimal valorProdutos;
 
     //Valor total do frete. Calculado automaticamente se omitido.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("valor_frete")
     private BigDecimal valorFrete;
 
     //Valor total do seguro. Calculado automaticamente se omitido.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("valor_seguro")
     private BigDecimal valorSeguro;
 
     //Valor total do desconto. Calculado automaticamente se omitido.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("valor_desconto")
     private BigDecimal valorDesconto;
 
     //Valor total do imposto de importação. Calculado automaticamente se omitido.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("valor_total_ii")
     private BigDecimal valorTotalII;
 
@@ -503,21 +514,25 @@ public class NFeAutorizarBodyRequest implements FocusNFeEntity {
 
     //Valor total do IPI devolvido. Calculado automaticamente se omitido.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("valor_ipi_devolvido")
     private BigDecimal valorIpiDevolvido;
 
     //Valor do PIS. Calculado automaticamente se omitido.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("valor_pis")
     private BigDecimal valorPis;
 
     //Valor do COFINS. Calculado automaticamente se omitido.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("valor_cofins")
     private BigDecimal valorCofins;
 
     //Valor das despesas acessórias. Calculado automaticamente se omitido.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("valor_outras_despesas")
     private BigDecimal valorOutrasDespesas;
 
@@ -526,65 +541,78 @@ public class NFeAutorizarBodyRequest implements FocusNFeEntity {
     //(valor_produtos - valor_desconto - icms_valor_total_desonerado + icms_valor_total_st + valor_frete + valor_seguro + valor_outras_despesas + valor_total_ii + valor_ipi + valor_total_servicos).
     //Este campo não será calculado se a nota for de importação (CFOP começando com 3).
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("valor_total")
     private BigDecimal valorTotal;
 
     //Valor total aproximado dos tributos - calculado automaticamente pela API.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("valor_total_tributos")
     private BigDecimal valorTotalTributos;
 
     //(ISSQN) Valor Total dos Serviços sob não-incidência ou não tributados pelo ICMS.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("valor_total_servicos")
     private BigDecimal valorTotalServicos;
 
     //(ISSQN) Base de Cálculo do ISS.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("issqn_base_calculo")
     private BigDecimal issqnBaseCalculo;
 
     //(ISSQN) Valor Total do ISS.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("issqn_valor_total")
     private BigDecimal issqnValorTotal;
 
     //(ISSQN) Valor do PIS sobre serviços.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("valor_pis_servicos")
     private BigDecimal valorPisServicos;
 
     //(ISSQN) Valor do COFINS sobre serviços.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("valor_cofins_servicos")
     private BigDecimal valorCofinsServicos;
 
     //(ISSQN) Data da prestação do serviço. Obrigatório se houver serviços
+    @LocalDateJsonConverter
     @JsonProperty("data_prestacao_servico")
-    private String dataPrestacaoServico;
+    private LocalDate dataPrestacaoServico;
 
     //(ISSQN) Valor total da dedução para redução da Base de Cálculo
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("issqn_valor_total_deducao")
     private BigDecimal issqnValorTotalDeducao;
 
     //(ISSQN) Valor total outras retenções
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("issqn_valor_total_outras_retencoes")
     private BigDecimal issqnValorTotalOutrasRetencoes;
 
     //(ISSQN) Valor total desconto incondicionado
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("issqn_valor_total_desconto_incondicionado")
     private BigDecimal issqnValorTotalDescontoIncondicionado;
 
     //(ISSQN) Valor total desconto condicionado
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("issqn_valor_total_desconto_condicionado")
     private BigDecimal issqnValorTotalDescontoCondicionado;
 
     //(ISSQN) Valor total retenção ISS
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("issqn_valor_total_retencao")
     private BigDecimal issqnValorTotalRetencao;
 
@@ -594,36 +622,43 @@ public class NFeAutorizarBodyRequest implements FocusNFeEntity {
 
     //Valor Retido de PIS.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("pis_valor_retido")
     private BigDecimal pisValorRetido;
 
     //Valor Retido de COFINS.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("cofins_valor_retido")
     private BigDecimal cofinsValorRetido;
 
     //Valor Retido de CSLL.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("csll_valor_retido")
     private BigDecimal csllValorRetido;
 
     //Base de Cálculo do IRRF.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("irrf_base_calculo")
     private BigDecimal irrfBaseCalculo;
 
     //Valor Retido de IRRF.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("irrf_valor_retido")
     private BigDecimal irrfValorRetido;
 
     //Base de Cálculo da Retenção da Previdêncica Social.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("prev_social_base_calculo")
     private BigDecimal prevSocialBaseCalculo;
 
     //Valor da Retenção da Previdêncica Social.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("prev_social_valor_retido")
     private BigDecimal prevSocialValorRetido;
 
@@ -663,27 +698,30 @@ public class NFeAutorizarBodyRequest implements FocusNFeEntity {
     private String municipioTransportador;
 
     //UF do transportador.
-    @Size(max = 2)
     @JsonProperty("uf_transportador")
-    private String ufTransportador;
+    private NFeUnidadeFederativaEnum ufTransportador;
 
     //Valor do serviço de transporte.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("transporte_icms_servico")
     private BigDecimal transporteIcmsServico;
 
     //Base de cálculo da retenção do ICMS de transporte.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("transporte_icms_base_calculo")
     private BigDecimal transporteIcmsBaseCalculo;
 
     //Alíquota da retenção do ICMS de transporte.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("transporte_icms_aliquota")
     private BigDecimal transporteIcmsAliquota;
 
     //Valor retido do ICMS de transporte.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("transporte_icms_valor")
     private BigDecimal transporteIcmsValor;
 
@@ -704,7 +742,7 @@ public class NFeAutorizarBodyRequest implements FocusNFeEntity {
 
     //UF do veículo de transporte.
     @JsonProperty("veiculo_uf")
-    private String veiculoUf;
+    private NFeUnidadeFederativaEnum veiculoUf;
 
     //RNTC (Registro Nacional de Transportador de Carga - ANTT) do veículo de transporte.
     @JsonProperty("veiculo_rntc")
@@ -737,16 +775,19 @@ public class NFeAutorizarBodyRequest implements FocusNFeEntity {
 
     //Valor original da fatura.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("valor_original_fatura")
     private BigDecimal valorOriginalFatura;
 
     //Valor do desconto da fatura.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("valor_desconto_fatura")
     private BigDecimal valorDescontoFatura;
 
     //Valor líquido da fatura.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("valor_liquido_fatura")
     private BigDecimal valorLiquidoFatura;
 
@@ -773,7 +814,7 @@ public class NFeAutorizarBodyRequest implements FocusNFeEntity {
     //Sigla da UF de Embarque ou de transposição de fronteira
     @Size(max = 2)
     @JsonProperty("uf_local_embarque")
-    private String ufLocalEmbarque;
+    private NFeUnidadeFederativaEnum ufLocalEmbarque;
 
     //Descrição do Local de Embarque ou de transposição de fronteira
     @Size(min = 1, max = 60)

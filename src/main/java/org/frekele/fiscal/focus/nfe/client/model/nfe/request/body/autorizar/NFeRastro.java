@@ -1,6 +1,7 @@
 package org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.autorizar;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.frekele.fiscal.focus.nfe.client.converter.LocalDateJsonConverter;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFeEntity;
 
 import javax.validation.constraints.Digits;
@@ -8,6 +9,7 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.time.LocalDate;
 
 /**
  * @author frekele - Leandro Kersting de Freitas
@@ -29,12 +31,14 @@ public class NFeRastro implements FocusNFeEntity {
     private String quantidade_lote;
 
     //Data de Fabricaçao do medicamento
+    @LocalDateJsonConverter
     @JsonProperty("data_fabricacao")
-    private String data_fabricacao;
+    private LocalDate data_fabricacao;
 
     //Data de Validade do medicamento
+    @LocalDateJsonConverter
     @JsonProperty("data_validade")
-    private String data_validade;
+    private LocalDate data_validade;
 
     //Código de agregação
     @Size(min = 1, max = 20)

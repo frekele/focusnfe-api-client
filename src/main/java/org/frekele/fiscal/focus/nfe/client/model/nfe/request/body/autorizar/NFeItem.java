@@ -1,6 +1,7 @@
 package org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.autorizar;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.frekele.fiscal.focus.nfe.client.converter.BigDecimalJsonConverter;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFeEntity;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeIcmsModalidadeBaseCalculoEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeIcmsModalidadeBaseCalculoStEnum;
@@ -11,6 +12,7 @@ import org.frekele.fiscal.focus.nfe.client.enumeration.NFeIncluiNoTotalEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeIpiSituacaoTributariaEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeIssqnIndicadorExigibilidadeEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFePisCofinsSituacaoTributariaEnum;
+import org.frekele.fiscal.focus.nfe.client.enumeration.NFeUnidadeFederativaEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeVeiculoCodigoCorDenatranEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeVeiculoCondicaoEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeVeiculoRestricaoEnum;
@@ -112,18 +114,21 @@ public class NFeItem implements FocusNFeEntity {
     //Quantidade da mercadoria.
     @NotNull
     @Digits(integer = 11, fraction = 4)
+    @BigDecimalJsonConverter
     @JsonProperty("quantidade_comercial")
     private BigDecimal quantidade_comercial;
 
     //Valor unitário comercial.
     @NotNull
     @Digits(integer = 11, fraction = 10)
+    @BigDecimalJsonConverter
     @JsonProperty("valor_unitario_comercial")
     private BigDecimal valor_unitario_comercial;
 
     //Valor bruto. Deve ser igual ao produto de Valor unitário comercial com quantidade comercial.
     //Se não informado é calculado automaticamente.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("valor_bruto")
     private BigDecimal valor_bruto;
 
@@ -139,31 +144,37 @@ public class NFeItem implements FocusNFeEntity {
 
     //Quantidade tributável. Se não informado será utilizado o mesmo valor de quantidade_comercial.
     @Digits(integer = 11, fraction = 4)
+    @BigDecimalJsonConverter
     @JsonProperty("quantidade_tributavel")
     private BigDecimal quantidade_tributavel;
 
     //Valor unitário tributável Se não informado será utilizado o mesmo valor de valor_unitario_comercial.
     @Digits(integer = 11, fraction = 10)
+    @BigDecimalJsonConverter
     @JsonProperty("valor_unitario_tributavel")
     private BigDecimal valor_unitario_tributavel;
 
     //Valor do frete.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("valor_frete")
     private BigDecimal valor_frete;
 
     //Valor do seguro.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("valor_seguro")
     private BigDecimal valor_seguro;
 
     //Valor do desconto.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("valor_desconto")
     private BigDecimal valor_desconto;
 
     //Valor de outras despesas acessórias.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("valor_outras_despesas")
     private BigDecimal valor_outras_despesas;
 
@@ -323,6 +334,7 @@ public class NFeItem implements FocusNFeEntity {
 
     //Preço Máximo ao consumidor
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("medicamento_preco_maximo_consumidor")
     private BigDecimal medicamento_preco_maximo_consumidor;
 
@@ -338,21 +350,25 @@ public class NFeItem implements FocusNFeEntity {
 
     //Percentual do GLP derivado do petróleo no produto GLP (combustivel_codigo_anp=210203001)
     @Digits(integer = 1, fraction = 4)
+    @BigDecimalJsonConverter
     @JsonProperty("combustivel_percentual_glp")
     private BigDecimal combustivel_percentual_glp;
 
     //Percentual de Gás Natural Nacional – GLGNn para o produto GLP (combustivel_codigo_anp=210203001)
     @Digits(integer = 1, fraction = 4)
+    @BigDecimalJsonConverter
     @JsonProperty("combustivel_percentual_gas_natural_nacional")
     private BigDecimal combustivel_percentual_gas_natural_nacional;
 
     //Percentual de Gás Natural Importado – GLGNi para o produto GLP (combustivel_codigo_anp=210203001)
     @Digits(integer = 1, fraction = 4)
+    @BigDecimalJsonConverter
     @JsonProperty("combustivel_percentual_gas_natural_importado")
     private BigDecimal combustivel_percentual_gas_natural_importado;
 
     //Valor de partida (combustivel_codigo_anp=210203001)
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("combustivel_valor_partida")
     private BigDecimal combustivel_valor_partida;
 
@@ -364,46 +380,53 @@ public class NFeItem implements FocusNFeEntity {
     //Quantidade de combustível faturada à temperatura ambiente,
     //Informar quando a quantidade faturada informada no campo quantidade do produto tiver sido ajustada para uma temperatura diferente da ambiente.
     @Digits(integer = 12, fraction = 4)
+    @BigDecimalJsonConverter
     @JsonProperty("combustivel_quantidade_temperatura_ambiente")
     private BigDecimal combustivel_quantidade_temperatura_ambiente;
 
     //Sigla da UF de consumo - Informar “EX” para exterior
-    @Size(max = 2)
     @JsonProperty("combustivel_sigla_uf")
-    private String combustivel_sigla_uf;
+    private NFeUnidadeFederativaEnum combustivel_sigla_uf;
 
     //BC da CIDE em quantidade
     @Digits(integer = 12, fraction = 4)
+    @BigDecimalJsonConverter
     @JsonProperty("combustivel_cide_base_calculo")
     private BigDecimal combustivel_cide_base_calculo;
 
     //Valor da alíquota da CIDE em reais
     @Digits(integer = 11, fraction = 4)
+    @BigDecimalJsonConverter
     @JsonProperty("combustivel_cide_aliquota")
     private BigDecimal combustivel_cide_aliquota;
 
     //Valor da CIDE
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("combustivel_cide_valor")
     private BigDecimal combustivel_cide_valor;
 
     //Valor total aproximado dos tributos - calculado automaticamente pela API
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("valor_total_tributos")
     private BigDecimal valor_total_tributos;
 
     //Valor da Base de Cálculo do ISSQN
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("issqn_base_calculo")
     private BigDecimal issqn_base_calculo;
 
     //Alíquota do ISSQN
     @Digits(integer = 3, fraction = 4)
+    @BigDecimalJsonConverter
     @JsonProperty("issqn_aliquota")
     private BigDecimal issqn_aliquota;
 
     //Valor do ISSQN
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("issqn_valor")
     private BigDecimal issqn_valor;
 
@@ -419,26 +442,31 @@ public class NFeItem implements FocusNFeEntity {
 
     //Valor dedução para redução da Base de Cálculo do ISSQN
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("issqn_valor_deducao")
     private BigDecimal issqn_valor_deducao;
 
     //Valor outras retenções do ISSQN
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("issqn_valor_outras_retencoes")
     private BigDecimal issqn_valor_outras_retencoes;
 
     //Valor desconto incondicionado do ISSQN
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("issqn_valor_desconto_incondicionado")
     private BigDecimal issqn_valor_desconto_incondicionado;
 
     //Valor desconto condicionado do ISSQN
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("issqn_valor_desconto_condicionado")
     private BigDecimal issqn_valor_desconto_condicionado;
 
     //Valor retenção ISS
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("issqn_valor_retencao")
     private BigDecimal issqn_valor_retencao;
 
@@ -487,21 +515,25 @@ public class NFeItem implements FocusNFeEntity {
 
     //Valor da base de cálculo do ICMS.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("icms_base_calculo")
     private BigDecimal icms_base_calculo;
 
     //Valor da base de cálculo do ICMS retido anteriormente.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("icms_base_calculo_retido_st")
     private BigDecimal icms_base_calculo_retido_st;
 
     //Percentual de redução da base de cálculo.
     @Digits(integer = 3, fraction = 4)
+    @BigDecimalJsonConverter
     @JsonProperty("icms_reducao_base_calculo")
     private BigDecimal icms_reducao_base_calculo;
 
     //Alíquota do ICMS.
     @Digits(integer = 3, fraction = 4)
+    @BigDecimalJsonConverter
     @JsonProperty("icms_aliquota")
     private BigDecimal icms_aliquota;
 
@@ -509,36 +541,43 @@ public class NFeItem implements FocusNFeEntity {
     //Informado apenas para icms_situacao_tributaria = 60 ou 500.
     //Deve ser informada a alíquota do cálculo do ICMS-ST, já incluso o FCP caso incida sobre a mercadoria.
     @Digits(integer = 3, fraction = 4)
+    @BigDecimalJsonConverter
     @JsonProperty("icms_aliquota_final")
     private BigDecimal icms_aliquota_final;
 
     //Valor do ICMS.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("icms_valor")
     private BigDecimal icms_valor;
 
     //Valor do ICMS retido anteriormente.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("icms_valor_retido_st")
     private BigDecimal icms_valor_retido_st;
 
     //Valor do ICMS desonerado.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("icms_valor_desonerado")
     private BigDecimal icms_valor_desonerado;
 
     //(CST=51) Valor como se não tivesse o diferimento
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("icms_valor_operacao")
     private BigDecimal icms_valor_operacao;
 
     //(CST=51) Percentual de diferimento
     @Digits(integer = 3, fraction = 4)
+    @BigDecimalJsonConverter
     @JsonProperty("icms_percentual_diferimento")
     private BigDecimal icms_percentual_diferimento;
 
     //(CST=51) Valor do ICMS diferido (informar o valor realmente devido no campo icms_valor)
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("icms_valor_diferido")
     private BigDecimal icms_valor_diferido;
 
@@ -552,81 +591,97 @@ public class NFeItem implements FocusNFeEntity {
 
     //Percentual da margem de valor adicionado do ICMS ST.
     @Digits(integer = 3, fraction = 4)
+    @BigDecimalJsonConverter
     @JsonProperty("icms_margem_valor_adicionado_st")
     private BigDecimal icms_margem_valor_adicionado_st;
 
     //Percentual de redução da base de cálculo do ICMS ST.
     @Digits(integer = 3, fraction = 4)
+    @BigDecimalJsonConverter
     @JsonProperty("icms_reducao_base_calculo_st")
     private BigDecimal icms_reducao_base_calculo_st;
 
     //Valor da base de cálculo do ICMS ST.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("icms_base_calculo_st")
     private BigDecimal icms_base_calculo_st;
 
     //Alíquota do ICMS ST.
     @Digits(integer = 3, fraction = 4)
+    @BigDecimalJsonConverter
     @JsonProperty("icms_aliquota_st")
     private BigDecimal icms_aliquota_st;
 
     //Valor do ICMS ST.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("icms_valor_st")
     private BigDecimal icms_valor_st;
 
     //Alíquota aplicável de cálculo do crédito (Apenas Simples Nacional).
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("icms_aliquota_credito_simples")
     private BigDecimal icms_aliquota_credito_simples;
 
     //Valor crédito do ICMS que pode ser aproveitado nos termos do art. 23 da LC 123 (Apenas Simples Nacional)
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("icms_valor_credito_simples")
     private BigDecimal icms_valor_credito_simples;
 
     //Percentual do Fundo de Combate à Pobreza (FCP)
     @Digits(integer = 3, fraction = 4)
+    @BigDecimalJsonConverter
     @JsonProperty("fcp_percentual")
     private BigDecimal fcp_percentual;
 
     //Valor da Base de Cálculo do FCP
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("fcp_base_calculo")
     private BigDecimal fcp_base_calculo;
 
     //Valor do Fundo de Combate à Pobreza (FCP)
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("fcp_valor")
     private BigDecimal fcp_valor;
 
     //Percentual do Fundo de Combate à Pobreza (FCP) retido por Substituição Tributária
     @Digits(integer = 3, fraction = 4)
+    @BigDecimalJsonConverter
     @JsonProperty("fcp_percentual_st")
     private BigDecimal fcp_percentual_st;
 
     //Valor da Base de Cálculo do FCP retido por Substituição Tributária
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("fcp_base_calculo_st")
     private BigDecimal fcp_base_calculo_st;
 
     //Valor do Fundo de Combate à Pobreza (FCP) retido por Substituição Tributária
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("fcp_valor_st")
     private BigDecimal fcp_valor_st;
 
     //Percentual do Fundo de Combate à Pobreza (FCP) retido anteriormente por Substituição Tributária
     @Digits(integer = 3, fraction = 4)
+    @BigDecimalJsonConverter
     @JsonProperty("fcp_percentual_retido_st")
     private BigDecimal fcp_percentual_retido_st;
 
     //Valor da Base de Cálculo do FCP retido anteriormente por Substituição Tributária
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("fcp_base_calculo_retido_st")
     private BigDecimal fcp_base_calculo_retido_st;
 
     //Valor do Fundo de Combate à Pobreza (FCP) retido anteriormente por Substituição Tributária
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("fcp_valor_retido_st")
     private BigDecimal fcp_valor_retido_st;
 
@@ -636,26 +691,31 @@ public class NFeItem implements FocusNFeEntity {
 
     //Valor da base de cálculo do IPI.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("ipi_base_calculo")
     private BigDecimal ipi_base_calculo;
 
     //Alíquota do IPI.
     @Digits(integer = 3, fraction = 4)
+    @BigDecimalJsonConverter
     @JsonProperty("ipi_aliquota")
     private BigDecimal ipi_aliquota;
 
     //Quantidade total na unidade padrão para tributação.
     @Digits(integer = 12, fraction = 4)
+    @BigDecimalJsonConverter
     @JsonProperty("ipi_quantidade_total")
     private BigDecimal ipi_quantidade_total;
 
     //Valor por unidade tributável. Informar o valor do imposto pauta por unidade de medida.
     @Digits(integer = 11, fraction = 4)
+    @BigDecimalJsonConverter
     @JsonProperty("ipi_valor_por_unidade_tributavel")
     private BigDecimal ipi_valor_por_unidade_tributavel;
 
     //Valor do IPI.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("ipi_valor")
     private BigDecimal ipi_valor;
 
@@ -686,21 +746,25 @@ public class NFeItem implements FocusNFeEntity {
 
     //Base de cálculo do imposto de importação.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("ii_base_calculo")
     private BigDecimal ii_base_calculo;
 
     //Valor das despesas aduaneiras.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("ii_despesas_aduaneiras")
     private BigDecimal ii_despesas_aduaneiras;
 
     //Valor do imposto de importação.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("ii_valor")
     private BigDecimal ii_valor;
 
     //Valor do IOF.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("ii_valor_iof")
     private BigDecimal ii_valor_iof;
 
@@ -711,51 +775,61 @@ public class NFeItem implements FocusNFeEntity {
 
     //Valor da base de cálculo do PIS.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("pis_base_calculo")
     private BigDecimal pis_base_calculo;
 
     //Alíquota do PIS em porcentual.
     @Digits(integer = 3, fraction = 4)
+    @BigDecimalJsonConverter
     @JsonProperty("pis_aliquota_porcentual")
     private BigDecimal pis_aliquota_porcentual;
 
     //Quantidade vendida.
     @Digits(integer = 12, fraction = 4)
+    @BigDecimalJsonConverter
     @JsonProperty("pis_quantidade_vendida")
     private BigDecimal pis_quantidade_vendida;
 
     //Alíquota do PIS em unidades monetarias.
     @Digits(integer = 3, fraction = 4)
+    @BigDecimalJsonConverter
     @JsonProperty("pis_aliquota_valor")
     private BigDecimal pis_aliquota_valor;
 
     //Valor do PIS.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("pis_valor")
     private BigDecimal pis_valor;
 
     //Valor da base de cálculo do PIS ST.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("pis_base_calculo_st")
     private BigDecimal pis_base_calculo_st;
 
     //Alíquota do PIS ST (em percentual).
     @Digits(integer = 3, fraction = 4)
+    @BigDecimalJsonConverter
     @JsonProperty("pis_aliquota_porcentual_st")
     private BigDecimal pis_aliquota_porcentual_st;
 
     //Quantidade vendida.
     @Digits(integer = 12, fraction = 4)
+    @BigDecimalJsonConverter
     @JsonProperty("pis_quantidade_vendida_st")
     private BigDecimal pis_quantidade_vendida_st;
 
     //Alíquota do PIS ST (em unidades monetarias).
     @Digits(integer = 3, fraction = 4)
+    @BigDecimalJsonConverter
     @JsonProperty("pis_aliquota_valor_st")
     private BigDecimal pis_aliquota_valor_st;
 
     //Valor do PIS ST.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("pis_valor_st")
     private BigDecimal pis_valor_st;
 
@@ -766,97 +840,118 @@ public class NFeItem implements FocusNFeEntity {
 
     //Valor da base de cálculo do COFINS.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("cofins_base_calculo")
     private BigDecimal cofins_base_calculo;
 
     //Alíquota do COFINS em porcentual.
     @Digits(integer = 3, fraction = 4)
+    @BigDecimalJsonConverter
     @JsonProperty("cofins_aliquota_porcentual")
     private BigDecimal cofins_aliquota_porcentual;
 
     //Quantidade vendida.
     @Digits(integer = 12, fraction = 4)
+    @BigDecimalJsonConverter
     @JsonProperty("cofins_quantidade_vendida")
     private BigDecimal cofins_quantidade_vendida;
 
     //Alíquota do COFINS em unidades monetarias.
     @Digits(integer = 3, fraction = 4)
+    @BigDecimalJsonConverter
     @JsonProperty("cofins_aliquota_valor")
     private BigDecimal cofins_aliquota_valor;
 
     //Valor do COFINS.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("cofins_aliquota_valor")
     private BigDecimal cofins_valor;
 
     //Valor da base de cálculo do COFINS ST.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("cofins_base_calculo_st")
     private BigDecimal cofins_base_calculo_st;
 
     //Alíquota do COFINS ST (em percentual).
     @Digits(integer = 3, fraction = 4)
+    @BigDecimalJsonConverter
     @JsonProperty("cofins_aliquota_porcentual_st")
     private BigDecimal cofins_aliquota_porcentual_st;
 
     //Quantidade vendida.
     @Digits(integer = 12, fraction = 4)
+    @BigDecimalJsonConverter
     @JsonProperty("cofins_quantidade_vendida_st")
     private BigDecimal cofins_quantidade_vendida_st;
 
     //Alíquota do COFINS ST (em unidades monetarias).
     @Digits(integer = 11, fraction = 4)
+    @BigDecimalJsonConverter
     @JsonProperty("cofins_aliquota_valor_st")
     private BigDecimal cofins_aliquota_valor_st;
 
     //Valor do COFINS ST.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("cofins_valor_st")
     private BigDecimal cofins_valor_st;
 
     //(apenas para venda interestadual para consumidor final) Valor da BC do ICMS na UF de destino
+    @BigDecimalJsonConverter
     @JsonProperty("icms_base_calculo_uf_destino")
     private BigDecimal icms_base_calculo_uf_destino;
 
     //(apenas para venda interestadual para consumidor final) Valor da BC FCP na UF de destino
+    @BigDecimalJsonConverter
     @JsonProperty("fcp_base_calculo_uf_destino")
     private BigDecimal fcp_base_calculo_uf_destino;
 
     //(apenas para venda interestadual para consumidor final) Percentual do ICMS relativo ao Fundo de Combate à Pobreza (FCP) na UF de destino
+    @BigDecimalJsonConverter
     @JsonProperty("fcp_percentual_uf_destino")
     private BigDecimal fcp_percentual_uf_destino;
 
     //(apenas para venda interestadual para consumidor final) Alíquota interna da UF de destino
+    @BigDecimalJsonConverter
     @JsonProperty("icms_aliquota_interna_uf_destino")
     private BigDecimal icms_aliquota_interna_uf_destino;
 
     //(apenas para venda interestadual para consumidor final) Alíquota interestadual das UF envolvidas
+    @BigDecimalJsonConverter
     @JsonProperty("icms_aliquota_interestadual")
     private BigDecimal icms_aliquota_interestadual;
 
     //(apenas para venda interestadual para consumidor final) Percentual provisório de partilha do ICMS Interestadual
+    @BigDecimalJsonConverter
     @JsonProperty("icms_percentual_partilha")
     private BigDecimal icms_percentual_partilha;
 
     //(apenas para venda interestadual para consumidor final) Valor do ICMS relativo ao Fundo de Combate à Pobreza (FCP) da UF de destino
+    @BigDecimalJsonConverter
     @JsonProperty("fcp_valor_uf_destino")
     private BigDecimal fcp_valor_uf_destino;
 
     //(apenas para venda interestadual para consumidor final) Valor do ICMS Interestadual para a UF de destino
+    @BigDecimalJsonConverter
     @JsonProperty("icms_valor_uf_destino")
     private BigDecimal icms_valor_uf_destino;
 
     //(apenas para venda interestadual para consumidor final) Valor do ICMS Interestadual para a UF de destino
+    @BigDecimalJsonConverter
     @JsonProperty("icms_valor_uf_remetente")
     private BigDecimal icms_valor_uf_remetente;
 
     //Percentual da mercadoria devolvida
     @Digits(integer = 3, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("percentual_devolvido")
     private BigDecimal percentual_devolvido;
 
     //Valor do IPI devolvido
     @Digits(integer = 3, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("valor_ipi_devolvido")
     private BigDecimal valor_ipi_devolvido;
 

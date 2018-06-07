@@ -1,6 +1,7 @@
 package org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.autorizar;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.frekele.fiscal.focus.nfe.client.converter.BigDecimalJsonConverter;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFeEntity;
 
 import javax.validation.constraints.Digits;
@@ -8,6 +9,7 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.math.BigDecimal;
 
 /**
  * @author frekele - Leandro Kersting de Freitas
@@ -35,8 +37,9 @@ public class NFeAdicaoDocumentoImportacao implements FocusNFeEntity {
 
     //Valor do desconto do item na adição.
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("valor_desconto")
-    private String valor_desconto;
+    private BigDecimal valor_desconto;
 
     //Número do ato concessório de Drawback.
     @Size(max = 11)

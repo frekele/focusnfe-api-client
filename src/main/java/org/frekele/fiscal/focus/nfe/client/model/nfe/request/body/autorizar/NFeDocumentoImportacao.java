@@ -1,8 +1,10 @@
 package org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.autorizar;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.frekele.fiscal.focus.nfe.client.converter.LocalDateJsonConverter;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFeEntity;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeFormaIntermedioEnum;
+import org.frekele.fiscal.focus.nfe.client.enumeration.NFeUnidadeFederativaEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeViaTransporteEnum;
 
 import javax.validation.constraints.Digits;
@@ -10,6 +12,7 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -27,8 +30,9 @@ public class NFeDocumentoImportacao implements FocusNFeEntity {
     private String numero;
 
     //Data de registro do documento de importação.
+    @LocalDateJsonConverter
     @JsonProperty("data_registro")
-    private String data_registro;
+    private LocalDate data_registro;
 
     //Local do desembaraço aduaneiro.
     @Size(min = 1, max = 60)
@@ -36,13 +40,13 @@ public class NFeDocumentoImportacao implements FocusNFeEntity {
     private String local_desembaraco_aduaneiro;
 
     //UF do desembaraço aduaneiro.
-    @Size(max = 2)
     @JsonProperty("uf_desembaraco_aduaneiro")
-    private String uf_desembaraco_aduaneiro;
+    private NFeUnidadeFederativaEnum uf_desembaraco_aduaneiro;
 
     //Data do desembaraço aduaneiro.
+    @LocalDateJsonConverter
     @JsonProperty("data_desembaraco_aduaneiro")
-    private String data_desembaraco_aduaneiro;
+    private LocalDate data_desembaraco_aduaneiro;
 
     //Via de transporte internacional informada na DI
     @JsonProperty("via_transporte")
@@ -64,9 +68,8 @@ public class NFeDocumentoImportacao implements FocusNFeEntity {
     private String cnpj;
 
     //Sigla da UF do adquirente ou do encomendante.
-    @Size(max = 2)
     @JsonProperty("uf_terceiro")
-    private String uf_terceiro;
+    private NFeUnidadeFederativaEnum uf_terceiro;
 
     //Código interno do exportador.
     @Size(min = 1, max = 60)
