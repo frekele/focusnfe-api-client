@@ -1,4 +1,4 @@
-package org.frekele.fiscal.focus.nfe.client.model.nfe.request.body;
+package org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.autorizar;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.frekele.fiscal.focus.nfe.client.converter.BigDecimalJsonConverter;
@@ -39,7 +39,7 @@ import java.util.List;
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class NFeAutorizarBodyRequest implements FocusNFeEntity {
+public class NFeAutorizacao implements FocusNFeEntity {
 
     private static final long serialVersionUID = 1L;
 
@@ -826,7 +826,7 @@ public class NFeAutorizarBodyRequest implements FocusNFeEntity {
     @JsonProperty("local_despacho")
     private String localDespacho;
 
-    public NFeAutorizarBodyRequest() {
+    public NFeAutorizacao() {
         super();
     }
 

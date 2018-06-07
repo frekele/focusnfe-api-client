@@ -1,6 +1,6 @@
 package org.frekele.fiscal.focus.nfe.client.repository.nfe;
 
-import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.NFeAutorizarBodyRequest;
+import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.autorizar.NFeAutorizacao;
 import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.NFeCCeBodyRequest;
 import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.NFeCancelarBodyRequest;
 import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.NFeEmailBodyRequest;
@@ -25,7 +25,7 @@ public interface FocusNFeV2Repository extends Serializable {
      * Cria uma nota fiscal e a envia para processamento.
      * Exemplo de requisição: POST https://api.focusnfe.com.br/v2/nfe?ref=REFERENCIA
      */
-    NFeAutorizarResponse autorizar(String referencia, NFeAutorizarBodyRequest bodyRequest);
+    NFeAutorizarResponse autorizar(String referencia, NFeAutorizacao bodyRequest);
 
     /**
      * GET - Consultar o status de NFe emitidas.

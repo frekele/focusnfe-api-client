@@ -2,7 +2,7 @@ package org.frekele.fiscal.focus.nfe.client.repository.nfe;
 
 import org.frekele.fiscal.focus.nfe.client.auth.FocusNFeAuth;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFe;
-import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.NFeAutorizarBodyRequest;
+import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.autorizar.NFeAutorizacao;
 import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.NFeCCeBodyRequest;
 import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.NFeCancelarBodyRequest;
 import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.NFeEmailBodyRequest;
@@ -54,7 +54,7 @@ public class FocusNFeV2RepositoryImpl implements FocusNFeV2Repository {
     }
 
     @Override
-    public NFeAutorizarResponse autorizar(String referencia, NFeAutorizarBodyRequest bodyRequest) {
+    public NFeAutorizarResponse autorizar(String referencia, NFeAutorizacao bodyRequest) {
         FocusNFeUtils.throwObject(referencia, "referencia");
         FocusNFeUtils.throwObject(bodyRequest, "NFeAutorizarBodyRequest");
         FocusNFeV2ProxyClient proxyClient = this.getProxyClient();
