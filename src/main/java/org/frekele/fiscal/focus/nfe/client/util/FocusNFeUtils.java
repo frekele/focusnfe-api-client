@@ -4,12 +4,16 @@ import org.apache.commons.io.IOUtils;
 import org.frekele.fiscal.focus.nfe.client.auth.FocusNFeAuth;
 import org.frekele.fiscal.focus.nfe.client.exception.FocusNFeException;
 
+import javax.validation.ConstraintViolationException;
+import javax.validation.Validation;
+import javax.validation.ValidatorFactory;
 import javax.ws.rs.client.ClientResponseContext;
 import javax.ws.rs.core.MediaType;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.util.Base64;
+import java.util.Set;
 
 /**
  * @author frekele - Leandro Kersting de Freitas
@@ -44,6 +48,15 @@ public final class FocusNFeUtils {
         if (obj == null || obj.toString().trim().isEmpty()) {
             throw new FocusNFeException("" + objectName + " can not be Null!");
         }
+    }
+
+    public static void throwBeanValidation(Object bean) {
+        ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
+        Set constraintViolations = validatorFactory.getValidator().validate(bean);
+        if (constraintViolations != null && !constraintViolations.isEmpty()) {
+            throw new ConstraintViolationException(constraintViolations);
+        }
+        validatorFactory.close();
     }
 
     public static String responseBodyToString(ClientResponseContext responseContext) throws IOException {

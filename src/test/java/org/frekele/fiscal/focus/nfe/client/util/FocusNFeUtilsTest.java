@@ -3,10 +3,12 @@ package org.frekele.fiscal.focus.nfe.client.util;
 import org.frekele.fiscal.focus.nfe.client.auth.EnvironmentFocusNFeEnum;
 import org.frekele.fiscal.focus.nfe.client.auth.FocusNFeAuth;
 import org.frekele.fiscal.focus.nfe.client.exception.FocusNFeException;
+import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.NFeCancelarBodyRequest;
 import org.frekele.fiscal.focus.nfe.client.testng.InvokedMethodListener;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import javax.validation.ConstraintViolationException;
 import java.math.BigDecimal;
 
 import static org.testng.Assert.*;
@@ -94,6 +96,60 @@ public class FocusNFeUtilsTest {
     @Test(expectedExceptions = {FocusNFeException.class})
     public void testThrowObjectWithError2() throws Exception {
         FocusNFeUtils.throwObject("", "value");
+    }
+
+    @Test
+    public void testThrowBeanValidation() throws Exception {
+        NFeCancelarBodyRequest bean = new NFeCancelarBodyRequest("bla bla bla bla bla bla");
+        FocusNFeUtils.throwBeanValidation(bean);
+    }
+
+    @Test(expectedExceptions = {ConstraintViolationException.class})
+    public void testThrowBeanValidationWithError() throws Exception {
+        NFeCancelarBodyRequest bean = new NFeCancelarBodyRequest();
+        FocusNFeUtils.throwBeanValidation(bean);
+    }
+
+    @Test(expectedExceptions = {ConstraintViolationException.class})
+    public void testThrowBeanValidationWithError2() throws Exception {
+        String justificativa = "";
+        NFeCancelarBodyRequest bean = new NFeCancelarBodyRequest(justificativa);
+        FocusNFeUtils.throwBeanValidation(bean);
+    }
+
+    @Test(expectedExceptions = {ConstraintViolationException.class})
+    public void testThrowBeanValidationWithError3() throws Exception {
+        String justificativa = "aaaaa";//5
+        NFeCancelarBodyRequest bean = new NFeCancelarBodyRequest(justificativa);
+        FocusNFeUtils.throwBeanValidation(bean);
+    }
+
+    @Test(expectedExceptions = {ConstraintViolationException.class})
+    public void testThrowBeanValidationWithError4() throws Exception {
+        String justificativa = "";
+        justificativa += "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+        justificativa += "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb";
+        justificativa += "cccccccccccccccccccccccccccccccccccccccccccccccccc";
+        justificativa += "dddddddddddddddddddddddddddddddddddddddddddddddddd";
+        justificativa += "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee";
+        justificativa += "ffffff";//256
+        System.out.println("justificativa.length(): " + justificativa.length());
+        NFeCancelarBodyRequest bean = new NFeCancelarBodyRequest(justificativa);
+        FocusNFeUtils.throwBeanValidation(bean);
+    }
+
+    @Test
+    public void testThrowBeanValidationWithoutError() throws Exception {
+        String justificativa = "";
+        justificativa += "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+        justificativa += "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb";
+        justificativa += "cccccccccccccccccccccccccccccccccccccccccccccccccc";
+        justificativa += "dddddddddddddddddddddddddddddddddddddddddddddddddd";
+        justificativa += "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee";
+        justificativa += "fffff";//255
+        System.out.println("justificativa.length(): " + justificativa.length());
+        NFeCancelarBodyRequest bean = new NFeCancelarBodyRequest(justificativa);
+        FocusNFeUtils.throwBeanValidation(bean);
     }
 
     @Test
