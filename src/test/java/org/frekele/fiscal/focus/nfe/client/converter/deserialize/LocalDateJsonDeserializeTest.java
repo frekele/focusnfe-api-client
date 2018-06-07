@@ -40,7 +40,7 @@ public class LocalDateJsonDeserializeTest {
         resultValue = jsonDeserialize.deserialize(jsonParser, null);
         assertNull(resultValue);
 
-        String stringValue = "2018-01-13T12:51:34Z";
+        String stringValue = "2018-01-13";
         LocalDate expected = LocalDate.parse(stringValue, DateTimeFormatter.ISO_LOCAL_DATE);
         when(jsonParser.readValueAs(String.class)).thenReturn(stringValue);
         resultValue = jsonDeserialize.deserialize(jsonParser, null);
