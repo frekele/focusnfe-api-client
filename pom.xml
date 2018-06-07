@@ -96,6 +96,9 @@
         <project.scm.id>github</project.scm.id>
 
         <resteasy.version>3.5.1.Final</resteasy.version>
+        <hibernate-validator.version>5.4.2.Final</hibernate-validator.version>
+        <javax.el.version>3.0.1-b10</javax.el.version>
+        <validation-api.version>1.1.0.Final</validation-api.version>
         <cdi-api.version>1.2</cdi-api.version>
 
         <testng.version>6.14.3</testng.version>
@@ -143,6 +146,18 @@
             <version>${cdi-api.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>${validation-api.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.el</artifactId>
+            <version>${javax.el.version}</version>
+        </dependency>
+
         <!-- Begin RESTEasy Dependencies -->
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
@@ -169,6 +184,22 @@
             <artifactId>jackson-datatype-jsr310</artifactId>
         </dependency>
         <!-- End RESTEasy Dependencies -->
+
+
+        <!-- Begin Hibernate-Validator Dependencies -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate-validator.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator-cdi</artifactId>
+            <version>${hibernate-validator.version}</version>
+        </dependency>
+        <!-- End Hibernate-Validator Dependencies -->
+
 
         <!-- Begin Test Dependencies -->
         <dependency>
