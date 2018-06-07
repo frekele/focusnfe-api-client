@@ -19,10 +19,7 @@ public class BigDecimalJsonSerialize extends StdSerializer<BigDecimal> {
     @Override
     public void serialize(BigDecimal value, JsonGenerator jsonGenerator, SerializerProvider provider) throws IOException {
         if (value != null) {
-            //se 1.475 ou 1.471 ou 1.479 vai truncar para 1.47;
-            BigDecimal valueScaled = value.setScale(2, BigDecimal.ROUND_DOWN);
-            Long numberValue = valueScaled.unscaledValue().longValue();
-            jsonGenerator.writeNumber(numberValue);
+            jsonGenerator.writeString(value.toString());
         }
     }
 }

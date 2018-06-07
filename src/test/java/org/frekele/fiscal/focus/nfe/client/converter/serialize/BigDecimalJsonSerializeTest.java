@@ -33,5 +33,6 @@ public class BigDecimalJsonSerializeTest {
         jsonSerialize.serialize(BigDecimal.valueOf(4565), jsonGenerator, null);
         jsonSerialize.serialize(BigDecimal.valueOf(345675, 2), jsonGenerator, null);
         jsonSerialize.serialize(BigDecimal.valueOf(45353453, 3), jsonGenerator, null);
+        jsonSerialize.serialize(new BigDecimal("12345.6788"), jsonGenerator, null);
     }
 }
