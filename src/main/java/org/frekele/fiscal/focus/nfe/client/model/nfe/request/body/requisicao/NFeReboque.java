@@ -38,30 +38,74 @@ public class NFeReboque implements FocusNFeEntity {
         super();
     }
 
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
+    public NFeReboque(String veiculoPlaca, NFeUnidadeFederativaEnum veiculoUf, String veiculoRntc) {
+        this.veiculoPlaca = veiculoPlaca;
+        this.veiculoUf = veiculoUf;
+        this.veiculoRntc = veiculoRntc;
+    }
+
+    private NFeReboque(Builder builder) {
+        setVeiculoPlaca(builder.veiculoPlaca);
+        setVeiculoUf(builder.veiculoUf);
+        setVeiculoRntc(builder.veiculoRntc);
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getVeiculoPlaca() {
+        return veiculoPlaca;
+    }
+
+    public void setVeiculoPlaca(String veiculoPlaca) {
+        this.veiculoPlaca = veiculoPlaca;
+    }
+
+    public NFeUnidadeFederativaEnum getVeiculoUf() {
+        return veiculoUf;
+    }
+
+    public void setVeiculoUf(NFeUnidadeFederativaEnum veiculoUf) {
+        this.veiculoUf = veiculoUf;
+    }
+
+    public String getVeiculoRntc() {
+        return veiculoRntc;
+    }
+
+    public void setVeiculoRntc(String veiculoRntc) {
+        this.veiculoRntc = veiculoRntc;
+    }
+
+    public static final class Builder {
+
+        private String veiculoPlaca;
+
+        private NFeUnidadeFederativaEnum veiculoUf;
+
+        private String veiculoRntc;
+
+        private Builder() {
+        }
+
+        public Builder withVeiculoPlaca(String val) {
+            veiculoPlaca = val;
+            return this;
+        }
+
+        public Builder withVeiculoUf(NFeUnidadeFederativaEnum val) {
+            veiculoUf = val;
+            return this;
+        }
+
+        public Builder withVeiculoRntc(String val) {
+            veiculoRntc = val;
+            return this;
+        }
+
+        public NFeReboque build() {
+            return new NFeReboque(this);
+        }
+    }
 }

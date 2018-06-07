@@ -28,30 +28,40 @@ public class NFeLacreVolumeTransportado implements FocusNFeEntity {
         super();
     }
 
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
+    public NFeLacreVolumeTransportado(String numero) {
+        this.numero = numero;
+    }
+
+    private NFeLacreVolumeTransportado(Builder builder) {
+        setNumero(builder.numero);
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public static final class Builder {
+
+        private String numero;
+
+        private Builder() {
+        }
+
+        public Builder withNumero(String val) {
+            numero = val;
+            return this;
+        }
+
+        public NFeLacreVolumeTransportado build() {
+            return new NFeLacreVolumeTransportado(this);
+        }
+    }
 }

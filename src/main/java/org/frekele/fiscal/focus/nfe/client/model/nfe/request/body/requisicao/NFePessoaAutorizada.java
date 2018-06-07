@@ -33,30 +33,57 @@ public class NFePessoaAutorizada implements FocusNFeEntity {
         super();
     }
 
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
+    public NFePessoaAutorizada(String cnpj, String cpf) {
+        this.cnpj = cnpj;
+        this.cpf = cpf;
+    }
+
+    private NFePessoaAutorizada(Builder builder) {
+        setCnpj(builder.cnpj);
+        setCpf(builder.cpf);
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public static final class Builder {
+
+        private String cnpj;
+
+        private String cpf;
+
+        private Builder() {
+        }
+
+        public Builder withCnpj(String val) {
+            cnpj = val;
+            return this;
+        }
+
+        public Builder withCpf(String val) {
+            cpf = val;
+            return this;
+        }
+
+        public NFePessoaAutorizada build() {
+            return new NFePessoaAutorizada(this);
+        }
+    }
 }

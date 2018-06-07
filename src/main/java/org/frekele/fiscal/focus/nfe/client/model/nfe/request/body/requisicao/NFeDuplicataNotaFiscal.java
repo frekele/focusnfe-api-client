@@ -44,30 +44,68 @@ public class NFeDuplicataNotaFiscal implements FocusNFeEntity {
         super();
     }
 
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
+    private NFeDuplicataNotaFiscal(Builder builder) {
+        setNumero(builder.numero);
+        setDataVencimento(builder.dataVencimento);
+        setValor(builder.valor);
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public LocalDate getDataVencimento() {
+        return dataVencimento;
+    }
+
+    public void setDataVencimento(LocalDate dataVencimento) {
+        this.dataVencimento = dataVencimento;
+    }
+
+    public BigDecimal getValor() {
+        return valor;
+    }
+
+    public void setValor(BigDecimal valor) {
+        this.valor = valor;
+    }
+
+    public static final class Builder {
+
+        private String numero;
+
+        private LocalDate dataVencimento;
+
+        private BigDecimal valor;
+
+        private Builder() {
+        }
+
+        public Builder withNumero(String val) {
+            numero = val;
+            return this;
+        }
+
+        public Builder withDataVencimento(LocalDate val) {
+            dataVencimento = val;
+            return this;
+        }
+
+        public Builder withValor(BigDecimal val) {
+            valor = val;
+            return this;
+        }
+
+        public NFeDuplicataNotaFiscal build() {
+            return new NFeDuplicataNotaFiscal(this);
+        }
+    }
 }

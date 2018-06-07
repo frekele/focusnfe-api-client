@@ -36,4 +36,62 @@ public class NFeCCeBodyRequest implements FocusNFeEntity {
     public NFeCCeBodyRequest() {
         super();
     }
+
+    public NFeCCeBodyRequest(String correcao) {
+        this.correcao = correcao;
+    }
+
+    public NFeCCeBodyRequest(String correcao, LocalDate dataEvento) {
+        this.correcao = correcao;
+        this.dataEvento = dataEvento;
+    }
+
+    private NFeCCeBodyRequest(Builder builder) {
+        setCorrecao(builder.correcao);
+        setDataEvento(builder.dataEvento);
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getCorrecao() {
+        return correcao;
+    }
+
+    public void setCorrecao(String correcao) {
+        this.correcao = correcao;
+    }
+
+    public LocalDate getDataEvento() {
+        return dataEvento;
+    }
+
+    public void setDataEvento(LocalDate dataEvento) {
+        this.dataEvento = dataEvento;
+    }
+
+    public static final class Builder {
+
+        private String correcao;
+
+        private LocalDate dataEvento;
+
+        private Builder() {
+        }
+
+        public Builder withCorrecao(String val) {
+            correcao = val;
+            return this;
+        }
+
+        public Builder withDataEvento(LocalDate val) {
+            dataEvento = val;
+            return this;
+        }
+
+        public NFeCCeBodyRequest build() {
+            return new NFeCCeBodyRequest(this);
+        }
+    }
 }

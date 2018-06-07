@@ -52,30 +52,100 @@ public class NFeAdicaoDocumentoImportacao implements FocusNFeEntity {
         super();
     }
 
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
+    private NFeAdicaoDocumentoImportacao(Builder builder) {
+        setNumero(builder.numero);
+        setNumeroSequencialItem(builder.numeroSequencialItem);
+        setCodigoFabricanteEstrangeiro(builder.codigoFabricanteEstrangeiro);
+        setValorDesconto(builder.valorDesconto);
+        setNumeroDrawback(builder.numeroDrawback);
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public String getNumeroSequencialItem() {
+        return numeroSequencialItem;
+    }
+
+    public void setNumeroSequencialItem(String numeroSequencialItem) {
+        this.numeroSequencialItem = numeroSequencialItem;
+    }
+
+    public String getCodigoFabricanteEstrangeiro() {
+        return codigoFabricanteEstrangeiro;
+    }
+
+    public void setCodigoFabricanteEstrangeiro(String codigoFabricanteEstrangeiro) {
+        this.codigoFabricanteEstrangeiro = codigoFabricanteEstrangeiro;
+    }
+
+    public BigDecimal getValorDesconto() {
+        return valorDesconto;
+    }
+
+    public void setValorDesconto(BigDecimal valorDesconto) {
+        this.valorDesconto = valorDesconto;
+    }
+
+    public String getNumeroDrawback() {
+        return numeroDrawback;
+    }
+
+    public void setNumeroDrawback(String numeroDrawback) {
+        this.numeroDrawback = numeroDrawback;
+    }
+
+    public static final class Builder {
+
+        private String numero;
+
+        private String numeroSequencialItem;
+
+        private String codigoFabricanteEstrangeiro;
+
+        private BigDecimal valorDesconto;
+
+        private String numeroDrawback;
+
+        private Builder() {
+        }
+
+        public Builder withNumero(String val) {
+            numero = val;
+            return this;
+        }
+
+        public Builder withNumeroSequencialItem(String val) {
+            numeroSequencialItem = val;
+            return this;
+        }
+
+        public Builder withCodigoFabricanteEstrangeiro(String val) {
+            codigoFabricanteEstrangeiro = val;
+            return this;
+        }
+
+        public Builder withValorDesconto(BigDecimal val) {
+            valorDesconto = val;
+            return this;
+        }
+
+        public Builder withNumeroDrawback(String val) {
+            numeroDrawback = val;
+            return this;
+        }
+
+        public NFeAdicaoDocumentoImportacao build() {
+            return new NFeAdicaoDocumentoImportacao(this);
+        }
+    }
 }

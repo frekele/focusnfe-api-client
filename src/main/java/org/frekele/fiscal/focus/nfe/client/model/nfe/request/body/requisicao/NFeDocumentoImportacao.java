@@ -87,30 +87,212 @@ public class NFeDocumentoImportacao implements FocusNFeEntity {
         super();
     }
 
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
+    private NFeDocumentoImportacao(Builder builder) {
+        setNumero(builder.numero);
+        setDataRegistro(builder.dataRegistro);
+        setLocalDesembaracoAduaneiro(builder.localDesembaracoAduaneiro);
+        setUfDesembaracoAduaneiro(builder.ufDesembaracoAduaneiro);
+        setDataDesembaracoAduaneiro(builder.dataDesembaracoAduaneiro);
+        setViaTransporte(builder.viaTransporte);
+        setValorAfrmm(builder.valorAfrmm);
+        setFormaIntermedio(builder.formaIntermedio);
+        setCnpj(builder.cnpj);
+        setUfTerceiro(builder.ufTerceiro);
+        setCodigoExportador(builder.codigoExportador);
+        setAdicoes(builder.adicoes);
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public LocalDate getDataRegistro() {
+        return dataRegistro;
+    }
+
+    public void setDataRegistro(LocalDate dataRegistro) {
+        this.dataRegistro = dataRegistro;
+    }
+
+    public String getLocalDesembaracoAduaneiro() {
+        return localDesembaracoAduaneiro;
+    }
+
+    public void setLocalDesembaracoAduaneiro(String localDesembaracoAduaneiro) {
+        this.localDesembaracoAduaneiro = localDesembaracoAduaneiro;
+    }
+
+    public NFeUnidadeFederativaEnum getUfDesembaracoAduaneiro() {
+        return ufDesembaracoAduaneiro;
+    }
+
+    public void setUfDesembaracoAduaneiro(NFeUnidadeFederativaEnum ufDesembaracoAduaneiro) {
+        this.ufDesembaracoAduaneiro = ufDesembaracoAduaneiro;
+    }
+
+    public LocalDate getDataDesembaracoAduaneiro() {
+        return dataDesembaracoAduaneiro;
+    }
+
+    public void setDataDesembaracoAduaneiro(LocalDate dataDesembaracoAduaneiro) {
+        this.dataDesembaracoAduaneiro = dataDesembaracoAduaneiro;
+    }
+
+    public NFeViaTransporteEnum getViaTransporte() {
+        return viaTransporte;
+    }
+
+    public void setViaTransporte(NFeViaTransporteEnum viaTransporte) {
+        this.viaTransporte = viaTransporte;
+    }
+
+    public String getValorAfrmm() {
+        return valorAfrmm;
+    }
+
+    public void setValorAfrmm(String valorAfrmm) {
+        this.valorAfrmm = valorAfrmm;
+    }
+
+    public NFeFormaIntermedioEnum getFormaIntermedio() {
+        return formaIntermedio;
+    }
+
+    public void setFormaIntermedio(NFeFormaIntermedioEnum formaIntermedio) {
+        this.formaIntermedio = formaIntermedio;
+    }
+
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
+
+    public NFeUnidadeFederativaEnum getUfTerceiro() {
+        return ufTerceiro;
+    }
+
+    public void setUfTerceiro(NFeUnidadeFederativaEnum ufTerceiro) {
+        this.ufTerceiro = ufTerceiro;
+    }
+
+    public String getCodigoExportador() {
+        return codigoExportador;
+    }
+
+    public void setCodigoExportador(String codigoExportador) {
+        this.codigoExportador = codigoExportador;
+    }
+
+    public List<NFeAdicaoDocumentoImportacao> getAdicoes() {
+        return adicoes;
+    }
+
+    public void setAdicoes(List<NFeAdicaoDocumentoImportacao> adicoes) {
+        this.adicoes = adicoes;
+    }
+
+    public static final class Builder {
+
+        private String numero;
+
+        private LocalDate dataRegistro;
+
+        private String localDesembaracoAduaneiro;
+
+        private NFeUnidadeFederativaEnum ufDesembaracoAduaneiro;
+
+        private LocalDate dataDesembaracoAduaneiro;
+
+        private NFeViaTransporteEnum viaTransporte;
+
+        private String valorAfrmm;
+
+        private NFeFormaIntermedioEnum formaIntermedio;
+
+        private String cnpj;
+
+        private NFeUnidadeFederativaEnum ufTerceiro;
+
+        private String codigoExportador;
+
+        private List<NFeAdicaoDocumentoImportacao> adicoes;
+
+        private Builder() {
+        }
+
+        public Builder withNumero(String val) {
+            numero = val;
+            return this;
+        }
+
+        public Builder withDataRegistro(LocalDate val) {
+            dataRegistro = val;
+            return this;
+        }
+
+        public Builder withLocalDesembaracoAduaneiro(String val) {
+            localDesembaracoAduaneiro = val;
+            return this;
+        }
+
+        public Builder withUfDesembaracoAduaneiro(NFeUnidadeFederativaEnum val) {
+            ufDesembaracoAduaneiro = val;
+            return this;
+        }
+
+        public Builder withDataDesembaracoAduaneiro(LocalDate val) {
+            dataDesembaracoAduaneiro = val;
+            return this;
+        }
+
+        public Builder withViaTransporte(NFeViaTransporteEnum val) {
+            viaTransporte = val;
+            return this;
+        }
+
+        public Builder withValorAfrmm(String val) {
+            valorAfrmm = val;
+            return this;
+        }
+
+        public Builder withFormaIntermedio(NFeFormaIntermedioEnum val) {
+            formaIntermedio = val;
+            return this;
+        }
+
+        public Builder withCnpj(String val) {
+            cnpj = val;
+            return this;
+        }
+
+        public Builder withUfTerceiro(NFeUnidadeFederativaEnum val) {
+            ufTerceiro = val;
+            return this;
+        }
+
+        public Builder withCodigoExportador(String val) {
+            codigoExportador = val;
+            return this;
+        }
+
+        public Builder withAdicoes(List<NFeAdicaoDocumentoImportacao> val) {
+            adicoes = val;
+            return this;
+        }
+
+        public NFeDocumentoImportacao build() {
+            return new NFeDocumentoImportacao(this);
+        }
+    }
 }

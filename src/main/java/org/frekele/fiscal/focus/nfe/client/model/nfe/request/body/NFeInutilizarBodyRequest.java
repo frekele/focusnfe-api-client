@@ -53,4 +53,109 @@ public class NFeInutilizarBodyRequest implements FocusNFeEntity {
     public NFeInutilizarBodyRequest() {
         super();
     }
+
+    public NFeInutilizarBodyRequest(String cnpj, String serie, String numeroInicial, String numeroFinal, String justificativa) {
+        this.cnpj = cnpj;
+        this.serie = serie;
+        this.numeroInicial = numeroInicial;
+        this.numeroFinal = numeroFinal;
+        this.justificativa = justificativa;
+    }
+
+    private NFeInutilizarBodyRequest(Builder builder) {
+        setCnpj(builder.cnpj);
+        setSerie(builder.serie);
+        setNumeroInicial(builder.numeroInicial);
+        setNumeroFinal(builder.numeroFinal);
+        setJustificativa(builder.justificativa);
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
+
+    public String getSerie() {
+        return serie;
+    }
+
+    public void setSerie(String serie) {
+        this.serie = serie;
+    }
+
+    public String getNumeroInicial() {
+        return numeroInicial;
+    }
+
+    public void setNumeroInicial(String numeroInicial) {
+        this.numeroInicial = numeroInicial;
+    }
+
+    public String getNumeroFinal() {
+        return numeroFinal;
+    }
+
+    public void setNumeroFinal(String numeroFinal) {
+        this.numeroFinal = numeroFinal;
+    }
+
+    public String getJustificativa() {
+        return justificativa;
+    }
+
+    public void setJustificativa(String justificativa) {
+        this.justificativa = justificativa;
+    }
+
+    public static final class Builder {
+
+        private String cnpj;
+
+        private String serie;
+
+        private String numeroInicial;
+
+        private String numeroFinal;
+
+        private String justificativa;
+
+        private Builder() {
+        }
+
+        public Builder withCnpj(String val) {
+            cnpj = val;
+            return this;
+        }
+
+        public Builder withSerie(String val) {
+            serie = val;
+            return this;
+        }
+
+        public Builder withNumeroInicial(String val) {
+            numeroInicial = val;
+            return this;
+        }
+
+        public Builder withNumeroFinal(String val) {
+            numeroFinal = val;
+            return this;
+        }
+
+        public Builder withJustificativa(String val) {
+            justificativa = val;
+            return this;
+        }
+
+        public NFeInutilizarBodyRequest build() {
+            return new NFeInutilizarBodyRequest(this);
+        }
+    }
 }

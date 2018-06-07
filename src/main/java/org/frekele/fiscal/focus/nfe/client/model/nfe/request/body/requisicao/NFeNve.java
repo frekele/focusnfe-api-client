@@ -28,30 +28,40 @@ public class NFeNve implements FocusNFeEntity {
         super();
     }
 
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
+    public NFeNve(String nve) {
+        this.nve = nve;
+    }
+
+    private NFeNve(Builder builder) {
+        setNve(builder.nve);
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getNve() {
+        return nve;
+    }
+
+    public void setNve(String nve) {
+        this.nve = nve;
+    }
+
+    public static final class Builder {
+
+        private String nve;
+
+        private Builder() {
+        }
+
+        public Builder withNve(String val) {
+            nve = val;
+            return this;
+        }
+
+        public NFeNve build() {
+            return new NFeNve(this);
+        }
+    }
 }

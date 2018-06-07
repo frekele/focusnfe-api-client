@@ -9,6 +9,7 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -29,5 +30,51 @@ public class NFeEmailBodyRequest implements FocusNFeEntity {
 
     public NFeEmailBodyRequest() {
         super();
+    }
+
+    public NFeEmailBodyRequest(List<String> emails) {
+        this.emails = emails;
+    }
+
+    public NFeEmailBodyRequest(String... emails) {
+        this.emails = Arrays.asList(emails);
+    }
+
+    private NFeEmailBodyRequest(Builder builder) {
+        setEmails(builder.emails);
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public List<String> getEmails() {
+        return emails;
+    }
+
+    public void setEmails(List<String> emails) {
+        this.emails = emails;
+    }
+
+    public static final class Builder {
+
+        private List<String> emails;
+
+        private Builder() {
+        }
+
+        public Builder withEmails(List<String> val) {
+            emails = val;
+            return this;
+        }
+
+        public Builder withEmails(String... val) {
+            emails = Arrays.asList(val);
+            return this;
+        }
+
+        public NFeEmailBodyRequest build() {
+            return new NFeEmailBodyRequest(this);
+        }
     }
 }

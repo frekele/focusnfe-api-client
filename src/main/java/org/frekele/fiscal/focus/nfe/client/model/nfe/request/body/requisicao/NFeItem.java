@@ -966,30 +966,2692 @@ public class NFeItem implements FocusNFeEntity {
         super();
     }
 
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
+    private NFeItem(Builder builder) {
+        setNumeroItem(builder.numeroItem);
+        setCodigoProduto(builder.codigoProduto);
+        setCodigoBarrasComercial(builder.codigoBarrasComercial);
+        setDescricao(builder.descricao);
+        setCodigoNcm(builder.codigoNcm);
+        setNves(builder.nves);
+        setCest(builder.cest);
+        setEscalaRelevante(builder.escalaRelevante);
+        setCnpjFabricante(builder.cnpjFabricante);
+        setCodigoBeneficioFiscalUf(builder.codigoBeneficioFiscalUf);
+        setCodigoExTipi(builder.codigoExTipi);
+        setCfop(builder.cfop);
+        setUnidadeComercial(builder.unidadeComercial);
+        setQuantidadeComercial(builder.quantidadeComercial);
+        setValorUnitarioComercial(builder.valorUnitarioComercial);
+        setValorBruto(builder.valorBruto);
+        setCodigoBarrasTributavel(builder.codigoBarrasTributavel);
+        setUnidadeTributavel(builder.unidadeTributavel);
+        setQuantidadeTributavel(builder.quantidadeTributavel);
+        setValorUnitarioTributavel(builder.valorUnitarioTributavel);
+        setValorFrete(builder.valorFrete);
+        setValorSeguro(builder.valorSeguro);
+        setValorDesconto(builder.valorDesconto);
+        setValorOutrasDespesas(builder.valorOutrasDespesas);
+        setIncluiNoTotal(builder.incluiNoTotal);
+        setDocumentosImportacao(builder.documentosImportacao);
+        setDetalhesExportacao(builder.detalhesExportacao);
+        setPedidoCompra(builder.pedidoCompra);
+        setNumeroItemPedidoCompra(builder.numeroItemPedidoCompra);
+        setNumeroFci(builder.numeroFci);
+        setRastros(builder.rastros);
+        setVeiculoTipoOperacao(builder.veiculoTipoOperacao);
+        setVeiculoChassi(builder.veiculoChassi);
+        setVeiculoCodigoCor(builder.veiculoCodigoCor);
+        setVeiculoDescricaoCor(builder.veiculoDescricaoCor);
+        setVeiculoPotenciaMotor(builder.veiculoPotenciaMotor);
+        setVeiculoCm3(builder.veiculoCm3);
+        setVeiculoPesoLiquido(builder.veiculoPesoLiquido);
+        setVeiculoPesoBruto(builder.veiculoPesoBruto);
+        setVeiculoSerie(builder.veiculoSerie);
+        setVeiculoTipoCombustivel(builder.veiculoTipoCombustivel);
+        setVeiculoNumeroMotor(builder.veiculoNumeroMotor);
+        setVeiculoCmt(builder.veiculoCmt);
+        setVeiculoDistanciaEixos(builder.veiculoDistanciaEixos);
+        setVeiculoAnoModelo(builder.veiculoAnoModelo);
+        setVeiculoAnoFabricacao(builder.veiculoAnoFabricacao);
+        setVeiculoTipoPintura(builder.veiculoTipoPintura);
+        setVeiculoTipo(builder.veiculoTipo);
+        setVeiculoEspecie(builder.veiculoEspecie);
+        setVeiculoCodigoVin(builder.veiculoCodigoVin);
+        setVeiculoCondicao(builder.veiculoCondicao);
+        setVeiculoCodigoMarcaModelo(builder.veiculoCodigoMarcaModelo);
+        setVeiculoCodigoCorDenatran(builder.veiculoCodigoCorDenatran);
+        setVeiculoLotacao(builder.veiculoLotacao);
+        setVeiculoRestricao(builder.veiculoRestricao);
+        setMedicamentoCodigoAnvisa(builder.medicamentoCodigoAnvisa);
+        setMedicamentoPrecoMaximoConsumidor(builder.medicamentoPrecoMaximoConsumidor);
+        setCombustivelCodigoAnp(builder.combustivelCodigoAnp);
+        setCombustivelDescricaoAnp(builder.combustivelDescricaoAnp);
+        setCombustivelPercentualGlp(builder.combustivelPercentualGlp);
+        setCombustivelPercentualGasNaturalNacional(builder.combustivelPercentualGasNaturalNacional);
+        setCombustivelPercentualGasNaturalImportado(builder.combustivelPercentualGasNaturalImportado);
+        setCombustivelValorPartida(builder.combustivelValorPartida);
+        setCombustivelRegistroCodif(builder.combustivelRegistroCodif);
+        setCombustivelQuantidadeTemperaturaAmbiente(builder.combustivelQuantidadeTemperaturaAmbiente);
+        setCombustivelSiglaUf(builder.combustivelSiglaUf);
+        setCombustivelCideBaseCalculo(builder.combustivelCideBaseCalculo);
+        setCombustivelCideAliquota(builder.combustivelCideAliquota);
+        setCombustivelCideValor(builder.combustivelCideValor);
+        setValorTotalTributos(builder.valorTotalTributos);
+        setIssqnBaseCalculo(builder.issqnBaseCalculo);
+        setIssqnAliquota(builder.issqnAliquota);
+        setIssqnValor(builder.issqnValor);
+        setIssqnCodigoMunicipio(builder.issqnCodigoMunicipio);
+        setIssqnItemListaServico(builder.issqnItemListaServico);
+        setIssqnValorDeducao(builder.issqnValorDeducao);
+        setIssqnValorOutrasRetencoes(builder.issqnValorOutrasRetencoes);
+        setIssqnValorDescontoIncondicionado(builder.issqnValorDescontoIncondicionado);
+        setIssqnValorDescontoCondicionado(builder.issqnValorDescontoCondicionado);
+        setIssqnValorRetencao(builder.issqnValorRetencao);
+        setIssqnIndicadorExigibilidade(builder.issqnIndicadorExigibilidade);
+        setIssqnCodigoServico(builder.issqnCodigoServico);
+        setIssqnCodigoMunicipioIncidencia(builder.issqnCodigoMunicipioIncidencia);
+        setIssqnCodigoPais(builder.issqnCodigoPais);
+        setIssqnNumeroProcesso(builder.issqnNumeroProcesso);
+        setIssqnIndicadorIncentivo(builder.issqnIndicadorIncentivo);
+        setIcmsOrigem(builder.icmsOrigem);
+        setIcmsSituacaoTributaria(builder.icmsSituacaoTributaria);
+        setIcmsMmodalidadeBaseCalculo(builder.icmsMmodalidadeBaseCalculo);
+        setIcmsBaseCalculo(builder.icmsBaseCalculo);
+        setIcmsBaseCalculoRetidoSt(builder.icmsBaseCalculoRetidoSt);
+        setIcmsReducaoBaseCalculo(builder.icmsReducaoBaseCalculo);
+        setIcmsAliquota(builder.icmsAliquota);
+        setIcmsAliquotaFinal(builder.icmsAliquotaFinal);
+        setIcmsValor(builder.icmsValor);
+        setIcmsValorRetidoSt(builder.icmsValorRetidoSt);
+        setIcmsValorDesonerado(builder.icmsValorDesonerado);
+        setIcmsValorOperacao(builder.icmsValorOperacao);
+        setIcmsPercentualDiferimento(builder.icmsPercentualDiferimento);
+        setIcmsValorDiferido(builder.icmsValorDiferido);
+        setIcmsMotivoDesoneracao(builder.icmsMotivoDesoneracao);
+        setIcmsModalidadeBaseCalculoSt(builder.icmsModalidadeBaseCalculoSt);
+        setIcmsMargemValorAdicionadoSt(builder.icmsMargemValorAdicionadoSt);
+        setIcmsReducaoBaseCalculoSt(builder.icmsReducaoBaseCalculoSt);
+        setIcmsBaseCalculoSt(builder.icmsBaseCalculoSt);
+        setIcmsAliquotaSt(builder.icmsAliquotaSt);
+        setIcmsValorSt(builder.icmsValorSt);
+        setIcmsAliquotaCreditoSimples(builder.icmsAliquotaCreditoSimples);
+        setIcmsValorCreditoSimples(builder.icmsValorCreditoSimples);
+        setFcpPercentual(builder.fcpPercentual);
+        setFcpBaseCalculo(builder.fcpBaseCalculo);
+        setFcpValor(builder.fcpValor);
+        setFcpPercentualSt(builder.fcpPercentualSt);
+        setFcpBaseCalculoSt(builder.fcpBaseCalculoSt);
+        setFcpValorSt(builder.fcpValorSt);
+        setFcpPercentualRetidoSt(builder.fcpPercentualRetidoSt);
+        setFcpBaseCalculoRetidoSt(builder.fcpBaseCalculoRetidoSt);
+        setFcpValorRetidoSt(builder.fcpValorRetidoSt);
+        setIpiSituacaoTributaria(builder.ipiSituacaoTributaria);
+        setIpiBaseCalculo(builder.ipiBaseCalculo);
+        setIpiAliquota(builder.ipiAliquota);
+        setIpiQuantidadeTotal(builder.ipiQuantidadeTotal);
+        setIpiValorPorUnidadeTributavel(builder.ipiValorPorUnidadeTributavel);
+        setIpiValor(builder.ipiValor);
+        setIpiClasseEnquadramento(builder.ipiClasseEnquadramento);
+        setIpiCnpjProdutor(builder.ipiCnpjProdutor);
+        setIpiCodigoSeloControle(builder.ipiCodigoSeloControle);
+        setIpiQuantidadeSeloControle(builder.ipiQuantidadeSeloControle);
+        setIpiCodigoEnquadramentoLegal(builder.ipiCodigoEnquadramentoLegal);
+        setIiBaseCalculo(builder.iiBaseCalculo);
+        setIiDespesasAduaneiras(builder.iiDespesasAduaneiras);
+        setIiValor(builder.iiValor);
+        setIiValorIof(builder.iiValorIof);
+        setPisSituacaoTributaria(builder.pisSituacaoTributaria);
+        setPisBaseCalculo(builder.pisBaseCalculo);
+        setPisAliquotaPorcentual(builder.pisAliquotaPorcentual);
+        setPis_quantidade_vendida(builder.pis_quantidade_vendida);
+        setPisAliquotaValor(builder.pisAliquotaValor);
+        setPisValor(builder.pisValor);
+        setPisBaseCalculoSt(builder.pisBaseCalculoSt);
+        setPisAliquotaPorcentualSt(builder.pisAliquotaPorcentualSt);
+        setPisQuantidadeVendidaSt(builder.pisQuantidadeVendidaSt);
+        setPisAliquotaValorSt(builder.pisAliquotaValorSt);
+        setPisValorSt(builder.pisValorSt);
+        setCofinsSituacaoTributaria(builder.cofinsSituacaoTributaria);
+        setCofinsBaseCalculo(builder.cofinsBaseCalculo);
+        setCofinsAliquotaPorcentual(builder.cofinsAliquotaPorcentual);
+        setCofinsQuantidadeVendida(builder.cofinsQuantidadeVendida);
+        setCofinsAliquotaValor(builder.cofinsAliquotaValor);
+        setCofinsValor(builder.cofinsValor);
+        setCofinsBaseCalculoSt(builder.cofinsBaseCalculoSt);
+        setCofinsAliquotaPorcentualSt(builder.cofinsAliquotaPorcentualSt);
+        setCofinsQuantidadeVendidaSt(builder.cofinsQuantidadeVendidaSt);
+        setCofinsAliquotaValorSt(builder.cofinsAliquotaValorSt);
+        setCofinsValorSt(builder.cofinsValorSt);
+        setIcmsBaseCalculoUfDestino(builder.icmsBaseCalculoUfDestino);
+        setFcpBaseCalculoUfDestino(builder.fcpBaseCalculoUfDestino);
+        setFcpPercentualUfDestino(builder.fcpPercentualUfDestino);
+        setIcmsAliquotaInternaUfDestino(builder.icmsAliquotaInternaUfDestino);
+        setIcmsAliquotaInterestadual(builder.icmsAliquotaInterestadual);
+        setIcmsPercentualPartilha(builder.icmsPercentualPartilha);
+        setFcpValorUfDestino(builder.fcpValorUfDestino);
+        setIcmsValorUfDestino(builder.icmsValorUfDestino);
+        setIcmsValorUfRemetente(builder.icmsValorUfRemetente);
+        setPercentualDevolvido(builder.percentualDevolvido);
+        setValorIpiDevolvido(builder.valorIpiDevolvido);
+        setInformacoesAdicionaisItem(builder.informacoesAdicionaisItem);
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getNumeroItem() {
+        return numeroItem;
+    }
+
+    public void setNumeroItem(String numeroItem) {
+        this.numeroItem = numeroItem;
+    }
+
+    public String getCodigoProduto() {
+        return codigoProduto;
+    }
+
+    public void setCodigoProduto(String codigoProduto) {
+        this.codigoProduto = codigoProduto;
+    }
+
+    public String getCodigoBarrasComercial() {
+        return codigoBarrasComercial;
+    }
+
+    public void setCodigoBarrasComercial(String codigoBarrasComercial) {
+        this.codigoBarrasComercial = codigoBarrasComercial;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getCodigoNcm() {
+        return codigoNcm;
+    }
+
+    public void setCodigoNcm(String codigoNcm) {
+        this.codigoNcm = codigoNcm;
+    }
+
+    public List<NFeNve> getNves() {
+        return nves;
+    }
+
+    public void setNves(List<NFeNve> nves) {
+        this.nves = nves;
+    }
+
+    public String getCest() {
+        return cest;
+    }
+
+    public void setCest(String cest) {
+        this.cest = cest;
+    }
+
+    public Boolean getEscalaRelevante() {
+        return escalaRelevante;
+    }
+
+    public void setEscalaRelevante(Boolean escalaRelevante) {
+        this.escalaRelevante = escalaRelevante;
+    }
+
+    public String getCnpjFabricante() {
+        return cnpjFabricante;
+    }
+
+    public void setCnpjFabricante(String cnpjFabricante) {
+        this.cnpjFabricante = cnpjFabricante;
+    }
+
+    public String getCodigoBeneficioFiscalUf() {
+        return codigoBeneficioFiscalUf;
+    }
+
+    public void setCodigoBeneficioFiscalUf(String codigoBeneficioFiscalUf) {
+        this.codigoBeneficioFiscalUf = codigoBeneficioFiscalUf;
+    }
+
+    public String getCodigoExTipi() {
+        return codigoExTipi;
+    }
+
+    public void setCodigoExTipi(String codigoExTipi) {
+        this.codigoExTipi = codigoExTipi;
+    }
+
+    public String getCfop() {
+        return cfop;
+    }
+
+    public void setCfop(String cfop) {
+        this.cfop = cfop;
+    }
+
+    public String getUnidadeComercial() {
+        return unidadeComercial;
+    }
+
+    public void setUnidadeComercial(String unidadeComercial) {
+        this.unidadeComercial = unidadeComercial;
+    }
+
+    public BigDecimal getQuantidadeComercial() {
+        return quantidadeComercial;
+    }
+
+    public void setQuantidadeComercial(BigDecimal quantidadeComercial) {
+        this.quantidadeComercial = quantidadeComercial;
+    }
+
+    public BigDecimal getValorUnitarioComercial() {
+        return valorUnitarioComercial;
+    }
+
+    public void setValorUnitarioComercial(BigDecimal valorUnitarioComercial) {
+        this.valorUnitarioComercial = valorUnitarioComercial;
+    }
+
+    public BigDecimal getValorBruto() {
+        return valorBruto;
+    }
+
+    public void setValorBruto(BigDecimal valorBruto) {
+        this.valorBruto = valorBruto;
+    }
+
+    public String getCodigoBarrasTributavel() {
+        return codigoBarrasTributavel;
+    }
+
+    public void setCodigoBarrasTributavel(String codigoBarrasTributavel) {
+        this.codigoBarrasTributavel = codigoBarrasTributavel;
+    }
+
+    public String getUnidadeTributavel() {
+        return unidadeTributavel;
+    }
+
+    public void setUnidadeTributavel(String unidadeTributavel) {
+        this.unidadeTributavel = unidadeTributavel;
+    }
+
+    public BigDecimal getQuantidadeTributavel() {
+        return quantidadeTributavel;
+    }
+
+    public void setQuantidadeTributavel(BigDecimal quantidadeTributavel) {
+        this.quantidadeTributavel = quantidadeTributavel;
+    }
+
+    public BigDecimal getValorUnitarioTributavel() {
+        return valorUnitarioTributavel;
+    }
+
+    public void setValorUnitarioTributavel(BigDecimal valorUnitarioTributavel) {
+        this.valorUnitarioTributavel = valorUnitarioTributavel;
+    }
+
+    public BigDecimal getValorFrete() {
+        return valorFrete;
+    }
+
+    public void setValorFrete(BigDecimal valorFrete) {
+        this.valorFrete = valorFrete;
+    }
+
+    public BigDecimal getValorSeguro() {
+        return valorSeguro;
+    }
+
+    public void setValorSeguro(BigDecimal valorSeguro) {
+        this.valorSeguro = valorSeguro;
+    }
+
+    public BigDecimal getValorDesconto() {
+        return valorDesconto;
+    }
+
+    public void setValorDesconto(BigDecimal valorDesconto) {
+        this.valorDesconto = valorDesconto;
+    }
+
+    public BigDecimal getValorOutrasDespesas() {
+        return valorOutrasDespesas;
+    }
+
+    public void setValorOutrasDespesas(BigDecimal valorOutrasDespesas) {
+        this.valorOutrasDespesas = valorOutrasDespesas;
+    }
+
+    public NFeIncluiNoTotalEnum getIncluiNoTotal() {
+        return incluiNoTotal;
+    }
+
+    public void setIncluiNoTotal(NFeIncluiNoTotalEnum incluiNoTotal) {
+        this.incluiNoTotal = incluiNoTotal;
+    }
+
+    public List<NFeDocumentoImportacao> getDocumentosImportacao() {
+        return documentosImportacao;
+    }
+
+    public void setDocumentosImportacao(List<NFeDocumentoImportacao> documentosImportacao) {
+        this.documentosImportacao = documentosImportacao;
+    }
+
+    public List<NFeDetalheExportacao> getDetalhesExportacao() {
+        return detalhesExportacao;
+    }
+
+    public void setDetalhesExportacao(List<NFeDetalheExportacao> detalhesExportacao) {
+        this.detalhesExportacao = detalhesExportacao;
+    }
+
+    public String getPedidoCompra() {
+        return pedidoCompra;
+    }
+
+    public void setPedidoCompra(String pedidoCompra) {
+        this.pedidoCompra = pedidoCompra;
+    }
+
+    public String getNumeroItemPedidoCompra() {
+        return numeroItemPedidoCompra;
+    }
+
+    public void setNumeroItemPedidoCompra(String numeroItemPedidoCompra) {
+        this.numeroItemPedidoCompra = numeroItemPedidoCompra;
+    }
+
+    public String getNumeroFci() {
+        return numeroFci;
+    }
+
+    public void setNumeroFci(String numeroFci) {
+        this.numeroFci = numeroFci;
+    }
+
+    public List<NFeRastro> getRastros() {
+        return rastros;
+    }
+
+    public void setRastros(List<NFeRastro> rastros) {
+        this.rastros = rastros;
+    }
+
+    public NFeVeiculoTipoOperacaoEnum getVeiculoTipoOperacao() {
+        return veiculoTipoOperacao;
+    }
+
+    public void setVeiculoTipoOperacao(NFeVeiculoTipoOperacaoEnum veiculoTipoOperacao) {
+        this.veiculoTipoOperacao = veiculoTipoOperacao;
+    }
+
+    public String getVeiculoChassi() {
+        return veiculoChassi;
+    }
+
+    public void setVeiculoChassi(String veiculoChassi) {
+        this.veiculoChassi = veiculoChassi;
+    }
+
+    public String getVeiculoCodigoCor() {
+        return veiculoCodigoCor;
+    }
+
+    public void setVeiculoCodigoCor(String veiculoCodigoCor) {
+        this.veiculoCodigoCor = veiculoCodigoCor;
+    }
+
+    public String getVeiculoDescricaoCor() {
+        return veiculoDescricaoCor;
+    }
+
+    public void setVeiculoDescricaoCor(String veiculoDescricaoCor) {
+        this.veiculoDescricaoCor = veiculoDescricaoCor;
+    }
+
+    public String getVeiculoPotenciaMotor() {
+        return veiculoPotenciaMotor;
+    }
+
+    public void setVeiculoPotenciaMotor(String veiculoPotenciaMotor) {
+        this.veiculoPotenciaMotor = veiculoPotenciaMotor;
+    }
+
+    public String getVeiculoCm3() {
+        return veiculoCm3;
+    }
+
+    public void setVeiculoCm3(String veiculoCm3) {
+        this.veiculoCm3 = veiculoCm3;
+    }
+
+    public String getVeiculoPesoLiquido() {
+        return veiculoPesoLiquido;
+    }
+
+    public void setVeiculoPesoLiquido(String veiculoPesoLiquido) {
+        this.veiculoPesoLiquido = veiculoPesoLiquido;
+    }
+
+    public String getVeiculoPesoBruto() {
+        return veiculoPesoBruto;
+    }
+
+    public void setVeiculoPesoBruto(String veiculoPesoBruto) {
+        this.veiculoPesoBruto = veiculoPesoBruto;
+    }
+
+    public String getVeiculoSerie() {
+        return veiculoSerie;
+    }
+
+    public void setVeiculoSerie(String veiculoSerie) {
+        this.veiculoSerie = veiculoSerie;
+    }
+
+    public NFeVeiculoTipoCombustivelEnum getVeiculoTipoCombustivel() {
+        return veiculoTipoCombustivel;
+    }
+
+    public void setVeiculoTipoCombustivel(NFeVeiculoTipoCombustivelEnum veiculoTipoCombustivel) {
+        this.veiculoTipoCombustivel = veiculoTipoCombustivel;
+    }
+
+    public String getVeiculoNumeroMotor() {
+        return veiculoNumeroMotor;
+    }
+
+    public void setVeiculoNumeroMotor(String veiculoNumeroMotor) {
+        this.veiculoNumeroMotor = veiculoNumeroMotor;
+    }
+
+    public String getVeiculoCmt() {
+        return veiculoCmt;
+    }
+
+    public void setVeiculoCmt(String veiculoCmt) {
+        this.veiculoCmt = veiculoCmt;
+    }
+
+    public String getVeiculoDistanciaEixos() {
+        return veiculoDistanciaEixos;
+    }
+
+    public void setVeiculoDistanciaEixos(String veiculoDistanciaEixos) {
+        this.veiculoDistanciaEixos = veiculoDistanciaEixos;
+    }
+
+    public String getVeiculoAnoModelo() {
+        return veiculoAnoModelo;
+    }
+
+    public void setVeiculoAnoModelo(String veiculoAnoModelo) {
+        this.veiculoAnoModelo = veiculoAnoModelo;
+    }
+
+    public String getVeiculoAnoFabricacao() {
+        return veiculoAnoFabricacao;
+    }
+
+    public void setVeiculoAnoFabricacao(String veiculoAnoFabricacao) {
+        this.veiculoAnoFabricacao = veiculoAnoFabricacao;
+    }
+
+    public String getVeiculoTipoPintura() {
+        return veiculoTipoPintura;
+    }
+
+    public void setVeiculoTipoPintura(String veiculoTipoPintura) {
+        this.veiculoTipoPintura = veiculoTipoPintura;
+    }
+
+    public String getVeiculoTipo() {
+        return veiculoTipo;
+    }
+
+    public void setVeiculoTipo(String veiculoTipo) {
+        this.veiculoTipo = veiculoTipo;
+    }
+
+    public String getVeiculoEspecie() {
+        return veiculoEspecie;
+    }
+
+    public void setVeiculoEspecie(String veiculoEspecie) {
+        this.veiculoEspecie = veiculoEspecie;
+    }
+
+    public NFeVeiculoVinEnum getVeiculoCodigoVin() {
+        return veiculoCodigoVin;
+    }
+
+    public void setVeiculoCodigoVin(NFeVeiculoVinEnum veiculoCodigoVin) {
+        this.veiculoCodigoVin = veiculoCodigoVin;
+    }
+
+    public NFeVeiculoCondicaoEnum getVeiculoCondicao() {
+        return veiculoCondicao;
+    }
+
+    public void setVeiculoCondicao(NFeVeiculoCondicaoEnum veiculoCondicao) {
+        this.veiculoCondicao = veiculoCondicao;
+    }
+
+    public String getVeiculoCodigoMarcaModelo() {
+        return veiculoCodigoMarcaModelo;
+    }
+
+    public void setVeiculoCodigoMarcaModelo(String veiculoCodigoMarcaModelo) {
+        this.veiculoCodigoMarcaModelo = veiculoCodigoMarcaModelo;
+    }
+
+    public NFeVeiculoCodigoCorDenatranEnum getVeiculoCodigoCorDenatran() {
+        return veiculoCodigoCorDenatran;
+    }
+
+    public void setVeiculoCodigoCorDenatran(NFeVeiculoCodigoCorDenatranEnum veiculoCodigoCorDenatran) {
+        this.veiculoCodigoCorDenatran = veiculoCodigoCorDenatran;
+    }
+
+    public String getVeiculoLotacao() {
+        return veiculoLotacao;
+    }
+
+    public void setVeiculoLotacao(String veiculoLotacao) {
+        this.veiculoLotacao = veiculoLotacao;
+    }
+
+    public NFeVeiculoRestricaoEnum getVeiculoRestricao() {
+        return veiculoRestricao;
+    }
+
+    public void setVeiculoRestricao(NFeVeiculoRestricaoEnum veiculoRestricao) {
+        this.veiculoRestricao = veiculoRestricao;
+    }
+
+    public String getMedicamentoCodigoAnvisa() {
+        return medicamentoCodigoAnvisa;
+    }
+
+    public void setMedicamentoCodigoAnvisa(String medicamentoCodigoAnvisa) {
+        this.medicamentoCodigoAnvisa = medicamentoCodigoAnvisa;
+    }
+
+    public BigDecimal getMedicamentoPrecoMaximoConsumidor() {
+        return medicamentoPrecoMaximoConsumidor;
+    }
+
+    public void setMedicamentoPrecoMaximoConsumidor(BigDecimal medicamentoPrecoMaximoConsumidor) {
+        this.medicamentoPrecoMaximoConsumidor = medicamentoPrecoMaximoConsumidor;
+    }
+
+    public String getCombustivelCodigoAnp() {
+        return combustivelCodigoAnp;
+    }
+
+    public void setCombustivelCodigoAnp(String combustivelCodigoAnp) {
+        this.combustivelCodigoAnp = combustivelCodigoAnp;
+    }
+
+    public String getCombustivelDescricaoAnp() {
+        return combustivelDescricaoAnp;
+    }
+
+    public void setCombustivelDescricaoAnp(String combustivelDescricaoAnp) {
+        this.combustivelDescricaoAnp = combustivelDescricaoAnp;
+    }
+
+    public BigDecimal getCombustivelPercentualGlp() {
+        return combustivelPercentualGlp;
+    }
+
+    public void setCombustivelPercentualGlp(BigDecimal combustivelPercentualGlp) {
+        this.combustivelPercentualGlp = combustivelPercentualGlp;
+    }
+
+    public BigDecimal getCombustivelPercentualGasNaturalNacional() {
+        return combustivelPercentualGasNaturalNacional;
+    }
+
+    public void setCombustivelPercentualGasNaturalNacional(BigDecimal combustivelPercentualGasNaturalNacional) {
+        this.combustivelPercentualGasNaturalNacional = combustivelPercentualGasNaturalNacional;
+    }
+
+    public BigDecimal getCombustivelPercentualGasNaturalImportado() {
+        return combustivelPercentualGasNaturalImportado;
+    }
+
+    public void setCombustivelPercentualGasNaturalImportado(BigDecimal combustivelPercentualGasNaturalImportado) {
+        this.combustivelPercentualGasNaturalImportado = combustivelPercentualGasNaturalImportado;
+    }
+
+    public BigDecimal getCombustivelValorPartida() {
+        return combustivelValorPartida;
+    }
+
+    public void setCombustivelValorPartida(BigDecimal combustivelValorPartida) {
+        this.combustivelValorPartida = combustivelValorPartida;
+    }
+
+    public String getCombustivelRegistroCodif() {
+        return combustivelRegistroCodif;
+    }
+
+    public void setCombustivelRegistroCodif(String combustivelRegistroCodif) {
+        this.combustivelRegistroCodif = combustivelRegistroCodif;
+    }
+
+    public BigDecimal getCombustivelQuantidadeTemperaturaAmbiente() {
+        return combustivelQuantidadeTemperaturaAmbiente;
+    }
+
+    public void setCombustivelQuantidadeTemperaturaAmbiente(BigDecimal combustivelQuantidadeTemperaturaAmbiente) {
+        this.combustivelQuantidadeTemperaturaAmbiente = combustivelQuantidadeTemperaturaAmbiente;
+    }
+
+    public NFeUnidadeFederativaEnum getCombustivelSiglaUf() {
+        return combustivelSiglaUf;
+    }
+
+    public void setCombustivelSiglaUf(NFeUnidadeFederativaEnum combustivelSiglaUf) {
+        this.combustivelSiglaUf = combustivelSiglaUf;
+    }
+
+    public BigDecimal getCombustivelCideBaseCalculo() {
+        return combustivelCideBaseCalculo;
+    }
+
+    public void setCombustivelCideBaseCalculo(BigDecimal combustivelCideBaseCalculo) {
+        this.combustivelCideBaseCalculo = combustivelCideBaseCalculo;
+    }
+
+    public BigDecimal getCombustivelCideAliquota() {
+        return combustivelCideAliquota;
+    }
+
+    public void setCombustivelCideAliquota(BigDecimal combustivelCideAliquota) {
+        this.combustivelCideAliquota = combustivelCideAliquota;
+    }
+
+    public BigDecimal getCombustivelCideValor() {
+        return combustivelCideValor;
+    }
+
+    public void setCombustivelCideValor(BigDecimal combustivelCideValor) {
+        this.combustivelCideValor = combustivelCideValor;
+    }
+
+    public BigDecimal getValorTotalTributos() {
+        return valorTotalTributos;
+    }
+
+    public void setValorTotalTributos(BigDecimal valorTotalTributos) {
+        this.valorTotalTributos = valorTotalTributos;
+    }
+
+    public BigDecimal getIssqnBaseCalculo() {
+        return issqnBaseCalculo;
+    }
+
+    public void setIssqnBaseCalculo(BigDecimal issqnBaseCalculo) {
+        this.issqnBaseCalculo = issqnBaseCalculo;
+    }
+
+    public BigDecimal getIssqnAliquota() {
+        return issqnAliquota;
+    }
+
+    public void setIssqnAliquota(BigDecimal issqnAliquota) {
+        this.issqnAliquota = issqnAliquota;
+    }
+
+    public BigDecimal getIssqnValor() {
+        return issqnValor;
+    }
+
+    public void setIssqnValor(BigDecimal issqnValor) {
+        this.issqnValor = issqnValor;
+    }
+
+    public String getIssqnCodigoMunicipio() {
+        return issqnCodigoMunicipio;
+    }
+
+    public void setIssqnCodigoMunicipio(String issqnCodigoMunicipio) {
+        this.issqnCodigoMunicipio = issqnCodigoMunicipio;
+    }
+
+    public String getIssqnItemListaServico() {
+        return issqnItemListaServico;
+    }
+
+    public void setIssqnItemListaServico(String issqnItemListaServico) {
+        this.issqnItemListaServico = issqnItemListaServico;
+    }
+
+    public BigDecimal getIssqnValorDeducao() {
+        return issqnValorDeducao;
+    }
+
+    public void setIssqnValorDeducao(BigDecimal issqnValorDeducao) {
+        this.issqnValorDeducao = issqnValorDeducao;
+    }
+
+    public BigDecimal getIssqnValorOutrasRetencoes() {
+        return issqnValorOutrasRetencoes;
+    }
+
+    public void setIssqnValorOutrasRetencoes(BigDecimal issqnValorOutrasRetencoes) {
+        this.issqnValorOutrasRetencoes = issqnValorOutrasRetencoes;
+    }
+
+    public BigDecimal getIssqnValorDescontoIncondicionado() {
+        return issqnValorDescontoIncondicionado;
+    }
+
+    public void setIssqnValorDescontoIncondicionado(BigDecimal issqnValorDescontoIncondicionado) {
+        this.issqnValorDescontoIncondicionado = issqnValorDescontoIncondicionado;
+    }
+
+    public BigDecimal getIssqnValorDescontoCondicionado() {
+        return issqnValorDescontoCondicionado;
+    }
+
+    public void setIssqnValorDescontoCondicionado(BigDecimal issqnValorDescontoCondicionado) {
+        this.issqnValorDescontoCondicionado = issqnValorDescontoCondicionado;
+    }
+
+    public BigDecimal getIssqnValorRetencao() {
+        return issqnValorRetencao;
+    }
+
+    public void setIssqnValorRetencao(BigDecimal issqnValorRetencao) {
+        this.issqnValorRetencao = issqnValorRetencao;
+    }
+
+    public NFeIssqnIndicadorExigibilidadeEnum getIssqnIndicadorExigibilidade() {
+        return issqnIndicadorExigibilidade;
+    }
+
+    public void setIssqnIndicadorExigibilidade(NFeIssqnIndicadorExigibilidadeEnum issqnIndicadorExigibilidade) {
+        this.issqnIndicadorExigibilidade = issqnIndicadorExigibilidade;
+    }
+
+    public String getIssqnCodigoServico() {
+        return issqnCodigoServico;
+    }
+
+    public void setIssqnCodigoServico(String issqnCodigoServico) {
+        this.issqnCodigoServico = issqnCodigoServico;
+    }
+
+    public String getIssqnCodigoMunicipioIncidencia() {
+        return issqnCodigoMunicipioIncidencia;
+    }
+
+    public void setIssqnCodigoMunicipioIncidencia(String issqnCodigoMunicipioIncidencia) {
+        this.issqnCodigoMunicipioIncidencia = issqnCodigoMunicipioIncidencia;
+    }
+
+    public String getIssqnCodigoPais() {
+        return issqnCodigoPais;
+    }
+
+    public void setIssqnCodigoPais(String issqnCodigoPais) {
+        this.issqnCodigoPais = issqnCodigoPais;
+    }
+
+    public String getIssqnNumeroProcesso() {
+        return issqnNumeroProcesso;
+    }
+
+    public void setIssqnNumeroProcesso(String issqnNumeroProcesso) {
+        this.issqnNumeroProcesso = issqnNumeroProcesso;
+    }
+
+    public String getIssqnIndicadorIncentivo() {
+        return issqnIndicadorIncentivo;
+    }
+
+    public void setIssqnIndicadorIncentivo(String issqnIndicadorIncentivo) {
+        this.issqnIndicadorIncentivo = issqnIndicadorIncentivo;
+    }
+
+    public NFeIcmsOrigemEnum getIcmsOrigem() {
+        return icmsOrigem;
+    }
+
+    public void setIcmsOrigem(NFeIcmsOrigemEnum icmsOrigem) {
+        this.icmsOrigem = icmsOrigem;
+    }
+
+    public NFeIcmsSituacaoTributariaEnum getIcmsSituacaoTributaria() {
+        return icmsSituacaoTributaria;
+    }
+
+    public void setIcmsSituacaoTributaria(NFeIcmsSituacaoTributariaEnum icmsSituacaoTributaria) {
+        this.icmsSituacaoTributaria = icmsSituacaoTributaria;
+    }
+
+    public NFeIcmsModalidadeBaseCalculoEnum getIcmsMmodalidadeBaseCalculo() {
+        return icmsMmodalidadeBaseCalculo;
+    }
+
+    public void setIcmsMmodalidadeBaseCalculo(NFeIcmsModalidadeBaseCalculoEnum icmsMmodalidadeBaseCalculo) {
+        this.icmsMmodalidadeBaseCalculo = icmsMmodalidadeBaseCalculo;
+    }
+
+    public BigDecimal getIcmsBaseCalculo() {
+        return icmsBaseCalculo;
+    }
+
+    public void setIcmsBaseCalculo(BigDecimal icmsBaseCalculo) {
+        this.icmsBaseCalculo = icmsBaseCalculo;
+    }
+
+    public BigDecimal getIcmsBaseCalculoRetidoSt() {
+        return icmsBaseCalculoRetidoSt;
+    }
+
+    public void setIcmsBaseCalculoRetidoSt(BigDecimal icmsBaseCalculoRetidoSt) {
+        this.icmsBaseCalculoRetidoSt = icmsBaseCalculoRetidoSt;
+    }
+
+    public BigDecimal getIcmsReducaoBaseCalculo() {
+        return icmsReducaoBaseCalculo;
+    }
+
+    public void setIcmsReducaoBaseCalculo(BigDecimal icmsReducaoBaseCalculo) {
+        this.icmsReducaoBaseCalculo = icmsReducaoBaseCalculo;
+    }
+
+    public BigDecimal getIcmsAliquota() {
+        return icmsAliquota;
+    }
+
+    public void setIcmsAliquota(BigDecimal icmsAliquota) {
+        this.icmsAliquota = icmsAliquota;
+    }
+
+    public BigDecimal getIcmsAliquotaFinal() {
+        return icmsAliquotaFinal;
+    }
+
+    public void setIcmsAliquotaFinal(BigDecimal icmsAliquotaFinal) {
+        this.icmsAliquotaFinal = icmsAliquotaFinal;
+    }
+
+    public BigDecimal getIcmsValor() {
+        return icmsValor;
+    }
+
+    public void setIcmsValor(BigDecimal icmsValor) {
+        this.icmsValor = icmsValor;
+    }
+
+    public BigDecimal getIcmsValorRetidoSt() {
+        return icmsValorRetidoSt;
+    }
+
+    public void setIcmsValorRetidoSt(BigDecimal icmsValorRetidoSt) {
+        this.icmsValorRetidoSt = icmsValorRetidoSt;
+    }
+
+    public BigDecimal getIcmsValorDesonerado() {
+        return icmsValorDesonerado;
+    }
+
+    public void setIcmsValorDesonerado(BigDecimal icmsValorDesonerado) {
+        this.icmsValorDesonerado = icmsValorDesonerado;
+    }
+
+    public BigDecimal getIcmsValorOperacao() {
+        return icmsValorOperacao;
+    }
+
+    public void setIcmsValorOperacao(BigDecimal icmsValorOperacao) {
+        this.icmsValorOperacao = icmsValorOperacao;
+    }
+
+    public BigDecimal getIcmsPercentualDiferimento() {
+        return icmsPercentualDiferimento;
+    }
+
+    public void setIcmsPercentualDiferimento(BigDecimal icmsPercentualDiferimento) {
+        this.icmsPercentualDiferimento = icmsPercentualDiferimento;
+    }
+
+    public BigDecimal getIcmsValorDiferido() {
+        return icmsValorDiferido;
+    }
+
+    public void setIcmsValorDiferido(BigDecimal icmsValorDiferido) {
+        this.icmsValorDiferido = icmsValorDiferido;
+    }
+
+    public NFeIcmsMotivoDesoneracaoEnum getIcmsMotivoDesoneracao() {
+        return icmsMotivoDesoneracao;
+    }
+
+    public void setIcmsMotivoDesoneracao(NFeIcmsMotivoDesoneracaoEnum icmsMotivoDesoneracao) {
+        this.icmsMotivoDesoneracao = icmsMotivoDesoneracao;
+    }
+
+    public NFeIcmsModalidadeBaseCalculoStEnum getIcmsModalidadeBaseCalculoSt() {
+        return icmsModalidadeBaseCalculoSt;
+    }
+
+    public void setIcmsModalidadeBaseCalculoSt(NFeIcmsModalidadeBaseCalculoStEnum icmsModalidadeBaseCalculoSt) {
+        this.icmsModalidadeBaseCalculoSt = icmsModalidadeBaseCalculoSt;
+    }
+
+    public BigDecimal getIcmsMargemValorAdicionadoSt() {
+        return icmsMargemValorAdicionadoSt;
+    }
+
+    public void setIcmsMargemValorAdicionadoSt(BigDecimal icmsMargemValorAdicionadoSt) {
+        this.icmsMargemValorAdicionadoSt = icmsMargemValorAdicionadoSt;
+    }
+
+    public BigDecimal getIcmsReducaoBaseCalculoSt() {
+        return icmsReducaoBaseCalculoSt;
+    }
+
+    public void setIcmsReducaoBaseCalculoSt(BigDecimal icmsReducaoBaseCalculoSt) {
+        this.icmsReducaoBaseCalculoSt = icmsReducaoBaseCalculoSt;
+    }
+
+    public BigDecimal getIcmsBaseCalculoSt() {
+        return icmsBaseCalculoSt;
+    }
+
+    public void setIcmsBaseCalculoSt(BigDecimal icmsBaseCalculoSt) {
+        this.icmsBaseCalculoSt = icmsBaseCalculoSt;
+    }
+
+    public BigDecimal getIcmsAliquotaSt() {
+        return icmsAliquotaSt;
+    }
+
+    public void setIcmsAliquotaSt(BigDecimal icmsAliquotaSt) {
+        this.icmsAliquotaSt = icmsAliquotaSt;
+    }
+
+    public BigDecimal getIcmsValorSt() {
+        return icmsValorSt;
+    }
+
+    public void setIcmsValorSt(BigDecimal icmsValorSt) {
+        this.icmsValorSt = icmsValorSt;
+    }
+
+    public BigDecimal getIcmsAliquotaCreditoSimples() {
+        return icmsAliquotaCreditoSimples;
+    }
+
+    public void setIcmsAliquotaCreditoSimples(BigDecimal icmsAliquotaCreditoSimples) {
+        this.icmsAliquotaCreditoSimples = icmsAliquotaCreditoSimples;
+    }
+
+    public BigDecimal getIcmsValorCreditoSimples() {
+        return icmsValorCreditoSimples;
+    }
+
+    public void setIcmsValorCreditoSimples(BigDecimal icmsValorCreditoSimples) {
+        this.icmsValorCreditoSimples = icmsValorCreditoSimples;
+    }
+
+    public BigDecimal getFcpPercentual() {
+        return fcpPercentual;
+    }
+
+    public void setFcpPercentual(BigDecimal fcpPercentual) {
+        this.fcpPercentual = fcpPercentual;
+    }
+
+    public BigDecimal getFcpBaseCalculo() {
+        return fcpBaseCalculo;
+    }
+
+    public void setFcpBaseCalculo(BigDecimal fcpBaseCalculo) {
+        this.fcpBaseCalculo = fcpBaseCalculo;
+    }
+
+    public BigDecimal getFcpValor() {
+        return fcpValor;
+    }
+
+    public void setFcpValor(BigDecimal fcpValor) {
+        this.fcpValor = fcpValor;
+    }
+
+    public BigDecimal getFcpPercentualSt() {
+        return fcpPercentualSt;
+    }
+
+    public void setFcpPercentualSt(BigDecimal fcpPercentualSt) {
+        this.fcpPercentualSt = fcpPercentualSt;
+    }
+
+    public BigDecimal getFcpBaseCalculoSt() {
+        return fcpBaseCalculoSt;
+    }
+
+    public void setFcpBaseCalculoSt(BigDecimal fcpBaseCalculoSt) {
+        this.fcpBaseCalculoSt = fcpBaseCalculoSt;
+    }
+
+    public BigDecimal getFcpValorSt() {
+        return fcpValorSt;
+    }
+
+    public void setFcpValorSt(BigDecimal fcpValorSt) {
+        this.fcpValorSt = fcpValorSt;
+    }
+
+    public BigDecimal getFcpPercentualRetidoSt() {
+        return fcpPercentualRetidoSt;
+    }
+
+    public void setFcpPercentualRetidoSt(BigDecimal fcpPercentualRetidoSt) {
+        this.fcpPercentualRetidoSt = fcpPercentualRetidoSt;
+    }
+
+    public BigDecimal getFcpBaseCalculoRetidoSt() {
+        return fcpBaseCalculoRetidoSt;
+    }
+
+    public void setFcpBaseCalculoRetidoSt(BigDecimal fcpBaseCalculoRetidoSt) {
+        this.fcpBaseCalculoRetidoSt = fcpBaseCalculoRetidoSt;
+    }
+
+    public BigDecimal getFcpValorRetidoSt() {
+        return fcpValorRetidoSt;
+    }
+
+    public void setFcpValorRetidoSt(BigDecimal fcpValorRetidoSt) {
+        this.fcpValorRetidoSt = fcpValorRetidoSt;
+    }
+
+    public NFeIpiSituacaoTributariaEnum getIpiSituacaoTributaria() {
+        return ipiSituacaoTributaria;
+    }
+
+    public void setIpiSituacaoTributaria(NFeIpiSituacaoTributariaEnum ipiSituacaoTributaria) {
+        this.ipiSituacaoTributaria = ipiSituacaoTributaria;
+    }
+
+    public BigDecimal getIpiBaseCalculo() {
+        return ipiBaseCalculo;
+    }
+
+    public void setIpiBaseCalculo(BigDecimal ipiBaseCalculo) {
+        this.ipiBaseCalculo = ipiBaseCalculo;
+    }
+
+    public BigDecimal getIpiAliquota() {
+        return ipiAliquota;
+    }
+
+    public void setIpiAliquota(BigDecimal ipiAliquota) {
+        this.ipiAliquota = ipiAliquota;
+    }
+
+    public BigDecimal getIpiQuantidadeTotal() {
+        return ipiQuantidadeTotal;
+    }
+
+    public void setIpiQuantidadeTotal(BigDecimal ipiQuantidadeTotal) {
+        this.ipiQuantidadeTotal = ipiQuantidadeTotal;
+    }
+
+    public BigDecimal getIpiValorPorUnidadeTributavel() {
+        return ipiValorPorUnidadeTributavel;
+    }
+
+    public void setIpiValorPorUnidadeTributavel(BigDecimal ipiValorPorUnidadeTributavel) {
+        this.ipiValorPorUnidadeTributavel = ipiValorPorUnidadeTributavel;
+    }
+
+    public BigDecimal getIpiValor() {
+        return ipiValor;
+    }
+
+    public void setIpiValor(BigDecimal ipiValor) {
+        this.ipiValor = ipiValor;
+    }
+
+    public String getIpiClasseEnquadramento() {
+        return ipiClasseEnquadramento;
+    }
+
+    public void setIpiClasseEnquadramento(String ipiClasseEnquadramento) {
+        this.ipiClasseEnquadramento = ipiClasseEnquadramento;
+    }
+
+    public String getIpiCnpjProdutor() {
+        return ipiCnpjProdutor;
+    }
+
+    public void setIpiCnpjProdutor(String ipiCnpjProdutor) {
+        this.ipiCnpjProdutor = ipiCnpjProdutor;
+    }
+
+    public String getIpiCodigoSeloControle() {
+        return ipiCodigoSeloControle;
+    }
+
+    public void setIpiCodigoSeloControle(String ipiCodigoSeloControle) {
+        this.ipiCodigoSeloControle = ipiCodigoSeloControle;
+    }
+
+    public String getIpiQuantidadeSeloControle() {
+        return ipiQuantidadeSeloControle;
+    }
+
+    public void setIpiQuantidadeSeloControle(String ipiQuantidadeSeloControle) {
+        this.ipiQuantidadeSeloControle = ipiQuantidadeSeloControle;
+    }
+
+    public String getIpiCodigoEnquadramentoLegal() {
+        return ipiCodigoEnquadramentoLegal;
+    }
+
+    public void setIpiCodigoEnquadramentoLegal(String ipiCodigoEnquadramentoLegal) {
+        this.ipiCodigoEnquadramentoLegal = ipiCodigoEnquadramentoLegal;
+    }
+
+    public BigDecimal getIiBaseCalculo() {
+        return iiBaseCalculo;
+    }
+
+    public void setIiBaseCalculo(BigDecimal iiBaseCalculo) {
+        this.iiBaseCalculo = iiBaseCalculo;
+    }
+
+    public BigDecimal getIiDespesasAduaneiras() {
+        return iiDespesasAduaneiras;
+    }
+
+    public void setIiDespesasAduaneiras(BigDecimal iiDespesasAduaneiras) {
+        this.iiDespesasAduaneiras = iiDespesasAduaneiras;
+    }
+
+    public BigDecimal getIiValor() {
+        return iiValor;
+    }
+
+    public void setIiValor(BigDecimal iiValor) {
+        this.iiValor = iiValor;
+    }
+
+    public BigDecimal getIiValorIof() {
+        return iiValorIof;
+    }
+
+    public void setIiValorIof(BigDecimal iiValorIof) {
+        this.iiValorIof = iiValorIof;
+    }
+
+    public NFePisCofinsSituacaoTributariaEnum getPisSituacaoTributaria() {
+        return pisSituacaoTributaria;
+    }
+
+    public void setPisSituacaoTributaria(NFePisCofinsSituacaoTributariaEnum pisSituacaoTributaria) {
+        this.pisSituacaoTributaria = pisSituacaoTributaria;
+    }
+
+    public BigDecimal getPisBaseCalculo() {
+        return pisBaseCalculo;
+    }
+
+    public void setPisBaseCalculo(BigDecimal pisBaseCalculo) {
+        this.pisBaseCalculo = pisBaseCalculo;
+    }
+
+    public BigDecimal getPisAliquotaPorcentual() {
+        return pisAliquotaPorcentual;
+    }
+
+    public void setPisAliquotaPorcentual(BigDecimal pisAliquotaPorcentual) {
+        this.pisAliquotaPorcentual = pisAliquotaPorcentual;
+    }
+
+    public BigDecimal getPis_quantidade_vendida() {
+        return pis_quantidade_vendida;
+    }
+
+    public void setPis_quantidade_vendida(BigDecimal pis_quantidade_vendida) {
+        this.pis_quantidade_vendida = pis_quantidade_vendida;
+    }
+
+    public BigDecimal getPisAliquotaValor() {
+        return pisAliquotaValor;
+    }
+
+    public void setPisAliquotaValor(BigDecimal pisAliquotaValor) {
+        this.pisAliquotaValor = pisAliquotaValor;
+    }
+
+    public BigDecimal getPisValor() {
+        return pisValor;
+    }
+
+    public void setPisValor(BigDecimal pisValor) {
+        this.pisValor = pisValor;
+    }
+
+    public BigDecimal getPisBaseCalculoSt() {
+        return pisBaseCalculoSt;
+    }
+
+    public void setPisBaseCalculoSt(BigDecimal pisBaseCalculoSt) {
+        this.pisBaseCalculoSt = pisBaseCalculoSt;
+    }
+
+    public BigDecimal getPisAliquotaPorcentualSt() {
+        return pisAliquotaPorcentualSt;
+    }
+
+    public void setPisAliquotaPorcentualSt(BigDecimal pisAliquotaPorcentualSt) {
+        this.pisAliquotaPorcentualSt = pisAliquotaPorcentualSt;
+    }
+
+    public BigDecimal getPisQuantidadeVendidaSt() {
+        return pisQuantidadeVendidaSt;
+    }
+
+    public void setPisQuantidadeVendidaSt(BigDecimal pisQuantidadeVendidaSt) {
+        this.pisQuantidadeVendidaSt = pisQuantidadeVendidaSt;
+    }
+
+    public BigDecimal getPisAliquotaValorSt() {
+        return pisAliquotaValorSt;
+    }
+
+    public void setPisAliquotaValorSt(BigDecimal pisAliquotaValorSt) {
+        this.pisAliquotaValorSt = pisAliquotaValorSt;
+    }
+
+    public BigDecimal getPisValorSt() {
+        return pisValorSt;
+    }
+
+    public void setPisValorSt(BigDecimal pisValorSt) {
+        this.pisValorSt = pisValorSt;
+    }
+
+    public NFePisCofinsSituacaoTributariaEnum getCofinsSituacaoTributaria() {
+        return cofinsSituacaoTributaria;
+    }
+
+    public void setCofinsSituacaoTributaria(NFePisCofinsSituacaoTributariaEnum cofinsSituacaoTributaria) {
+        this.cofinsSituacaoTributaria = cofinsSituacaoTributaria;
+    }
+
+    public BigDecimal getCofinsBaseCalculo() {
+        return cofinsBaseCalculo;
+    }
+
+    public void setCofinsBaseCalculo(BigDecimal cofinsBaseCalculo) {
+        this.cofinsBaseCalculo = cofinsBaseCalculo;
+    }
+
+    public BigDecimal getCofinsAliquotaPorcentual() {
+        return cofinsAliquotaPorcentual;
+    }
+
+    public void setCofinsAliquotaPorcentual(BigDecimal cofinsAliquotaPorcentual) {
+        this.cofinsAliquotaPorcentual = cofinsAliquotaPorcentual;
+    }
+
+    public BigDecimal getCofinsQuantidadeVendida() {
+        return cofinsQuantidadeVendida;
+    }
+
+    public void setCofinsQuantidadeVendida(BigDecimal cofinsQuantidadeVendida) {
+        this.cofinsQuantidadeVendida = cofinsQuantidadeVendida;
+    }
+
+    public BigDecimal getCofinsAliquotaValor() {
+        return cofinsAliquotaValor;
+    }
+
+    public void setCofinsAliquotaValor(BigDecimal cofinsAliquotaValor) {
+        this.cofinsAliquotaValor = cofinsAliquotaValor;
+    }
+
+    public BigDecimal getCofinsValor() {
+        return cofinsValor;
+    }
+
+    public void setCofinsValor(BigDecimal cofinsValor) {
+        this.cofinsValor = cofinsValor;
+    }
+
+    public BigDecimal getCofinsBaseCalculoSt() {
+        return cofinsBaseCalculoSt;
+    }
+
+    public void setCofinsBaseCalculoSt(BigDecimal cofinsBaseCalculoSt) {
+        this.cofinsBaseCalculoSt = cofinsBaseCalculoSt;
+    }
+
+    public BigDecimal getCofinsAliquotaPorcentualSt() {
+        return cofinsAliquotaPorcentualSt;
+    }
+
+    public void setCofinsAliquotaPorcentualSt(BigDecimal cofinsAliquotaPorcentualSt) {
+        this.cofinsAliquotaPorcentualSt = cofinsAliquotaPorcentualSt;
+    }
+
+    public BigDecimal getCofinsQuantidadeVendidaSt() {
+        return cofinsQuantidadeVendidaSt;
+    }
+
+    public void setCofinsQuantidadeVendidaSt(BigDecimal cofinsQuantidadeVendidaSt) {
+        this.cofinsQuantidadeVendidaSt = cofinsQuantidadeVendidaSt;
+    }
+
+    public BigDecimal getCofinsAliquotaValorSt() {
+        return cofinsAliquotaValorSt;
+    }
+
+    public void setCofinsAliquotaValorSt(BigDecimal cofinsAliquotaValorSt) {
+        this.cofinsAliquotaValorSt = cofinsAliquotaValorSt;
+    }
+
+    public BigDecimal getCofinsValorSt() {
+        return cofinsValorSt;
+    }
+
+    public void setCofinsValorSt(BigDecimal cofinsValorSt) {
+        this.cofinsValorSt = cofinsValorSt;
+    }
+
+    public BigDecimal getIcmsBaseCalculoUfDestino() {
+        return icmsBaseCalculoUfDestino;
+    }
+
+    public void setIcmsBaseCalculoUfDestino(BigDecimal icmsBaseCalculoUfDestino) {
+        this.icmsBaseCalculoUfDestino = icmsBaseCalculoUfDestino;
+    }
+
+    public BigDecimal getFcpBaseCalculoUfDestino() {
+        return fcpBaseCalculoUfDestino;
+    }
+
+    public void setFcpBaseCalculoUfDestino(BigDecimal fcpBaseCalculoUfDestino) {
+        this.fcpBaseCalculoUfDestino = fcpBaseCalculoUfDestino;
+    }
+
+    public BigDecimal getFcpPercentualUfDestino() {
+        return fcpPercentualUfDestino;
+    }
+
+    public void setFcpPercentualUfDestino(BigDecimal fcpPercentualUfDestino) {
+        this.fcpPercentualUfDestino = fcpPercentualUfDestino;
+    }
+
+    public BigDecimal getIcmsAliquotaInternaUfDestino() {
+        return icmsAliquotaInternaUfDestino;
+    }
+
+    public void setIcmsAliquotaInternaUfDestino(BigDecimal icmsAliquotaInternaUfDestino) {
+        this.icmsAliquotaInternaUfDestino = icmsAliquotaInternaUfDestino;
+    }
+
+    public BigDecimal getIcmsAliquotaInterestadual() {
+        return icmsAliquotaInterestadual;
+    }
+
+    public void setIcmsAliquotaInterestadual(BigDecimal icmsAliquotaInterestadual) {
+        this.icmsAliquotaInterestadual = icmsAliquotaInterestadual;
+    }
+
+    public BigDecimal getIcmsPercentualPartilha() {
+        return icmsPercentualPartilha;
+    }
+
+    public void setIcmsPercentualPartilha(BigDecimal icmsPercentualPartilha) {
+        this.icmsPercentualPartilha = icmsPercentualPartilha;
+    }
+
+    public BigDecimal getFcpValorUfDestino() {
+        return fcpValorUfDestino;
+    }
+
+    public void setFcpValorUfDestino(BigDecimal fcpValorUfDestino) {
+        this.fcpValorUfDestino = fcpValorUfDestino;
+    }
+
+    public BigDecimal getIcmsValorUfDestino() {
+        return icmsValorUfDestino;
+    }
+
+    public void setIcmsValorUfDestino(BigDecimal icmsValorUfDestino) {
+        this.icmsValorUfDestino = icmsValorUfDestino;
+    }
+
+    public BigDecimal getIcmsValorUfRemetente() {
+        return icmsValorUfRemetente;
+    }
+
+    public void setIcmsValorUfRemetente(BigDecimal icmsValorUfRemetente) {
+        this.icmsValorUfRemetente = icmsValorUfRemetente;
+    }
+
+    public BigDecimal getPercentualDevolvido() {
+        return percentualDevolvido;
+    }
+
+    public void setPercentualDevolvido(BigDecimal percentualDevolvido) {
+        this.percentualDevolvido = percentualDevolvido;
+    }
+
+    public BigDecimal getValorIpiDevolvido() {
+        return valorIpiDevolvido;
+    }
+
+    public void setValorIpiDevolvido(BigDecimal valorIpiDevolvido) {
+        this.valorIpiDevolvido = valorIpiDevolvido;
+    }
+
+    public String getInformacoesAdicionaisItem() {
+        return informacoesAdicionaisItem;
+    }
+
+    public void setInformacoesAdicionaisItem(String informacoesAdicionaisItem) {
+        this.informacoesAdicionaisItem = informacoesAdicionaisItem;
+    }
+
+    public static final class Builder {
+
+        private String numeroItem;
+
+        private String codigoProduto;
+
+        private String codigoBarrasComercial;
+
+        private String descricao;
+
+        private String codigoNcm;
+
+        private List<NFeNve> nves;
+
+        private String cest;
+
+        private Boolean escalaRelevante;
+
+        private String cnpjFabricante;
+
+        private String codigoBeneficioFiscalUf;
+
+        private String codigoExTipi;
+
+        private String cfop;
+
+        private String unidadeComercial;
+
+        private BigDecimal quantidadeComercial;
+
+        private BigDecimal valorUnitarioComercial;
+
+        private BigDecimal valorBruto;
+
+        private String codigoBarrasTributavel;
+
+        private String unidadeTributavel;
+
+        private BigDecimal quantidadeTributavel;
+
+        private BigDecimal valorUnitarioTributavel;
+
+        private BigDecimal valorFrete;
+
+        private BigDecimal valorSeguro;
+
+        private BigDecimal valorDesconto;
+
+        private BigDecimal valorOutrasDespesas;
+
+        private NFeIncluiNoTotalEnum incluiNoTotal;
+
+        private List<NFeDocumentoImportacao> documentosImportacao;
+
+        private List<NFeDetalheExportacao> detalhesExportacao;
+
+        private String pedidoCompra;
+
+        private String numeroItemPedidoCompra;
+
+        private String numeroFci;
+
+        private List<NFeRastro> rastros;
+
+        private NFeVeiculoTipoOperacaoEnum veiculoTipoOperacao;
+
+        private String veiculoChassi;
+
+        private String veiculoCodigoCor;
+
+        private String veiculoDescricaoCor;
+
+        private String veiculoPotenciaMotor;
+
+        private String veiculoCm3;
+
+        private String veiculoPesoLiquido;
+
+        private String veiculoPesoBruto;
+
+        private String veiculoSerie;
+
+        private NFeVeiculoTipoCombustivelEnum veiculoTipoCombustivel;
+
+        private String veiculoNumeroMotor;
+
+        private String veiculoCmt;
+
+        private String veiculoDistanciaEixos;
+
+        private String veiculoAnoModelo;
+
+        private String veiculoAnoFabricacao;
+
+        private String veiculoTipoPintura;
+
+        private String veiculoTipo;
+
+        private String veiculoEspecie;
+
+        private NFeVeiculoVinEnum veiculoCodigoVin;
+
+        private NFeVeiculoCondicaoEnum veiculoCondicao;
+
+        private String veiculoCodigoMarcaModelo;
+
+        private NFeVeiculoCodigoCorDenatranEnum veiculoCodigoCorDenatran;
+
+        private String veiculoLotacao;
+
+        private NFeVeiculoRestricaoEnum veiculoRestricao;
+
+        private String medicamentoCodigoAnvisa;
+
+        private BigDecimal medicamentoPrecoMaximoConsumidor;
+
+        private String combustivelCodigoAnp;
+
+        private String combustivelDescricaoAnp;
+
+        private BigDecimal combustivelPercentualGlp;
+
+        private BigDecimal combustivelPercentualGasNaturalNacional;
+
+        private BigDecimal combustivelPercentualGasNaturalImportado;
+
+        private BigDecimal combustivelValorPartida;
+
+        private String combustivelRegistroCodif;
+
+        private BigDecimal combustivelQuantidadeTemperaturaAmbiente;
+
+        private NFeUnidadeFederativaEnum combustivelSiglaUf;
+
+        private BigDecimal combustivelCideBaseCalculo;
+
+        private BigDecimal combustivelCideAliquota;
+
+        private BigDecimal combustivelCideValor;
+
+        private BigDecimal valorTotalTributos;
+
+        private BigDecimal issqnBaseCalculo;
+
+        private BigDecimal issqnAliquota;
+
+        private BigDecimal issqnValor;
+
+        private String issqnCodigoMunicipio;
+
+        private String issqnItemListaServico;
+
+        private BigDecimal issqnValorDeducao;
+
+        private BigDecimal issqnValorOutrasRetencoes;
+
+        private BigDecimal issqnValorDescontoIncondicionado;
+
+        private BigDecimal issqnValorDescontoCondicionado;
+
+        private BigDecimal issqnValorRetencao;
+
+        private NFeIssqnIndicadorExigibilidadeEnum issqnIndicadorExigibilidade;
+
+        private String issqnCodigoServico;
+
+        private String issqnCodigoMunicipioIncidencia;
+
+        private String issqnCodigoPais;
+
+        private String issqnNumeroProcesso;
+
+        private String issqnIndicadorIncentivo;
+
+        private NFeIcmsOrigemEnum icmsOrigem;
+
+        private NFeIcmsSituacaoTributariaEnum icmsSituacaoTributaria;
+
+        private NFeIcmsModalidadeBaseCalculoEnum icmsMmodalidadeBaseCalculo;
+
+        private BigDecimal icmsBaseCalculo;
+
+        private BigDecimal icmsBaseCalculoRetidoSt;
+
+        private BigDecimal icmsReducaoBaseCalculo;
+
+        private BigDecimal icmsAliquota;
+
+        private BigDecimal icmsAliquotaFinal;
+
+        private BigDecimal icmsValor;
+
+        private BigDecimal icmsValorRetidoSt;
+
+        private BigDecimal icmsValorDesonerado;
+
+        private BigDecimal icmsValorOperacao;
+
+        private BigDecimal icmsPercentualDiferimento;
+
+        private BigDecimal icmsValorDiferido;
+
+        private NFeIcmsMotivoDesoneracaoEnum icmsMotivoDesoneracao;
+
+        private NFeIcmsModalidadeBaseCalculoStEnum icmsModalidadeBaseCalculoSt;
+
+        private BigDecimal icmsMargemValorAdicionadoSt;
+
+        private BigDecimal icmsReducaoBaseCalculoSt;
+
+        private BigDecimal icmsBaseCalculoSt;
+
+        private BigDecimal icmsAliquotaSt;
+
+        private BigDecimal icmsValorSt;
+
+        private BigDecimal icmsAliquotaCreditoSimples;
+
+        private BigDecimal icmsValorCreditoSimples;
+
+        private BigDecimal fcpPercentual;
+
+        private BigDecimal fcpBaseCalculo;
+
+        private BigDecimal fcpValor;
+
+        private BigDecimal fcpPercentualSt;
+
+        private BigDecimal fcpBaseCalculoSt;
+
+        private BigDecimal fcpValorSt;
+
+        private BigDecimal fcpPercentualRetidoSt;
+
+        private BigDecimal fcpBaseCalculoRetidoSt;
+
+        private BigDecimal fcpValorRetidoSt;
+
+        private NFeIpiSituacaoTributariaEnum ipiSituacaoTributaria;
+
+        private BigDecimal ipiBaseCalculo;
+
+        private BigDecimal ipiAliquota;
+
+        private BigDecimal ipiQuantidadeTotal;
+
+        private BigDecimal ipiValorPorUnidadeTributavel;
+
+        private BigDecimal ipiValor;
+
+        private String ipiClasseEnquadramento;
+
+        private String ipiCnpjProdutor;
+
+        private String ipiCodigoSeloControle;
+
+        private String ipiQuantidadeSeloControle;
+
+        private String ipiCodigoEnquadramentoLegal;
+
+        private BigDecimal iiBaseCalculo;
+
+        private BigDecimal iiDespesasAduaneiras;
+
+        private BigDecimal iiValor;
+
+        private BigDecimal iiValorIof;
+
+        private NFePisCofinsSituacaoTributariaEnum pisSituacaoTributaria;
+
+        private BigDecimal pisBaseCalculo;
+
+        private BigDecimal pisAliquotaPorcentual;
+
+        private BigDecimal pis_quantidade_vendida;
+
+        private BigDecimal pisAliquotaValor;
+
+        private BigDecimal pisValor;
+
+        private BigDecimal pisBaseCalculoSt;
+
+        private BigDecimal pisAliquotaPorcentualSt;
+
+        private BigDecimal pisQuantidadeVendidaSt;
+
+        private BigDecimal pisAliquotaValorSt;
+
+        private BigDecimal pisValorSt;
+
+        private NFePisCofinsSituacaoTributariaEnum cofinsSituacaoTributaria;
+
+        private BigDecimal cofinsBaseCalculo;
+
+        private BigDecimal cofinsAliquotaPorcentual;
+
+        private BigDecimal cofinsQuantidadeVendida;
+
+        private BigDecimal cofinsAliquotaValor;
+
+        private BigDecimal cofinsValor;
+
+        private BigDecimal cofinsBaseCalculoSt;
+
+        private BigDecimal cofinsAliquotaPorcentualSt;
+
+        private BigDecimal cofinsQuantidadeVendidaSt;
+
+        private BigDecimal cofinsAliquotaValorSt;
+
+        private BigDecimal cofinsValorSt;
+
+        private BigDecimal icmsBaseCalculoUfDestino;
+
+        private BigDecimal fcpBaseCalculoUfDestino;
+
+        private BigDecimal fcpPercentualUfDestino;
+
+        private BigDecimal icmsAliquotaInternaUfDestino;
+
+        private BigDecimal icmsAliquotaInterestadual;
+
+        private BigDecimal icmsPercentualPartilha;
+
+        private BigDecimal fcpValorUfDestino;
+
+        private BigDecimal icmsValorUfDestino;
+
+        private BigDecimal icmsValorUfRemetente;
+
+        private BigDecimal percentualDevolvido;
+
+        private BigDecimal valorIpiDevolvido;
+
+        private String informacoesAdicionaisItem;
+
+        private Builder() {
+        }
+
+        public Builder withNumeroItem(String val) {
+            numeroItem = val;
+            return this;
+        }
+
+        public Builder withCodigoProduto(String val) {
+            codigoProduto = val;
+            return this;
+        }
+
+        public Builder withCodigoBarrasComercial(String val) {
+            codigoBarrasComercial = val;
+            return this;
+        }
+
+        public Builder withDescricao(String val) {
+            descricao = val;
+            return this;
+        }
+
+        public Builder withCodigoNcm(String val) {
+            codigoNcm = val;
+            return this;
+        }
+
+        public Builder withNves(List<NFeNve> val) {
+            nves = val;
+            return this;
+        }
+
+        public Builder withCest(String val) {
+            cest = val;
+            return this;
+        }
+
+        public Builder withEscalaRelevante(Boolean val) {
+            escalaRelevante = val;
+            return this;
+        }
+
+        public Builder withCnpjFabricante(String val) {
+            cnpjFabricante = val;
+            return this;
+        }
+
+        public Builder withCodigoBeneficioFiscalUf(String val) {
+            codigoBeneficioFiscalUf = val;
+            return this;
+        }
+
+        public Builder withCodigoExTipi(String val) {
+            codigoExTipi = val;
+            return this;
+        }
+
+        public Builder withCfop(String val) {
+            cfop = val;
+            return this;
+        }
+
+        public Builder withUnidadeComercial(String val) {
+            unidadeComercial = val;
+            return this;
+        }
+
+        public Builder withQuantidadeComercial(BigDecimal val) {
+            quantidadeComercial = val;
+            return this;
+        }
+
+        public Builder withValorUnitarioComercial(BigDecimal val) {
+            valorUnitarioComercial = val;
+            return this;
+        }
+
+        public Builder withValorBruto(BigDecimal val) {
+            valorBruto = val;
+            return this;
+        }
+
+        public Builder withCodigoBarrasTributavel(String val) {
+            codigoBarrasTributavel = val;
+            return this;
+        }
+
+        public Builder withUnidadeTributavel(String val) {
+            unidadeTributavel = val;
+            return this;
+        }
+
+        public Builder withQuantidadeTributavel(BigDecimal val) {
+            quantidadeTributavel = val;
+            return this;
+        }
+
+        public Builder withValorUnitarioTributavel(BigDecimal val) {
+            valorUnitarioTributavel = val;
+            return this;
+        }
+
+        public Builder withValorFrete(BigDecimal val) {
+            valorFrete = val;
+            return this;
+        }
+
+        public Builder withValorSeguro(BigDecimal val) {
+            valorSeguro = val;
+            return this;
+        }
+
+        public Builder withValorDesconto(BigDecimal val) {
+            valorDesconto = val;
+            return this;
+        }
+
+        public Builder withValorOutrasDespesas(BigDecimal val) {
+            valorOutrasDespesas = val;
+            return this;
+        }
+
+        public Builder withIncluiNoTotal(NFeIncluiNoTotalEnum val) {
+            incluiNoTotal = val;
+            return this;
+        }
+
+        public Builder withDocumentosImportacao(List<NFeDocumentoImportacao> val) {
+            documentosImportacao = val;
+            return this;
+        }
+
+        public Builder withDetalhesExportacao(List<NFeDetalheExportacao> val) {
+            detalhesExportacao = val;
+            return this;
+        }
+
+        public Builder withPedidoCompra(String val) {
+            pedidoCompra = val;
+            return this;
+        }
+
+        public Builder withNumeroItemPedidoCompra(String val) {
+            numeroItemPedidoCompra = val;
+            return this;
+        }
+
+        public Builder withNumeroFci(String val) {
+            numeroFci = val;
+            return this;
+        }
+
+        public Builder withRastros(List<NFeRastro> val) {
+            rastros = val;
+            return this;
+        }
+
+        public Builder withVeiculoTipoOperacao(NFeVeiculoTipoOperacaoEnum val) {
+            veiculoTipoOperacao = val;
+            return this;
+        }
+
+        public Builder withVeiculoChassi(String val) {
+            veiculoChassi = val;
+            return this;
+        }
+
+        public Builder withVeiculoCodigoCor(String val) {
+            veiculoCodigoCor = val;
+            return this;
+        }
+
+        public Builder withVeiculoDescricaoCor(String val) {
+            veiculoDescricaoCor = val;
+            return this;
+        }
+
+        public Builder withVeiculoPotenciaMotor(String val) {
+            veiculoPotenciaMotor = val;
+            return this;
+        }
+
+        public Builder withVeiculoCm3(String val) {
+            veiculoCm3 = val;
+            return this;
+        }
+
+        public Builder withVeiculoPesoLiquido(String val) {
+            veiculoPesoLiquido = val;
+            return this;
+        }
+
+        public Builder withVeiculoPesoBruto(String val) {
+            veiculoPesoBruto = val;
+            return this;
+        }
+
+        public Builder withVeiculoSerie(String val) {
+            veiculoSerie = val;
+            return this;
+        }
+
+        public Builder withVeiculoTipoCombustivel(NFeVeiculoTipoCombustivelEnum val) {
+            veiculoTipoCombustivel = val;
+            return this;
+        }
+
+        public Builder withVeiculoNumeroMotor(String val) {
+            veiculoNumeroMotor = val;
+            return this;
+        }
+
+        public Builder withVeiculoCmt(String val) {
+            veiculoCmt = val;
+            return this;
+        }
+
+        public Builder withVeiculoDistanciaEixos(String val) {
+            veiculoDistanciaEixos = val;
+            return this;
+        }
+
+        public Builder withVeiculoAnoModelo(String val) {
+            veiculoAnoModelo = val;
+            return this;
+        }
+
+        public Builder withVeiculoAnoFabricacao(String val) {
+            veiculoAnoFabricacao = val;
+            return this;
+        }
+
+        public Builder withVeiculoTipoPintura(String val) {
+            veiculoTipoPintura = val;
+            return this;
+        }
+
+        public Builder withVeiculoTipo(String val) {
+            veiculoTipo = val;
+            return this;
+        }
+
+        public Builder withVeiculoEspecie(String val) {
+            veiculoEspecie = val;
+            return this;
+        }
+
+        public Builder withVeiculoCodigoVin(NFeVeiculoVinEnum val) {
+            veiculoCodigoVin = val;
+            return this;
+        }
+
+        public Builder withVeiculoCondicao(NFeVeiculoCondicaoEnum val) {
+            veiculoCondicao = val;
+            return this;
+        }
+
+        public Builder withVeiculoCodigoMarcaModelo(String val) {
+            veiculoCodigoMarcaModelo = val;
+            return this;
+        }
+
+        public Builder withVeiculoCodigoCorDenatran(NFeVeiculoCodigoCorDenatranEnum val) {
+            veiculoCodigoCorDenatran = val;
+            return this;
+        }
+
+        public Builder withVeiculoLotacao(String val) {
+            veiculoLotacao = val;
+            return this;
+        }
+
+        public Builder withVeiculoRestricao(NFeVeiculoRestricaoEnum val) {
+            veiculoRestricao = val;
+            return this;
+        }
+
+        public Builder withMedicamentoCodigoAnvisa(String val) {
+            medicamentoCodigoAnvisa = val;
+            return this;
+        }
+
+        public Builder withMedicamentoPrecoMaximoConsumidor(BigDecimal val) {
+            medicamentoPrecoMaximoConsumidor = val;
+            return this;
+        }
+
+        public Builder withCombustivelCodigoAnp(String val) {
+            combustivelCodigoAnp = val;
+            return this;
+        }
+
+        public Builder withCombustivelDescricaoAnp(String val) {
+            combustivelDescricaoAnp = val;
+            return this;
+        }
+
+        public Builder withCombustivelPercentualGlp(BigDecimal val) {
+            combustivelPercentualGlp = val;
+            return this;
+        }
+
+        public Builder withCombustivelPercentualGasNaturalNacional(BigDecimal val) {
+            combustivelPercentualGasNaturalNacional = val;
+            return this;
+        }
+
+        public Builder withCombustivelPercentualGasNaturalImportado(BigDecimal val) {
+            combustivelPercentualGasNaturalImportado = val;
+            return this;
+        }
+
+        public Builder withCombustivelValorPartida(BigDecimal val) {
+            combustivelValorPartida = val;
+            return this;
+        }
+
+        public Builder withCombustivelRegistroCodif(String val) {
+            combustivelRegistroCodif = val;
+            return this;
+        }
+
+        public Builder withCombustivelQuantidadeTemperaturaAmbiente(BigDecimal val) {
+            combustivelQuantidadeTemperaturaAmbiente = val;
+            return this;
+        }
+
+        public Builder withCombustivelSiglaUf(NFeUnidadeFederativaEnum val) {
+            combustivelSiglaUf = val;
+            return this;
+        }
+
+        public Builder withCombustivelCideBaseCalculo(BigDecimal val) {
+            combustivelCideBaseCalculo = val;
+            return this;
+        }
+
+        public Builder withCombustivelCideAliquota(BigDecimal val) {
+            combustivelCideAliquota = val;
+            return this;
+        }
+
+        public Builder withCombustivelCideValor(BigDecimal val) {
+            combustivelCideValor = val;
+            return this;
+        }
+
+        public Builder withValorTotalTributos(BigDecimal val) {
+            valorTotalTributos = val;
+            return this;
+        }
+
+        public Builder withIssqnBaseCalculo(BigDecimal val) {
+            issqnBaseCalculo = val;
+            return this;
+        }
+
+        public Builder withIssqnAliquota(BigDecimal val) {
+            issqnAliquota = val;
+            return this;
+        }
+
+        public Builder withIssqnValor(BigDecimal val) {
+            issqnValor = val;
+            return this;
+        }
+
+        public Builder withIssqnCodigoMunicipio(String val) {
+            issqnCodigoMunicipio = val;
+            return this;
+        }
+
+        public Builder withIssqnItemListaServico(String val) {
+            issqnItemListaServico = val;
+            return this;
+        }
+
+        public Builder withIssqnValorDeducao(BigDecimal val) {
+            issqnValorDeducao = val;
+            return this;
+        }
+
+        public Builder withIssqnValorOutrasRetencoes(BigDecimal val) {
+            issqnValorOutrasRetencoes = val;
+            return this;
+        }
+
+        public Builder withIssqnValorDescontoIncondicionado(BigDecimal val) {
+            issqnValorDescontoIncondicionado = val;
+            return this;
+        }
+
+        public Builder withIssqnValorDescontoCondicionado(BigDecimal val) {
+            issqnValorDescontoCondicionado = val;
+            return this;
+        }
+
+        public Builder withIssqnValorRetencao(BigDecimal val) {
+            issqnValorRetencao = val;
+            return this;
+        }
+
+        public Builder withIssqnIndicadorExigibilidade(NFeIssqnIndicadorExigibilidadeEnum val) {
+            issqnIndicadorExigibilidade = val;
+            return this;
+        }
+
+        public Builder withIssqnCodigoServico(String val) {
+            issqnCodigoServico = val;
+            return this;
+        }
+
+        public Builder withIssqnCodigoMunicipioIncidencia(String val) {
+            issqnCodigoMunicipioIncidencia = val;
+            return this;
+        }
+
+        public Builder withIssqnCodigoPais(String val) {
+            issqnCodigoPais = val;
+            return this;
+        }
+
+        public Builder withIssqnNumeroProcesso(String val) {
+            issqnNumeroProcesso = val;
+            return this;
+        }
+
+        public Builder withIssqnIndicadorIncentivo(String val) {
+            issqnIndicadorIncentivo = val;
+            return this;
+        }
+
+        public Builder withIcmsOrigem(NFeIcmsOrigemEnum val) {
+            icmsOrigem = val;
+            return this;
+        }
+
+        public Builder withIcmsSituacaoTributaria(NFeIcmsSituacaoTributariaEnum val) {
+            icmsSituacaoTributaria = val;
+            return this;
+        }
+
+        public Builder withIcmsMmodalidadeBaseCalculo(NFeIcmsModalidadeBaseCalculoEnum val) {
+            icmsMmodalidadeBaseCalculo = val;
+            return this;
+        }
+
+        public Builder withIcmsBaseCalculo(BigDecimal val) {
+            icmsBaseCalculo = val;
+            return this;
+        }
+
+        public Builder withIcmsBaseCalculoRetidoSt(BigDecimal val) {
+            icmsBaseCalculoRetidoSt = val;
+            return this;
+        }
+
+        public Builder withIcmsReducaoBaseCalculo(BigDecimal val) {
+            icmsReducaoBaseCalculo = val;
+            return this;
+        }
+
+        public Builder withIcmsAliquota(BigDecimal val) {
+            icmsAliquota = val;
+            return this;
+        }
+
+        public Builder withIcmsAliquotaFinal(BigDecimal val) {
+            icmsAliquotaFinal = val;
+            return this;
+        }
+
+        public Builder withIcmsValor(BigDecimal val) {
+            icmsValor = val;
+            return this;
+        }
+
+        public Builder withIcmsValorRetidoSt(BigDecimal val) {
+            icmsValorRetidoSt = val;
+            return this;
+        }
+
+        public Builder withIcmsValorDesonerado(BigDecimal val) {
+            icmsValorDesonerado = val;
+            return this;
+        }
+
+        public Builder withIcmsValorOperacao(BigDecimal val) {
+            icmsValorOperacao = val;
+            return this;
+        }
+
+        public Builder withIcmsPercentualDiferimento(BigDecimal val) {
+            icmsPercentualDiferimento = val;
+            return this;
+        }
+
+        public Builder withIcmsValorDiferido(BigDecimal val) {
+            icmsValorDiferido = val;
+            return this;
+        }
+
+        public Builder withIcmsMotivoDesoneracao(NFeIcmsMotivoDesoneracaoEnum val) {
+            icmsMotivoDesoneracao = val;
+            return this;
+        }
+
+        public Builder withIcmsModalidadeBaseCalculoSt(NFeIcmsModalidadeBaseCalculoStEnum val) {
+            icmsModalidadeBaseCalculoSt = val;
+            return this;
+        }
+
+        public Builder withIcmsMargemValorAdicionadoSt(BigDecimal val) {
+            icmsMargemValorAdicionadoSt = val;
+            return this;
+        }
+
+        public Builder withIcmsReducaoBaseCalculoSt(BigDecimal val) {
+            icmsReducaoBaseCalculoSt = val;
+            return this;
+        }
+
+        public Builder withIcmsBaseCalculoSt(BigDecimal val) {
+            icmsBaseCalculoSt = val;
+            return this;
+        }
+
+        public Builder withIcmsAliquotaSt(BigDecimal val) {
+            icmsAliquotaSt = val;
+            return this;
+        }
+
+        public Builder withIcmsValorSt(BigDecimal val) {
+            icmsValorSt = val;
+            return this;
+        }
+
+        public Builder withIcmsAliquotaCreditoSimples(BigDecimal val) {
+            icmsAliquotaCreditoSimples = val;
+            return this;
+        }
+
+        public Builder withIcmsValorCreditoSimples(BigDecimal val) {
+            icmsValorCreditoSimples = val;
+            return this;
+        }
+
+        public Builder withFcpPercentual(BigDecimal val) {
+            fcpPercentual = val;
+            return this;
+        }
+
+        public Builder withFcpBaseCalculo(BigDecimal val) {
+            fcpBaseCalculo = val;
+            return this;
+        }
+
+        public Builder withFcpValor(BigDecimal val) {
+            fcpValor = val;
+            return this;
+        }
+
+        public Builder withFcpPercentualSt(BigDecimal val) {
+            fcpPercentualSt = val;
+            return this;
+        }
+
+        public Builder withFcpBaseCalculoSt(BigDecimal val) {
+            fcpBaseCalculoSt = val;
+            return this;
+        }
+
+        public Builder withFcpValorSt(BigDecimal val) {
+            fcpValorSt = val;
+            return this;
+        }
+
+        public Builder withFcpPercentualRetidoSt(BigDecimal val) {
+            fcpPercentualRetidoSt = val;
+            return this;
+        }
+
+        public Builder withFcpBaseCalculoRetidoSt(BigDecimal val) {
+            fcpBaseCalculoRetidoSt = val;
+            return this;
+        }
+
+        public Builder withFcpValorRetidoSt(BigDecimal val) {
+            fcpValorRetidoSt = val;
+            return this;
+        }
+
+        public Builder withIpiSituacaoTributaria(NFeIpiSituacaoTributariaEnum val) {
+            ipiSituacaoTributaria = val;
+            return this;
+        }
+
+        public Builder withIpiBaseCalculo(BigDecimal val) {
+            ipiBaseCalculo = val;
+            return this;
+        }
+
+        public Builder withIpiAliquota(BigDecimal val) {
+            ipiAliquota = val;
+            return this;
+        }
+
+        public Builder withIpiQuantidadeTotal(BigDecimal val) {
+            ipiQuantidadeTotal = val;
+            return this;
+        }
+
+        public Builder withIpiValorPorUnidadeTributavel(BigDecimal val) {
+            ipiValorPorUnidadeTributavel = val;
+            return this;
+        }
+
+        public Builder withIpiValor(BigDecimal val) {
+            ipiValor = val;
+            return this;
+        }
+
+        public Builder withIpiClasseEnquadramento(String val) {
+            ipiClasseEnquadramento = val;
+            return this;
+        }
+
+        public Builder withIpiCnpjProdutor(String val) {
+            ipiCnpjProdutor = val;
+            return this;
+        }
+
+        public Builder withIpiCodigoSeloControle(String val) {
+            ipiCodigoSeloControle = val;
+            return this;
+        }
+
+        public Builder withIpiQuantidadeSeloControle(String val) {
+            ipiQuantidadeSeloControle = val;
+            return this;
+        }
+
+        public Builder withIpiCodigoEnquadramentoLegal(String val) {
+            ipiCodigoEnquadramentoLegal = val;
+            return this;
+        }
+
+        public Builder withIiBaseCalculo(BigDecimal val) {
+            iiBaseCalculo = val;
+            return this;
+        }
+
+        public Builder withIiDespesasAduaneiras(BigDecimal val) {
+            iiDespesasAduaneiras = val;
+            return this;
+        }
+
+        public Builder withIiValor(BigDecimal val) {
+            iiValor = val;
+            return this;
+        }
+
+        public Builder withIiValorIof(BigDecimal val) {
+            iiValorIof = val;
+            return this;
+        }
+
+        public Builder withPisSituacaoTributaria(NFePisCofinsSituacaoTributariaEnum val) {
+            pisSituacaoTributaria = val;
+            return this;
+        }
+
+        public Builder withPisBaseCalculo(BigDecimal val) {
+            pisBaseCalculo = val;
+            return this;
+        }
+
+        public Builder withPisAliquotaPorcentual(BigDecimal val) {
+            pisAliquotaPorcentual = val;
+            return this;
+        }
+
+        public Builder withPis_quantidade_vendida(BigDecimal val) {
+            pis_quantidade_vendida = val;
+            return this;
+        }
+
+        public Builder withPisAliquotaValor(BigDecimal val) {
+            pisAliquotaValor = val;
+            return this;
+        }
+
+        public Builder withPisValor(BigDecimal val) {
+            pisValor = val;
+            return this;
+        }
+
+        public Builder withPisBaseCalculoSt(BigDecimal val) {
+            pisBaseCalculoSt = val;
+            return this;
+        }
+
+        public Builder withPisAliquotaPorcentualSt(BigDecimal val) {
+            pisAliquotaPorcentualSt = val;
+            return this;
+        }
+
+        public Builder withPisQuantidadeVendidaSt(BigDecimal val) {
+            pisQuantidadeVendidaSt = val;
+            return this;
+        }
+
+        public Builder withPisAliquotaValorSt(BigDecimal val) {
+            pisAliquotaValorSt = val;
+            return this;
+        }
+
+        public Builder withPisValorSt(BigDecimal val) {
+            pisValorSt = val;
+            return this;
+        }
+
+        public Builder withCofinsSituacaoTributaria(NFePisCofinsSituacaoTributariaEnum val) {
+            cofinsSituacaoTributaria = val;
+            return this;
+        }
+
+        public Builder withCofinsBaseCalculo(BigDecimal val) {
+            cofinsBaseCalculo = val;
+            return this;
+        }
+
+        public Builder withCofinsAliquotaPorcentual(BigDecimal val) {
+            cofinsAliquotaPorcentual = val;
+            return this;
+        }
+
+        public Builder withCofinsQuantidadeVendida(BigDecimal val) {
+            cofinsQuantidadeVendida = val;
+            return this;
+        }
+
+        public Builder withCofinsAliquotaValor(BigDecimal val) {
+            cofinsAliquotaValor = val;
+            return this;
+        }
+
+        public Builder withCofinsValor(BigDecimal val) {
+            cofinsValor = val;
+            return this;
+        }
+
+        public Builder withCofinsBaseCalculoSt(BigDecimal val) {
+            cofinsBaseCalculoSt = val;
+            return this;
+        }
+
+        public Builder withCofinsAliquotaPorcentualSt(BigDecimal val) {
+            cofinsAliquotaPorcentualSt = val;
+            return this;
+        }
+
+        public Builder withCofinsQuantidadeVendidaSt(BigDecimal val) {
+            cofinsQuantidadeVendidaSt = val;
+            return this;
+        }
+
+        public Builder withCofinsAliquotaValorSt(BigDecimal val) {
+            cofinsAliquotaValorSt = val;
+            return this;
+        }
+
+        public Builder withCofinsValorSt(BigDecimal val) {
+            cofinsValorSt = val;
+            return this;
+        }
+
+        public Builder withIcmsBaseCalculoUfDestino(BigDecimal val) {
+            icmsBaseCalculoUfDestino = val;
+            return this;
+        }
+
+        public Builder withFcpBaseCalculoUfDestino(BigDecimal val) {
+            fcpBaseCalculoUfDestino = val;
+            return this;
+        }
+
+        public Builder withFcpPercentualUfDestino(BigDecimal val) {
+            fcpPercentualUfDestino = val;
+            return this;
+        }
+
+        public Builder withIcmsAliquotaInternaUfDestino(BigDecimal val) {
+            icmsAliquotaInternaUfDestino = val;
+            return this;
+        }
+
+        public Builder withIcmsAliquotaInterestadual(BigDecimal val) {
+            icmsAliquotaInterestadual = val;
+            return this;
+        }
+
+        public Builder withIcmsPercentualPartilha(BigDecimal val) {
+            icmsPercentualPartilha = val;
+            return this;
+        }
+
+        public Builder withFcpValorUfDestino(BigDecimal val) {
+            fcpValorUfDestino = val;
+            return this;
+        }
+
+        public Builder withIcmsValorUfDestino(BigDecimal val) {
+            icmsValorUfDestino = val;
+            return this;
+        }
+
+        public Builder withIcmsValorUfRemetente(BigDecimal val) {
+            icmsValorUfRemetente = val;
+            return this;
+        }
+
+        public Builder withPercentualDevolvido(BigDecimal val) {
+            percentualDevolvido = val;
+            return this;
+        }
+
+        public Builder withValorIpiDevolvido(BigDecimal val) {
+            valorIpiDevolvido = val;
+            return this;
+        }
+
+        public Builder withInformacoesAdicionaisItem(String val) {
+            informacoesAdicionaisItem = val;
+            return this;
+        }
+
+        public NFeItem build() {
+            return new NFeItem(this);
+        }
+    }
 }

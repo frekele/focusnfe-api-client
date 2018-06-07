@@ -28,4 +28,41 @@ public class NFeAutorizarBodyRequest implements FocusNFeEntity {
     public NFeAutorizarBodyRequest() {
         super();
     }
+
+    public NFeAutorizarBodyRequest(NFeRequisicao nfe) {
+        this.nfe = nfe;
+    }
+
+    private NFeAutorizarBodyRequest(Builder builder) {
+        setNfe(builder.nfe);
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public NFeRequisicao getNfe() {
+        return nfe;
+    }
+
+    public void setNfe(NFeRequisicao nfe) {
+        this.nfe = nfe;
+    }
+
+    public static final class Builder {
+
+        private NFeRequisicao nfe;
+
+        private Builder() {
+        }
+
+        public Builder withNfe(NFeRequisicao val) {
+            nfe = val;
+            return this;
+        }
+
+        public NFeAutorizarBodyRequest build() {
+            return new NFeAutorizarBodyRequest(this);
+        }
+    }
 }

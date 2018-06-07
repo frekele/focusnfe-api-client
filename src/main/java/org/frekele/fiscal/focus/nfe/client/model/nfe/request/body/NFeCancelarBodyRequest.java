@@ -27,4 +27,41 @@ public class NFeCancelarBodyRequest implements FocusNFeEntity {
     public NFeCancelarBodyRequest() {
         super();
     }
+
+    public NFeCancelarBodyRequest(String justificativa) {
+        this.justificativa = justificativa;
+    }
+
+    private NFeCancelarBodyRequest(Builder builder) {
+        setJustificativa(builder.justificativa);
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getJustificativa() {
+        return justificativa;
+    }
+
+    public void setJustificativa(String justificativa) {
+        this.justificativa = justificativa;
+    }
+
+    public static final class Builder {
+
+        private String justificativa;
+
+        private Builder() {
+        }
+
+        public Builder withJustificativa(String val) {
+            justificativa = val;
+            return this;
+        }
+
+        public NFeCancelarBodyRequest build() {
+            return new NFeCancelarBodyRequest(this);
+        }
+    }
 }

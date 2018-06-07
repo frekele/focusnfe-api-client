@@ -44,30 +44,84 @@ public class NFeDetalheExportacao implements FocusNFeEntity {
         super();
     }
 
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
+    private NFeDetalheExportacao(Builder builder) {
+        setNumeroDrawback(builder.numeroDrawback);
+        setNumeroRe(builder.numeroRe);
+        setChaveNfe(builder.chaveNfe);
+        setQuantidadeExportado(builder.quantidadeExportado);
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getNumeroDrawback() {
+        return numeroDrawback;
+    }
+
+    public void setNumeroDrawback(String numeroDrawback) {
+        this.numeroDrawback = numeroDrawback;
+    }
+
+    public String getNumeroRe() {
+        return numeroRe;
+    }
+
+    public void setNumeroRe(String numeroRe) {
+        this.numeroRe = numeroRe;
+    }
+
+    public String getChaveNfe() {
+        return chaveNfe;
+    }
+
+    public void setChaveNfe(String chaveNfe) {
+        this.chaveNfe = chaveNfe;
+    }
+
+    public String getQuantidadeExportado() {
+        return quantidadeExportado;
+    }
+
+    public void setQuantidadeExportado(String quantidadeExportado) {
+        this.quantidadeExportado = quantidadeExportado;
+    }
+
+    public static final class Builder {
+
+        private String numeroDrawback;
+
+        private String numeroRe;
+
+        private String chaveNfe;
+
+        private String quantidadeExportado;
+
+        private Builder() {
+        }
+
+        public Builder withNumeroDrawback(String val) {
+            numeroDrawback = val;
+            return this;
+        }
+
+        public Builder withNumeroRe(String val) {
+            numeroRe = val;
+            return this;
+        }
+
+        public Builder withChaveNfe(String val) {
+            chaveNfe = val;
+            return this;
+        }
+
+        public Builder withQuantidadeExportado(String val) {
+            quantidadeExportado = val;
+            return this;
+        }
+
+        public NFeDetalheExportacao build() {
+            return new NFeDetalheExportacao(this);
+        }
+    }
 }

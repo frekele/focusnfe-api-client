@@ -60,30 +60,132 @@ public class NFeVolumeTransportado implements FocusNFeEntity {
         super();
     }
 
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
+    private NFeVolumeTransportado(Builder builder) {
+        setQuantidade(builder.quantidade);
+        setEspecie(builder.especie);
+        setMarca(builder.marca);
+        setNumero(builder.numero);
+        setPesoLiquido(builder.pesoLiquido);
+        setPesoBruto(builder.pesoBruto);
+        setLacres(builder.lacres);
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(String quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public String getEspecie() {
+        return especie;
+    }
+
+    public void setEspecie(String especie) {
+        this.especie = especie;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public String getPesoLiquido() {
+        return pesoLiquido;
+    }
+
+    public void setPesoLiquido(String pesoLiquido) {
+        this.pesoLiquido = pesoLiquido;
+    }
+
+    public String getPesoBruto() {
+        return pesoBruto;
+    }
+
+    public void setPesoBruto(String pesoBruto) {
+        this.pesoBruto = pesoBruto;
+    }
+
+    public List<NFeLacreVolumeTransportado> getLacres() {
+        return lacres;
+    }
+
+    public void setLacres(List<NFeLacreVolumeTransportado> lacres) {
+        this.lacres = lacres;
+    }
+
+    public static final class Builder {
+
+        private String quantidade;
+
+        private String especie;
+
+        private String marca;
+
+        private String numero;
+
+        private String pesoLiquido;
+
+        private String pesoBruto;
+
+        private List<NFeLacreVolumeTransportado> lacres;
+
+        private Builder() {
+        }
+
+        public Builder withQuantidade(String val) {
+            quantidade = val;
+            return this;
+        }
+
+        public Builder withEspecie(String val) {
+            especie = val;
+            return this;
+        }
+
+        public Builder withMarca(String val) {
+            marca = val;
+            return this;
+        }
+
+        public Builder withNumero(String val) {
+            numero = val;
+            return this;
+        }
+
+        public Builder withPesoLiquido(String val) {
+            pesoLiquido = val;
+            return this;
+        }
+
+        public Builder withPesoBruto(String val) {
+            pesoBruto = val;
+            return this;
+        }
+
+        public Builder withLacres(List<NFeLacreVolumeTransportado> val) {
+            lacres = val;
+            return this;
+        }
+
+        public NFeVolumeTransportado build() {
+            return new NFeVolumeTransportado(this);
+        }
+    }
 }

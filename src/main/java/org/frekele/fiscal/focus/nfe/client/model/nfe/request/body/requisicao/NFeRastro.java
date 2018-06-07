@@ -51,30 +51,100 @@ public class NFeRastro implements FocusNFeEntity {
         super();
     }
 
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
+    private NFeRastro(Builder builder) {
+        setNumeroLote(builder.numeroLote);
+        setQuantidadeLote(builder.quantidadeLote);
+        setDataFabricacao(builder.dataFabricacao);
+        setDataValidade(builder.dataValidade);
+        setCodigoAgregacao(builder.codigoAgregacao);
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getNumeroLote() {
+        return numeroLote;
+    }
+
+    public void setNumeroLote(String numeroLote) {
+        this.numeroLote = numeroLote;
+    }
+
+    public String getQuantidadeLote() {
+        return quantidadeLote;
+    }
+
+    public void setQuantidadeLote(String quantidadeLote) {
+        this.quantidadeLote = quantidadeLote;
+    }
+
+    public LocalDate getDataFabricacao() {
+        return dataFabricacao;
+    }
+
+    public void setDataFabricacao(LocalDate dataFabricacao) {
+        this.dataFabricacao = dataFabricacao;
+    }
+
+    public LocalDate getDataValidade() {
+        return dataValidade;
+    }
+
+    public void setDataValidade(LocalDate dataValidade) {
+        this.dataValidade = dataValidade;
+    }
+
+    public String getCodigoAgregacao() {
+        return codigoAgregacao;
+    }
+
+    public void setCodigoAgregacao(String codigoAgregacao) {
+        this.codigoAgregacao = codigoAgregacao;
+    }
+
+    public static final class Builder {
+
+        private String numeroLote;
+
+        private String quantidadeLote;
+
+        private LocalDate dataFabricacao;
+
+        private LocalDate dataValidade;
+
+        private String codigoAgregacao;
+
+        private Builder() {
+        }
+
+        public Builder withNumeroLote(String val) {
+            numeroLote = val;
+            return this;
+        }
+
+        public Builder withQuantidadeLote(String val) {
+            quantidadeLote = val;
+            return this;
+        }
+
+        public Builder withDataFabricacao(LocalDate val) {
+            dataFabricacao = val;
+            return this;
+        }
+
+        public Builder withDataValidade(LocalDate val) {
+            dataValidade = val;
+            return this;
+        }
+
+        public Builder withCodigoAgregacao(String val) {
+            codigoAgregacao = val;
+            return this;
+        }
+
+        public NFeRastro build() {
+            return new NFeRastro(this);
+        }
+    }
 }

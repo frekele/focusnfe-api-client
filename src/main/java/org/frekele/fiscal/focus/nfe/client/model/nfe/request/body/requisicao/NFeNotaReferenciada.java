@@ -117,30 +117,324 @@ public class NFeNotaReferenciada implements FocusNFeEntity {
         super();
     }
 
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
+    private NFeNotaReferenciada(Builder builder) {
+        setChaveNfe(builder.chaveNfe);
+        setUf(builder.uf);
+        setMes(builder.mes);
+        setCnpj(builder.cnpj);
+        setModelo(builder.modelo);
+        setSerie(builder.serie);
+        setNumero(builder.numero);
+        setUfNfProdutor(builder.ufNfProdutor);
+        setMesNfProdutor(builder.mesNfProdutor);
+        setCnpjNfProdutor(builder.cnpjNfProdutor);
+        setCpfNfProdutor(builder.cpfNfProdutor);
+        setInscricaoEstadualNfProdutor(builder.inscricaoEstadualNfProdutor);
+        setModeloNfProdutor(builder.modeloNfProdutor);
+        setSerieNfProdutor(builder.serieNfProdutor);
+        setNumeroNfProdutor(builder.numeroNfProdutor);
+        setChaveCte(builder.chaveCte);
+        setModeloEcf(builder.modeloEcf);
+        setNumeroEcf(builder.numeroEcf);
+        setCoo(builder.coo);
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getChaveNfe() {
+        return chaveNfe;
+    }
+
+    public void setChaveNfe(String chaveNfe) {
+        this.chaveNfe = chaveNfe;
+    }
+
+    public NFeUnidadeFederativaEnum getUf() {
+        return uf;
+    }
+
+    public void setUf(NFeUnidadeFederativaEnum uf) {
+        this.uf = uf;
+    }
+
+    public String getMes() {
+        return mes;
+    }
+
+    public void setMes(String mes) {
+        this.mes = mes;
+    }
+
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+    public String getSerie() {
+        return serie;
+    }
+
+    public void setSerie(String serie) {
+        this.serie = serie;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public NFeUnidadeFederativaEnum getUfNfProdutor() {
+        return ufNfProdutor;
+    }
+
+    public void setUfNfProdutor(NFeUnidadeFederativaEnum ufNfProdutor) {
+        this.ufNfProdutor = ufNfProdutor;
+    }
+
+    public String getMesNfProdutor() {
+        return mesNfProdutor;
+    }
+
+    public void setMesNfProdutor(String mesNfProdutor) {
+        this.mesNfProdutor = mesNfProdutor;
+    }
+
+    public String getCnpjNfProdutor() {
+        return cnpjNfProdutor;
+    }
+
+    public void setCnpjNfProdutor(String cnpjNfProdutor) {
+        this.cnpjNfProdutor = cnpjNfProdutor;
+    }
+
+    public String getCpfNfProdutor() {
+        return cpfNfProdutor;
+    }
+
+    public void setCpfNfProdutor(String cpfNfProdutor) {
+        this.cpfNfProdutor = cpfNfProdutor;
+    }
+
+    public String getInscricaoEstadualNfProdutor() {
+        return inscricaoEstadualNfProdutor;
+    }
+
+    public void setInscricaoEstadualNfProdutor(String inscricaoEstadualNfProdutor) {
+        this.inscricaoEstadualNfProdutor = inscricaoEstadualNfProdutor;
+    }
+
+    public String getModeloNfProdutor() {
+        return modeloNfProdutor;
+    }
+
+    public void setModeloNfProdutor(String modeloNfProdutor) {
+        this.modeloNfProdutor = modeloNfProdutor;
+    }
+
+    public String getSerieNfProdutor() {
+        return serieNfProdutor;
+    }
+
+    public void setSerieNfProdutor(String serieNfProdutor) {
+        this.serieNfProdutor = serieNfProdutor;
+    }
+
+    public String getNumeroNfProdutor() {
+        return numeroNfProdutor;
+    }
+
+    public void setNumeroNfProdutor(String numeroNfProdutor) {
+        this.numeroNfProdutor = numeroNfProdutor;
+    }
+
+    public String getChaveCte() {
+        return chaveCte;
+    }
+
+    public void setChaveCte(String chaveCte) {
+        this.chaveCte = chaveCte;
+    }
+
+    public NFeModeloEcfEnum getModeloEcf() {
+        return modeloEcf;
+    }
+
+    public void setModeloEcf(NFeModeloEcfEnum modeloEcf) {
+        this.modeloEcf = modeloEcf;
+    }
+
+    public String getNumeroEcf() {
+        return numeroEcf;
+    }
+
+    public void setNumeroEcf(String numeroEcf) {
+        this.numeroEcf = numeroEcf;
+    }
+
+    public String getCoo() {
+        return coo;
+    }
+
+    public void setCoo(String coo) {
+        this.coo = coo;
+    }
+
+    public static final class Builder {
+
+        private String chaveNfe;
+
+        private NFeUnidadeFederativaEnum uf;
+
+        private String mes;
+
+        private String cnpj;
+
+        private String modelo;
+
+        private String serie;
+
+        private String numero;
+
+        private NFeUnidadeFederativaEnum ufNfProdutor;
+
+        private String mesNfProdutor;
+
+        private String cnpjNfProdutor;
+
+        private String cpfNfProdutor;
+
+        private String inscricaoEstadualNfProdutor;
+
+        private String modeloNfProdutor;
+
+        private String serieNfProdutor;
+
+        private String numeroNfProdutor;
+
+        private String chaveCte;
+
+        private NFeModeloEcfEnum modeloEcf;
+
+        private String numeroEcf;
+
+        private String coo;
+
+        private Builder() {
+        }
+
+        public Builder withChaveNfe(String val) {
+            chaveNfe = val;
+            return this;
+        }
+
+        public Builder withUf(NFeUnidadeFederativaEnum val) {
+            uf = val;
+            return this;
+        }
+
+        public Builder withMes(String val) {
+            mes = val;
+            return this;
+        }
+
+        public Builder withCnpj(String val) {
+            cnpj = val;
+            return this;
+        }
+
+        public Builder withModelo(String val) {
+            modelo = val;
+            return this;
+        }
+
+        public Builder withSerie(String val) {
+            serie = val;
+            return this;
+        }
+
+        public Builder withNumero(String val) {
+            numero = val;
+            return this;
+        }
+
+        public Builder withUfNfProdutor(NFeUnidadeFederativaEnum val) {
+            ufNfProdutor = val;
+            return this;
+        }
+
+        public Builder withMesNfProdutor(String val) {
+            mesNfProdutor = val;
+            return this;
+        }
+
+        public Builder withCnpjNfProdutor(String val) {
+            cnpjNfProdutor = val;
+            return this;
+        }
+
+        public Builder withCpfNfProdutor(String val) {
+            cpfNfProdutor = val;
+            return this;
+        }
+
+        public Builder withInscricaoEstadualNfProdutor(String val) {
+            inscricaoEstadualNfProdutor = val;
+            return this;
+        }
+
+        public Builder withModeloNfProdutor(String val) {
+            modeloNfProdutor = val;
+            return this;
+        }
+
+        public Builder withSerieNfProdutor(String val) {
+            serieNfProdutor = val;
+            return this;
+        }
+
+        public Builder withNumeroNfProdutor(String val) {
+            numeroNfProdutor = val;
+            return this;
+        }
+
+        public Builder withChaveCte(String val) {
+            chaveCte = val;
+            return this;
+        }
+
+        public Builder withModeloEcf(NFeModeloEcfEnum val) {
+            modeloEcf = val;
+            return this;
+        }
+
+        public Builder withNumeroEcf(String val) {
+            numeroEcf = val;
+            return this;
+        }
+
+        public Builder withCoo(String val) {
+            coo = val;
+            return this;
+        }
+
+        public NFeNotaReferenciada build() {
+            return new NFeNotaReferenciada(this);
+        }
+    }
 }
