@@ -1,6 +1,6 @@
 package org.frekele.fiscal.focus.nfe.client.repository.nfe;
 
-import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.autorizar.NFeAutorizacao;
+import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.NFeAutorizarBodyRequest;
 import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.NFeCCeBodyRequest;
 import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.NFeCancelarBodyRequest;
 import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.NFeEmailBodyRequest;
@@ -42,7 +42,7 @@ interface FocusNFeV2ProxyClient extends Serializable {
     @Path("nfe")
     NFeAutorizarResponse autorizar(@HeaderParam("Authorization") String authorization,
                                    @QueryParam("ref") String referencia,
-                                   NFeAutorizacao bodyRequest);
+                                   NFeAutorizarBodyRequest bodyRequest);
 
     /**
      * GET - Consultar o status de NFe emitidas.
