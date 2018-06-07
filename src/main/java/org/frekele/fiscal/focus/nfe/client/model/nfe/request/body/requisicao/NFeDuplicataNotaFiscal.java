@@ -44,6 +44,12 @@ public class NFeDuplicataNotaFiscal implements FocusNFeEntity {
         super();
     }
 
+    public NFeDuplicataNotaFiscal(String numero, LocalDate dataVencimento, BigDecimal valor) {
+        this.numero = numero;
+        this.dataVencimento = dataVencimento;
+        this.valor = valor;
+    }
+
     private NFeDuplicataNotaFiscal(Builder builder) {
         setNumero(builder.numero);
         setDataVencimento(builder.dataVencimento);
