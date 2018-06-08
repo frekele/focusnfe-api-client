@@ -2,6 +2,7 @@ package org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.requisicao;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.frekele.fiscal.focus.nfe.client.converter.BigDecimalJsonConverter;
 import org.frekele.fiscal.focus.nfe.client.converter.LocalDateJsonConverter;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFeEntity;
 
@@ -10,6 +11,7 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 /**
@@ -29,8 +31,9 @@ public class NFeRastro implements FocusNFeEntity {
 
     //Quantidade de produtos no Lote.
     @Digits(integer = 8, fraction = 3)
+    @BigDecimalJsonConverter
     @JsonProperty("quantidade_lote")
-    private String quantidadeLote;
+    private BigDecimal quantidadeLote;
 
     //Data de Fabricaçao do medicamento
     @LocalDateJsonConverter
@@ -71,11 +74,11 @@ public class NFeRastro implements FocusNFeEntity {
         this.numeroLote = numeroLote;
     }
 
-    public String getQuantidadeLote() {
+    public BigDecimal getQuantidadeLote() {
         return quantidadeLote;
     }
 
-    public void setQuantidadeLote(String quantidadeLote) {
+    public void setQuantidadeLote(BigDecimal quantidadeLote) {
         this.quantidadeLote = quantidadeLote;
     }
 
@@ -107,7 +110,7 @@ public class NFeRastro implements FocusNFeEntity {
 
         private String numeroLote;
 
-        private String quantidadeLote;
+        private BigDecimal quantidadeLote;
 
         private LocalDate dataFabricacao;
 
@@ -123,7 +126,7 @@ public class NFeRastro implements FocusNFeEntity {
             return this;
         }
 
-        public Builder withQuantidadeLote(String val) {
+        public Builder withQuantidadeLote(BigDecimal val) {
             quantidadeLote = val;
             return this;
         }
