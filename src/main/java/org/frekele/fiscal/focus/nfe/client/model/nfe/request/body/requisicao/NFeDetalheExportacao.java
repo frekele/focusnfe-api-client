@@ -2,6 +2,7 @@ package org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.requisicao;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.frekele.fiscal.focus.nfe.client.converter.BigDecimalJsonConverter;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFeEntity;
 
 import javax.validation.constraints.Digits;
@@ -9,6 +10,7 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.math.BigDecimal;
 
 /**
  * @author frekele - Leandro Kersting de Freitas
@@ -37,8 +39,9 @@ public class NFeDetalheExportacao implements FocusNFeEntity {
 
     //Quantidade do item efetivamente exportado
     @Digits(integer = 11, fraction = 4)
+    @BigDecimalJsonConverter
     @JsonProperty("quantidade_exportado")
-    private String quantidadeExportado;
+    private BigDecimal quantidadeExportado;
 
     public NFeDetalheExportacao() {
         super();
@@ -79,11 +82,11 @@ public class NFeDetalheExportacao implements FocusNFeEntity {
         this.chaveNfe = chaveNfe;
     }
 
-    public String getQuantidadeExportado() {
+    public BigDecimal getQuantidadeExportado() {
         return quantidadeExportado;
     }
 
-    public void setQuantidadeExportado(String quantidadeExportado) {
+    public void setQuantidadeExportado(BigDecimal quantidadeExportado) {
         this.quantidadeExportado = quantidadeExportado;
     }
 
@@ -95,7 +98,7 @@ public class NFeDetalheExportacao implements FocusNFeEntity {
 
         private String chaveNfe;
 
-        private String quantidadeExportado;
+        private BigDecimal quantidadeExportado;
 
         private Builder() {
         }
@@ -115,7 +118,7 @@ public class NFeDetalheExportacao implements FocusNFeEntity {
             return this;
         }
 
-        public Builder withQuantidadeExportado(String val) {
+        public Builder withQuantidadeExportado(BigDecimal val) {
             quantidadeExportado = val;
             return this;
         }
