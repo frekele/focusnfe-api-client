@@ -38,12 +38,6 @@ public class NFeReboque implements FocusNFeEntity {
         super();
     }
 
-    public NFeReboque(String veiculoPlaca, NFeUnidadeFederativaEnum veiculoUf, String veiculoRntc) {
-        this.veiculoPlaca = veiculoPlaca;
-        this.veiculoUf = veiculoUf;
-        this.veiculoRntc = veiculoRntc;
-    }
-
     private NFeReboque(Builder builder) {
         setVeiculoPlaca(builder.veiculoPlaca);
         setVeiculoUf(builder.veiculoUf);
