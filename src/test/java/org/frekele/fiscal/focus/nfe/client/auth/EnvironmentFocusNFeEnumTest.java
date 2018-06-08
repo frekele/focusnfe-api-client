@@ -36,7 +36,7 @@ public class EnvironmentFocusNFeEnumTest {
         List<EnvironmentFocusNFeEnum> listAll = EnvironmentFocusNFeEnum.getAll();
         assertNotEquals(null, listAll);
         assertEquals(listAll.size(), 2);
-        assertEquals(listAll.contains(EnvironmentFocusNFeEnum.PRODUCTION), true);
-        assertEquals(listAll.contains(EnvironmentFocusNFeEnum.HOMOLOGATION), true);
+        assertTrue(listAll.contains(EnvironmentFocusNFeEnum.PRODUCTION));
+        assertTrue(listAll.contains(EnvironmentFocusNFeEnum.HOMOLOGATION));
     }
 }
