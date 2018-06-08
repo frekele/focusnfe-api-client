@@ -2,6 +2,7 @@ package org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.requisicao;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.frekele.fiscal.focus.nfe.client.converter.BigDecimalJsonConverter;
 import org.frekele.fiscal.focus.nfe.client.converter.LocalDateJsonConverter;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFeEntity;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeFormaIntermedioEnum;
@@ -13,6 +14,7 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -56,8 +58,9 @@ public class NFeDocumentoImportacao implements FocusNFeEntity {
 
     //Valor da AFRMM - Adicional ao Frete para Renovação da Marinha Mercante (obrigatório se marítimo)
     @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
     @JsonProperty("valor_afrmm")
-    private String valorAfrmm;
+    private BigDecimal valorAfrmm;
 
     //Forma de importação quanto a intermediação
     @JsonProperty("forma_intermedio")
@@ -154,11 +157,11 @@ public class NFeDocumentoImportacao implements FocusNFeEntity {
         this.viaTransporte = viaTransporte;
     }
 
-    public String getValorAfrmm() {
+    public BigDecimal getValorAfrmm() {
         return valorAfrmm;
     }
 
-    public void setValorAfrmm(String valorAfrmm) {
+    public void setValorAfrmm(BigDecimal valorAfrmm) {
         this.valorAfrmm = valorAfrmm;
     }
 
@@ -216,7 +219,7 @@ public class NFeDocumentoImportacao implements FocusNFeEntity {
 
         private NFeViaTransporteEnum viaTransporte;
 
-        private String valorAfrmm;
+        private BigDecimal valorAfrmm;
 
         private NFeFormaIntermedioEnum formaIntermedio;
 
@@ -261,7 +264,7 @@ public class NFeDocumentoImportacao implements FocusNFeEntity {
             return this;
         }
 
-        public Builder withValorAfrmm(String val) {
+        public Builder withValorAfrmm(BigDecimal val) {
             valorAfrmm = val;
             return this;
         }
