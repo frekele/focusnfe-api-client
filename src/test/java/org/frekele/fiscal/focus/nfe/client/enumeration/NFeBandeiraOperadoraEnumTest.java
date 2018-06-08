@@ -16,35 +16,35 @@ public class NFeBandeiraOperadoraEnumTest {
 
     @Test
     public void testFromCode() throws Exception {
-        NFeBandeiraOperadoraEnum cardBrand = NFeBandeiraOperadoraEnum.fromCode("01");
-        assertNotNull(cardBrand);
-        assertEquals(cardBrand.getCode(), "01");
+        NFeBandeiraOperadoraEnum entity = NFeBandeiraOperadoraEnum.fromCode("01");
+        assertNotNull(entity);
+        assertEquals(entity.getCode(), "01");
 
-        cardBrand = NFeBandeiraOperadoraEnum.fromCode("02");
-        assertNotNull(cardBrand);
-        cardBrand = NFeBandeiraOperadoraEnum.fromCode("03");
-        assertNotNull(cardBrand);
-        cardBrand = NFeBandeiraOperadoraEnum.fromCode("04");
-        assertNotNull(cardBrand);
-        cardBrand = NFeBandeiraOperadoraEnum.fromCode("05");
-        assertNotNull(cardBrand);
-        cardBrand = NFeBandeiraOperadoraEnum.fromCode("06");
-        assertNotNull(cardBrand);
-        cardBrand = NFeBandeiraOperadoraEnum.fromCode("07");
-        assertNotNull(cardBrand);
-        cardBrand = NFeBandeiraOperadoraEnum.fromCode("08");
-        assertNotNull(cardBrand);
-        cardBrand = NFeBandeiraOperadoraEnum.fromCode("09");
-        assertNotNull(cardBrand);
-        cardBrand = NFeBandeiraOperadoraEnum.fromCode("99");
-        assertNotNull(cardBrand);
+        entity = NFeBandeiraOperadoraEnum.fromCode("02");
+        assertNotNull(entity);
+        entity = NFeBandeiraOperadoraEnum.fromCode("03");
+        assertNotNull(entity);
+        entity = NFeBandeiraOperadoraEnum.fromCode("04");
+        assertNotNull(entity);
+        entity = NFeBandeiraOperadoraEnum.fromCode("05");
+        assertNotNull(entity);
+        entity = NFeBandeiraOperadoraEnum.fromCode("06");
+        assertNotNull(entity);
+        entity = NFeBandeiraOperadoraEnum.fromCode("07");
+        assertNotNull(entity);
+        entity = NFeBandeiraOperadoraEnum.fromCode("08");
+        assertNotNull(entity);
+        entity = NFeBandeiraOperadoraEnum.fromCode("09");
+        assertNotNull(entity);
+        entity = NFeBandeiraOperadoraEnum.fromCode("99");
+        assertNotNull(entity);
 
-        cardBrand = NFeBandeiraOperadoraEnum.fromCode(null);
-        assertNull(cardBrand);
-        cardBrand = NFeBandeiraOperadoraEnum.fromCode("");
-        assertNull(cardBrand);
-        cardBrand = NFeBandeiraOperadoraEnum.fromCode("XXXXXXXXXX");
-        assertNull(cardBrand);
+        entity = NFeBandeiraOperadoraEnum.fromCode(null);
+        assertNull(entity);
+        entity = NFeBandeiraOperadoraEnum.fromCode("");
+        assertNull(entity);
+        entity = NFeBandeiraOperadoraEnum.fromCode("XXXXXXXXXX");
+        assertNull(entity);
     }
 
     @Test
