@@ -34,6 +34,17 @@ public class NFeEmailBodyRequestTest {
 
         assertNotNull(entity);
         assertEquals(emails, entity.getEmails());
+
+        entity = new NFeEmailBodyRequest(emails);
+        assertNotNull(entity);
+        assertEquals(emails, entity.getEmails());
+
+        entity = NFeEmailBodyRequest.newBuilder()
+            .withEmails("teste@teste.com.br")
+            .build();
+
+        assertNotNull(entity);
+        assertEquals(emails, entity.getEmails());
     }
 
     @Test
