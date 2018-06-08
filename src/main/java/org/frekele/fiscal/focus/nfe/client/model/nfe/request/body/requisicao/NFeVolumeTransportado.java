@@ -2,6 +2,7 @@ package org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.requisicao;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.frekele.fiscal.focus.nfe.client.converter.BigDecimalJsonConverter;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFeEntity;
 
 import javax.validation.constraints.Digits;
@@ -9,6 +10,7 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -26,30 +28,32 @@ public class NFeVolumeTransportado implements FocusNFeEntity {
     @JsonProperty("quantidade")
     private String quantidade;
 
-    //Quantidade de volumes transportados.
+    //Espécie dos volumes transportados.
     @Size(min = 1, max = 60)
     @JsonProperty("especie")
     private String especie;
 
-    //Quantidade de volumes transportados.
+    //Marca dos volumes transportados.
     @Size(min = 1, max = 60)
     @JsonProperty("marca")
     private String marca;
 
-    //Quantidade de volumes transportados.
+    //Numeração dos volumes transportados.
     @Size(min = 1, max = 60)
     @JsonProperty("numero")
     private String numero;
 
     //Peso líquido dos volumes transportados.
     @Digits(integer = 12, fraction = 3)
+    @BigDecimalJsonConverter
     @JsonProperty("peso_liquido")
-    private String pesoLiquido;
+    private BigDecimal pesoLiquido;
 
-    //Peso líquido dos volumes transportados.
+    //Peso bruto dos volumes transportados.
     @Digits(integer = 12, fraction = 3)
+    @BigDecimalJsonConverter
     @JsonProperty("peso_bruto")
-    private String pesoBruto;
+    private BigDecimal pesoBruto;
 
     //Quantidade de volumes transportados.
     @Size(max = 5000)
@@ -106,19 +110,19 @@ public class NFeVolumeTransportado implements FocusNFeEntity {
         this.numero = numero;
     }
 
-    public String getPesoLiquido() {
+    public BigDecimal getPesoLiquido() {
         return pesoLiquido;
     }
 
-    public void setPesoLiquido(String pesoLiquido) {
+    public void setPesoLiquido(BigDecimal pesoLiquido) {
         this.pesoLiquido = pesoLiquido;
     }
 
-    public String getPesoBruto() {
+    public BigDecimal getPesoBruto() {
         return pesoBruto;
     }
 
-    public void setPesoBruto(String pesoBruto) {
+    public void setPesoBruto(BigDecimal pesoBruto) {
         this.pesoBruto = pesoBruto;
     }
 
@@ -140,9 +144,9 @@ public class NFeVolumeTransportado implements FocusNFeEntity {
 
         private String numero;
 
-        private String pesoLiquido;
+        private BigDecimal pesoLiquido;
 
-        private String pesoBruto;
+        private BigDecimal pesoBruto;
 
         private List<NFeLacreVolumeTransportado> lacres;
 
@@ -169,12 +173,12 @@ public class NFeVolumeTransportado implements FocusNFeEntity {
             return this;
         }
 
-        public Builder withPesoLiquido(String val) {
+        public Builder withPesoLiquido(BigDecimal val) {
             pesoLiquido = val;
             return this;
         }
 
-        public Builder withPesoBruto(String val) {
+        public Builder withPesoBruto(BigDecimal val) {
             pesoBruto = val;
             return this;
         }
