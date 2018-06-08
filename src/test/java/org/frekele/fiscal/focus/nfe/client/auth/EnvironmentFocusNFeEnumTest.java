@@ -20,6 +20,9 @@ public class EnvironmentFocusNFeEnumTest {
         assertNotEquals(null, environment);
         environment = EnvironmentFocusNFeEnum.fromValue("HOMOLOGATION");
         assertNotEquals(null, environment);
+        assertEquals("HOMOLOGATION", environment.getValue());
+        assertEquals("http://homologacao.acrasnfe.acras.com.br", environment.getTargetUrl());
+
         environment = EnvironmentFocusNFeEnum.fromValue(null);
         assertNull(environment);
         environment = EnvironmentFocusNFeEnum.fromValue("");
