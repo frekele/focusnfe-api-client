@@ -19,6 +19,7 @@ public class NFeIcmsModalidadeBaseCalculoEnumTest {
         NFeIcmsModalidadeBaseCalculoEnum entity = NFeIcmsModalidadeBaseCalculoEnum.fromCode("0");
         assertNotNull(entity);
         assertEquals(entity.getCode(), "0");
+        assertEquals(entity.getDescription(), "Margem de valor agregado (%)");
 
         entity = NFeIcmsModalidadeBaseCalculoEnum.fromCode("1");
         assertNotNull(entity);

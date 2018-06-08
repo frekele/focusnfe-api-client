@@ -19,6 +19,7 @@ public class NFeFormaIntermedioEnumTest {
         NFeFormaIntermedioEnum entity = NFeFormaIntermedioEnum.fromCode("1");
         assertNotNull(entity);
         assertEquals(entity.getCode(), "1");
+        assertEquals(entity.getDescription(), "Importação por conta própria");
 
         entity = NFeFormaIntermedioEnum.fromCode("2");
         assertNotNull(entity);

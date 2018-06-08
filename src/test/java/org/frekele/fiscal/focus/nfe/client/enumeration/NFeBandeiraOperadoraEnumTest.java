@@ -19,6 +19,7 @@ public class NFeBandeiraOperadoraEnumTest {
         NFeBandeiraOperadoraEnum entity = NFeBandeiraOperadoraEnum.fromCode("01");
         assertNotNull(entity);
         assertEquals(entity.getCode(), "01");
+        assertEquals(entity.getDescription(), "Visa");
 
         entity = NFeBandeiraOperadoraEnum.fromCode("02");
         assertNotNull(entity);

@@ -19,6 +19,7 @@ public class NFeIcmsModalidadeBaseCalculoStEnumTest {
         NFeIcmsModalidadeBaseCalculoStEnum entity = NFeIcmsModalidadeBaseCalculoStEnum.fromCode("0");
         assertNotNull(entity);
         assertEquals(entity.getCode(), "0");
+        assertEquals(entity.getDescription(), "Preço tabelado ou máximo sugerido");
 
         entity = NFeIcmsModalidadeBaseCalculoStEnum.fromCode("1");
         assertNotNull(entity);

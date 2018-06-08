@@ -19,6 +19,7 @@ public class NFeIcmsMotivoDesoneracaoEnumTest {
         NFeIcmsMotivoDesoneracaoEnum entity = NFeIcmsMotivoDesoneracaoEnum.fromCode("1");
         assertNotNull(entity);
         assertEquals(entity.getCode(), "1");
+        assertEquals(entity.getDescription(), "Táxi");
 
         entity = NFeIcmsMotivoDesoneracaoEnum.fromCode("3");
         assertNotNull(entity);

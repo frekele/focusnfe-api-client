@@ -19,6 +19,7 @@ public class NFeCodigoRegimeEspecialTributacaoEnumTest {
         NFeCodigoRegimeEspecialTributacaoEnum entity = NFeCodigoRegimeEspecialTributacaoEnum.fromCode("1");
         assertNotNull(entity);
         assertEquals(entity.getCode(), "1");
+        assertEquals(entity.getDescription(), "Microempresa Municipal");
 
         entity = NFeCodigoRegimeEspecialTributacaoEnum.fromCode("2");
         assertNotNull(entity);

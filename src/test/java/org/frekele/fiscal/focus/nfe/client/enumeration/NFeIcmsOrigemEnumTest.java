@@ -19,6 +19,7 @@ public class NFeIcmsOrigemEnumTest {
         NFeIcmsOrigemEnum entity = NFeIcmsOrigemEnum.fromCode("0");
         assertNotNull(entity);
         assertEquals(entity.getCode(), "0");
+        assertEquals(entity.getDescription(), "Nacional");
 
         entity = NFeIcmsOrigemEnum.fromCode("1");
         assertNotNull(entity);

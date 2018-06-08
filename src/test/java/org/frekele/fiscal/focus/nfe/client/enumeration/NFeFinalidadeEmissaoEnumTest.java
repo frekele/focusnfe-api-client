@@ -19,6 +19,7 @@ public class NFeFinalidadeEmissaoEnumTest {
         NFeFinalidadeEmissaoEnum entity = NFeFinalidadeEmissaoEnum.fromCode("1");
         assertNotNull(entity);
         assertEquals(entity.getCode(), "1");
+        assertEquals(entity.getDescription(), "Nota normal");
 
         entity = NFeFinalidadeEmissaoEnum.fromCode("2");
         assertNotNull(entity);

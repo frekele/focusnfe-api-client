@@ -19,6 +19,7 @@ public class NFeConsumidorFinalEnumTest {
         NFeConsumidorFinalEnum entity = NFeConsumidorFinalEnum.fromCode("0");
         assertNotNull(entity);
         assertEquals(entity.getCode(), "0");
+        assertEquals(entity.getDescription(), "Normal");
 
         entity = NFeConsumidorFinalEnum.fromCode("1");
         assertNotNull(entity);

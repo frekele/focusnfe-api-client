@@ -19,6 +19,7 @@ public class NFeFormaPagamentoEnumTest {
         NFeFormaPagamentoEnum entity = NFeFormaPagamentoEnum.fromCode("01");
         assertNotNull(entity);
         assertEquals(entity.getCode(), "01");
+        assertEquals(entity.getDescription(), "Dinheiro");
 
         entity = NFeFormaPagamentoEnum.fromCode("02");
         assertNotNull(entity);
