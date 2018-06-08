@@ -75,7 +75,7 @@ public class NFeItem implements FocusNFeEntity {
     //Se a mercadoria se enquadrar em mais de uma codificação, informar até 8 codificações principais
     @JsonProperty("nves")
     @Size(max = 8)
-    List<NFeNve> nves;
+    private List<NFeNve> nves;
 
     //Código Especificador da Substituição Tributária – CEST, que identifica a mercadoria sujeita aos regimes de substituicao tributária e de antecipação do recolhimento do imposto.
     //Obrigatório para produto em que incide Substituição Tributária (ICMS-ST)
@@ -791,7 +791,7 @@ public class NFeItem implements FocusNFeEntity {
     @Digits(integer = 12, fraction = 4)
     @BigDecimalJsonConverter
     @JsonProperty("pis_quantidade_vendida")
-    private BigDecimal pis_quantidade_vendida;
+    private BigDecimal pisQuantidadeVendida;
 
     //Alíquota do PIS em unidades monetarias.
     @Digits(integer = 3, fraction = 4)
@@ -1103,7 +1103,7 @@ public class NFeItem implements FocusNFeEntity {
         setPisSituacaoTributaria(builder.pisSituacaoTributaria);
         setPisBaseCalculo(builder.pisBaseCalculo);
         setPisAliquotaPorcentual(builder.pisAliquotaPorcentual);
-        setPis_quantidade_vendida(builder.pis_quantidade_vendida);
+        setPisQuantidadeVendida(builder.pisQuantidadeVendida);
         setPisAliquotaValor(builder.pisAliquotaValor);
         setPisValor(builder.pisValor);
         setPisBaseCalculoSt(builder.pisBaseCalculoSt);
@@ -2228,12 +2228,12 @@ public class NFeItem implements FocusNFeEntity {
         this.pisAliquotaPorcentual = pisAliquotaPorcentual;
     }
 
-    public BigDecimal getPis_quantidade_vendida() {
-        return pis_quantidade_vendida;
+    public BigDecimal getPisQuantidadeVendida() {
+        return pisQuantidadeVendida;
     }
 
-    public void setPis_quantidade_vendida(BigDecimal pis_quantidade_vendida) {
-        this.pis_quantidade_vendida = pis_quantidade_vendida;
+    public void setPisQuantidadeVendida(BigDecimal pisQuantidadeVendida) {
+        this.pisQuantidadeVendida = pisQuantidadeVendida;
     }
 
     public BigDecimal getPisAliquotaValor() {
@@ -2750,7 +2750,7 @@ public class NFeItem implements FocusNFeEntity {
 
         private BigDecimal pisAliquotaPorcentual;
 
-        private BigDecimal pis_quantidade_vendida;
+        private BigDecimal pisQuantidadeVendida;
 
         private BigDecimal pisAliquotaValor;
 
@@ -3495,8 +3495,8 @@ public class NFeItem implements FocusNFeEntity {
             return this;
         }
 
-        public Builder withPis_quantidade_vendida(BigDecimal val) {
-            pis_quantidade_vendida = val;
+        public Builder withPisQuantidadeVendida(BigDecimal val) {
+            pisQuantidadeVendida = val;
             return this;
         }
 
