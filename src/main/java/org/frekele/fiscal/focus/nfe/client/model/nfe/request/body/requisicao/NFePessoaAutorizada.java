@@ -33,11 +33,6 @@ public class NFePessoaAutorizada implements FocusNFeEntity {
         super();
     }
 
-    public NFePessoaAutorizada(String cnpj, String cpf) {
-        this.cnpj = cnpj;
-        this.cpf = cpf;
-    }
-
     private NFePessoaAutorizada(Builder builder) {
         setCnpj(builder.cnpj);
         setCpf(builder.cpf);
