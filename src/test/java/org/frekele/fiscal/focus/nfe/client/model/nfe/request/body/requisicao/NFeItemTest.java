@@ -37,10 +37,10 @@ public class NFeItemTest {
     @Test
     public void testNewInstance() throws Exception {
         String numeroItem = "1";
-        String codigoProduto = "";
-        String codigoBarrasComercial = "";
-        String descricao = "";
-        String codigoNcm = "";
+        String codigoProduto = "378t4yhfgsdjh";
+        String codigoBarrasComercial = "873465874356843756786";
+        String descricao = "lba bla vla bla bla bla";
+        String codigoNcm = "40123122";
         List<NFeNve> nves = new ArrayList<>();
         nves.add(new NFeNve("234343"));
         String cest = "576755765";
@@ -53,8 +53,8 @@ public class NFeItemTest {
         BigDecimal quantidadeComercial = new BigDecimal("10.21");
         BigDecimal valorUnitarioComercial = new BigDecimal("10.22");
         BigDecimal valorBruto = new BigDecimal("10.23");
-        String codigoBarrasTributavel = "";
-        String unidadeTributavel = "";
+        String codigoBarrasTributavel = "4387549857439584789";
+        String unidadeTributavel = "UN";
         BigDecimal quantidadeTributavel = new BigDecimal("10.24");
         BigDecimal valorUnitarioTributavel = new BigDecimal("10.25");
         BigDecimal valorFrete = new BigDecimal("10.26");
@@ -66,9 +66,9 @@ public class NFeItemTest {
         documentosImportacao.add(new NFeDocumentoImportacao());
         List<NFeDetalheExportacao> detalhesExportacao = new ArrayList<>();
         detalhesExportacao.add(new NFeDetalheExportacao());
-        String pedidoCompra = "";
-        String numeroItemPedidoCompra = "";
-        String numeroFci = "";
+        String pedidoCompra = "879347";
+        String numeroItemPedidoCompra = "637457";
+        String numeroFci = "6723457";
         List<NFeRastro> rastros = new ArrayList<>();
         rastros.add(new NFeRastro());
         NFeVeiculoTipoOperacaoEnum veiculoTipoOperacao = NFeVeiculoTipoOperacaoEnum.VENDA_DIRETA;
@@ -206,7 +206,7 @@ public class NFeItemTest {
         BigDecimal icmsValorUfRemetente = new BigDecimal("11.13");
         BigDecimal percentualDevolvido = new BigDecimal("11.14");
         BigDecimal valorIpiDevolvido = new BigDecimal("11.15");
-        String informacoesAdicionaisItem = "";
+        String informacoesAdicionaisItem = "bla bla bla bla bla bla";
 
         NFeItem entity = new NFeItem();
         entity.setNumeroItem(numeroItem);
