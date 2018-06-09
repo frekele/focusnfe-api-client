@@ -15,7 +15,7 @@ public enum NFeRegimeTributarioEmitenteEnum {
 
     SIMPLES_NACIONAL("1", "Simples Nacional"),
     SIMPLES_NACIONAL_EXCETO_SUBLIMITE_RECEITA_BRUTA("2", "Simples Nacional – excesso de sublimite de receita bruta"),
-    CONSUMIDOR_FINAL("3", "Regime Normal");
+    REGIME_NORMAL("3", "Regime Normal");
 
     private String code;
 

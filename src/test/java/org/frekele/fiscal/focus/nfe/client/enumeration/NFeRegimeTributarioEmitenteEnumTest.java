@@ -41,6 +41,6 @@ public class NFeRegimeTributarioEmitenteEnumTest {
         assertEquals(listAll.size(), 3);
         assertTrue(listAll.contains(NFeRegimeTributarioEmitenteEnum.SIMPLES_NACIONAL));
         assertTrue(listAll.contains(NFeRegimeTributarioEmitenteEnum.SIMPLES_NACIONAL_EXCETO_SUBLIMITE_RECEITA_BRUTA));
-        assertTrue(listAll.contains(NFeRegimeTributarioEmitenteEnum.CONSUMIDOR_FINAL));
+        assertTrue(listAll.contains(NFeRegimeTributarioEmitenteEnum.REGIME_NORMAL));
     }
 }
