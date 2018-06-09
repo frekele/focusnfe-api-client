@@ -191,14 +191,12 @@ public class NFeRequisicao implements FocusNFeEntity {
     //
     //Destinatário:
     //
-    //CNPJ da empresa destinatária.
-    @NotNull
+    //CNPJ da empresa destinatária - Obrigatório CNPJ ou CPF.
     @Size(max = 14)
     @JsonProperty("cnpj_destinatario")
     private String cnpjDestinatario;
 
-    //CPF do destinatário. Caso utilize este campo, não enviar o campo “cnpf_destinatario”.
-    @NotNull
+    //CPF do destinatário. Caso utilize este campo, não enviar o campo “cnpf_destinatario” - Obrigatório CNPJ ou CPF.
     @Size(max = 11)
     @JsonProperty("cpf_destinatario")
     private String cpfDestinatario;
@@ -807,7 +805,6 @@ public class NFeRequisicao implements FocusNFeEntity {
     private String informacoesAdicionaisContribuinte;
 
     //Sigla da UF de Embarque ou de transposição de fronteira
-    @Size(max = 2)
     @JsonProperty("uf_local_embarque")
     private NFeUnidadeFederativaEnum ufLocalEmbarque;
 
