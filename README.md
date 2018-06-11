@@ -46,7 +46,7 @@ TODO
 
 
 
-frekele/clearsale-api-client is **licensed** under the **[MIT License]**. The terms of the license are as follows:
+frekele/focusnfe-api-client is **licensed** under the **[MIT License]**. The terms of the license are as follows:
 
     MIT License
 
