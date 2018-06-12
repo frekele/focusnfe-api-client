@@ -1,4 +1,4 @@
-package org.frekele.fiscal.focus.nfe.client.model.error;
+package org.frekele.fiscal.focus.nfe.client.model.entities.erro;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
