@@ -1,5 +1,6 @@
-package org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.requisicao;
+package org.frekele.fiscal.focus.nfe.client.model.requisicao;
 
+import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.requisicao.NFeDetalheExportacao;
 import org.frekele.fiscal.focus.nfe.client.testng.InvokedMethodListener;
 import org.frekele.fiscal.focus.nfe.client.util.FocusNFeUtils;
 import org.testng.annotations.Listeners;

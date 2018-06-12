@@ -1,4 +1,4 @@
-package org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.requisicao;
+package org.frekele.fiscal.focus.nfe.client.model.requisicao;
 
 import org.frekele.fiscal.focus.nfe.client.testng.InvokedMethodListener;
 import org.frekele.fiscal.focus.nfe.client.util.FocusNFeUtils;
@@ -13,41 +13,35 @@ import static org.testng.Assert.*;
  * @author frekele - Leandro Kersting de Freitas
  */
 @Listeners(InvokedMethodListener.class)
-public class NFePessoaAutorizadaTest {
+public class NFeLacreVolumeTransportadoTest {
 
     @Test
     public void testNewInstance() throws Exception {
-        String cnpj = "65467895434567";
-        String cpf = "34567865432";
+        String numero = "2798594759483";
 
-        NFePessoaAutorizada entity = new NFePessoaAutorizada();
-        entity.setCnpj(cnpj);
-        entity.setCpf(cpf);
+        NFeLacreVolumeTransportado entity = new NFeLacreVolumeTransportado();
+        entity.setNumero(numero);
 
         assertNotNull(entity);
-        assertEquals(cnpj, entity.getCnpj());
-        assertEquals(cpf, entity.getCpf());
+        assertEquals(numero, entity.getNumero());
 
-        entity = NFePessoaAutorizada.newBuilder()
-            .withCnpj(cnpj)
-            .withCpf(cpf)
+        entity = NFeLacreVolumeTransportado.newBuilder()
+            .withNumero(numero)
             .build();
 
         assertNotNull(entity);
-        assertEquals(cnpj, entity.getCnpj());
-        assertEquals(cpf, entity.getCpf());
+        assertEquals(numero, entity.getNumero());
     }
 
     @Test
     public void testBeanValidation() throws Exception {
-        NFePessoaAutorizada entity = new NFePessoaAutorizada();
+        NFeLacreVolumeTransportado entity = new NFeLacreVolumeTransportado();
         FocusNFeUtils.throwBeanValidation(entity);
     }
 
     @Test(expectedExceptions = {ConstraintViolationException.class})
     public void testBeanValidationWithError() throws Exception {
-        NFePessoaAutorizada entity = new NFePessoaAutorizada();
-        entity.setCpf("234857985673459834758");
+        NFeLacreVolumeTransportado entity = new NFeLacreVolumeTransportado("");
         FocusNFeUtils.throwBeanValidation(entity);
     }
 }

@@ -1,4 +1,4 @@
-package org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.requisicao;
+package org.frekele.fiscal.focus.nfe.client.model.requisicao;
 
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeCodigoRegimeEspecialTributacaoEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeConsumidorFinalEnum;
@@ -10,6 +10,14 @@ import org.frekele.fiscal.focus.nfe.client.enumeration.NFePresencaCompradorEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeRegimeTributarioEmitenteEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeTipoDocumentoEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeUnidadeFederativaEnum;
+import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.requisicao.NFeDuplicataNotaFiscal;
+import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.requisicao.NFeFormaPagamento;
+import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.requisicao.NFeItem;
+import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.requisicao.NFeNotaReferenciada;
+import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.requisicao.NFePessoaAutorizada;
+import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.requisicao.NFeReboque;
+import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.requisicao.NFeRequisicao;
+import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.requisicao.NFeVolumeTransportado;
 import org.frekele.fiscal.focus.nfe.client.testng.InvokedMethodListener;
 import org.frekele.fiscal.focus.nfe.client.util.FocusNFeUtils;
 import org.testng.annotations.Listeners;

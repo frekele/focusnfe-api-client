@@ -1,4 +1,4 @@
-package org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.requisicao;
+package org.frekele.fiscal.focus.nfe.client.model.requisicao;
 
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeIcmsModalidadeBaseCalculoEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeIcmsModalidadeBaseCalculoStEnum;
@@ -16,6 +16,11 @@ import org.frekele.fiscal.focus.nfe.client.enumeration.NFeVeiculoRestricaoEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeVeiculoTipoCombustivelEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeVeiculoTipoOperacaoEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeVeiculoVinEnum;
+import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.requisicao.NFeDetalheExportacao;
+import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.requisicao.NFeDocumentoImportacao;
+import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.requisicao.NFeItem;
+import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.requisicao.NFeNve;
+import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.requisicao.NFeRastro;
 import org.frekele.fiscal.focus.nfe.client.testng.InvokedMethodListener;
 import org.frekele.fiscal.focus.nfe.client.util.FocusNFeUtils;
 import org.testng.annotations.Listeners;

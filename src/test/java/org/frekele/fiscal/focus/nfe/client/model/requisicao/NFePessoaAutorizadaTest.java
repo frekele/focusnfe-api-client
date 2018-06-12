@@ -1,4 +1,4 @@
-package org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.requisicao;
+package org.frekele.fiscal.focus.nfe.client.model.requisicao;
 
 import org.frekele.fiscal.focus.nfe.client.testng.InvokedMethodListener;
 import org.frekele.fiscal.focus.nfe.client.util.FocusNFeUtils;
@@ -13,35 +13,41 @@ import static org.testng.Assert.*;
  * @author frekele - Leandro Kersting de Freitas
  */
 @Listeners(InvokedMethodListener.class)
-public class NFeLacreVolumeTransportadoTest {
+public class NFePessoaAutorizadaTest {
 
     @Test
     public void testNewInstance() throws Exception {
-        String numero = "2798594759483";
+        String cnpj = "65467895434567";
+        String cpf = "34567865432";
 
-        NFeLacreVolumeTransportado entity = new NFeLacreVolumeTransportado();
-        entity.setNumero(numero);
+        NFePessoaAutorizada entity = new NFePessoaAutorizada();
+        entity.setCnpj(cnpj);
+        entity.setCpf(cpf);
 
         assertNotNull(entity);
-        assertEquals(numero, entity.getNumero());
+        assertEquals(cnpj, entity.getCnpj());
+        assertEquals(cpf, entity.getCpf());
 
-        entity = NFeLacreVolumeTransportado.newBuilder()
-            .withNumero(numero)
+        entity = NFePessoaAutorizada.newBuilder()
+            .withCnpj(cnpj)
+            .withCpf(cpf)
             .build();
 
         assertNotNull(entity);
-        assertEquals(numero, entity.getNumero());
+        assertEquals(cnpj, entity.getCnpj());
+        assertEquals(cpf, entity.getCpf());
     }
 
     @Test
     public void testBeanValidation() throws Exception {
-        NFeLacreVolumeTransportado entity = new NFeLacreVolumeTransportado();
+        NFePessoaAutorizada entity = new NFePessoaAutorizada();
         FocusNFeUtils.throwBeanValidation(entity);
     }
 
     @Test(expectedExceptions = {ConstraintViolationException.class})
     public void testBeanValidationWithError() throws Exception {
-        NFeLacreVolumeTransportado entity = new NFeLacreVolumeTransportado("");
+        NFePessoaAutorizada entity = new NFePessoaAutorizada();
+        entity.setCpf("234857985673459834758");
         FocusNFeUtils.throwBeanValidation(entity);
     }
 }
