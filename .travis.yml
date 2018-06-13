@@ -6,6 +6,7 @@ jdk:
 
 env:
   - MAVEN=3.5.3
+  - CODACY_COVERAGE_REPORTER=4.0.1
 
 cache:
   directories:
@@ -25,7 +26,8 @@ before_install:
   - mkdir ${MVN_HOME}
   - export PATH=${MVN_HOME}/bin:$PATH
   - sudo apt-get install -qq jq
-  - wget -O ~/codacy-coverage-reporter-assembly-latest.jar "https://repository.sonatype.org/service/local/artifact/maven/redirect?r=central-proxy&g=com.codacy&a=codacy-coverage-reporter&v=LATEST"
+  - wget -O ~/codacy-coverage-reporter-assembly-latest.jar "https://github.com/codacy/codacy-coverage-reporter/releases/download/${CODACY_COVERAGE_REPORTER}/codacy-coverage-reporter-${CODACY_COVERAGE_REPORTER}-assembly.jar"
+  #- wget -O ~/codacy-coverage-reporter-assembly-latest.jar "https://repository.sonatype.org/service/local/artifact/maven/redirect?r=central-proxy&g=com.codacy&a=codacy-coverage-reporter&v=LATEST"
   #- wget -O ~/codacy-coverage-reporter-assembly-latest.jar $(curl https://api.github.com/repos/codacy/codacy-coverage-reporter/releases/latest | jq -r .assets[0].browser_download_url)
 
 install:
