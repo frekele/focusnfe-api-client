@@ -67,6 +67,7 @@ public class NFeConsultarBodyResponseTest {
         entity.setProtocoloCartaCorrecao(protocoloCartaCorrecao);
 
         assertNotNull(entity);
+        assertEquals(erro, entity.getErro());
         assertEquals(status, entity.getStatus());
         assertEquals(statusSefaz, entity.getStatusSefaz());
         assertEquals(mensagemSefaz, entity.getMensagemSefaz());
