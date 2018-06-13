@@ -3,7 +3,7 @@ package org.frekele.fiscal.focus.nfe.client.util;
 import org.frekele.fiscal.focus.nfe.client.auth.EnvironmentFocusNFeEnum;
 import org.frekele.fiscal.focus.nfe.client.auth.FocusNFeAuth;
 import org.frekele.fiscal.focus.nfe.client.exception.FocusNFeException;
-import org.frekele.fiscal.focus.nfe.client.model.nfe.request.body.NFeCancelarBodyRequest;
+import org.frekele.fiscal.focus.nfe.client.model.request.nfe.body.NFeCancelarBodyRequest;
 import org.frekele.fiscal.focus.nfe.client.testng.InvokedMethodListener;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
