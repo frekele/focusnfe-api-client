@@ -867,7 +867,7 @@ public class NFeItem implements FocusNFeEntity {
     //Valor do COFINS.
     @Digits(integer = 13, fraction = 2)
     @BigDecimalJsonConverter
-    @JsonProperty("cofins_aliquota_valor")
+    @JsonProperty("cofins_valor")
     private BigDecimal cofinsValor;
 
     //Valor da base de cálculo do COFINS ST.
