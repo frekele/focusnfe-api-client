@@ -1,4 +1,4 @@
-package org.frekele.fiscal.focus.nfe.client.model.requisicao;
+package org.frekele.fiscal.focus.nfe.client.model.entities.requisicao;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
