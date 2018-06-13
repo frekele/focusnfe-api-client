@@ -9,7 +9,7 @@ import org.frekele.fiscal.focus.nfe.client.model.entities.protocolo.cartacorreca
 import org.frekele.fiscal.focus.nfe.client.model.entities.protocolo.notafiscal.NFeProtocoloNotaFiscal;
 import org.frekele.fiscal.focus.nfe.client.model.entities.requisicao.cancelamento.NFeRequisicaoCancelamento;
 import org.frekele.fiscal.focus.nfe.client.model.entities.requisicao.cartacorrecao.NFeRequisicaoCartaCorrecao;
-import org.frekele.fiscal.focus.nfe.client.model.entities.requisicao.notafiscal.NFeEnvioRequisicaoNotaFiscal;
+import org.frekele.fiscal.focus.nfe.client.model.entities.requisicao.notafiscal.NFeRetornoRequisicaoNotaFiscal;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -87,7 +87,7 @@ public class NFeConsultarBodyResponse implements FocusNFeEntity {
     //Caso na requisição seja passado o parâmetro completa=1;
     //Inclui os dados completos da requisição da nota fiscal, da mesma forma que constam no XML da nota.
     @JsonProperty("requisicao_nota_fiscal")
-    private NFeEnvioRequisicaoNotaFiscal requisicaoNotaFiscal;
+    private NFeRetornoRequisicaoNotaFiscal requisicaoNotaFiscal;
 
     //Inclui os dados completos do protocolo devolvido pela SEFAZ.
     @JsonProperty("protocolo_nota_fiscal")
@@ -111,5 +111,173 @@ public class NFeConsultarBodyResponse implements FocusNFeEntity {
 
     public NFeConsultarBodyResponse() {
         super();
+    }
+
+    public NFeErro getErro() {
+        return erro;
+    }
+
+    public void setErro(NFeErro erro) {
+        this.erro = erro;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getStatusSefaz() {
+        return statusSefaz;
+    }
+
+    public void setStatusSefaz(String statusSefaz) {
+        this.statusSefaz = statusSefaz;
+    }
+
+    public String getMensagemSefaz() {
+        return mensagemSefaz;
+    }
+
+    public void setMensagemSefaz(String mensagemSefaz) {
+        this.mensagemSefaz = mensagemSefaz;
+    }
+
+    public String getSerie() {
+        return serie;
+    }
+
+    public void setSerie(String serie) {
+        this.serie = serie;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public String getCnpjEmitente() {
+        return cnpjEmitente;
+    }
+
+    public void setCnpjEmitente(String cnpjEmitente) {
+        this.cnpjEmitente = cnpjEmitente;
+    }
+
+    public String getReferencia() {
+        return referencia;
+    }
+
+    public void setReferencia(String referencia) {
+        this.referencia = referencia;
+    }
+
+    public String getChaveNfe() {
+        return chaveNfe;
+    }
+
+    public void setChaveNfe(String chaveNfe) {
+        this.chaveNfe = chaveNfe;
+    }
+
+    public String getCaminhoXmlNotaFiscal() {
+        return caminhoXmlNotaFiscal;
+    }
+
+    public void setCaminhoXmlNotaFiscal(String caminhoXmlNotaFiscal) {
+        this.caminhoXmlNotaFiscal = caminhoXmlNotaFiscal;
+    }
+
+    public String getCaminhoDanfe() {
+        return caminhoDanfe;
+    }
+
+    public void setCaminhoDanfe(String caminhoDanfe) {
+        this.caminhoDanfe = caminhoDanfe;
+    }
+
+    public String getCaminhoXmlCartaCorrecao() {
+        return caminhoXmlCartaCorrecao;
+    }
+
+    public void setCaminhoXmlCartaCorrecao(String caminhoXmlCartaCorrecao) {
+        this.caminhoXmlCartaCorrecao = caminhoXmlCartaCorrecao;
+    }
+
+    public String getCaminhoPdfCartaCorrecao() {
+        return caminhoPdfCartaCorrecao;
+    }
+
+    public void setCaminhoPdfCartaCorrecao(String caminhoPdfCartaCorrecao) {
+        this.caminhoPdfCartaCorrecao = caminhoPdfCartaCorrecao;
+    }
+
+    public String getNumeroCartaCorrecao() {
+        return numeroCartaCorrecao;
+    }
+
+    public void setNumeroCartaCorrecao(String numeroCartaCorrecao) {
+        this.numeroCartaCorrecao = numeroCartaCorrecao;
+    }
+
+    public String getCaminhoXmlCancelamento() {
+        return caminhoXmlCancelamento;
+    }
+
+    public void setCaminhoXmlCancelamento(String caminhoXmlCancelamento) {
+        this.caminhoXmlCancelamento = caminhoXmlCancelamento;
+    }
+
+    public NFeRetornoRequisicaoNotaFiscal getRequisicaoNotaFiscal() {
+        return requisicaoNotaFiscal;
+    }
+
+    public void setRequisicaoNotaFiscal(NFeRetornoRequisicaoNotaFiscal requisicaoNotaFiscal) {
+        this.requisicaoNotaFiscal = requisicaoNotaFiscal;
+    }
+
+    public NFeProtocoloNotaFiscal getProtocoloNotaFiscal() {
+        return protocoloNotaFiscal;
+    }
+
+    public void setProtocoloNotaFiscal(NFeProtocoloNotaFiscal protocoloNotaFiscal) {
+        this.protocoloNotaFiscal = protocoloNotaFiscal;
+    }
+
+    public NFeRequisicaoCancelamento getRequisicaoCancelamento() {
+        return requisicaoCancelamento;
+    }
+
+    public void setRequisicaoCancelamento(NFeRequisicaoCancelamento requisicaoCancelamento) {
+        this.requisicaoCancelamento = requisicaoCancelamento;
+    }
+
+    public NFeProtocoloCancelamento getProtocoloCancelamento() {
+        return protocoloCancelamento;
+    }
+
+    public void setProtocoloCancelamento(NFeProtocoloCancelamento protocoloCancelamento) {
+        this.protocoloCancelamento = protocoloCancelamento;
+    }
+
+    public NFeRequisicaoCartaCorrecao getRequisicaoCartaCorrecao() {
+        return requisicaoCartaCorrecao;
+    }
+
+    public void setRequisicaoCartaCorrecao(NFeRequisicaoCartaCorrecao requisicaoCartaCorrecao) {
+        this.requisicaoCartaCorrecao = requisicaoCartaCorrecao;
+    }
+
+    public NFeProtocoloCartaCorrecao getProtocoloCartaCorrecao() {
+        return protocoloCartaCorrecao;
+    }
+
+    public void setProtocoloCartaCorrecao(NFeProtocoloCartaCorrecao protocoloCartaCorrecao) {
+        this.protocoloCartaCorrecao = protocoloCartaCorrecao;
     }
 }

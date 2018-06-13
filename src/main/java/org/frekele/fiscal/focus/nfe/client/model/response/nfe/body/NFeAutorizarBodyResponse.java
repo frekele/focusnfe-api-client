@@ -38,17 +38,6 @@ public class NFeAutorizarBodyResponse implements FocusNFeEntity {
         super();
     }
 
-    private NFeAutorizarBodyResponse(Builder builder) {
-        setErro(builder.erro);
-        setStatus(builder.status);
-        setReferencia(builder.referencia);
-        setCnpjEmitente(builder.cnpjEmitente);
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public NFeErro getErro() {
         return erro;
     }
@@ -79,43 +68,5 @@ public class NFeAutorizarBodyResponse implements FocusNFeEntity {
 
     public void setCnpjEmitente(String cnpjEmitente) {
         this.cnpjEmitente = cnpjEmitente;
-    }
-
-    public static final class Builder {
-
-        private NFeErro erro;
-
-        private String status;
-
-        private String referencia;
-
-        private String cnpjEmitente;
-
-        private Builder() {
-        }
-
-        public Builder withErro(NFeErro val) {
-            erro = val;
-            return this;
-        }
-
-        public Builder withStatus(String val) {
-            status = val;
-            return this;
-        }
-
-        public Builder withReferencia(String val) {
-            referencia = val;
-            return this;
-        }
-
-        public Builder withCnpjEmitente(String val) {
-            cnpjEmitente = val;
-            return this;
-        }
-
-        public NFeAutorizarBodyResponse build() {
-            return new NFeAutorizarBodyResponse(this);
-        }
     }
 }

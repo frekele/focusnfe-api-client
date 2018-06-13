@@ -42,18 +42,6 @@ public class NFeCancelarBodyResponse implements FocusNFeEntity {
         super();
     }
 
-    private NFeCancelarBodyResponse(Builder builder) {
-        setErro(builder.erro);
-        setStatus(builder.status);
-        setStatusSefaz(builder.statusSefaz);
-        setMensagemSefaz(builder.mensagemSefaz);
-        setCaminhoXmlCancelamento(builder.caminhoXmlCancelamento);
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public NFeErro getErro() {
         return erro;
     }
@@ -92,50 +80,5 @@ public class NFeCancelarBodyResponse implements FocusNFeEntity {
 
     public void setCaminhoXmlCancelamento(String caminhoXmlCancelamento) {
         this.caminhoXmlCancelamento = caminhoXmlCancelamento;
-    }
-
-    public static final class Builder {
-
-        private NFeErro erro;
-
-        private String status;
-
-        private String statusSefaz;
-
-        private String mensagemSefaz;
-
-        private String caminhoXmlCancelamento;
-
-        private Builder() {
-        }
-
-        public Builder withErro(NFeErro val) {
-            erro = val;
-            return this;
-        }
-
-        public Builder withStatus(String val) {
-            status = val;
-            return this;
-        }
-
-        public Builder withStatusSefaz(String val) {
-            statusSefaz = val;
-            return this;
-        }
-
-        public Builder withMensagemSefaz(String val) {
-            mensagemSefaz = val;
-            return this;
-        }
-
-        public Builder withCaminhoXmlCancelamento(String val) {
-            caminhoXmlCancelamento = val;
-            return this;
-        }
-
-        public NFeCancelarBodyResponse build() {
-            return new NFeCancelarBodyResponse(this);
-        }
     }
 }

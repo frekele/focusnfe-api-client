@@ -54,21 +54,6 @@ public class NFeInutilizarBodyResponse implements FocusNFeEntity {
         super();
     }
 
-    private NFeInutilizarBodyResponse(Builder builder) {
-        setErro(builder.erro);
-        setStatus(builder.status);
-        setStatusSefaz(builder.statusSefaz);
-        setMensagemSefaz(builder.mensagemSefaz);
-        setSerie(builder.serie);
-        setNumeroInicial(builder.numeroInicial);
-        setNumeroFinal(builder.numeroFinal);
-        setCaminhoXml(builder.caminhoXml);
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public NFeErro getErro() {
         return erro;
     }
@@ -131,71 +116,5 @@ public class NFeInutilizarBodyResponse implements FocusNFeEntity {
 
     public void setCaminhoXml(String caminhoXml) {
         this.caminhoXml = caminhoXml;
-    }
-
-    public static final class Builder {
-
-        private NFeErro erro;
-
-        private String status;
-
-        private String statusSefaz;
-
-        private String mensagemSefaz;
-
-        private String serie;
-
-        private String numeroInicial;
-
-        private String numeroFinal;
-
-        private String caminhoXml;
-
-        private Builder() {
-        }
-
-        public Builder withErro(NFeErro val) {
-            erro = val;
-            return this;
-        }
-
-        public Builder withStatus(String val) {
-            status = val;
-            return this;
-        }
-
-        public Builder withStatusSefaz(String val) {
-            statusSefaz = val;
-            return this;
-        }
-
-        public Builder withMensagemSefaz(String val) {
-            mensagemSefaz = val;
-            return this;
-        }
-
-        public Builder withSerie(String val) {
-            serie = val;
-            return this;
-        }
-
-        public Builder withNumeroInicial(String val) {
-            numeroInicial = val;
-            return this;
-        }
-
-        public Builder withNumeroFinal(String val) {
-            numeroFinal = val;
-            return this;
-        }
-
-        public Builder withCaminhoXml(String val) {
-            caminhoXml = val;
-            return this;
-        }
-
-        public NFeInutilizarBodyResponse build() {
-            return new NFeInutilizarBodyResponse(this);
-        }
     }
 }

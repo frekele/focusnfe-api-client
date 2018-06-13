@@ -50,20 +50,6 @@ public class NFeCCeBodyResponse implements FocusNFeEntity {
         super();
     }
 
-    private NFeCCeBodyResponse(Builder builder) {
-        setErro(builder.erro);
-        setStatus(builder.status);
-        setStatusSefaz(builder.statusSefaz);
-        setMensagemSefaz(builder.mensagemSefaz);
-        setCaminhoXmlCartaCorrecao(builder.caminhoXmlCartaCorrecao);
-        setCaminhoPdfCartaCorrecao(builder.caminhoPdfCartaCorrecao);
-        setNumeroCartaCorrecao(builder.numeroCartaCorrecao);
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public NFeErro getErro() {
         return erro;
     }
@@ -118,64 +104,5 @@ public class NFeCCeBodyResponse implements FocusNFeEntity {
 
     public void setNumeroCartaCorrecao(Integer numeroCartaCorrecao) {
         this.numeroCartaCorrecao = numeroCartaCorrecao;
-    }
-
-    public static final class Builder {
-
-        private NFeErro erro;
-
-        private String status;
-
-        private String statusSefaz;
-
-        private String mensagemSefaz;
-
-        private String caminhoXmlCartaCorrecao;
-
-        private String caminhoPdfCartaCorrecao;
-
-        private Integer numeroCartaCorrecao;
-
-        private Builder() {
-        }
-
-        public Builder withErro(NFeErro val) {
-            erro = val;
-            return this;
-        }
-
-        public Builder withStatus(String val) {
-            status = val;
-            return this;
-        }
-
-        public Builder withStatusSefaz(String val) {
-            statusSefaz = val;
-            return this;
-        }
-
-        public Builder withMensagemSefaz(String val) {
-            mensagemSefaz = val;
-            return this;
-        }
-
-        public Builder withCaminhoXmlCartaCorrecao(String val) {
-            caminhoXmlCartaCorrecao = val;
-            return this;
-        }
-
-        public Builder withCaminhoPdfCartaCorrecao(String val) {
-            caminhoPdfCartaCorrecao = val;
-            return this;
-        }
-
-        public Builder withNumeroCartaCorrecao(Integer val) {
-            numeroCartaCorrecao = val;
-            return this;
-        }
-
-        public NFeCCeBodyResponse build() {
-            return new NFeCCeBodyResponse(this);
-        }
     }
 }
