@@ -1,4 +1,4 @@
-package org.frekele.fiscal.focus.nfe.client.model.entities.requisicao;
+package org.frekele.fiscal.focus.nfe.client.model.entities.requisicao.notafiscal;
 
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeModeloEcfEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeUnidadeFederativaEnum;

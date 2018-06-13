@@ -1,6 +1,6 @@
-package org.frekele.fiscal.focus.nfe.client.model.entities.requisicao;
+package org.frekele.fiscal.focus.nfe.client.model.entities.requisicao.notafiscal;
 
-import org.frekele.fiscal.focus.nfe.client.model.entities.requisicao.notafiscal.NFeLacreVolumeTransportado;
+import org.frekele.fiscal.focus.nfe.client.model.entities.requisicao.notafiscal.NFeNve;
 import org.frekele.fiscal.focus.nfe.client.testng.InvokedMethodListener;
 import org.frekele.fiscal.focus.nfe.client.util.FocusNFeUtils;
 import org.testng.annotations.Listeners;
@@ -14,35 +14,35 @@ import static org.testng.Assert.*;
  * @author frekele - Leandro Kersting de Freitas
  */
 @Listeners(InvokedMethodListener.class)
-public class NFeLacreVolumeTransportadoTest {
+public class NFeNveTest {
 
     @Test
     public void testNewInstance() throws Exception {
-        String numero = "2798594759483";
+        String nve = "FR3476";
 
-        NFeLacreVolumeTransportado entity = new NFeLacreVolumeTransportado();
-        entity.setNumero(numero);
+        NFeNve entity = new NFeNve();
+        entity.setNve(nve);
 
         assertNotNull(entity);
-        assertEquals(numero, entity.getNumero());
+        assertEquals(nve, entity.getNve());
 
-        entity = NFeLacreVolumeTransportado.newBuilder()
-            .withNumero(numero)
+        entity = NFeNve.newBuilder()
+            .withNve(nve)
             .build();
 
         assertNotNull(entity);
-        assertEquals(numero, entity.getNumero());
+        assertEquals(nve, entity.getNve());
     }
 
     @Test
     public void testBeanValidation() throws Exception {
-        NFeLacreVolumeTransportado entity = new NFeLacreVolumeTransportado();
+        NFeNve entity = new NFeNve("TG5676");
         FocusNFeUtils.throwBeanValidation(entity);
     }
 
     @Test(expectedExceptions = {ConstraintViolationException.class})
     public void testBeanValidationWithError() throws Exception {
-        NFeLacreVolumeTransportado entity = new NFeLacreVolumeTransportado("");
+        NFeNve entity = new NFeNve("TG56761");
         FocusNFeUtils.throwBeanValidation(entity);
     }
 }

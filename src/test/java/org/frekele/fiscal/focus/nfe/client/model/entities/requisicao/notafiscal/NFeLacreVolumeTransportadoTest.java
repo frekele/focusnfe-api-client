@@ -1,6 +1,6 @@
-package org.frekele.fiscal.focus.nfe.client.model.entities.requisicao;
+package org.frekele.fiscal.focus.nfe.client.model.entities.requisicao.notafiscal;
 
-import org.frekele.fiscal.focus.nfe.client.model.entities.requisicao.notafiscal.NFeNve;
+import org.frekele.fiscal.focus.nfe.client.model.entities.requisicao.notafiscal.NFeLacreVolumeTransportado;
 import org.frekele.fiscal.focus.nfe.client.testng.InvokedMethodListener;
 import org.frekele.fiscal.focus.nfe.client.util.FocusNFeUtils;
 import org.testng.annotations.Listeners;
@@ -14,35 +14,35 @@ import static org.testng.Assert.*;
  * @author frekele - Leandro Kersting de Freitas
  */
 @Listeners(InvokedMethodListener.class)
-public class NFeNveTest {
+public class NFeLacreVolumeTransportadoTest {
 
     @Test
     public void testNewInstance() throws Exception {
-        String nve = "FR3476";
+        String numero = "2798594759483";
 
-        NFeNve entity = new NFeNve();
-        entity.setNve(nve);
+        NFeLacreVolumeTransportado entity = new NFeLacreVolumeTransportado();
+        entity.setNumero(numero);
 
         assertNotNull(entity);
-        assertEquals(nve, entity.getNve());
+        assertEquals(numero, entity.getNumero());
 
-        entity = NFeNve.newBuilder()
-            .withNve(nve)
+        entity = NFeLacreVolumeTransportado.newBuilder()
+            .withNumero(numero)
             .build();
 
         assertNotNull(entity);
-        assertEquals(nve, entity.getNve());
+        assertEquals(numero, entity.getNumero());
     }
 
     @Test
     public void testBeanValidation() throws Exception {
-        NFeNve entity = new NFeNve("TG5676");
+        NFeLacreVolumeTransportado entity = new NFeLacreVolumeTransportado();
         FocusNFeUtils.throwBeanValidation(entity);
     }
 
     @Test(expectedExceptions = {ConstraintViolationException.class})
     public void testBeanValidationWithError() throws Exception {
-        NFeNve entity = new NFeNve("TG56761");
+        NFeLacreVolumeTransportado entity = new NFeLacreVolumeTransportado("");
         FocusNFeUtils.throwBeanValidation(entity);
     }
 }
