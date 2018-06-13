@@ -10,14 +10,6 @@ import org.frekele.fiscal.focus.nfe.client.enumeration.NFePresencaCompradorEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeRegimeTributarioEmitenteEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeTipoDocumentoEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeUnidadeFederativaEnum;
-import org.frekele.fiscal.focus.nfe.client.model.entities.requisicao.notafiscal.NFeDuplicataNotaFiscal;
-import org.frekele.fiscal.focus.nfe.client.model.entities.requisicao.notafiscal.NFeFormaPagamento;
-import org.frekele.fiscal.focus.nfe.client.model.entities.requisicao.notafiscal.NFeItem;
-import org.frekele.fiscal.focus.nfe.client.model.entities.requisicao.notafiscal.NFeNotaReferenciada;
-import org.frekele.fiscal.focus.nfe.client.model.entities.requisicao.notafiscal.NFePessoaAutorizada;
-import org.frekele.fiscal.focus.nfe.client.model.entities.requisicao.notafiscal.NFeReboque;
-import org.frekele.fiscal.focus.nfe.client.model.entities.requisicao.notafiscal.NFeRequisicao;
-import org.frekele.fiscal.focus.nfe.client.model.entities.requisicao.notafiscal.NFeVolumeTransportado;
 import org.frekele.fiscal.focus.nfe.client.testng.InvokedMethodListener;
 import org.frekele.fiscal.focus.nfe.client.util.FocusNFeUtils;
 import org.testng.annotations.Listeners;
@@ -189,7 +181,7 @@ public class NFeRequisicaoTest {
         String localEmbarque = "xblabla bla bla";
         String localDespacho = "cxx bla bla bla";
 
-        NFeRequisicao entity = new NFeRequisicao();
+        NFeRequisicaoNotaFiscal entity = new NFeRequisicaoNotaFiscal();
         entity.setNaturezaOperacao(naturezaOperacao);
         entity.setSerie(serie);
         entity.setNumero(numero);
@@ -475,7 +467,7 @@ public class NFeRequisicaoTest {
         assertEquals(localEmbarque, entity.getLocalEmbarque());
         assertEquals(localDespacho, entity.getLocalDespacho());
 
-        entity = NFeRequisicao.newBuilder()
+        entity = NFeRequisicaoNotaFiscal.newBuilder()
             .withNaturezaOperacao(naturezaOperacao)
             .withSerie(serie)
             .withNumero(numero)
@@ -798,7 +790,7 @@ public class NFeRequisicaoTest {
 
     @Test(expectedExceptions = {ConstraintViolationException.class})
     public void testBeanValidationWithError() throws Exception {
-        NFeRequisicao entity = new NFeRequisicao();
+        NFeRequisicaoNotaFiscal entity = new NFeRequisicaoNotaFiscal();
         FocusNFeUtils.throwBeanValidation(entity);
     }
 }

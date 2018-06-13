@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFeEntity;
 import org.frekele.fiscal.focus.nfe.client.model.entities.erro.NFeErro;
-import org.frekele.fiscal.focus.nfe.client.model.entities.requisicao.notafiscal.NFeRequisicao;
+import org.frekele.fiscal.focus.nfe.client.model.entities.requisicao.notafiscal.NFeRequisicaoNotaFiscal;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -82,7 +82,7 @@ public class NFeConsultarBodyResponse implements FocusNFeEntity {
     //Caso na requisição seja passado o parâmetro completa=1;
     //Inclui os dados completos da requisição da nota fiscal, da mesma forma que constam no XML da nota.
     @JsonProperty("requisicao_nota_fiscal")
-    private NFeRequisicao requisicaoNotaFiscal;
+    private NFeRequisicaoNotaFiscal requisicaoNotaFiscal;
 
     //Inclui os dados completos do protocolo devolvido pela SEFAZ.
     @JsonProperty("protocolo_nota_fiscal")
