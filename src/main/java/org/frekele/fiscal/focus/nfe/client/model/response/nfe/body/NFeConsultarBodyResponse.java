@@ -4,6 +4,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFeEntity;
 import org.frekele.fiscal.focus.nfe.client.model.entities.erro.NFeErro;
+import org.frekele.fiscal.focus.nfe.client.model.entities.protocolo.cancelamento.NFeProtocoloCancelamento;
+import org.frekele.fiscal.focus.nfe.client.model.entities.protocolo.cartacorrecao.NFeProtocoloCartaCorrecao;
+import org.frekele.fiscal.focus.nfe.client.model.entities.protocolo.notafiscal.NFeProtocoloNotaFiscal;
+import org.frekele.fiscal.focus.nfe.client.model.entities.requisicao.cancelamento.NFeRequisicaoCancelamento;
+import org.frekele.fiscal.focus.nfe.client.model.entities.requisicao.cartacorrecao.NFeRequisicaoCartaCorrecao;
 import org.frekele.fiscal.focus.nfe.client.model.entities.requisicao.notafiscal.NFeRequisicaoNotaFiscal;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -86,23 +91,23 @@ public class NFeConsultarBodyResponse implements FocusNFeEntity {
 
     //Inclui os dados completos do protocolo devolvido pela SEFAZ.
     @JsonProperty("protocolo_nota_fiscal")
-    private String protocoloNotaFiscal;
+    private NFeProtocoloNotaFiscal protocoloNotaFiscal;
 
     //Inclui os dados completos da requisição de cancelamento da nota fiscal.
     @JsonProperty("requisicao_cancelamento")
-    private String requisicaoCancelamento;
+    private NFeRequisicaoCancelamento requisicaoCancelamento;
 
     //Inclui os dados completos do protocolo devolvido pela SEFAZ.
     @JsonProperty("protocolo_cancelamento")
-    private String protocoloCancelamento;
+    private NFeProtocoloCancelamento protocoloCancelamento;
 
     //Inclui os dados completos da requisição de Carta de Correção Eletrônica da NFe.
     @JsonProperty("requisicao_carta_correcao")
-    private String requisicaoCartaCorrecao;
+    private NFeRequisicaoCartaCorrecao requisicaoCartaCorrecao;
 
     //Inclui os dados completos do protocolo devolvido pela SEFAZ.
     @JsonProperty("protocolo_carta_correcao")
-    private String protocoloCartaCorrecao;
+    private NFeProtocoloCartaCorrecao protocoloCartaCorrecao;
 
     public NFeConsultarBodyResponse() {
         super();
