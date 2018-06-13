@@ -3,7 +3,7 @@ package org.frekele.fiscal.focus.nfe.client.model.nfe.response.body;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFeEntity;
-import org.frekele.fiscal.focus.nfe.client.model.error.NFeError;
+import org.frekele.fiscal.focus.nfe.client.model.entities.erro.NFeError;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

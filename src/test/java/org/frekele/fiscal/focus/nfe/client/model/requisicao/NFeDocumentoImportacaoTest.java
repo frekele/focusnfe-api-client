@@ -3,6 +3,8 @@ package org.frekele.fiscal.focus.nfe.client.model.requisicao;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeFormaIntermedioEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeUnidadeFederativaEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeViaTransporteEnum;
+import org.frekele.fiscal.focus.nfe.client.model.entities.requisicao.NFeAdicaoDocumentoImportacao;
+import org.frekele.fiscal.focus.nfe.client.model.entities.requisicao.NFeDocumentoImportacao;
 import org.frekele.fiscal.focus.nfe.client.testng.InvokedMethodListener;
 import org.frekele.fiscal.focus.nfe.client.util.FocusNFeUtils;
 import org.testng.annotations.Listeners;
