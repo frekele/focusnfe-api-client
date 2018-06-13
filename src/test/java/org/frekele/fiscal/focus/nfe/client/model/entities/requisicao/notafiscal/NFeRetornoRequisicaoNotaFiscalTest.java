@@ -26,6 +26,7 @@ public class NFeRetornoRequisicaoNotaFiscalTest {
         String ambiente = "2";
         String processoEmissao = "0";
         String versaoAplicativo = "0.1.0";
+        NFeEnvioRequisicaoNotaFiscal nfe = new NFeEnvioRequisicaoNotaFiscal();
 
         NFeRetornoRequisicaoNotaFiscal entity = new NFeRetornoRequisicaoNotaFiscal();
         entity.setVersao(versao);
@@ -40,6 +41,7 @@ public class NFeRetornoRequisicaoNotaFiscalTest {
         entity.setAmbiente(ambiente);
         entity.setProcessoEmissao(processoEmissao);
         entity.setVersaoAplicativo(versaoAplicativo);
+        entity.setNfe(nfe);
 
         assertNotNull(entity);
         assertEquals(versao, entity.getVersao());
@@ -54,6 +56,7 @@ public class NFeRetornoRequisicaoNotaFiscalTest {
         assertEquals(ambiente, entity.getAmbiente());
         assertEquals(processoEmissao, entity.getProcessoEmissao());
         assertEquals(versaoAplicativo, entity.getVersaoAplicativo());
+        assertEquals(nfe, entity.getNfe());
 
         entity = NFeRetornoRequisicaoNotaFiscal.newBuilder()
             .withVersao(versao)
@@ -68,6 +71,7 @@ public class NFeRetornoRequisicaoNotaFiscalTest {
             .withAmbiente(ambiente)
             .withProcessoEmissao(processoEmissao)
             .withVersaoAplicativo(versaoAplicativo)
+            .withNfe(nfe)
             .build();
 
         assertNotNull(entity);
@@ -83,5 +87,6 @@ public class NFeRetornoRequisicaoNotaFiscalTest {
         assertEquals(ambiente, entity.getAmbiente());
         assertEquals(processoEmissao, entity.getProcessoEmissao());
         assertEquals(versaoAplicativo, entity.getVersaoAplicativo());
+        assertEquals(nfe, entity.getNfe());
     }
 }
