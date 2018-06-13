@@ -51,9 +51,12 @@ public class NFeRequisicaoNotaFiscalTest {
         String numeroEmitente = "12334";
         String complementoEmitente = "bla bla bla";
         String bairroEmitente = "bla bla";
+        String codigoMunicipioEmitente = "12432";
         String municipioEmitente = "Porto Alegre";
         NFeUnidadeFederativaEnum ufEmitente = NFeUnidadeFederativaEnum.RIO_GRANDE_DO_SUL;
         String cepEmitente = "91920530";
+        String codigoPaisEmitente = "12357";
+        String paisEmitente = "Brasil";
         String telefoneEmitente = "513457070";
         String inscricaoEstadualEmitente = "8978976987";
         String inscricaoEstadualStEmitente = "786786786";
@@ -200,9 +203,12 @@ public class NFeRequisicaoNotaFiscalTest {
         entity.setNumeroEmitente(numeroEmitente);
         entity.setComplementoEmitente(complementoEmitente);
         entity.setBairroEmitente(bairroEmitente);
+        entity.setCodigoMunicipioEmitente(codigoMunicipioEmitente);
         entity.setMunicipioEmitente(municipioEmitente);
         entity.setUfEmitente(ufEmitente);
         entity.setCepEmitente(cepEmitente);
+        entity.setCodigoPaisEmitente(codigoPaisEmitente);
+        entity.setPaisEmitente(paisEmitente);
         entity.setTelefoneEmitente(telefoneEmitente);
         entity.setInscricaoEstadualEmitente(inscricaoEstadualEmitente);
         entity.setInscricaoEstadualStEmitente(inscricaoEstadualStEmitente);
@@ -343,9 +349,12 @@ public class NFeRequisicaoNotaFiscalTest {
         assertEquals(numeroEmitente, entity.getNumeroEmitente());
         assertEquals(complementoEmitente, entity.getComplementoEmitente());
         assertEquals(bairroEmitente, entity.getBairroEmitente());
+        assertEquals(codigoMunicipioEmitente, entity.getCodigoMunicipioEmitente());
         assertEquals(municipioEmitente, entity.getMunicipioEmitente());
         assertEquals(ufEmitente, entity.getUfEmitente());
         assertEquals(cepEmitente, entity.getCepEmitente());
+        assertEquals(codigoPaisEmitente, entity.getCodigoPaisEmitente());
+        assertEquals(paisEmitente, entity.getPaisEmitente());
         assertEquals(telefoneEmitente, entity.getTelefoneEmitente());
         assertEquals(inscricaoEstadualEmitente, entity.getInscricaoEstadualEmitente());
         assertEquals(inscricaoEstadualStEmitente, entity.getInscricaoEstadualStEmitente());
@@ -486,9 +495,12 @@ public class NFeRequisicaoNotaFiscalTest {
             .withNumeroEmitente(numeroEmitente)
             .withComplementoEmitente(complementoEmitente)
             .withBairroEmitente(bairroEmitente)
+            .withCodigoMunicipioEmitente(codigoMunicipioEmitente)
             .withMunicipioEmitente(municipioEmitente)
             .withUfEmitente(ufEmitente)
             .withCepEmitente(cepEmitente)
+            .withCodigoPaisEmitente(codigoPaisEmitente)
+            .withPaisEmitente(paisEmitente)
             .withTelefoneEmitente(telefoneEmitente)
             .withInscricaoEstadualEmitente(inscricaoEstadualEmitente)
             .withInscricaoEstadualStEmitente(inscricaoEstadualStEmitente)
@@ -630,9 +642,12 @@ public class NFeRequisicaoNotaFiscalTest {
         assertEquals(numeroEmitente, entity.getNumeroEmitente());
         assertEquals(complementoEmitente, entity.getComplementoEmitente());
         assertEquals(bairroEmitente, entity.getBairroEmitente());
+        assertEquals(codigoMunicipioEmitente, entity.getCodigoMunicipioEmitente());
         assertEquals(municipioEmitente, entity.getMunicipioEmitente());
         assertEquals(ufEmitente, entity.getUfEmitente());
         assertEquals(cepEmitente, entity.getCepEmitente());
+        assertEquals(codigoPaisEmitente, entity.getCodigoPaisEmitente());
+        assertEquals(paisEmitente, entity.getPaisEmitente());
         assertEquals(telefoneEmitente, entity.getTelefoneEmitente());
         assertEquals(inscricaoEstadualEmitente, entity.getInscricaoEstadualEmitente());
         assertEquals(inscricaoEstadualStEmitente, entity.getInscricaoEstadualStEmitente());

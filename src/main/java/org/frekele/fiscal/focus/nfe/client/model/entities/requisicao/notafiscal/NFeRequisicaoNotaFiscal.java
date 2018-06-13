@@ -141,6 +141,12 @@ public class NFeRequisicaoNotaFiscal implements FocusNFeEntity {
     @JsonProperty("bairro_emitente")
     private String bairroEmitente;
 
+    //Código do município do emitente (7 dígitos), de acordo com a tabela do IBGE.
+    //Se não informado o sistema tentará encontrar o código com base no nome do município e da UF.
+    @Size(min = 7)
+    @JsonProperty("codigo_municipio_emitente")
+    private String codigoMunicipioEmitente;
+
     //Município da empresa emitente.
     @NotNull
     @Size(min = 2, max = 60)
@@ -156,6 +162,16 @@ public class NFeRequisicaoNotaFiscal implements FocusNFeEntity {
     @Size(max = 8)
     @JsonProperty("cep_emitente")
     private String cepEmitente;
+
+    //Código IBGE do país do emitente. (Apenas se diferente de 1058 - Brasil).
+    @Size(min = 2, max = 4)
+    @JsonProperty("codigo_pais_emitente")
+    private String codigoPaisEmitente;
+
+    //Nome do país do emitente. (Apenas se diferente de Brasil).
+    @Size(min = 2, max = 4)
+    @JsonProperty("pais_emitente")
+    private String paisEmitente;
 
     //Telefone da empresa emitente.
     @JsonProperty("telefone_emitente")
@@ -841,9 +857,12 @@ public class NFeRequisicaoNotaFiscal implements FocusNFeEntity {
         setNumeroEmitente(builder.numeroEmitente);
         setComplementoEmitente(builder.complementoEmitente);
         setBairroEmitente(builder.bairroEmitente);
+        setCodigoMunicipioEmitente(builder.codigoMunicipioEmitente);
         setMunicipioEmitente(builder.municipioEmitente);
         setUfEmitente(builder.ufEmitente);
         setCepEmitente(builder.cepEmitente);
+        setCodigoPaisEmitente(builder.codigoPaisEmitente);
+        setPaisEmitente(builder.paisEmitente);
         setTelefoneEmitente(builder.telefoneEmitente);
         setInscricaoEstadualEmitente(builder.inscricaoEstadualEmitente);
         setInscricaoEstadualStEmitente(builder.inscricaoEstadualStEmitente);
@@ -1114,6 +1133,14 @@ public class NFeRequisicaoNotaFiscal implements FocusNFeEntity {
         this.bairroEmitente = bairroEmitente;
     }
 
+    public String getCodigoMunicipioEmitente() {
+        return codigoMunicipioEmitente;
+    }
+
+    public void setCodigoMunicipioEmitente(String codigoMunicipioEmitente) {
+        this.codigoMunicipioEmitente = codigoMunicipioEmitente;
+    }
+
     public String getMunicipioEmitente() {
         return municipioEmitente;
     }
@@ -1136,6 +1163,22 @@ public class NFeRequisicaoNotaFiscal implements FocusNFeEntity {
 
     public void setCepEmitente(String cepEmitente) {
         this.cepEmitente = cepEmitente;
+    }
+
+    public String getCodigoPaisEmitente() {
+        return codigoPaisEmitente;
+    }
+
+    public void setCodigoPaisEmitente(String codigoPaisEmitente) {
+        this.codigoPaisEmitente = codigoPaisEmitente;
+    }
+
+    public String getPaisEmitente() {
+        return paisEmitente;
+    }
+
+    public void setPaisEmitente(String paisEmitente) {
+        this.paisEmitente = paisEmitente;
     }
 
     public String getTelefoneEmitente() {
@@ -2136,11 +2179,17 @@ public class NFeRequisicaoNotaFiscal implements FocusNFeEntity {
 
         private String bairroEmitente;
 
+        private String codigoMunicipioEmitente;
+
         private String municipioEmitente;
 
         private NFeUnidadeFederativaEnum ufEmitente;
 
         private String cepEmitente;
+
+        private String codigoPaisEmitente;
+
+        private String paisEmitente;
 
         private String telefoneEmitente;
 
@@ -2475,6 +2524,11 @@ public class NFeRequisicaoNotaFiscal implements FocusNFeEntity {
             return this;
         }
 
+        public Builder withCodigoMunicipioEmitente(String val) {
+            codigoMunicipioEmitente = val;
+            return this;
+        }
+
         public Builder withMunicipioEmitente(String val) {
             municipioEmitente = val;
             return this;
@@ -2487,6 +2541,16 @@ public class NFeRequisicaoNotaFiscal implements FocusNFeEntity {
 
         public Builder withCepEmitente(String val) {
             cepEmitente = val;
+            return this;
+        }
+
+        public Builder withCodigoPaisEmitente(String val) {
+            codigoPaisEmitente = val;
+            return this;
+        }
+
+        public Builder withPaisEmitente(String val) {
+            paisEmitente = val;
             return this;
         }
 
