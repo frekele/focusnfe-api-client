@@ -3,7 +3,7 @@ package org.frekele.fiscal.focus.nfe.client.model.response.nfe.body;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFeEntity;
-import org.frekele.fiscal.focus.nfe.client.model.entities.erro.NFeError;
+import org.frekele.fiscal.focus.nfe.client.model.entities.erro.NFeErro;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -20,7 +20,7 @@ public class NFeInutilizarBodyResponse implements FocusNFeEntity {
 
     //As mensagens de erro serão apresentadas em qualquer operação sempre que for devolvido um código HTTP que começa com 4.
     @JsonUnwrapped
-    private NFeError error;
+    private NFeErro erro;
 
     //Autorizado, se a inutilização foi aceita pela SEFAZ, ou erro_autorizacao, se houve algum erro ao inutilizar os números.
     @JsonProperty("status")
@@ -55,7 +55,7 @@ public class NFeInutilizarBodyResponse implements FocusNFeEntity {
     }
 
     private NFeInutilizarBodyResponse(Builder builder) {
-        setError(builder.error);
+        setErro(builder.erro);
         setStatus(builder.status);
         setStatusSefaz(builder.statusSefaz);
         setMensagemSefaz(builder.mensagemSefaz);
@@ -69,12 +69,12 @@ public class NFeInutilizarBodyResponse implements FocusNFeEntity {
         return new Builder();
     }
 
-    public NFeError getError() {
-        return error;
+    public NFeErro getErro() {
+        return erro;
     }
 
-    public void setError(NFeError error) {
-        this.error = error;
+    public void setErro(NFeErro erro) {
+        this.erro = erro;
     }
 
     public String getStatus() {
@@ -135,7 +135,7 @@ public class NFeInutilizarBodyResponse implements FocusNFeEntity {
 
     public static final class Builder {
 
-        private NFeError error;
+        private NFeErro erro;
 
         private String status;
 
@@ -154,8 +154,8 @@ public class NFeInutilizarBodyResponse implements FocusNFeEntity {
         private Builder() {
         }
 
-        public Builder withError(NFeError val) {
-            error = val;
+        public Builder withErro(NFeErro val) {
+            erro = val;
             return this;
         }
 

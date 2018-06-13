@@ -3,7 +3,7 @@ package org.frekele.fiscal.focus.nfe.client.model.response.nfe.body;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFeEntity;
-import org.frekele.fiscal.focus.nfe.client.model.entities.erro.NFeError;
+import org.frekele.fiscal.focus.nfe.client.model.entities.erro.NFeErro;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -20,7 +20,7 @@ public class NFeAutorizarBodyResponse implements FocusNFeEntity {
 
     //As mensagens de erro serão apresentadas em qualquer operação sempre que for devolvido um código HTTP que começa com 4.
     @JsonUnwrapped
-    private NFeError error;
+    private NFeErro erro;
 
     // A situação da NFe, podendo ser: processando_autorizacao, autorizado, cancelado, erro_autorizacao ou denegado.
     @JsonProperty("status")
@@ -39,7 +39,7 @@ public class NFeAutorizarBodyResponse implements FocusNFeEntity {
     }
 
     private NFeAutorizarBodyResponse(Builder builder) {
-        setError(builder.error);
+        setErro(builder.erro);
         setStatus(builder.status);
         setReferencia(builder.referencia);
         setCnpjEmitente(builder.cnpjEmitente);
@@ -49,12 +49,12 @@ public class NFeAutorizarBodyResponse implements FocusNFeEntity {
         return new Builder();
     }
 
-    public NFeError getError() {
-        return error;
+    public NFeErro getErro() {
+        return erro;
     }
 
-    public void setError(NFeError error) {
-        this.error = error;
+    public void setErro(NFeErro erro) {
+        this.erro = erro;
     }
 
     public String getStatus() {
@@ -83,7 +83,7 @@ public class NFeAutorizarBodyResponse implements FocusNFeEntity {
 
     public static final class Builder {
 
-        private NFeError error;
+        private NFeErro erro;
 
         private String status;
 
@@ -94,8 +94,8 @@ public class NFeAutorizarBodyResponse implements FocusNFeEntity {
         private Builder() {
         }
 
-        public Builder withError(NFeError val) {
-            error = val;
+        public Builder withErro(NFeErro val) {
+            erro = val;
             return this;
         }
 

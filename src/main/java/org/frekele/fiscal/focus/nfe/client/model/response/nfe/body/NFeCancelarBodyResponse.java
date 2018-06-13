@@ -3,7 +3,7 @@ package org.frekele.fiscal.focus.nfe.client.model.response.nfe.body;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFeEntity;
-import org.frekele.fiscal.focus.nfe.client.model.entities.erro.NFeError;
+import org.frekele.fiscal.focus.nfe.client.model.entities.erro.NFeErro;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -20,7 +20,7 @@ public class NFeCancelarBodyResponse implements FocusNFeEntity {
 
     //As mensagens de erro serão apresentadas em qualquer operação sempre que for devolvido um código HTTP que começa com 4.
     @JsonUnwrapped
-    private NFeError error;
+    private NFeErro erro;
 
     //Cancelado, se a nota pode ser cancelada, ou erro_cancelamento, se houve algum erro ao cancelar a nota.
     @JsonProperty("status")
@@ -43,7 +43,7 @@ public class NFeCancelarBodyResponse implements FocusNFeEntity {
     }
 
     private NFeCancelarBodyResponse(Builder builder) {
-        setError(builder.error);
+        setErro(builder.erro);
         setStatus(builder.status);
         setStatusSefaz(builder.statusSefaz);
         setMensagemSefaz(builder.mensagemSefaz);
@@ -54,12 +54,12 @@ public class NFeCancelarBodyResponse implements FocusNFeEntity {
         return new Builder();
     }
 
-    public NFeError getError() {
-        return error;
+    public NFeErro getErro() {
+        return erro;
     }
 
-    public void setError(NFeError error) {
-        this.error = error;
+    public void setErro(NFeErro erro) {
+        this.erro = erro;
     }
 
     public String getStatus() {
@@ -96,7 +96,7 @@ public class NFeCancelarBodyResponse implements FocusNFeEntity {
 
     public static final class Builder {
 
-        private NFeError error;
+        private NFeErro erro;
 
         private String status;
 
@@ -109,8 +109,8 @@ public class NFeCancelarBodyResponse implements FocusNFeEntity {
         private Builder() {
         }
 
-        public Builder withError(NFeError val) {
-            error = val;
+        public Builder withErro(NFeErro val) {
+            erro = val;
             return this;
         }
 

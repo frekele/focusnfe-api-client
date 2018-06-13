@@ -15,7 +15,7 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class NFeError implements FocusNFeEntity {
+public class NFeErro implements FocusNFeEntity {
 
     private static final long serialVersionUID = 1L;
 
@@ -31,11 +31,11 @@ public class NFeError implements FocusNFeEntity {
     @JsonProperty("erros")
     private List<String> erros;
 
-    public NFeError() {
+    public NFeErro() {
         super();
     }
 
-    private NFeError(Builder builder) {
+    private NFeErro(Builder builder) {
         setCodigo(builder.codigo);
         setMensagem(builder.mensagem);
         setErros(builder.erros);
@@ -95,8 +95,8 @@ public class NFeError implements FocusNFeEntity {
             return this;
         }
 
-        public NFeError build() {
-            return new NFeError(this);
+        public NFeErro build() {
+            return new NFeErro(this);
         }
     }
 }

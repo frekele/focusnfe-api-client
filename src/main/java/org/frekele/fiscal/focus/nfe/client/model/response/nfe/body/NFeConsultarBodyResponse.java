@@ -2,7 +2,7 @@ package org.frekele.fiscal.focus.nfe.client.model.response.nfe.body;
 
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFeEntity;
-import org.frekele.fiscal.focus.nfe.client.model.entities.erro.NFeError;
+import org.frekele.fiscal.focus.nfe.client.model.entities.erro.NFeErro;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -19,7 +19,7 @@ public class NFeConsultarBodyResponse implements FocusNFeEntity {
 
     //As mensagens de erro serão apresentadas em qualquer operação sempre que for devolvido um código HTTP que começa com 4.
     @JsonUnwrapped
-    private NFeError error;
+    private NFeErro erro;
 
     public NFeConsultarBodyResponse() {
         super();
