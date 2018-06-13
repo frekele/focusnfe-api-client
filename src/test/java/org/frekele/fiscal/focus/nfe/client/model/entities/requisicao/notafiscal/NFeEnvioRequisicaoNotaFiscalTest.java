@@ -28,7 +28,7 @@ import static org.testng.Assert.*;
  * @author frekele - Leandro Kersting de Freitas
  */
 @Listeners(InvokedMethodListener.class)
-public class NFeRequisicaoNotaFiscalTest {
+public class NFeEnvioRequisicaoNotaFiscalTest {
 
     @Test
     public void testNewInstance() throws Exception {
