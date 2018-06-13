@@ -34,20 +34,5 @@ public class NFeCancelarBodyResponseTest {
         assertEquals(statusSefaz, entity.getStatusSefaz());
         assertEquals(mensagemSefaz, entity.getMensagemSefaz());
         assertEquals(caminhoXmlCancelamento, entity.getCaminhoXmlCancelamento());
-
-        entity = NFeCancelarBodyResponse.newBuilder()
-            .withErro(erro)
-            .withStatus(status)
-            .withStatusSefaz(statusSefaz)
-            .withMensagemSefaz(mensagemSefaz)
-            .withCaminhoXmlCancelamento(caminhoXmlCancelamento)
-            .build();
-
-        assertNotNull(entity);
-        assertEquals(erro, entity.getErro());
-        assertEquals(status, entity.getStatus());
-        assertEquals(statusSefaz, entity.getStatusSefaz());
-        assertEquals(mensagemSefaz, entity.getMensagemSefaz());
-        assertEquals(caminhoXmlCancelamento, entity.getCaminhoXmlCancelamento());
     }
 }

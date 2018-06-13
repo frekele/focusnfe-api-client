@@ -31,18 +31,5 @@ public class NFeAutorizarBodyResponseTest {
         assertEquals(status, entity.getStatus());
         assertEquals(referencia, entity.getReferencia());
         assertEquals(cnpjEmitente, entity.getCnpjEmitente());
-
-        entity = NFeAutorizarBodyResponse.newBuilder()
-            .withErro(erro)
-            .withStatus(status)
-            .withReferencia(referencia)
-            .withCnpjEmitente(cnpjEmitente)
-            .build();
-
-        assertNotNull(entity);
-        assertEquals(erro, entity.getErro());
-        assertEquals(status, entity.getStatus());
-        assertEquals(referencia, entity.getReferencia());
-        assertEquals(cnpjEmitente, entity.getCnpjEmitente());
     }
 }

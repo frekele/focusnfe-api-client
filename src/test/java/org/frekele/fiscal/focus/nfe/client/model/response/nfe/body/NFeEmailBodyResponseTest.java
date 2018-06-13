@@ -22,12 +22,5 @@ public class NFeEmailBodyResponseTest {
 
         assertNotNull(entity);
         assertEquals(erro, entity.getErro());
-
-        entity = NFeEmailBodyResponse.newBuilder()
-            .withErro(erro)
-            .build();
-
-        assertNotNull(entity);
-        assertEquals(erro, entity.getErro());
     }
 }

@@ -43,26 +43,5 @@ public class NFeInutilizarBodyResponseTest {
         assertEquals(numeroInicial, entity.getNumeroInicial());
         assertEquals(numeroFinal, entity.getNumeroFinal());
         assertEquals(caminhoXml, entity.getCaminhoXml());
-
-        entity = NFeInutilizarBodyResponse.newBuilder()
-            .withErro(erro)
-            .withStatus(status)
-            .withStatusSefaz(statusSefaz)
-            .withMensagemSefaz(mensagemSefaz)
-            .withSerie(serie)
-            .withNumeroInicial(numeroInicial)
-            .withNumeroFinal(numeroFinal)
-            .withCaminhoXml(caminhoXml)
-            .build();
-
-        assertNotNull(entity);
-        assertEquals(erro, entity.getErro());
-        assertEquals(status, entity.getStatus());
-        assertEquals(statusSefaz, entity.getStatusSefaz());
-        assertEquals(mensagemSefaz, entity.getMensagemSefaz());
-        assertEquals(serie, entity.getSerie());
-        assertEquals(numeroInicial, entity.getNumeroInicial());
-        assertEquals(numeroFinal, entity.getNumeroFinal());
-        assertEquals(caminhoXml, entity.getCaminhoXml());
     }
 }

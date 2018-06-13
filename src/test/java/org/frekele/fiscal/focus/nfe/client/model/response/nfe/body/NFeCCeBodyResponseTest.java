@@ -40,24 +40,5 @@ public class NFeCCeBodyResponseTest {
         assertEquals(caminhoXmlCartaCorrecao, entity.getCaminhoXmlCartaCorrecao());
         assertEquals(caminhoPdfCartaCorrecao, entity.getCaminhoPdfCartaCorrecao());
         assertEquals(numeroCartaCorrecao, entity.getNumeroCartaCorrecao());
-
-        entity = NFeCCeBodyResponse.newBuilder()
-            .withErro(erro)
-            .withStatus(status)
-            .withStatusSefaz(statusSefaz)
-            .withMensagemSefaz(mensagemSefaz)
-            .withCaminhoXmlCartaCorrecao(caminhoXmlCartaCorrecao)
-            .withCaminhoPdfCartaCorrecao(caminhoPdfCartaCorrecao)
-            .withNumeroCartaCorrecao(numeroCartaCorrecao)
-            .build();
-
-        assertNotNull(entity);
-        assertEquals(erro, entity.getErro());
-        assertEquals(status, entity.getStatus());
-        assertEquals(statusSefaz, entity.getStatusSefaz());
-        assertEquals(mensagemSefaz, entity.getMensagemSefaz());
-        assertEquals(caminhoXmlCartaCorrecao, entity.getCaminhoXmlCartaCorrecao());
-        assertEquals(caminhoPdfCartaCorrecao, entity.getCaminhoPdfCartaCorrecao());
-        assertEquals(numeroCartaCorrecao, entity.getNumeroCartaCorrecao());
     }
 }
