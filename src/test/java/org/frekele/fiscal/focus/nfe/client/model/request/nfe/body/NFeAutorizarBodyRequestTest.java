@@ -1,6 +1,6 @@
 package org.frekele.fiscal.focus.nfe.client.model.request.nfe.body;
 
-import org.frekele.fiscal.focus.nfe.client.model.entities.requisicao.notafiscal.NFeRequisicaoNotaFiscal;
+import org.frekele.fiscal.focus.nfe.client.model.entities.requisicao.notafiscal.NFeEnvioRequisicaoNotaFiscal;
 import org.frekele.fiscal.focus.nfe.client.testng.InvokedMethodListener;
 import org.frekele.fiscal.focus.nfe.client.util.FocusNFeUtils;
 import org.testng.annotations.Listeners;
@@ -18,7 +18,7 @@ public class NFeAutorizarBodyRequestTest {
 
     @Test
     public void testNewInstance() throws Exception {
-        NFeRequisicaoNotaFiscal nFeRequisicao = new NFeRequisicaoNotaFiscal();
+        NFeEnvioRequisicaoNotaFiscal nFeRequisicao = new NFeEnvioRequisicaoNotaFiscal();
 
         NFeAutorizarBodyRequest entity = new NFeAutorizarBodyRequest();
         entity.setNfe(nFeRequisicao);
@@ -36,7 +36,7 @@ public class NFeAutorizarBodyRequestTest {
 
     @Test
     public void testBeanValidation() throws Exception {
-        NFeAutorizarBodyRequest entity = new NFeAutorizarBodyRequest(new NFeRequisicaoNotaFiscal());
+        NFeAutorizarBodyRequest entity = new NFeAutorizarBodyRequest(new NFeEnvioRequisicaoNotaFiscal());
         FocusNFeUtils.throwBeanValidation(entity);
     }
 

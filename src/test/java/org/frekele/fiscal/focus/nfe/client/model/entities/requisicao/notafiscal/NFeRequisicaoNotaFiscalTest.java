@@ -184,7 +184,7 @@ public class NFeRequisicaoNotaFiscalTest {
         String localEmbarque = "xblabla bla bla";
         String localDespacho = "cxx bla bla bla";
 
-        NFeRequisicaoNotaFiscal entity = new NFeRequisicaoNotaFiscal();
+        NFeEnvioRequisicaoNotaFiscal entity = new NFeEnvioRequisicaoNotaFiscal();
         entity.setNaturezaOperacao(naturezaOperacao);
         entity.setSerie(serie);
         entity.setNumero(numero);
@@ -476,7 +476,7 @@ public class NFeRequisicaoNotaFiscalTest {
         assertEquals(localEmbarque, entity.getLocalEmbarque());
         assertEquals(localDespacho, entity.getLocalDespacho());
 
-        entity = NFeRequisicaoNotaFiscal.newBuilder()
+        entity = NFeEnvioRequisicaoNotaFiscal.newBuilder()
             .withNaturezaOperacao(naturezaOperacao)
             .withSerie(serie)
             .withNumero(numero)
@@ -805,7 +805,7 @@ public class NFeRequisicaoNotaFiscalTest {
 
     @Test(expectedExceptions = {ConstraintViolationException.class})
     public void testBeanValidationWithError() throws Exception {
-        NFeRequisicaoNotaFiscal entity = new NFeRequisicaoNotaFiscal();
+        NFeEnvioRequisicaoNotaFiscal entity = new NFeEnvioRequisicaoNotaFiscal();
         FocusNFeUtils.throwBeanValidation(entity);
     }
 }

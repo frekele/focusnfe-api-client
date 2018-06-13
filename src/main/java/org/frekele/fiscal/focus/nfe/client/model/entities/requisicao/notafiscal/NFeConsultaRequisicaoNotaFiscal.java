@@ -56,7 +56,7 @@ public class NFeConsultaRequisicaoNotaFiscal implements FocusNFeEntity {
     private String versaoAplicativo;
 
     @JsonUnwrapped
-    private NFeRequisicaoNotaFiscal nfe;
+    private NFeEnvioRequisicaoNotaFiscal nfe;
 
     public NFeConsultaRequisicaoNotaFiscal() {
         super();

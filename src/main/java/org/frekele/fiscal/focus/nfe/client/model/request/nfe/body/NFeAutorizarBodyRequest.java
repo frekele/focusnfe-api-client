@@ -3,7 +3,7 @@ package org.frekele.fiscal.focus.nfe.client.model.request.nfe.body;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFeEntity;
-import org.frekele.fiscal.focus.nfe.client.model.entities.requisicao.notafiscal.NFeRequisicaoNotaFiscal;
+import org.frekele.fiscal.focus.nfe.client.model.entities.requisicao.notafiscal.NFeEnvioRequisicaoNotaFiscal;
 
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -23,13 +23,13 @@ public class NFeAutorizarBodyRequest implements FocusNFeEntity {
     //Dados nfe da requisicao para autorizacao.
     @JsonUnwrapped
     @NotNull
-    private NFeRequisicaoNotaFiscal nfe;
+    private NFeEnvioRequisicaoNotaFiscal nfe;
 
     public NFeAutorizarBodyRequest() {
         super();
     }
 
-    public NFeAutorizarBodyRequest(NFeRequisicaoNotaFiscal nfe) {
+    public NFeAutorizarBodyRequest(NFeEnvioRequisicaoNotaFiscal nfe) {
         this.nfe = nfe;
     }
 
@@ -41,22 +41,22 @@ public class NFeAutorizarBodyRequest implements FocusNFeEntity {
         return new Builder();
     }
 
-    public NFeRequisicaoNotaFiscal getNfe() {
+    public NFeEnvioRequisicaoNotaFiscal getNfe() {
         return nfe;
     }
 
-    public void setNfe(NFeRequisicaoNotaFiscal nfe) {
+    public void setNfe(NFeEnvioRequisicaoNotaFiscal nfe) {
         this.nfe = nfe;
     }
 
     public static final class Builder {
 
-        private NFeRequisicaoNotaFiscal nfe;
+        private NFeEnvioRequisicaoNotaFiscal nfe;
 
         private Builder() {
         }
 
-        public Builder withNfe(NFeRequisicaoNotaFiscal val) {
+        public Builder withNfe(NFeEnvioRequisicaoNotaFiscal val) {
             nfe = val;
             return this;
         }
