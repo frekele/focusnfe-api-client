@@ -1,11 +1,7 @@
 package org.frekele.fiscal.focus.nfe.client.model.response.nfe.body;
 
-import org.frekele.fiscal.focus.nfe.client.model.entities.requisicao.NFeRequisicao;
 import org.frekele.fiscal.focus.nfe.client.testng.InvokedMethodListener;
 import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
-
-import static org.testng.Assert.*;
 
 /**
  * @author frekele - Leandro Kersting de Freitas
