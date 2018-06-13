@@ -34,7 +34,7 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class NFeRequisicao implements FocusNFeEntity {
+public class NFeRequisicaoNotaFiscal implements FocusNFeEntity {
 
     private static final long serialVersionUID = 1L;
 
@@ -818,11 +818,11 @@ public class NFeRequisicao implements FocusNFeEntity {
     @JsonProperty("local_despacho")
     private String localDespacho;
 
-    public NFeRequisicao() {
+    public NFeRequisicaoNotaFiscal() {
         super();
     }
 
-    private NFeRequisicao(Builder builder) {
+    private NFeRequisicaoNotaFiscal(Builder builder) {
         setNaturezaOperacao(builder.naturezaOperacao);
         setSerie(builder.serie);
         setNumero(builder.numero);
@@ -3090,8 +3090,8 @@ public class NFeRequisicao implements FocusNFeEntity {
             return this;
         }
 
-        public NFeRequisicao build() {
-            return new NFeRequisicao(this);
+        public NFeRequisicaoNotaFiscal build() {
+            return new NFeRequisicaoNotaFiscal(this);
         }
     }
 }
