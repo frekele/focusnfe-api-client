@@ -58,4 +58,197 @@ public class NFeProtocoloCartaCorrecao implements FocusNFeEntity {
     public NFeProtocoloCartaCorrecao() {
         super();
     }
+
+    private NFeProtocoloCartaCorrecao(Builder builder) {
+        setVersao(builder.versao);
+        setAmbiente(builder.ambiente);
+        setVersaoAplicativo(builder.versaoAplicativo);
+        setCodigoOrgao(builder.codigoOrgao);
+        setStatus(builder.status);
+        setMotivo(builder.motivo);
+        setChaveNfe(builder.chaveNfe);
+        setTipoEvento(builder.tipoEvento);
+        setDescricaoEvento(builder.descricaoEvento);
+        setDataEvento(builder.dataEvento);
+        setNumeroProtocolo(builder.numeroProtocolo);
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public String getVersao() {
+        return versao;
+    }
+
+    public void setVersao(String versao) {
+        this.versao = versao;
+    }
+
+    public String getAmbiente() {
+        return ambiente;
+    }
+
+    public void setAmbiente(String ambiente) {
+        this.ambiente = ambiente;
+    }
+
+    public String getVersaoAplicativo() {
+        return versaoAplicativo;
+    }
+
+    public void setVersaoAplicativo(String versaoAplicativo) {
+        this.versaoAplicativo = versaoAplicativo;
+    }
+
+    public String getCodigoOrgao() {
+        return codigoOrgao;
+    }
+
+    public void setCodigoOrgao(String codigoOrgao) {
+        this.codigoOrgao = codigoOrgao;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getMotivo() {
+        return motivo;
+    }
+
+    public void setMotivo(String motivo) {
+        this.motivo = motivo;
+    }
+
+    public String getChaveNfe() {
+        return chaveNfe;
+    }
+
+    public void setChaveNfe(String chaveNfe) {
+        this.chaveNfe = chaveNfe;
+    }
+
+    public String getTipoEvento() {
+        return tipoEvento;
+    }
+
+    public void setTipoEvento(String tipoEvento) {
+        this.tipoEvento = tipoEvento;
+    }
+
+    public String getDescricaoEvento() {
+        return descricaoEvento;
+    }
+
+    public void setDescricaoEvento(String descricaoEvento) {
+        this.descricaoEvento = descricaoEvento;
+    }
+
+    public OffsetDateTime getDataEvento() {
+        return dataEvento;
+    }
+
+    public void setDataEvento(OffsetDateTime dataEvento) {
+        this.dataEvento = dataEvento;
+    }
+
+    public String getNumeroProtocolo() {
+        return numeroProtocolo;
+    }
+
+    public void setNumeroProtocolo(String numeroProtocolo) {
+        this.numeroProtocolo = numeroProtocolo;
+    }
+
+    public static final class Builder {
+
+        private String versao;
+
+        private String ambiente;
+
+        private String versaoAplicativo;
+
+        private String codigoOrgao;
+
+        private String status;
+
+        private String motivo;
+
+        private String chaveNfe;
+
+        private String tipoEvento;
+
+        private String descricaoEvento;
+
+        private OffsetDateTime dataEvento;
+
+        private String numeroProtocolo;
+
+        private Builder() {
+        }
+
+        public Builder withVersao(String val) {
+            versao = val;
+            return this;
+        }
+
+        public Builder withAmbiente(String val) {
+            ambiente = val;
+            return this;
+        }
+
+        public Builder withVersaoAplicativo(String val) {
+            versaoAplicativo = val;
+            return this;
+        }
+
+        public Builder withCodigoOrgao(String val) {
+            codigoOrgao = val;
+            return this;
+        }
+
+        public Builder withStatus(String val) {
+            status = val;
+            return this;
+        }
+
+        public Builder withMotivo(String val) {
+            motivo = val;
+            return this;
+        }
+
+        public Builder withChaveNfe(String val) {
+            chaveNfe = val;
+            return this;
+        }
+
+        public Builder withTipoEvento(String val) {
+            tipoEvento = val;
+            return this;
+        }
+
+        public Builder withDescricaoEvento(String val) {
+            descricaoEvento = val;
+            return this;
+        }
+
+        public Builder withDataEvento(OffsetDateTime val) {
+            dataEvento = val;
+            return this;
+        }
+
+        public Builder withNumeroProtocolo(String val) {
+            numeroProtocolo = val;
+            return this;
+        }
+
+        public NFeProtocoloCartaCorrecao build() {
+            return new NFeProtocoloCartaCorrecao(this);
+        }
+    }
 }
