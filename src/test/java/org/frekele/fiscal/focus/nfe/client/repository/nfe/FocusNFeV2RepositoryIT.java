@@ -62,7 +62,7 @@ public class FocusNFeV2RepositoryIT {
 //        response.getBody();
     }
 
-    //@Test
+    @Test
     public void testConsultar() throws Exception {
         NFeConsultarResponse response = repository.consultar(reference);
         System.out.println("RateLimitLimit: " + response.getRateLimitLimit());
