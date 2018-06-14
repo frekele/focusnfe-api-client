@@ -16,16 +16,16 @@ import javax.ws.rs.core.Response;
 public interface NFeInutilizarResponse extends FocusNFeEntity {
 
     @HeaderParam("X-Rate-Limit-Limit")
-    Integer getRateLimitLimit();
+    String getRateLimitLimit();
 
     @HeaderParam("X-Rate-Limit-Remaining")
-    Integer getRateLimitRemaining();
+    String getRateLimitRemaining();
 
     @HeaderParam("X-Rate-Limit-Reset")
-    Integer getRateLimitReset();
+    String getRateLimitReset();
 
     @Status
-    Integer getStatus();
+    String getStatus();
 
     @Body
     NFeInutilizarBodyResponse getBody();
