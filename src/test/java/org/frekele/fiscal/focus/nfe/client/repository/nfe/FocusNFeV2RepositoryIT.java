@@ -5,6 +5,8 @@ import org.frekele.fiscal.focus.nfe.client.auth.EnvironmentFocusNFeEnum;
 import org.frekele.fiscal.focus.nfe.client.auth.FocusNFeAuth;
 import org.frekele.fiscal.focus.nfe.client.filter.RequestLoggingFilter;
 import org.frekele.fiscal.focus.nfe.client.filter.ResponseLoggingFilter;
+import org.frekele.fiscal.focus.nfe.client.model.response.nfe.NFeConsultarResponse;
+import org.frekele.fiscal.focus.nfe.client.model.response.nfe.body.NFeConsultarBodyResponse;
 import org.frekele.fiscal.focus.nfe.client.testng.InvokedMethodListener;
 import org.jboss.resteasy.client.jaxrs.ResteasyClient;
 import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
@@ -24,6 +26,8 @@ public class FocusNFeV2RepositoryIT {
 
     private ObjectMapper mapper = new ObjectMapper();
 
+    private String reference;
+
     @BeforeClass
     public void init() throws Exception {
         MockitoAnnotations.initMocks(this);
@@ -38,6 +42,10 @@ public class FocusNFeV2RepositoryIT {
             .register(ResponseLoggingFilter.class)
             .build();
         repository = new FocusNFeV2RepositoryImpl(client, auth);
+
+        //reference = UUID.randomUUID().toString();
+        reference = "a14";
+        System.out.println("reference: " + reference);
     }
 
     @AfterMethod
@@ -47,31 +55,50 @@ public class FocusNFeV2RepositoryIT {
     }
 
     @Test
-    public void testAutorizar() {
+    public void testAutorizar() throws Exception {
+//        NFeAutorizarBodyRequest bodyRequest = NFeAutorizarBodyRequest.newBuilder()
+//            .build();
+//        NFeAutorizarResponse response = repository.autorizar(reference, bodyRequest);
+//        response.getBody();
+    }
+
+    //@Test
+    public void testConsultar() throws Exception {
+        NFeConsultarResponse response = repository.consultar(reference);
+        System.out.println("RateLimitLimit: " + response.getRateLimitLimit());
+        System.out.println("RateLimitRemaining: " + response.getRateLimitRemaining());
+        System.out.println("RateLimitReset: " + response.getRateLimitReset());
+        System.out.println("Status: " + response.getStatus());
+        NFeConsultarBodyResponse bodyResponse = response.getBody();
+        System.out.println("Body.Status: " + bodyResponse.getStatus());
     }
 
     @Test
-    public void testConsultar() {
+    public void testConsultarTudo() throws Exception {
+        NFeConsultarResponse response = repository.consultarTudo(reference);
+        System.out.println("RateLimitLimit: " + response.getRateLimitLimit());
+        System.out.println("RateLimitRemaining: " + response.getRateLimitRemaining());
+        System.out.println("RateLimitReset: " + response.getRateLimitReset());
+        System.out.println("Status: " + response.getStatus());
+        NFeConsultarBodyResponse bodyResponse = response.getBody();
+        System.out.println("Body.Status: " + bodyResponse.getStatus());
+        System.out.println("Body.Status.ProtocoloNotaFiscal.Motivo: " + bodyResponse.getProtocoloNotaFiscal().getMotivo());
     }
 
     @Test
-    public void testConsultarTudo() {
+    public void testEmitirCCe() throws Exception {
     }
 
     @Test
-    public void testCancelar() {
+    public void testEnviarEmail() throws Exception {
     }
 
     @Test
-    public void testEmitirCCe() {
+    public void testCancelar() throws Exception {
     }
 
     @Test
-    public void testEnviarEmail() {
-    }
-
-    @Test
-    public void testInutilizar() {
+    public void testInutilizar() throws Exception {
     }
 
     private void sleep(long seconds) {
