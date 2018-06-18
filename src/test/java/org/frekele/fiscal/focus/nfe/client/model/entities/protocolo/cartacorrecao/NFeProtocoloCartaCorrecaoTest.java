@@ -27,6 +27,7 @@ public class NFeProtocoloCartaCorrecaoTest {
         String descricaoEvento = "Carta Correcao";
         OffsetDateTime dataEvento = OffsetDateTime.now();
         String numeroProtocolo = "143180003540724";
+        String cnpj = "00003491055051";
 
         NFeProtocoloCartaCorrecao entity = new NFeProtocoloCartaCorrecao();
         entity.setVersao(versao);
@@ -40,6 +41,7 @@ public class NFeProtocoloCartaCorrecaoTest {
         entity.setDescricaoEvento(descricaoEvento);
         entity.setDataEvento(dataEvento);
         entity.setNumeroProtocolo(numeroProtocolo);
+        entity.setCnpj(cnpj);
 
         assertNotNull(entity);
         assertEquals(versao, entity.getVersao());
@@ -53,6 +55,7 @@ public class NFeProtocoloCartaCorrecaoTest {
         assertEquals(descricaoEvento, entity.getDescricaoEvento());
         assertEquals(dataEvento, entity.getDataEvento());
         assertEquals(numeroProtocolo, entity.getNumeroProtocolo());
+        assertEquals(cnpj, entity.getCnpj());
 
         entity = NFeProtocoloCartaCorrecao.newBuilder()
             .withVersao(versao)
@@ -66,6 +69,7 @@ public class NFeProtocoloCartaCorrecaoTest {
             .withDescricaoEvento(descricaoEvento)
             .withDataEvento(dataEvento)
             .withNumeroProtocolo(numeroProtocolo)
+            .withCnpj(cnpj)
             .build();
 
         assertNotNull(entity);
@@ -80,5 +84,6 @@ public class NFeProtocoloCartaCorrecaoTest {
         assertEquals(descricaoEvento, entity.getDescricaoEvento());
         assertEquals(dataEvento, entity.getDataEvento());
         assertEquals(numeroProtocolo, entity.getNumeroProtocolo());
+        assertEquals(cnpj, entity.getCnpj());
     }
 }

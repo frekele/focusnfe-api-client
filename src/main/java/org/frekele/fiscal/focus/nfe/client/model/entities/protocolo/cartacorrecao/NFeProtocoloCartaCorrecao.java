@@ -55,6 +55,9 @@ public class NFeProtocoloCartaCorrecao implements FocusNFeEntity {
     @JsonProperty("numero_protocolo")
     private String numeroProtocolo;
 
+    @JsonProperty("cnpj")
+    private String cnpj;
+
     public NFeProtocoloCartaCorrecao() {
         super();
     }
@@ -71,6 +74,7 @@ public class NFeProtocoloCartaCorrecao implements FocusNFeEntity {
         setDescricaoEvento(builder.descricaoEvento);
         setDataEvento(builder.dataEvento);
         setNumeroProtocolo(builder.numeroProtocolo);
+        setCnpj(builder.cnpj);
     }
 
     public static Builder newBuilder() {
@@ -165,6 +169,14 @@ public class NFeProtocoloCartaCorrecao implements FocusNFeEntity {
         this.numeroProtocolo = numeroProtocolo;
     }
 
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
+
     public static final class Builder {
 
         private String versao;
@@ -188,6 +200,8 @@ public class NFeProtocoloCartaCorrecao implements FocusNFeEntity {
         private OffsetDateTime dataEvento;
 
         private String numeroProtocolo;
+
+        private String cnpj;
 
         private Builder() {
         }
@@ -244,6 +258,11 @@ public class NFeProtocoloCartaCorrecao implements FocusNFeEntity {
 
         public Builder withNumeroProtocolo(String val) {
             numeroProtocolo = val;
+            return this;
+        }
+
+        public Builder withCnpj(String val) {
+            cnpj = val;
             return this;
         }
 
