@@ -77,8 +77,7 @@ public class FocusNFeV2RepositoryIT {
         repository = new FocusNFeV2RepositoryImpl(client, auth);
 
         reference = UUID.randomUUID().toString();
-        //reference = "5f2bec5b-8fc5-4936-840c-70e593377b13";
-        System.out.println("reference: " + reference);
+        System.out.println("Reference: " + reference);
     }
 
     @AfterMethod
@@ -89,22 +88,13 @@ public class FocusNFeV2RepositoryIT {
 
     @Test
     public void testAutorizar() throws Exception {
-        System.out.println("reference: " + reference);
+        System.out.println("Reference: " + reference);
         NFeEnvioRequisicaoNotaFiscal nfe = NFeEnvioRequisicaoNotaFiscal.newBuilder()
             .withNaturezaOperacao("VENDA DE MERCADORIA")
             .withDataEmissao(OffsetDateTime.now())
             .withTipoDocumento(NFeTipoDocumentoEnum.NOTA_FISCAL_SAIDA)
             .withFinalidadeEmissao(NFeFinalidadeEmissaoEnum.NOTA_NORMAL)
             .withCnpjEmitente(cnpjEmitente)
-            //.withNomeEmitente("")
-            //.withNomeFantasiaEmitente("")
-            //.withLogradouroEmitente("")
-            //.withNumeroEmitente("")
-            //.withBairroEmitente("")
-            //.withMunicipioEmitente("")
-            //.withUfEmitente(NFeUnidadeFederativaEnum.RIO_GRANDE_DO_SUL)
-            //.withCepEmitente("")
-            //.withInscricaoEstadualEmitente("")
             .withNomeDestinatario("NF-E EMITIDA EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL")
             .withCpfDestinatario("51966818092")
             .withTelefoneDestinatario("5196185555")
@@ -120,7 +110,7 @@ public class FocusNFeV2RepositoryIT {
         NFeItem item = NFeItem.newBuilder()
             .withNumeroItem("1")
             .withCodigoProduto("XYZ-12345")
-            .withDescricao("Produto Teste")
+            .withDescricao("Produto Teste 12345 XYZ")
             .withCfop("5102")
             .withCodigoNcm("94036000")
             .withUnidadeComercial("UN")
@@ -153,6 +143,7 @@ public class FocusNFeV2RepositoryIT {
 
     @Test(dependsOnMethods = "testAutorizar")
     public void testEmitirCCe() throws Exception {
+        System.out.println("Reference: " + reference);
         NFeCCeBodyRequest bodyRequest = NFeCCeBodyRequest.newBuilder()
             .withCorrecao("bla bla bla bla bla bla bla bla bla bla")
             .build();
@@ -167,6 +158,7 @@ public class FocusNFeV2RepositoryIT {
 
     @Test(dependsOnMethods = "testEmitirCCe")
     public void testEnviarEmail() throws Exception {
+        System.out.println("Reference: " + reference);
         NFeEmailBodyRequest bodyRequest = NFeEmailBodyRequest.newBuilder()
             .withEmails("testexyz12345@teste.com.br")
             .build();
@@ -179,6 +171,7 @@ public class FocusNFeV2RepositoryIT {
 
     @Test(dependsOnMethods = "testEnviarEmail")
     public void testCancelar() throws Exception {
+        System.out.println("Reference: " + reference);
         NFeCancelarBodyRequest bodyRequest = NFeCancelarBodyRequest.newBuilder()
             .withJustificativa("bla bla bla bla bla bla bla bla bla bla bla bla bla bla")
             .build();
@@ -195,6 +188,7 @@ public class FocusNFeV2RepositoryIT {
 
     @Test(dependsOnMethods = "testCancelar")
     public void testConsultar() throws Exception {
+        System.out.println("Reference: " + reference);
         NFeConsultarResponse response = repository.consultar(reference);
         System.out.println("RateLimitLimit: " + response.getRateLimitLimit());
         System.out.println("RateLimitRemaining: " + response.getRateLimitRemaining());
@@ -206,6 +200,7 @@ public class FocusNFeV2RepositoryIT {
 
     @Test(dependsOnMethods = "testConsultar")
     public void testConsultarTudo() throws Exception {
+        System.out.println("Reference: " + reference);
         NFeConsultarResponse response = repository.consultarTudo(reference);
         System.out.println("RateLimitLimit: " + response.getRateLimitLimit());
         System.out.println("RateLimitRemaining: " + response.getRateLimitRemaining());
