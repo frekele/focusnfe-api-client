@@ -55,6 +55,7 @@ public class FocusNFCeV2RepositoryImpl implements FocusNFCeV2Repository {
     public NFCeAutorizarResponse autorizar(String referencia, NFCeAutorizarBodyRequest bodyRequest) {
         FocusNFeUtils.throwObject(referencia, "referencia");
         FocusNFeUtils.throwObject(bodyRequest, "NFCeAutorizarBodyRequest");
+        FocusNFeUtils.throwBeanValidation(bodyRequest);
         FocusNFCeV2ProxyClient proxyClient = this.getProxyClient();
         return proxyClient.autorizar(this.getAuth().getAuthorization(), referencia, bodyRequest);
     }
@@ -63,6 +64,7 @@ public class FocusNFCeV2RepositoryImpl implements FocusNFCeV2Repository {
     public NFCeAutorizarResponse autorizarConsultarTudo(String referencia, NFCeAutorizarBodyRequest bodyRequest) {
         FocusNFeUtils.throwObject(referencia, "referencia");
         FocusNFeUtils.throwObject(bodyRequest, "NFCeAutorizarBodyRequest");
+        FocusNFeUtils.throwBeanValidation(bodyRequest);
         FocusNFCeV2ProxyClient proxyClient = this.getProxyClient();
         return proxyClient.autorizar(this.getAuth().getAuthorization(), referencia, 1, bodyRequest);
     }
@@ -85,6 +87,7 @@ public class FocusNFCeV2RepositoryImpl implements FocusNFCeV2Repository {
     public NFCeCancelarResponse cancelar(String referencia, NFCeCancelarBodyRequest bodyRequest) {
         FocusNFeUtils.throwObject(referencia, "referencia");
         FocusNFeUtils.throwObject(bodyRequest, "NFCeCancelarBodyRequest");
+        FocusNFeUtils.throwBeanValidation(bodyRequest);
         FocusNFCeV2ProxyClient proxyClient = this.getProxyClient();
         return proxyClient.cancelar(this.getAuth().getAuthorization(), referencia, bodyRequest);
     }
@@ -93,6 +96,7 @@ public class FocusNFCeV2RepositoryImpl implements FocusNFCeV2Repository {
     public NFCeEmailResponse enviarEmail(String referencia, NFCeEmailBodyRequest bodyRequest) {
         FocusNFeUtils.throwObject(referencia, "referencia");
         FocusNFeUtils.throwObject(bodyRequest, "NFCeEmailBodyRequest");
+        FocusNFeUtils.throwBeanValidation(bodyRequest);
         FocusNFCeV2ProxyClient proxyClient = this.getProxyClient();
         return proxyClient.enviarEmail(this.getAuth().getAuthorization(), referencia, bodyRequest);
     }
@@ -100,6 +104,7 @@ public class FocusNFCeV2RepositoryImpl implements FocusNFCeV2Repository {
     @Override
     public NFCeInutilizarResponse inutilizar(NFCeInutilizarBodyRequest bodyRequest) {
         FocusNFeUtils.throwObject(bodyRequest, "NFCeInutilizarBodyRequest");
+        FocusNFeUtils.throwBeanValidation(bodyRequest);
         FocusNFCeV2ProxyClient proxyClient = this.getProxyClient();
         return proxyClient.inutilizar(this.getAuth().getAuthorization(), bodyRequest);
     }

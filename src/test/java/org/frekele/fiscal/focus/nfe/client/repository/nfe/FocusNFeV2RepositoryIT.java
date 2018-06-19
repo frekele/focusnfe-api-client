@@ -31,6 +31,7 @@ import org.frekele.fiscal.focus.nfe.client.model.response.nfe.body.NFeCCeBodyRes
 import org.frekele.fiscal.focus.nfe.client.model.response.nfe.body.NFeCancelarBodyResponse;
 import org.frekele.fiscal.focus.nfe.client.model.response.nfe.body.NFeConsultarBodyResponse;
 import org.frekele.fiscal.focus.nfe.client.model.response.nfe.body.NFeInutilizarBodyResponse;
+import org.frekele.fiscal.focus.nfe.client.testng.FocusTestNGUtils;
 import org.frekele.fiscal.focus.nfe.client.testng.InvokedMethodListener;
 import org.jboss.resteasy.client.jaxrs.ResteasyClient;
 import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
@@ -40,7 +41,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import javax.ws.rs.ForbiddenException;
+import javax.ws.rs.ClientErrorException;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -83,7 +84,7 @@ public class FocusNFeV2RepositoryIT {
     @AfterMethod
     public void afterMethod() throws Exception {
         //After Method Sleep 2 seg, for prevent Error.
-        this.sleep(2);
+        FocusTestNGUtils.sleep(2);
     }
 
     @Test
@@ -138,7 +139,7 @@ public class FocusNFeV2RepositoryIT {
         System.out.println("Body.Status: " + bodyResponse.getStatus());
 
         //After Method Sleep 10 seg, for prevent Error.
-        this.sleep(10);
+        FocusTestNGUtils.sleep(10);
     }
 
     @Test(dependsOnMethods = "testAutorizar")
@@ -227,14 +228,14 @@ public class FocusNFeV2RepositoryIT {
         System.out.println("Body.Status: " + bodyResponse.getStatus());
     }
 
-    @Test(dependsOnMethods = "testInutilizar", expectedExceptions = ForbiddenException.class)
+    @Test(dependsOnMethods = "testInutilizar", expectedExceptions = ClientErrorException.class)
     public void testInutilizarWithError() throws Exception {
         NFeInutilizarBodyRequest bodyRequest = NFeInutilizarBodyRequest.newBuilder()
-            .withCnpj("")
-            .withSerie("")
-            .withNumeroInicial("")
-            .withNumeroFinal("")
-            .withJustificativa("")
+            .withCnpj("10000000000001")
+            .withSerie("1")
+            .withNumeroInicial("2")
+            .withNumeroFinal("4")
+            .withJustificativa("bla bla bla bla bla bla bla bla bla Teste")
             .build();
         NFeInutilizarResponse response = repository.inutilizar(bodyRequest);
         System.out.println("RateLimitLimit: " + response.getRateLimitLimit());
@@ -243,16 +244,5 @@ public class FocusNFeV2RepositoryIT {
         System.out.println("Status: " + response.getStatus());
         NFeInutilizarBodyResponse bodyResponse = response.getBody();
         System.out.println("Body.Status: " + bodyResponse.getStatus());
-    }
-
-    private void sleep(long seconds) {
-        try {
-            long millis = seconds * 1000;
-            Thread.sleep(millis);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-            // Restore interrupted state...
-            Thread.currentThread().interrupt();
-        }
     }
 }
