@@ -25,7 +25,7 @@ public interface NFeEmailResponse extends FocusNFeEntity {
     String getRateLimitReset();
 
     @Status
-    String getStatus();
+    Integer getStatus();
 
     @Body
     NFeEmailBodyResponse getBody();

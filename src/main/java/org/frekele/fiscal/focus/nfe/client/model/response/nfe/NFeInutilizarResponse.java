@@ -25,7 +25,7 @@ public interface NFeInutilizarResponse extends FocusNFeEntity {
     String getRateLimitReset();
 
     @Status
-    String getStatus();
+    Integer getStatus();
 
     @Body
     NFeInutilizarBodyResponse getBody();
