@@ -26,7 +26,7 @@ public class NFCeConsultarBodyResponse implements FocusNFeEntity {
     @JsonUnwrapped
     private NFeErro erro;
 
-    // A situação da NFe, podendo ser: processando_autorizacao, autorizado, cancelado, erro_autorizacao ou denegado.
+    // A situação da NFe, podendo ser: autorizado, cancelado, erro_autorizacao ou denegado.
     @JsonProperty("status")
     private String status;
 
