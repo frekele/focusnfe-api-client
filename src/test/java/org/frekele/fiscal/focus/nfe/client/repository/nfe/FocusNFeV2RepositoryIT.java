@@ -182,8 +182,6 @@ public class FocusNFeV2RepositoryIT {
         System.out.println("Status: " + response.getStatus());
         NFeCancelarBodyResponse bodyResponse = response.getBody();
         System.out.println("Body.Status: " + bodyResponse.getStatus());
-        //After Method Sleep 10 seg, for prevent Error.
-        this.sleep(10);
     }
 
     @Test(dependsOnMethods = "testCancelar")
