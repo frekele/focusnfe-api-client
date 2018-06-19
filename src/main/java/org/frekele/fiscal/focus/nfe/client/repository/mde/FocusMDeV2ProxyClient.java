@@ -1,7 +1,7 @@
 package org.frekele.fiscal.focus.nfe.client.repository.mde;
 
 import org.frekele.fiscal.focus.nfe.client.model.request.mde.MDeManifestarBodyRequest;
-import org.frekele.fiscal.focus.nfe.client.model.response.nfce.NFCeAutorizarResponse;
+import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeManifestarResponse;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.HeaderParam;
@@ -26,7 +26,7 @@ interface FocusMDeV2ProxyClient extends Serializable {
      */
     @POST
     @Path("nfes_recebidas/{chaveNFe}/manifesto")
-    NFCeAutorizarResponse manifestar(@HeaderParam("Authorization") String authorization,
-                                      @QueryParam("chaveNFe") String chaveNFe,
-                                      MDeManifestarBodyRequest bodyRequest);
+    MDeManifestarResponse manifestar(@HeaderParam("Authorization") String authorization,
+                                     @QueryParam("chaveNFe") String chaveNFe,
+                                     MDeManifestarBodyRequest bodyRequest);
 }
