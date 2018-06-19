@@ -28,6 +28,8 @@ public class NFCeAutorizarBodyResponseTest {
         String chaveNfe = "NFe43691010000002072570478000505164180050162750";
         String caminhoXmlNotaFiscal = "/teste1/teste/arquivo.xml";
         String caminhoDanfe = "/teste2/teste/arquivo.pdf";
+        String qrcodeUrl = "https://www.sefaz.rs.gov.br/NFCE/NFCE-COM.aspx?chNFe=43180695646546546545645645";
+        String urlConsultaNf = "https://www.sefaz.rs.gov.br/NFE/NFE-NFC.aspx";
         NFeRetornoRequisicaoNotaFiscal requisicaoNotaFiscal = new NFeRetornoRequisicaoNotaFiscal();
         NFeProtocoloNotaFiscal protocoloNotaFiscal = new NFeProtocoloNotaFiscal();
 
@@ -43,6 +45,8 @@ public class NFCeAutorizarBodyResponseTest {
         entity.setChaveNfe(chaveNfe);
         entity.setCaminhoXmlNotaFiscal(caminhoXmlNotaFiscal);
         entity.setCaminhoDanfe(caminhoDanfe);
+        entity.setQrcodeUrl(qrcodeUrl);
+        entity.setUrlConsultaNf(urlConsultaNf);
         entity.setRequisicaoNotaFiscal(requisicaoNotaFiscal);
         entity.setProtocoloNotaFiscal(protocoloNotaFiscal);
 
@@ -58,6 +62,8 @@ public class NFCeAutorizarBodyResponseTest {
         assertEquals(chaveNfe, entity.getChaveNfe());
         assertEquals(caminhoXmlNotaFiscal, entity.getCaminhoXmlNotaFiscal());
         assertEquals(caminhoDanfe, entity.getCaminhoDanfe());
+        assertEquals(qrcodeUrl, entity.getQrcodeUrl());
+        assertEquals(urlConsultaNf, entity.getUrlConsultaNf());
         assertEquals(requisicaoNotaFiscal, entity.getRequisicaoNotaFiscal());
         assertEquals(protocoloNotaFiscal, entity.getProtocoloNotaFiscal());
     }
