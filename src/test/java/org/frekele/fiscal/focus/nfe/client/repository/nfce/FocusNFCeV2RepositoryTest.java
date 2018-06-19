@@ -56,6 +56,8 @@ public class FocusNFCeV2RepositoryTest {
 
     private String reference;
 
+    NFeEnvioRequisicaoNotaFiscal nfce;
+
     @BeforeClass
     public void init() throws Exception {
         MockitoAnnotations.initMocks(this);
@@ -74,18 +76,8 @@ public class FocusNFCeV2RepositoryTest {
 
         reference = UUID.randomUUID().toString();
         System.out.println("Reference: " + reference);
-    }
 
-    @AfterMethod
-    public void afterMethod() throws Exception {
-        //After Method Sleep 2 seg, for prevent Error.
-        this.sleep(2);
-    }
-
-    @Test
-    public void testAutorizar() throws Exception {
-        System.out.println("Reference: " + reference);
-        NFeEnvioRequisicaoNotaFiscal nfce = NFeEnvioRequisicaoNotaFiscal.newBuilder()
+        nfce = NFeEnvioRequisicaoNotaFiscal.newBuilder()
             .withNaturezaOperacao("VENDA DE MERCADORIA")
             .withDataEmissao(OffsetDateTime.now())
             .withIndicadorInscricaoEstadualDestinatario(NFeIndicadorInscricaoEstadualDestinatarioEnum.NAO_CONTRIBUINTE)
@@ -114,7 +106,17 @@ public class FocusNFCeV2RepositoryTest {
             .withIncluiNoTotal(NFeIncluiNoTotalEnum.SIM)
             .build();
         nfce.getItems().add(item);
+    }
 
+    @AfterMethod
+    public void afterMethod() throws Exception {
+        //After Method Sleep 2 seg, for prevent Error.
+        this.sleep(2);
+    }
+
+    @Test
+    public void testAutorizar() throws Exception {
+        System.out.println("Reference: " + reference);
         NFCeAutorizarBodyRequest bodyRequest = NFCeAutorizarBodyRequest.newBuilder().withNfce(nfce).build();
         NFCeAutorizarResponse response = repository.autorizar(reference, bodyRequest);
         System.out.println("RateLimitLimit: " + response.getRateLimitLimit());
@@ -211,6 +213,20 @@ public class FocusNFCeV2RepositoryTest {
         System.out.println("RateLimitReset: " + response.getRateLimitReset());
         System.out.println("Status: " + response.getStatus());
         NFCeInutilizarBodyResponse bodyResponse = response.getBody();
+        System.out.println("Body.Status: " + bodyResponse.getStatus());
+    }
+
+    @Test(dependsOnMethods = "testInutilizarWithError")
+    public void testAutorizarConsultarTudo() throws Exception {
+        String reference = UUID.randomUUID().toString();
+        System.out.println("Reference: " + reference);
+        NFCeAutorizarBodyRequest bodyRequest = NFCeAutorizarBodyRequest.newBuilder().withNfce(nfce).build();
+        NFCeAutorizarResponse response = repository.autorizarConsultarTudo(reference, bodyRequest);
+        System.out.println("RateLimitLimit: " + response.getRateLimitLimit());
+        System.out.println("RateLimitRemaining: " + response.getRateLimitRemaining());
+        System.out.println("RateLimitReset: " + response.getRateLimitReset());
+        System.out.println("Status: " + response.getStatus());
+        NFCeAutorizarBodyResponse bodyResponse = response.getBody();
         System.out.println("Body.Status: " + bodyResponse.getStatus());
     }
 
