@@ -173,7 +173,7 @@ public class FocusNFeV2RepositoryIT {
     public void testCancelar() throws Exception {
         System.out.println("Reference: " + reference);
         NFeCancelarBodyRequest bodyRequest = NFeCancelarBodyRequest.newBuilder()
-            .withJustificativa("bla bla bla bla bla bla bla bla bla bla bla bla bla bla")
+            .withJustificativa("bla bla bla bla bla bla bla bla bla bla bla bla bla bla Teste")
             .build();
         NFeCancelarResponse response = repository.cancelar(reference, bodyRequest);
         System.out.println("RateLimitLimit: " + response.getRateLimitLimit());
@@ -216,7 +216,7 @@ public class FocusNFeV2RepositoryIT {
             .withSerie("1")
             .withNumeroInicial("2")
             .withNumeroFinal("4")
-            .withJustificativa("bla bla bla bla bla bla bla bla bla")
+            .withJustificativa("bla bla bla bla bla bla bla bla bla Teste")
             .build();
         NFeInutilizarResponse response = repository.inutilizar(bodyRequest);
         System.out.println("RateLimitLimit: " + response.getRateLimitLimit());
