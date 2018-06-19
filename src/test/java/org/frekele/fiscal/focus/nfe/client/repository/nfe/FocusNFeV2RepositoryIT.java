@@ -6,6 +6,7 @@ import org.frekele.fiscal.focus.nfe.client.auth.FocusNFeAuth;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeFinalidadeEmissaoEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeIcmsOrigemEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeIcmsSituacaoTributariaEnum;
+import org.frekele.fiscal.focus.nfe.client.enumeration.NFeIncluiNoTotalEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeModalidadeFreteEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFePisCofinsSituacaoTributariaEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeTipoDocumentoEnum;
@@ -133,6 +134,7 @@ public class FocusNFeV2RepositoryIT {
             .withIcmsOrigem(NFeIcmsOrigemEnum.NACIONAL)
             .withPisSituacaoTributaria(NFePisCofinsSituacaoTributariaEnum.OPERACAO_ISENTA_DA_CONTRIBUICAO)
             .withCofinsSituacaoTributaria(NFePisCofinsSituacaoTributariaEnum.OPERACAO_ISENTA_DA_CONTRIBUICAO)
+            .withIncluiNoTotal(NFeIncluiNoTotalEnum.SIM)
             .build();
         nfe.getItems().add(item);
 
