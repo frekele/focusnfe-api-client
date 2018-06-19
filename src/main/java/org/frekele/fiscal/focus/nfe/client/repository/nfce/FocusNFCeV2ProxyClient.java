@@ -33,13 +33,26 @@ interface FocusNFCeV2ProxyClient extends Serializable {
     /**
      * POST - Emitir uma Nota Fiscal de Consumidor Eletrônica (NFCe) para qualquer Estado que aceita o uso deste documento.
      * Todos os processos envolvendo NFCe são Síncronos.
-     * Cria uma nota fiscal e a envia para processamento.
+     * Cria uma nota fiscal e a envia para processamento Síncronos.
      * Exemplo de requisição: POST https://api.focusnfe.com.br/v2/nfce?ref=REFERENCIA
      */
     @POST
     @Path("nfce")
     NFCeAutorizarResponse autorizar(@HeaderParam("Authorization") String authorization,
                                     @QueryParam("ref") String referencia,
+                                    NFCeAutorizarBodyRequest bodyRequest);
+
+    /**
+     * POST - Emitir uma Nota Fiscal de Consumidor Eletrônica (NFCe) para qualquer Estado que aceita o uso deste documento.
+     * Todos os processos envolvendo NFCe são Síncronos.
+     * Cria uma nota fiscal e a envia para processamento Síncronos e retorna informações completa.
+     * Exemplo de requisição: POST https://api.focusnfe.com.br/v2/nfce?ref=REFERENCIA&completa=(0|1)
+     */
+    @POST
+    @Path("nfce")
+    NFCeAutorizarResponse autorizar(@HeaderParam("Authorization") String authorization,
+                                    @QueryParam("ref") String referencia,
+                                    @QueryParam("completa") Integer completa,
                                     NFCeAutorizarBodyRequest bodyRequest);
 
     /**
