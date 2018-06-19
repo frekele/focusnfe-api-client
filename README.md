@@ -4,8 +4,8 @@
 [![Javadocs](http://www.javadoc.io/badge/org.frekele.fiscal/focusnfe-api-client.svg?color=blue)](http://www.javadoc.io/doc/org.frekele.fiscal/focusnfe-api-client)
 [![Build Status](https://travis-ci.org/frekele/focusnfe-api-client.svg?branch=master)](https://travis-ci.org/frekele/focusnfe-api-client)
 [![Coverage](https://codecov.io/gh/frekele/focusnfe-api-client/branch/master/graph/badge.svg)](https://codecov.io/gh/frekele/focusnfe-api-client)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/05da720aaaec4ef9ac59a644a4c7ee91)](https://www.codacy.com/app/frekele/focusnfe-api-client?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=frekele/focusnfe-api-client&amp;utm_campaign=Badge_Grade)
-[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/05da720aaaec4ef9ac59a644a4c7ee91)](https://www.codacy.com/app/frekele/focusnfe-api-client?utm_source=github.com&utm_medium=referral&utm_content=frekele/focusnfe-api-client&utm_campaign=Badge_Coverage)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2fce31d394434419afdc0d9d42b9afe5)](https://www.codacy.com/app/frekele/focusnfe-api-client?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=frekele/focusnfe-api-client&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/2fce31d394434419afdc0d9d42b9afe5)](https://www.codacy.com/app/frekele/focusnfe-api-client?utm_source=github.com&utm_medium=referral&utm_content=frekele/focusnfe-api-client&utm_campaign=Badge_Coverage)
 
 
 ![focusnfe](https://raw.githubusercontent.com/frekele/focusnfe-api-client/master/docs/img/focusnfe-logo.png)
