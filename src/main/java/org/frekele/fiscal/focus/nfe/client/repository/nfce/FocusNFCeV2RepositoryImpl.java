@@ -60,6 +60,14 @@ public class FocusNFCeV2RepositoryImpl implements FocusNFCeV2Repository {
     }
 
     @Override
+    public NFCeAutorizarResponse autorizarConsultarTudo(String referencia, NFCeAutorizarBodyRequest bodyRequest) {
+        FocusNFeUtils.throwObject(referencia, "referencia");
+        FocusNFeUtils.throwObject(bodyRequest, "NFCeAutorizarBodyRequest");
+        FocusNFCeV2ProxyClient proxyClient = this.getProxyClient();
+        return proxyClient.autorizar(this.getAuth().getAuthorization(), referencia, 1, bodyRequest);
+    }
+
+    @Override
     public NFCeConsultarResponse consultar(String referencia) {
         FocusNFeUtils.throwObject(referencia, "referencia");
         FocusNFCeV2ProxyClient proxyClient = this.getProxyClient();
