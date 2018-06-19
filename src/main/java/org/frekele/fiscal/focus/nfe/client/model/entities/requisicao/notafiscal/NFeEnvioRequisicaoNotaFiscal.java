@@ -56,7 +56,7 @@ public class NFeEnvioRequisicaoNotaFiscal implements FocusNFeEntity {
 
     //Data e hora de emissão da emissão da NFe.
     //Formato padrão ISO, exemplo: “2016-12-25T12:00-0300”.
-    //(Para NFC-e a diferença máxima permitida de 5 minutos do horário atual).
+    //Para NFC-e (A diferença máxima permitida de 5 minutos do horário atual).
     @NotNull
     @OffsetDateTimeJsonConverter
     @JsonProperty("data_emissao")
