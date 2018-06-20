@@ -1,6 +1,7 @@
 package org.frekele.fiscal.focus.nfe.client.repository.mde;
 
 import org.frekele.fiscal.focus.nfe.client.model.request.mde.MDeManifestarBodyRequest;
+import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarTudoResponse;
 import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeManifestarResponse;
 
 import javax.ws.rs.Consumes;
@@ -34,31 +35,40 @@ interface FocusMDeV2ProxyClient extends Serializable {
 
     /**
      * GET - Busca informações resumidas de todas as NFe’s recebidas.
-     * Exemplo de requisição: POST https://api.focusnfe.com.br/v2/v2/nfes_recebidas?cnpj=CNPJ
+     * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/v2/nfes_recebidas?cnpj=CNPJ
      */
     @GET
     @Path("nfes_recebidas")
-    MDeManifestarResponse consultarTudo(@HeaderParam("Authorization") String authorization,
-                                        @QueryParam("cnpj") String cnpj);
+    MDeConsultarTudoResponse consultarTodosManifestos(@HeaderParam("Authorization") String authorization,
+                                                      @QueryParam("cnpj") String cnpj);
 
     /**
      * GET - Busca informações resumidas de todas as NFe’s recebidas.
-     * Exemplo de requisição: POST https://api.focusnfe.com.br/v2/v2/nfes_recebidas?cnpj=CNPJ&versao=VERSAO
+     * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/v2/nfes_recebidas?cnpj=CNPJ&versao=VERSAO
      */
     @GET
     @Path("nfes_recebidas")
-    MDeManifestarResponse consultarTudo(@HeaderParam("Authorization") String authorization,
-                                        @QueryParam("cnpj") String cnpj,
-                                        @QueryParam("versao") String versao);
+    MDeConsultarTudoResponse consultarTodosManifestos(@HeaderParam("Authorization") String authorization,
+                                                      @QueryParam("cnpj") String cnpj,
+                                                      @QueryParam("versao") String versao);
 
     /**
      * GET - Busca informações resumidas de todas as NFe’s recebidas.
-     * Exemplo de requisição: POST https://api.focusnfe.com.br/v2/v2/nfes_recebidas?cnpj=CNPJ&versao=VERSAO&pendente=PENDENTE
+     * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/v2/nfes_recebidas?cnpj=CNPJ&versao=VERSAO&pendente=PENDENTE
      */
     @GET
     @Path("nfes_recebidas")
-    MDeManifestarResponse consultarTudo(@HeaderParam("Authorization") String authorization,
-                                        @QueryParam("cnpj") String cnpj,
-                                        @QueryParam("versao") String versao,
-                                        @QueryParam("pendente") String pendente);
+    MDeConsultarTudoResponse consultarTodosManifestos(@HeaderParam("Authorization") String authorization,
+                                                      @QueryParam("cnpj") String cnpj,
+                                                      @QueryParam("versao") String versao,
+                                                      @QueryParam("pendente") String pendente);
+
+//    /**
+//     * GET - Consulta o último manifesto válido na nota fiscal informada.
+//     * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/nfes_recebidas/CHAVE_NFE/manifesto
+//     */
+//    @GET
+//    @Path("nfes_recebidas/{chaveNFe}/manifesto")
+//    MDeConsultarTudoResponse consultarUltimaManifestacao(@HeaderParam("Authorization") String authorization,
+//                                       @PathParam("chaveNFe") String chaveNFe);
 }
