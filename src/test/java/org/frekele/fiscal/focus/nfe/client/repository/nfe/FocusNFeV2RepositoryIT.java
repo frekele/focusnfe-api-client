@@ -138,8 +138,9 @@ public class FocusNFeV2RepositoryIT {
         NFeAutorizarBodyResponse bodyResponse = response.getBody();
         System.out.println("Body.Status: " + bodyResponse.getStatus());
 
-        //After Method Sleep 10 seg, for prevent Error.
-        FocusTestNGUtils.sleep(10);
+        //After Method Sleep 20 seg, for prevent Error.
+        System.out.println("Sleep 20seg");
+        FocusTestNGUtils.sleep(20);
     }
 
     @Test(dependsOnMethods = "testAutorizar")
