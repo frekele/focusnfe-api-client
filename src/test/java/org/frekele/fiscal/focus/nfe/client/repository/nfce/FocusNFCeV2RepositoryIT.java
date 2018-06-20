@@ -47,7 +47,7 @@ import java.util.UUID;
  * @author frekele - Leandro Kersting de Freitas
  */
 @Listeners(InvokedMethodListener.class)
-public class FocusNFCeV2RepositoryTest {
+public class FocusNFCeV2RepositoryIT {
 
     private FocusNFCeV2Repository repository;
 
