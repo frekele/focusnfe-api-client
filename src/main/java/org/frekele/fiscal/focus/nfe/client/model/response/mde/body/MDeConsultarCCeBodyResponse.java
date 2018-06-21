@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class MDeConsultarCceBodyResponse implements FocusNFeEntity {
+public class MDeConsultarCCeBodyResponse implements FocusNFeEntity {
 
     private static final long serialVersionUID = 1L;
 
@@ -38,7 +38,7 @@ public class MDeConsultarCceBodyResponse implements FocusNFeEntity {
     @JsonProperty("protocolo_carta_correcao")
     private NFeProtocoloCartaCorrecao protocoloCartaCorrecao;
 
-    public MDeConsultarCceBodyResponse() {
+    public MDeConsultarCCeBodyResponse() {
         super();
     }
 
