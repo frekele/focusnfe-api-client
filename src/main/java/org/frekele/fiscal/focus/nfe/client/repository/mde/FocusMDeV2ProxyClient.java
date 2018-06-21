@@ -2,6 +2,7 @@ package org.frekele.fiscal.focus.nfe.client.repository.mde;
 
 import org.frekele.fiscal.focus.nfe.client.model.request.mde.MDeManifestarBodyRequest;
 import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarManifestosResponse;
+import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarNFeResponse;
 import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarUltimoManifestoResponse;
 import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeManifestarResponse;
 
@@ -72,4 +73,23 @@ interface FocusMDeV2ProxyClient extends Serializable {
     @Path("nfes_recebidas/{chaveNFe}/manifesto")
     MDeConsultarUltimoManifestoResponse consultarUltimaManifesto(@HeaderParam("Authorization") String authorization,
                                                                  @PathParam("chaveNFe") String chaveNFe);
+
+    /**
+     * GET - Consulta as informações da nota fiscal.
+     * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/nfes_recebidas/CHAVE.json
+     */
+    @GET
+    @Path("nfes_recebidas/{chaveNFe}.json")
+    MDeConsultarNFeResponse consultarNFeEspecifica(@HeaderParam("Authorization") String authorization,
+                                                   @PathParam("chaveNFe") String chaveNFe);
+
+    /**
+     * GET - Consulta as informações da nota fiscal em formato JSON.
+     * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/nfes_recebidas/CHAVE.json?completa=(0|1)
+     */
+    @GET
+    @Path("nfes_recebidas/{chaveNFe}.json")
+    MDeConsultarNFeResponse consultarNFeEspecifica(@HeaderParam("Authorization") String authorization,
+                                                   @PathParam("chaveNFe") String chaveNFe,
+                                                   @QueryParam("completa") Integer completa);
 }
