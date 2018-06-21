@@ -111,4 +111,23 @@ interface FocusMDeV2ProxyClient extends Serializable {
     MDeConsultarNFeResponse consultarCancelamento(@HeaderParam("Authorization") String authorization,
                                                   @PathParam("chaveNFe") String chaveNFe,
                                                   @QueryParam("completa") Integer completa);
+
+    /**
+     * GET - Se existir, Consulta as informações de carta de correção da nota fiscal informada.
+     * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/nfes_recebidas/CHAVE/carta_correcao.json
+     */
+    @GET
+    @Path("nfes_recebidas/{chaveNFe}/carta_correcao.json")
+    MDeConsultarNFeResponse consultarCCe(@HeaderParam("Authorization") String authorization,
+                                         @PathParam("chaveNFe") String chaveNFe);
+
+    /**
+     * GET - Se existir, Consulta as informações de carta de correção da nota fiscal informada.
+     * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/nfes_recebidas/CHAVE/carta_correcao.json?completa=(0|1)
+     */
+    @GET
+    @Path("nfes_recebidas/{chaveNFe}/carta_correcao.json")
+    MDeConsultarNFeResponse consultarCCe(@HeaderParam("Authorization") String authorization,
+                                         @PathParam("chaveNFe") String chaveNFe,
+                                         @QueryParam("completa") Integer completa);
 }
