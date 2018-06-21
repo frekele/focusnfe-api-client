@@ -23,7 +23,7 @@ public class MDeConsultarManifestosBodyResponse implements FocusNFeEntity {
     @JsonUnwrapped
     private NFeErro erro;
 
-    ////Lista de Manifestações emitidas para o CNPJ;
+    //Lista de Manifestações emitidas para o CNPJ;
     @JsonUnwrapped
     private List<MDeManifesto> manifestos;
 
