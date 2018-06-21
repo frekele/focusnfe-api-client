@@ -80,16 +80,35 @@ interface FocusMDeV2ProxyClient extends Serializable {
      */
     @GET
     @Path("nfes_recebidas/{chaveNFe}.json")
-    MDeConsultarNFeResponse consultarNFeEspecifica(@HeaderParam("Authorization") String authorization,
-                                                   @PathParam("chaveNFe") String chaveNFe);
+    MDeConsultarNFeResponse consultarNFe(@HeaderParam("Authorization") String authorization,
+                                         @PathParam("chaveNFe") String chaveNFe);
 
     /**
-     * GET - Consulta as informações da nota fiscal em formato JSON.
+     * GET - Consulta as informações da nota fiscal.
      * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/nfes_recebidas/CHAVE.json?completa=(0|1)
      */
     @GET
     @Path("nfes_recebidas/{chaveNFe}.json")
-    MDeConsultarNFeResponse consultarNFeEspecifica(@HeaderParam("Authorization") String authorization,
-                                                   @PathParam("chaveNFe") String chaveNFe,
-                                                   @QueryParam("completa") Integer completa);
+    MDeConsultarNFeResponse consultarNFe(@HeaderParam("Authorization") String authorization,
+                                         @PathParam("chaveNFe") String chaveNFe,
+                                         @QueryParam("completa") Integer completa);
+
+    /**
+     * GET - Se existir, Consulta as informações de cancelamento da nota fiscal informada.
+     * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/nfes_recebidas/CHAVE/cancelamento.json
+     */
+    @GET
+    @Path("nfes_recebidas/{chaveNFe}/cancelamento.json")
+    MDeConsultarNFeResponse consultarCancelamento(@HeaderParam("Authorization") String authorization,
+                                                  @PathParam("chaveNFe") String chaveNFe);
+
+    /**
+     * GET - Se existir, Consulta as informações de cancelamento da nota fiscal informada.
+     * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/nfes_recebidas/CHAVE/cancelamento.json?completa=(0|1)
+     */
+    @GET
+    @Path("nfes_recebidas/{chaveNFe}/cancelamento.json")
+    MDeConsultarNFeResponse consultarCancelamento(@HeaderParam("Authorization") String authorization,
+                                                  @PathParam("chaveNFe") String chaveNFe,
+                                                  @QueryParam("completa") Integer completa);
 }
