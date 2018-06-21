@@ -34,7 +34,6 @@ public class MDeConsultarNFeBodyResponse implements FocusNFeEntity {
     @JsonProperty("requisicao_nota_fiscal")
     private NFeRetornoRequisicaoNotaFiscal requisicaoNotaFiscal;
 
-    //Caso na requisição seja passado o parâmetro completa=1;
     //Dados completos do retorno do SEFAZ em formato JSON.
     @JsonProperty("protocolo_nota_fiscal")
     private NFeProtocoloNotaFiscal protocoloNotaFiscal;
