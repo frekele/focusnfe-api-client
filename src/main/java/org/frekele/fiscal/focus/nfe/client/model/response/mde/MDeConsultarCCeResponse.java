@@ -1,7 +1,7 @@
 package org.frekele.fiscal.focus.nfe.client.model.response.mde;
 
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFeEntity;
-import org.frekele.fiscal.focus.nfe.client.model.response.mde.body.MDeConsultarCceBodyResponse;
+import org.frekele.fiscal.focus.nfe.client.model.response.mde.body.MDeConsultarCCeBodyResponse;
 import org.jboss.resteasy.annotations.Body;
 import org.jboss.resteasy.annotations.ResponseObject;
 import org.jboss.resteasy.annotations.Status;
@@ -28,7 +28,7 @@ public interface MDeConsultarCCeResponse extends FocusNFeEntity {
     Integer getStatus();
 
     @Body
-    MDeConsultarCceBodyResponse getBody();
+    MDeConsultarCCeBodyResponse getBody();
 
     Response getResponse();
 }
