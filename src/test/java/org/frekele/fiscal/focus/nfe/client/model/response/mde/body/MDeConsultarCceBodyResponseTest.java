@@ -23,7 +23,7 @@ public class MDeConsultarCceBodyResponseTest {
         NFeRequisicaoCartaCorrecao requisicaoCartaCorrecao = new NFeRequisicaoCartaCorrecao();
         NFeProtocoloCartaCorrecao protocoloCartaCorrecao = new NFeProtocoloCartaCorrecao();
 
-        MDeConsultarCceBodyResponse entity = new MDeConsultarCceBodyResponse();
+        MDeConsultarCCeBodyResponse entity = new MDeConsultarCCeBodyResponse();
         entity.setErro(erro);
         entity.setManifesto(manifesto);
         entity.setRequisicaoCartaCorrecao(requisicaoCartaCorrecao);
