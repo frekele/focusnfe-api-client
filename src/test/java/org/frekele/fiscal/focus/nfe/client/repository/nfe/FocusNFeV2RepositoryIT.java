@@ -97,7 +97,7 @@ public class FocusNFeV2RepositoryIT {
             .withFinalidadeEmissao(NFeFinalidadeEmissaoEnum.NOTA_NORMAL)
             .withCnpjEmitente(cnpjEmitente)
             .withNomeDestinatario("NF-E EMITIDA EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL")
-            .withCpfDestinatario("51966818092")
+            .withCpfDestinatario("98445556550")
             .withTelefoneDestinatario("5196185555")
             .withLogradouroDestinatario("Av Otto Niemeyer")
             .withNumeroDestinatario("600")
@@ -147,7 +147,7 @@ public class FocusNFeV2RepositoryIT {
     public void testEmitirCCe() throws Exception {
         System.out.println("Reference: " + reference);
         NFeCCeBodyRequest bodyRequest = NFeCCeBodyRequest.newBuilder()
-            .withCorrecao("bla bla bla bla bla bla bla bla bla bla")
+            .withCorrecao("bla bla bla bla bla bla bla bla bla bla CCe1")
             .build();
         NFeCCeResponse response = repository.emitirCCe(reference, bodyRequest);
         System.out.println("RateLimitLimit: " + response.getRateLimitLimit());
@@ -159,6 +159,21 @@ public class FocusNFeV2RepositoryIT {
     }
 
     @Test(dependsOnMethods = "testEmitirCCe")
+    public void testEmitirCCe2() throws Exception {
+        System.out.println("Reference: " + reference);
+        NFeCCeBodyRequest bodyRequest = NFeCCeBodyRequest.newBuilder()
+            .withCorrecao("bla bla bla bla bla bla bla bla bla bla bla bla bla CCe2")
+            .build();
+        NFeCCeResponse response = repository.emitirCCe(reference, bodyRequest);
+        System.out.println("RateLimitLimit: " + response.getRateLimitLimit());
+        System.out.println("RateLimitRemaining: " + response.getRateLimitRemaining());
+        System.out.println("RateLimitReset: " + response.getRateLimitReset());
+        System.out.println("Status: " + response.getStatus());
+        NFeCCeBodyResponse bodyResponse = response.getBody();
+        System.out.println("Body.Status: " + bodyResponse.getStatus());
+    }
+
+    @Test(dependsOnMethods = "testEmitirCCe2")
     public void testEnviarEmail() throws Exception {
         System.out.println("Reference: " + reference);
         NFeEmailBodyRequest bodyRequest = NFeEmailBodyRequest.newBuilder()
