@@ -55,7 +55,7 @@ interface FocusMDeV2ProxyClient extends Serializable {
     @Path("nfes_recebidas")
     MDeConsultarManifestosResponse consultarManifestosVersao(@HeaderParam("Authorization") String authorization,
                                                              @QueryParam("cnpj") String cnpj,
-                                                             @QueryParam("versao") String versao);
+                                                             @QueryParam("versao") Integer versao);
 
     /**
      * GET - Busca informações resumidas de todas as NFe’s recebidas.
@@ -75,7 +75,7 @@ interface FocusMDeV2ProxyClient extends Serializable {
     @Path("nfes_recebidas")
     MDeConsultarManifestosResponse consultarManifestosVersaoPendente(@HeaderParam("Authorization") String authorization,
                                                                      @QueryParam("cnpj") String cnpj,
-                                                                     @QueryParam("versao") String versao,
+                                                                     @QueryParam("versao") Integer versao,
                                                                      @QueryParam("pendente") String pendente);
 
     /**

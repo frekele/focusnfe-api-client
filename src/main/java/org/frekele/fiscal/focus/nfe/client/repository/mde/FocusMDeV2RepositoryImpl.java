@@ -65,7 +65,7 @@ public class FocusMDeV2RepositoryImpl implements FocusMDeV2Repository {
     }
 
     @Override
-    public MDeConsultarManifestosResponse consultarManifestos(String cnpj, String versao) {
+    public MDeConsultarManifestosResponse consultarManifestos(String cnpj, Integer versao) {
         FocusNFeUtils.throwObject(cnpj, "cnpj");
         FocusNFeUtils.throwObject(versao, "versao");
         FocusMDeV2ProxyClient proxyClient = this.getProxyClient();
@@ -80,7 +80,7 @@ public class FocusMDeV2RepositoryImpl implements FocusMDeV2Repository {
     }
 
     @Override
-    public MDeConsultarManifestosResponse consultarManifestosPendentes(String cnpj, String versao) {
+    public MDeConsultarManifestosResponse consultarManifestosPendentes(String cnpj, Integer versao) {
         FocusNFeUtils.throwObject(cnpj, "cnpj");
         FocusNFeUtils.throwObject(versao, "versao");
         FocusMDeV2ProxyClient proxyClient = this.getProxyClient();

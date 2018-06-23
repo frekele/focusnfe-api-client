@@ -18,11 +18,11 @@ public interface FocusMDeV2Repository extends Serializable {
 
     MDeConsultarManifestosResponse consultarManifestos(String cnpj);
 
-    MDeConsultarManifestosResponse consultarManifestos(String cnpj, String versao);
+    MDeConsultarManifestosResponse consultarManifestos(String cnpj, Integer versao);
 
     MDeConsultarManifestosResponse consultarManifestosPendentes(String cnpj);
 
-    MDeConsultarManifestosResponse consultarManifestosPendentes(String cnpj, String versao);
+    MDeConsultarManifestosResponse consultarManifestosPendentes(String cnpj, Integer versao);
 
     MDeConsultarUltimoManifestoResponse consultarUltimoManifesto(String chaveNFe);
 
