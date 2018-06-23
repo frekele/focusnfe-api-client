@@ -32,7 +32,13 @@ public class RequestLoggingFilter implements ClientRequestFilter {
         if (requestContext.hasEntity()) {
             sb.append("--> Request - EntityClass = " + requestContext.getEntityClass());
             sb.append("\n");
-            String body = this.getMapper().writerWithDefaultPrettyPrinter().writeValueAsString(requestContext.getEntity());
+            String body = null;
+            if (requestContext.getMediaType() != null && requestContext.getMediaType().getSubtype().equals("json")) {
+                body = this.getMapper().writerWithDefaultPrettyPrinter().writeValueAsString(requestContext.getEntity());
+            }
+            if (body == null) {
+                body = requestContext.getEntity().toString();
+            }
             sb.append(body);
             sb.append("\n");
         }
