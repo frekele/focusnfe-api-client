@@ -24,11 +24,11 @@ public class MDeConsultarManifestosBodyResponseTest {
         manifestos.add(new MDeManifesto());
 
         MDeConsultarManifestosBodyResponse entity = new MDeConsultarManifestosBodyResponse();
-        entity.setErro(erro);
-        entity.setManifestos(manifestos);
+        //entity.setErro(erro);
+        //entity.setManifestos(manifestos);
 
         assertNotNull(entity);
-        assertEquals(erro, entity.getErro());
+        //assertEquals(erro, entity.getErro());
         assertEquals(manifestos, entity.getManifestos());
     }
 }
