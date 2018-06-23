@@ -44,7 +44,7 @@ public class ResponseLoggingFilter implements ClientResponseFilter {
             }
         }
         sb.append("------------------------------------------------------------------");
-        this.getLogger().info(sb.toString());
+        this.getLogger().debug(sb.toString());
     }
 
     public Logger getLogger() {
