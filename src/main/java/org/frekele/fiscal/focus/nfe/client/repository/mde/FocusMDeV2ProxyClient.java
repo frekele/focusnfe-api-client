@@ -53,9 +53,19 @@ interface FocusMDeV2ProxyClient extends Serializable {
      */
     @GET
     @Path("nfes_recebidas")
-    MDeConsultarManifestosResponse consultarManifestos(@HeaderParam("Authorization") String authorization,
-                                                       @QueryParam("cnpj") String cnpj,
-                                                       @QueryParam("versao") String versao);
+    MDeConsultarManifestosResponse consultarManifestosVersao(@HeaderParam("Authorization") String authorization,
+                                                             @QueryParam("cnpj") String cnpj,
+                                                             @QueryParam("versao") String versao);
+
+    /**
+     * GET - Busca informações resumidas de todas as NFe’s recebidas.
+     * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/v2/nfes_recebidas?cnpj=CNPJ&pendente=PENDENTE
+     */
+    @GET
+    @Path("nfes_recebidas")
+    MDeConsultarManifestosResponse consultarManifestosPendente(@HeaderParam("Authorization") String authorization,
+                                                               @QueryParam("cnpj") String cnpj,
+                                                               @QueryParam("pendente") String pendente);
 
     /**
      * GET - Busca informações resumidas de todas as NFe’s recebidas.
@@ -63,10 +73,10 @@ interface FocusMDeV2ProxyClient extends Serializable {
      */
     @GET
     @Path("nfes_recebidas")
-    MDeConsultarManifestosResponse consultarManifestos(@HeaderParam("Authorization") String authorization,
-                                                       @QueryParam("cnpj") String cnpj,
-                                                       @QueryParam("versao") String versao,
-                                                       @QueryParam("pendente") String pendente);
+    MDeConsultarManifestosResponse consultarManifestosVersaoPendente(@HeaderParam("Authorization") String authorization,
+                                                                     @QueryParam("cnpj") String cnpj,
+                                                                     @QueryParam("versao") String versao,
+                                                                     @QueryParam("pendente") String pendente);
 
     /**
      * GET - Consulta o último manifesto válido na nota fiscal informada.
@@ -74,7 +84,7 @@ interface FocusMDeV2ProxyClient extends Serializable {
      */
     @GET
     @Path("nfes_recebidas/{chaveNFe}/manifesto")
-    MDeConsultarUltimoManifestoResponse consultarUltimaManifesto(@HeaderParam("Authorization") String authorization,
+    MDeConsultarUltimoManifestoResponse consultarUltimoManifesto(@HeaderParam("Authorization") String authorization,
                                                                  @PathParam("chaveNFe") String chaveNFe);
 
     /**
@@ -140,7 +150,7 @@ interface FocusMDeV2ProxyClient extends Serializable {
      */
     @GET
     @Path("nfes_recebidas/{chaveNFe}.xml")
-    @Consumes({MediaType.APPLICATION_XML + ";charset=UTF-8"})
+    @Consumes({MediaType.APPLICATION_XML + ";charset=UTF-8", MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     MDeDownloadXmlResponse downloadNFe(@HeaderParam("Authorization") String authorization,
                                        @PathParam("chaveNFe") String chaveNFe);
 
@@ -150,7 +160,7 @@ interface FocusMDeV2ProxyClient extends Serializable {
      */
     @GET
     @Path("nfes_recebidas/{chaveNFe}/cancelamento.xml")
-    @Consumes({MediaType.APPLICATION_XML + ";charset=UTF-8"})
+    @Consumes({MediaType.APPLICATION_XML + ";charset=UTF-8", MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     MDeDownloadXmlResponse downloadCancelamento(@HeaderParam("Authorization") String authorization,
                                                 @PathParam("chaveNFe") String chaveNFe);
 
@@ -160,7 +170,7 @@ interface FocusMDeV2ProxyClient extends Serializable {
      */
     @GET
     @Path("nfes_recebidas/{chaveNFe}/carta_correcao.xml")
-    @Consumes({MediaType.APPLICATION_XML + ";charset=UTF-8"})
-    MDeDownloadXmlResponse downloadCCe(@HeaderParam("Authorization") String authorization,
-                                       @PathParam("chaveNFe") String chaveNFe);
+    @Consumes({MediaType.APPLICATION_XML + ";charset=UTF-8", MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+    MDeDownloadXmlResponse downloadUltimaCCe(@HeaderParam("Authorization") String authorization,
+                                             @PathParam("chaveNFe") String chaveNFe);
 }
