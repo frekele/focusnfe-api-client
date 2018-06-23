@@ -1,5 +1,6 @@
 package org.frekele.fiscal.focus.nfe.client.model.response.mde.body;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFeEntity;
 import org.frekele.fiscal.focus.nfe.client.model.entities.erro.NFeErro;
@@ -24,7 +25,7 @@ public class MDeConsultarManifestosBodyResponse implements FocusNFeEntity {
     private NFeErro erro;
 
     //Lista de Manifestações emitidas para o CNPJ;
-    @JsonUnwrapped
+    @JsonProperty("arrayValues")
     private List<MDeManifesto> manifestos;
 
     public MDeConsultarManifestosBodyResponse() {
