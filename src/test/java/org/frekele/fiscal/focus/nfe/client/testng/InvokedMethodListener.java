@@ -9,6 +9,11 @@ import org.testng.ITestResult;
  */
 public class InvokedMethodListener implements IInvokedMethodListener {
 
+    static {
+        String path = InvokedMethodListener.class.getClassLoader().getResource("logging.properties").getFile();
+        System.setProperty("java.util.logging.config.file", path);
+    }
+
     @Override
     public void beforeInvocation(IInvokedMethod method, ITestResult testResult) {
         System.out.println(this.getTestClassAndMethodName(method) + " Start method --->");
