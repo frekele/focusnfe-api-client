@@ -34,7 +34,7 @@ public class ResponseLoggingFilter implements ClientResponseFilter {
         sb.append("\n");
         sb.append("<-- Response - Status = " + responseContext.getStatus());
         sb.append("\n");
-        if (requestContext.hasEntity()) {
+        if (responseContext.hasEntity()) {
             String body = FocusNFeUtils.responseBodyToString(responseContext);
             if (body != null && !body.trim().isEmpty()) {
                 JsonNode jsonNode = this.getMapper().readTree(body);
