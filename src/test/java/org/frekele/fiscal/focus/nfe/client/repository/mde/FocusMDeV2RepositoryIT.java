@@ -54,14 +54,14 @@ public class FocusMDeV2RepositoryIT {
         FocusTestNGUtils.sleep(2);
     }
 
-//    @Test
-//    public void testConsultarManifestos() throws Exception {
-//        MDeConsultarManifestosResponse response = repository.consultarManifestos(cnpjEmitente);
-//        System.out.println("RateLimitLimit: " + response.getRateLimitLimit());
-//        System.out.println("RateLimitRemaining: " + response.getRateLimitRemaining());
-//        System.out.println("RateLimitReset: " + response.getRateLimitReset());
-//        System.out.println("Status: " + response.getStatus());
-//        MDeConsultarManifestosBodyResponse bodyResponse = response.getBody();
-//        System.out.println("Body.Status: " + bodyResponse.getManifestos());
-//    }
+    @Test
+    public void testConsultarManifestos() throws Exception {
+        MDeConsultarManifestosResponse response = repository.consultarManifestos(cnpjEmitente);
+        System.out.println("RateLimitLimit: " + response.getRateLimitLimit());
+        System.out.println("RateLimitRemaining: " + response.getRateLimitRemaining());
+        System.out.println("RateLimitReset: " + response.getRateLimitReset());
+        System.out.println("Status: " + response.getStatus());
+        MDeConsultarManifestosBodyResponse bodyResponse = response.getBody();
+        System.out.println("Body.Status: " + bodyResponse.getManifestos());
+    }
 }

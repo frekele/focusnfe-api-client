@@ -47,6 +47,6 @@ public class FocusMDeV2RepositoryImpl implements FocusMDeV2Repository {
     public MDeConsultarManifestosResponse consultarManifestos(String cnpj) {
         FocusNFeUtils.throwObject(cnpj, "cnpj");
         FocusMDeV2ProxyClient proxyClient = this.getProxyClient();
-        return proxyClient.consultarManifestos(this.getAuth().getAuthorization(), cnpj, "40");
+        return proxyClient.consultarManifestos(this.getAuth().getAuthorization(), cnpj);
     }
 }
