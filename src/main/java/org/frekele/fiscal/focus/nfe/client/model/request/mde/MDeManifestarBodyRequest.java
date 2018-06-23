@@ -32,6 +32,15 @@ public class MDeManifestarBodyRequest implements FocusNFeEntity {
         super();
     }
 
+    public MDeManifestarBodyRequest(MDeTipoManifestacaoEnum tipo) {
+        this.tipo = tipo;
+    }
+
+    public MDeManifestarBodyRequest(MDeTipoManifestacaoEnum tipo, String justificativa) {
+        this.tipo = tipo;
+        this.justificativa = justificativa;
+    }
+
     private MDeManifestarBodyRequest(Builder builder) {
         setTipo(builder.tipo);
         setJustificativa(builder.justificativa);
