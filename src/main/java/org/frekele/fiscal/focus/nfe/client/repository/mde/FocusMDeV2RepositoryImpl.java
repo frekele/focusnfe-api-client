@@ -2,6 +2,7 @@ package org.frekele.fiscal.focus.nfe.client.repository.mde;
 
 import org.frekele.fiscal.focus.nfe.client.auth.FocusNFeAuth;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFe;
+import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarManifestosResponse;
 import org.frekele.fiscal.focus.nfe.client.util.FocusNFeUtils;
 import org.jboss.resteasy.client.jaxrs.ResteasyClient;
 import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
@@ -40,5 +41,12 @@ public class FocusMDeV2RepositoryImpl implements FocusMDeV2Repository {
         ResteasyClient client = this.getClient();
         ResteasyWebTarget webTarget = client.target(this.getAuth().getEnvironment().getTargetUrl());
         return webTarget.proxy(FocusMDeV2ProxyClient.class);
+    }
+
+    @Override
+    public MDeConsultarManifestosResponse consultarManifestos(String cnpj) {
+        FocusNFeUtils.throwObject(cnpj, "cnpj");
+        FocusMDeV2ProxyClient proxyClient = this.getProxyClient();
+        return proxyClient.consultarManifestos(this.getAuth().getAuthorization(), cnpj, "40");
     }
 }
