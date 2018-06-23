@@ -6,6 +6,7 @@ import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarCancel
 import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarManifestosResponse;
 import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarNFeResponse;
 import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarUltimoManifestoResponse;
+import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeDownloadXmlResponse;
 import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeManifestarResponse;
 
 import javax.ws.rs.Consumes;
@@ -132,4 +133,34 @@ interface FocusMDeV2ProxyClient extends Serializable {
     MDeConsultarCCeResponse consultarCCe(@HeaderParam("Authorization") String authorization,
                                          @PathParam("chaveNFe") String chaveNFe,
                                          @QueryParam("completa") Integer completa);
+
+    /**
+     * GET - Baixar o XML de uma nota fiscal especifica:
+     * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/nfes_recebidas/CHAVE.xml
+     */
+    @GET
+    @Path("nfes_recebidas/{chaveNFe}.xml")
+    @Consumes({MediaType.APPLICATION_XML + ";charset=UTF-8"})
+    MDeDownloadXmlResponse downloadNFe(@HeaderParam("Authorization") String authorization,
+                                       @PathParam("chaveNFe") String chaveNFe);
+
+    /**
+     * GET - Baixar o XML de cancelamento de uma nota fiscal.
+     * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/nfes_recebidas/CHAVE/cancelamento.xml
+     */
+    @GET
+    @Path("nfes_recebidas/{chaveNFe}/cancelamento.xml")
+    @Consumes({MediaType.APPLICATION_XML + ";charset=UTF-8"})
+    MDeDownloadXmlResponse downloadCancelamento(@HeaderParam("Authorization") String authorization,
+                                                @PathParam("chaveNFe") String chaveNFe);
+
+    /**
+     * GET - Baixar o XML da última Carta de Correção Eletrônica de uma nota fiscal.
+     * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/nfes_recebidas/CHAVE/carta_correcao.xml
+     */
+    @GET
+    @Path("nfes_recebidas/{chaveNFe}/carta_correcao.xml")
+    @Consumes({MediaType.APPLICATION_XML + ";charset=UTF-8"})
+    MDeDownloadXmlResponse downloadCCe(@HeaderParam("Authorization") String authorization,
+                                       @PathParam("chaveNFe") String chaveNFe);
 }
