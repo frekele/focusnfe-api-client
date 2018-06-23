@@ -59,27 +59,49 @@ public final class FocusNFeUtils {
         validatorFactory.close();
     }
 
+    private static Charset discoveryCharset(ClientResponseContext responseContext) {
+        Charset charset = null;
+        MediaType mediaType = responseContext.getMediaType();
+        if (mediaType != null) {
+            String charsetName = mediaType.getParameters().get("charset");
+            if (charsetName != null) {
+                charset = Charset.forName(charsetName);
+            }
+        }
+        if (charset == null) {
+            charset = Charset.defaultCharset();
+        }
+        return charset;
+    }
+
     public static String responseBodyToString(ClientResponseContext responseContext) throws IOException {
         String body = null;
         if (responseContext.hasEntity()) {
             try (InputStream entityStream = responseContext.getEntityStream()) {
-                Charset charset = null;
-                MediaType mediaType = responseContext.getMediaType();
-                if (mediaType != null) {
-                    String charsetName = mediaType.getParameters().get("charset");
-                    if (charsetName != null) {
-                        charset = Charset.forName(charsetName);
-                    }
-                }
-                if (charset == null) {
-                    charset = Charset.defaultCharset();
-                }
+                Charset charset = discoveryCharset(responseContext);
                 body = IOUtils.toString(entityStream, charset);
                 //Original EntityStream is closed, add InputStream again for Security.
                 responseContext.setEntityStream(IOUtils.toInputStream(body, charset));
             }
         }
         return body;
+    }
+
+    public static void replaceResponseBodyJsonArrayToJsonObject(ClientResponseContext responseContext) throws IOException {
+        if (responseContext.hasEntity()) {
+            try (InputStream entityStream = responseContext.getEntityStream()) {
+                Charset charset = discoveryCharset(responseContext);
+                String body = IOUtils.toString(entityStream, charset);
+
+                if (!body.trim().isEmpty()) {
+                    body = body.trim();
+                    if (body.substring(0, 1).equals("[")) {
+                        body = "{ \"arrayValues\" : " + body + " }";
+                    }
+                }
+                responseContext.setEntityStream(IOUtils.toInputStream(body, charset));
+            }
+        }
     }
 
     public static String encodeBase64(String value) {
