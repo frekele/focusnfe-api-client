@@ -16,11 +16,10 @@ public class ResponseManifestosReplaceFilter implements ClientResponseFilter {
 
     private Logger logger = Logger.getLogger(ResponseManifestosReplaceFilter.class.getName());
 
-    private static final String CONSULTAR_MANIFESTOS_REL_PATH = "/v2/nfes_recebidas?cnpj=";
-
     @Override
     public void filter(ClientRequestContext requestContext, ClientResponseContext responseContext) throws IOException {
-        if (requestContext.getUri().getSchemeSpecificPart().contains(CONSULTAR_MANIFESTOS_REL_PATH)) {
+        if (requestContext.getUri() != null && requestContext.getUri().getSchemeSpecificPart() != null &&
+            requestContext.getUri().getSchemeSpecificPart().contains("/v2/nfes_recebidas?cnpj=")) {
             FocusNFeUtils.replaceResponseBodyJsonArrayToJsonObject(responseContext);
             this.getLogger().debug("replaceResponseBodyJsonArrayToJsonObject --> [.....] to { arrayValues : [.....] }");
         }
