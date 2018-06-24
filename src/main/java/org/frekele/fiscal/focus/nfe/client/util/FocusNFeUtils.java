@@ -24,6 +24,8 @@ import java.util.Base64;
 import java.util.Set;
 
 /**
+ * FocusNFe métodos utilitários.
+ *
  * @author frekele - Leandro Kersting de Freitas
  */
 public final class FocusNFeUtils {
