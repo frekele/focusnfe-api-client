@@ -130,7 +130,8 @@ public class FocusMDeV2RepositoryIT {
         System.out.println("RateLimitReset: " + response.getRateLimitReset());
         System.out.println("Status: " + response.getStatus());
         MDeConsultarUltimoManifestoBodyResponse bodyResponse = response.getBody();
-        System.out.println("Body.Manifesto: " + bodyResponse.getManifesto());
+        System.out.println("Body.StatusSefaz: " + bodyResponse.getStatusSefaz());
+        System.out.println("Body.Tipo: " + bodyResponse.getTipo());
     }
 
     @Test(dependsOnMethods = "testConsultarUltimoManifesto")
