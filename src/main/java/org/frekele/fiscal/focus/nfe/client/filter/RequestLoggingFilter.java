@@ -17,31 +17,33 @@ public class RequestLoggingFilter implements ClientRequestFilter {
 
     @Override
     public void filter(ClientRequestContext requestContext) throws IOException {
-        StringBuilder sb = new StringBuilder();
-        sb.append("\n");
-        sb.append("------------------------------------------------------------------");
-        sb.append("\n");
-        sb.append("--> Request Filter:");
-        sb.append("\n");
-        sb.append("--> Request - Method = " + requestContext.getMethod());
-        sb.append("\n");
-        sb.append("--> Request - Uri = " + requestContext.getUri());
-        sb.append("\n");
-        if (requestContext.hasEntity()) {
-            sb.append("--> Request - EntityClass = " + requestContext.getEntityClass());
+        if (this.getLogger().isDebugEnabled()) {
+            StringBuilder sb = new StringBuilder();
             sb.append("\n");
-            String body = null;
-            if (requestContext.getMediaType() != null && requestContext.getMediaType().getSubtype().equals("json")) {
-                body = FocusNFeUtils.parseJsonToString(requestContext.getEntity(), true);
-            }
-            if (body == null) {
-                body = requestContext.getEntity().toString();
-            }
-            sb.append(body);
+            sb.append("------------------------------------------------------------------");
             sb.append("\n");
+            sb.append("--> Request Filter:");
+            sb.append("\n");
+            sb.append("--> Request - Method = " + requestContext.getMethod());
+            sb.append("\n");
+            sb.append("--> Request - Uri = " + requestContext.getUri());
+            sb.append("\n");
+            if (requestContext.hasEntity()) {
+                sb.append("--> Request - EntityClass = " + requestContext.getEntityClass());
+                sb.append("\n");
+                String body = null;
+                if (requestContext.getMediaType() != null && requestContext.getMediaType().getSubtype().equals("json")) {
+                    body = FocusNFeUtils.parseJsonToString(requestContext.getEntity(), true);
+                }
+                if (body == null) {
+                    body = requestContext.getEntity().toString();
+                }
+                sb.append(body);
+                sb.append("\n");
+            }
+            sb.append("------------------------------------------------------------------");
+            this.getLogger().debug(sb.toString());
         }
-        sb.append("------------------------------------------------------------------");
-        this.getLogger().debug(sb.toString());
     }
 
     public Logger getLogger() {
