@@ -15,14 +15,21 @@ import javax.ws.rs.core.Response;
 @ResponseObject
 public interface MDeConsultarManifestosResponse extends FocusNFeEntity {
 
+    //Número de créditos para o período atual.
     @HeaderParam("X-Rate-Limit-Limit")
     String getRateLimitLimit();
 
+    //Número de créditos que restam no período atual.
     @HeaderParam("X-Rate-Limit-Remaining")
     String getRateLimitRemaining();
 
+    //Número de segundos até que seja reinicializado o contador de créditos.
     @HeaderParam("X-Rate-Limit-Reset")
     String getRateLimitReset();
+
+    //Tempo de execução.
+    @HeaderParam("X-Runtime")
+    String getRuntime();
 
     //O número total de registros (incluindo aqueles que não foram devolvidos pelo limite de 100 registros)
     @HeaderParam("X-Total-Count")
@@ -33,11 +40,14 @@ public interface MDeConsultarManifestosResponse extends FocusNFeEntity {
     @HeaderParam("X-Max-Version")
     String getMaxVersion();
 
+    //Status Http da Chamada.
     @Status
     Integer getStatus();
 
+    //Corpo da Resposta.
     @Body
     MDeConsultarManifestosBodyResponse getBody();
 
+    //Response Completo.
     Response getResponse();
 }
