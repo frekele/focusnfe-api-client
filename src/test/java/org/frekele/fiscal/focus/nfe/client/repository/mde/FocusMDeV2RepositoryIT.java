@@ -1,6 +1,5 @@
 package org.frekele.fiscal.focus.nfe.client.repository.mde;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.frekele.fiscal.focus.nfe.client.auth.EnvironmentFocusNFeEnum;
 import org.frekele.fiscal.focus.nfe.client.auth.FocusNFeAuth;
 import org.frekele.fiscal.focus.nfe.client.enumeration.MDeTipoManifestacaoEnum;
@@ -36,8 +35,6 @@ import javax.ws.rs.ClientErrorException;
 public class FocusMDeV2RepositoryIT {
 
     private FocusMDeV2Repository repository;
-
-    private ObjectMapper mapper = new ObjectMapper();
 
     private String cnpjEmitente;
 
