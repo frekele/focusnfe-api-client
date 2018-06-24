@@ -3,6 +3,8 @@ package org.frekele.fiscal.focus.nfe.client.exception;
 import java.io.Serializable;
 
 /**
+ * FocusNFe Exception.
+ *
  * @author frekele - Leandro Kersting de Freitas
  */
 public class FocusNFeException extends RuntimeException implements Serializable {
