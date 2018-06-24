@@ -36,7 +36,7 @@ public class ResponseLoggingFilter implements ClientResponseFilter {
             if (body != null && !body.trim().isEmpty()) {
                 if (responseContext.getMediaType() != null && responseContext.getMediaType().getSubtype().equals("json")) {
                     JsonNode jsonNode = FocusNFeUtils.parseJsonToJsonNode(body);
-                    body = FocusNFeUtils.parseJsonToString(jsonNode);
+                    body = FocusNFeUtils.parseJsonToString(jsonNode, true);
                 }
                 sb.append(body);
                 sb.append("\n");
