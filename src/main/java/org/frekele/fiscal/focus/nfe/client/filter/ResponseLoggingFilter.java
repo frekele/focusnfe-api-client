@@ -1,7 +1,6 @@
 package org.frekele.fiscal.focus.nfe.client.filter;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.frekele.fiscal.focus.nfe.client.util.FocusNFeUtils;
 import org.jboss.logging.Logger;
 
@@ -17,8 +16,6 @@ import java.io.IOException;
 public class ResponseLoggingFilter implements ClientResponseFilter {
 
     private Logger logger = Logger.getLogger(ResponseLoggingFilter.class.getName());
-
-    private ObjectMapper mapper = new ObjectMapper();
 
     @Override
     public void filter(ClientRequestContext requestContext, ClientResponseContext responseContext) throws IOException {
@@ -38,8 +35,8 @@ public class ResponseLoggingFilter implements ClientResponseFilter {
             String body = FocusNFeUtils.responseBodyToString(responseContext);
             if (body != null && !body.trim().isEmpty()) {
                 if (responseContext.getMediaType() != null && responseContext.getMediaType().getSubtype().equals("json")) {
-                    JsonNode jsonNode = this.getMapper().readTree(body);
-                    body = this.getMapper().writerWithDefaultPrettyPrinter().writeValueAsString(jsonNode);
+                    JsonNode jsonNode = FocusNFeUtils.parseJsonToJsonNode(body);
+                    body = FocusNFeUtils.parseJsonToString(jsonNode);
                 }
                 sb.append(body);
                 sb.append("\n");
@@ -51,9 +48,5 @@ public class ResponseLoggingFilter implements ClientResponseFilter {
 
     public Logger getLogger() {
         return logger;
-    }
-
-    public ObjectMapper getMapper() {
-        return mapper;
     }
 }

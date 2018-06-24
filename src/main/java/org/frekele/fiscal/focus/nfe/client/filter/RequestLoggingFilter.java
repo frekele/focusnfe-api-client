@@ -1,6 +1,6 @@
 package org.frekele.fiscal.focus.nfe.client.filter;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import org.frekele.fiscal.focus.nfe.client.util.FocusNFeUtils;
 import org.jboss.logging.Logger;
 
 import javax.ws.rs.client.ClientRequestContext;
@@ -14,8 +14,6 @@ import java.io.IOException;
 public class RequestLoggingFilter implements ClientRequestFilter {
 
     private Logger logger = Logger.getLogger(RequestLoggingFilter.class.getName());
-
-    private ObjectMapper mapper = new ObjectMapper();
 
     @Override
     public void filter(ClientRequestContext requestContext) throws IOException {
@@ -34,7 +32,7 @@ public class RequestLoggingFilter implements ClientRequestFilter {
             sb.append("\n");
             String body = null;
             if (requestContext.getMediaType() != null && requestContext.getMediaType().getSubtype().equals("json")) {
-                body = this.getMapper().writerWithDefaultPrettyPrinter().writeValueAsString(requestContext.getEntity());
+                body = FocusNFeUtils.parseJsonToString(requestContext.getEntity(), true);
             }
             if (body == null) {
                 body = requestContext.getEntity().toString();
@@ -48,9 +46,5 @@ public class RequestLoggingFilter implements ClientRequestFilter {
 
     public Logger getLogger() {
         return logger;
-    }
-
-    public ObjectMapper getMapper() {
-        return mapper;
     }
 }
