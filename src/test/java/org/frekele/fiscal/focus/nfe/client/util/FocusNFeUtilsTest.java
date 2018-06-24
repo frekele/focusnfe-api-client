@@ -1,16 +1,25 @@
 package org.frekele.fiscal.focus.nfe.client.util;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import org.frekele.fiscal.focus.nfe.client.auth.EnvironmentFocusNFeEnum;
 import org.frekele.fiscal.focus.nfe.client.auth.FocusNFeAuth;
 import org.frekele.fiscal.focus.nfe.client.exception.FocusNFeException;
+import org.frekele.fiscal.focus.nfe.client.model.entities.erro.NFeErro;
 import org.frekele.fiscal.focus.nfe.client.model.request.nfe.body.NFeCancelarBodyRequest;
 import org.frekele.fiscal.focus.nfe.client.testng.InvokedMethodListener;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 import javax.validation.ConstraintViolationException;
+import javax.ws.rs.client.ClientResponseContext;
+import javax.ws.rs.core.MediaType;
+import java.io.ByteArrayInputStream;
 import java.math.BigDecimal;
+import java.nio.charset.Charset;
 
+import static org.mockito.Mockito.*;
 import static org.testng.Assert.*;
 
 /**
@@ -24,6 +33,42 @@ public class FocusNFeUtilsTest {
     EnvironmentFocusNFeEnum environmentNull = null;
 
     EnvironmentFocusNFeEnum environment = EnvironmentFocusNFeEnum.HOMOLOGATION;
+
+    String xmlContent = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
+        "<procEventoNFe versao=\"1.00\" xmlns=\"http://www.portalfiscal.inf.br/nfe\">\n" +
+        "    <evento versao=\"1.00\" xmlns=\"http://www.portalfiscal.inf.br/nfe\">\n" +
+        "        <infEvento Id=\"ID1101104118062514300066015855001000918468000004248003\">\n" +
+        "            <cOrgao>41</cOrgao>\n" +
+        "            <tpAmb>2</tpAmb>\n" +
+        "            <CNPJ>00391015884680</CNPJ>\n" +
+        "            <chNFe>41180625143000660158550010009184680000042480</chNFe>\n" +
+        "            <dhEvento>2018-06-22T19:34:59-03:00</dhEvento>\n" +
+        "            <tpEvento>110110</tpEvento>\n" +
+        "            <nSeqEvento>3</nSeqEvento>\n" +
+        "            <verEvento>1.00</verEvento>\n" +
+        "            <detEvento versao=\"1.00\">\n" +
+        "                <descEvento>Carta de Correcao</descEvento>\n" +
+        "                <xCorrecao>Teste 12345 carta de correcao</xCorrecao>\n" +
+        "                <xCondUso>A Carta de Correcao e etc...</xCondUso>\n" +
+        "            </detEvento>\n" +
+        "        </infEvento>\n" +
+        "    </evento>\n" +
+        "    <retEvento versao=\"1.00\" xmlns=\"http://www.portalfiscal.inf.br/nfe\">\n" +
+        "        <infEvento>\n" +
+        "            <tpAmb>2</tpAmb>\n" +
+        "            <verAplic>PR-v4_2_1</verAplic>\n" +
+        "            <cOrgao>41</cOrgao>\n" +
+        "            <cStat>135</cStat>\n" +
+        "            <xMotivo>Evento registrado e vinculado a NF-e</xMotivo>\n" +
+        "            <chNFe>41180625143000660158550010009184680000042480</chNFe>\n" +
+        "            <tpEvento>110110</tpEvento>\n" +
+        "            <xEvento>Carta de Correcao</xEvento>\n" +
+        "            <nSeqEvento>3</nSeqEvento>\n" +
+        "            <dhRegEvento>2018-06-22T19:35:01-03:00</dhRegEvento>\n" +
+        "            <nProt>141100004846601</nProt>\n" +
+        "        </infEvento>\n" +
+        "    </retEvento>\n" +
+        "</procEventoNFe>";
 
     @Test
     public void testThrowInjection() throws Exception {
@@ -153,6 +198,53 @@ public class FocusNFeUtilsTest {
     }
 
     @Test
+    public void testDiscoveryCharset() throws Exception {
+        ClientResponseContext responseContext = mock(ClientResponseContext.class);
+
+        MediaType mediaType = MediaType.APPLICATION_JSON_TYPE;
+        when(responseContext.getMediaType()).thenReturn(mediaType);
+        Charset value = FocusNFeUtils.discoveryCharset(responseContext);
+        assertEquals(value, Charset.defaultCharset());
+
+        mediaType = MediaType.APPLICATION_JSON_TYPE.withCharset("UTF-8");
+        when(responseContext.getMediaType()).thenReturn(mediaType);
+        value = FocusNFeUtils.discoveryCharset(responseContext);
+        assertEquals(value, Charset.forName("UTF-8"));
+    }
+
+    @Test
+    public void testResponseBodyToString() throws Exception {
+        ClientResponseContext responseContext = mock(ClientResponseContext.class);
+
+        when(responseContext.hasEntity()).thenReturn(false);
+        String value = FocusNFeUtils.responseBodyToString(responseContext);
+        assertNull(value);
+
+        String expectedValue = "{}";
+        when(responseContext.hasEntity()).thenReturn(true);
+        when(responseContext.getMediaType()).thenReturn(MediaType.APPLICATION_JSON_TYPE.withCharset("UTF-8"));
+        when(responseContext.getEntityStream()).thenReturn(new ByteArrayInputStream(expectedValue.getBytes("UTF-8")));
+        value = FocusNFeUtils.responseBodyToString(responseContext);
+        assertEquals(value, expectedValue);
+    }
+
+    @Test
+    public void testReplaceResponseBodyJsonArrayToJsonObject() throws Exception {
+        ClientResponseContext responseContext = mock(ClientResponseContext.class);
+
+        when(responseContext.hasEntity()).thenReturn(false);
+        FocusNFeUtils.replaceResponseBodyJsonArrayToJsonObject(responseContext);
+
+        when(responseContext.hasEntity()).thenReturn(true);
+        when(responseContext.getMediaType()).thenReturn(MediaType.APPLICATION_JSON_TYPE.withCharset("UTF-8"));
+        when(responseContext.getEntityStream()).thenReturn(new ByteArrayInputStream("{}".getBytes("UTF-8")));
+        FocusNFeUtils.replaceResponseBodyJsonArrayToJsonObject(responseContext);
+
+        when(responseContext.getEntityStream()).thenReturn(new ByteArrayInputStream("[]".getBytes("UTF-8")));
+        FocusNFeUtils.replaceResponseBodyJsonArrayToJsonObject(responseContext);
+    }
+
+    @Test
     public void testEncodeBase64() throws Exception {
         String value = "ksjldfoiw7t9834j7vtfwejf8wef";
         String expectedValue = "a3NqbGRmb2l3N3Q5ODM0ajd2dGZ3ZWpmOHdlZg==";
@@ -233,5 +325,62 @@ public class FocusNFeUtilsTest {
 
         String value = FocusNFeUtils.buildAuthorization(username);
         assertEquals(value, expectedValue);
+    }
+
+    @Test
+    public void testParseJsonToJsonNode() throws Exception {
+        String content = "{\"codigo\":\"123\",\"mensagem\":\"teste\"}";
+        JsonNode value = FocusNFeUtils.parseJsonToJsonNode(content);
+        assertEquals(value.get("codigo").asInt(), 123);
+        assertEquals(value.get("mensagem").asText(), "teste");
+    }
+
+    @Test
+    public void testParseJsonTo() throws Exception {
+        String content = "{\"codigo\":\"123\",\"mensagem\":\"teste\"}";
+        NFeErro value = FocusNFeUtils.parseJsonTo(content, NFeErro.class);
+        assertEquals(value.getCodigo(), "123");
+        assertEquals(value.getMensagem(), "teste");
+    }
+
+    @Test
+    public void testParseJsonToString() throws Exception {
+        String content = "{\"codigo\":\"123\",\"mensagem\":\"teste\"}";
+        JsonNode jsonNode = FocusNFeUtils.parseJsonToJsonNode(content);
+        String value = FocusNFeUtils.parseJsonToString(jsonNode);
+        assertEquals(value, content);
+
+        Object objValue = FocusNFeUtils.parseJsonToJsonNode(content);
+        value = FocusNFeUtils.parseJsonToString(objValue);
+        assertEquals(value, content);
+
+        String expectedValue = "{\n  \"codigo\" : \"123\",\n  \"mensagem\" : \"teste\"\n}";
+        value = FocusNFeUtils.parseJsonToString(objValue, true);
+        //Remove \r if is windows system.
+        value = value.replace("\r", "");
+        assertEquals(value, expectedValue);
+    }
+
+    @Test
+    public void testParseXmlToJsonNode() throws Exception {
+        JsonNode rootNode = FocusNFeUtils.parseXmlToJsonNode(xmlContent);
+        assertEquals(rootNode.get("evento").get("infEvento").get("cOrgao").asText(), "41");
+        assertEquals(rootNode.get("evento").get("infEvento").get("chNFe").asText(), "41180625143000660158550010009184680000042480");
+        assertEquals(rootNode.get("evento").get("infEvento").get("detEvento").get("xCorrecao").asText(), "Teste 12345 carta de correcao");
+        assertEquals(rootNode.get("retEvento").get("infEvento").get("xMotivo").asText(), "Evento registrado e vinculado a NF-e");
+        assertEquals(rootNode.get("retEvento").get("infEvento").get("xEvento").asText(), "Carta de Correcao");
+        assertEquals(rootNode.get("retEvento").get("infEvento").get("nProt").asText(), "141100004846601");
+    }
+
+    @Test
+    public void testParseXmlToDocument() throws Exception {
+        Document document = FocusNFeUtils.parseXmlToDocument(xmlContent);
+        Element element = document.getDocumentElement();
+        assertEquals(element.getElementsByTagName("cOrgao").item(0).getFirstChild().getNodeValue(), "41");
+        assertEquals(element.getElementsByTagName("chNFe").item(0).getFirstChild().getNodeValue(), "41180625143000660158550010009184680000042480");
+        assertEquals(element.getElementsByTagName("xCorrecao").item(0).getFirstChild().getNodeValue(), "Teste 12345 carta de correcao");
+        assertEquals(element.getElementsByTagName("xMotivo").item(0).getFirstChild().getNodeValue(), "Evento registrado e vinculado a NF-e");
+        assertEquals(element.getElementsByTagName("xEvento").item(0).getFirstChild().getNodeValue(), "Carta de Correcao");
+        assertEquals(element.getElementsByTagName("nProt").item(0).getFirstChild().getNodeValue(), "141100004846601");
     }
 }

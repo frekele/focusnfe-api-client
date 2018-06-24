@@ -1,14 +1,22 @@
 package org.frekele.fiscal.focus.nfe.client.util;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.apache.commons.io.IOUtils;
 import org.frekele.fiscal.focus.nfe.client.auth.FocusNFeAuth;
 import org.frekele.fiscal.focus.nfe.client.exception.FocusNFeException;
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
 
 import javax.validation.ConstraintViolationException;
 import javax.validation.Validation;
 import javax.validation.ValidatorFactory;
 import javax.ws.rs.client.ClientResponseContext;
 import javax.ws.rs.core.MediaType;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
@@ -59,7 +67,7 @@ public final class FocusNFeUtils {
         validatorFactory.close();
     }
 
-    private static Charset discoveryCharset(ClientResponseContext responseContext) {
+    public static Charset discoveryCharset(ClientResponseContext responseContext) {
         Charset charset = null;
         MediaType mediaType = responseContext.getMediaType();
         if (mediaType != null) {
@@ -128,5 +136,50 @@ public final class FocusNFeUtils {
     public static String buildAuthorization(String username, String password) {
         String authorization = (username == null ? "" : username) + ":" + (password == null ? "" : password);
         return encodeBase64(authorization);
+    }
+
+    public static JsonNode parseJsonToJsonNode(String content) throws IOException {
+        return new ObjectMapper().readTree(content);
+    }
+
+    public static <T> T parseJsonTo(String content, Class<T> classType) throws IOException {
+        return new ObjectMapper().readValue(content, classType);
+    }
+
+    public static String parseJsonToString(JsonNode jsonValue) throws IOException {
+        return parseJsonToString(jsonValue, false);
+    }
+
+    public static String parseJsonToString(Object jsonValue) throws IOException {
+        return parseJsonToString(jsonValue, false);
+    }
+
+    public static String parseJsonToString(Object jsonValue, boolean pretty) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        if (pretty) {
+            return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonValue);
+        } else {
+            return mapper.writeValueAsString(jsonValue);
+        }
+    }
+
+    public static JsonNode parseXmlToJsonNode(String content) throws IOException {
+        return new XmlMapper().readTree(content);
+    }
+
+    public static Document parseXmlToDocument(String content) throws ParserConfigurationException, IOException, SAXException {
+        return parseXmlToDocument(content, Charset.forName("UTF-8"));
+    }
+
+    public static Document parseXmlToDocument(String content, Charset charset) throws ParserConfigurationException, IOException, SAXException {
+        Document document;
+        try (ByteArrayInputStream inputStream = new ByteArrayInputStream(content.getBytes(charset))) {
+            document = parseXmlToDocument(inputStream);
+        }
+        return document;
+    }
+
+    public static Document parseXmlToDocument(InputStream xml) throws ParserConfigurationException, IOException, SAXException {
+        return DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(xml);
     }
 }
