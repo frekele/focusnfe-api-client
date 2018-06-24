@@ -165,8 +165,6 @@ public class FocusMDeV2RepositoryIT {
         System.out.println("RateLimitRemaining: " + response.getRateLimitRemaining());
         System.out.println("RateLimitReset: " + response.getRateLimitReset());
         System.out.println("Status: " + response.getStatus());
-        String bodyResponse = response.getBody();
-        System.out.println("Body: " + bodyResponse);
     }
 
     @Test(dependsOnMethods = "testDownloadNFe")
@@ -177,8 +175,6 @@ public class FocusMDeV2RepositoryIT {
         System.out.println("RateLimitRemaining: " + response.getRateLimitRemaining());
         System.out.println("RateLimitReset: " + response.getRateLimitReset());
         System.out.println("Status: " + response.getStatus());
-        String bodyResponse = response.getBody();
-        System.out.println("Body: " + bodyResponse);
     }
 
     @Test(dependsOnMethods = "testDownloadCancelamento")
@@ -189,7 +185,5 @@ public class FocusMDeV2RepositoryIT {
         System.out.println("RateLimitRemaining: " + response.getRateLimitRemaining());
         System.out.println("RateLimitReset: " + response.getRateLimitReset());
         System.out.println("Status: " + response.getStatus());
-        String bodyResponse = response.getBody();
-        System.out.println("Body: " + bodyResponse);
     }
 }
