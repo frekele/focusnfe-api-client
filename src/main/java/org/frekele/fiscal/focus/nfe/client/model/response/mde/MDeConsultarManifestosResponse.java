@@ -10,44 +10,64 @@ import javax.ws.rs.HeaderParam;
 import javax.ws.rs.core.Response;
 
 /**
+ * ResponseObject Consultar Manifestos MD-e.
+ *
  * @author frekele - Leandro Kersting de Freitas
  */
 @ResponseObject
 public interface MDeConsultarManifestosResponse extends FocusNFeEntity {
 
-    //Número de créditos para o período atual.
+    /**
+     * Número de créditos para o período atual.
+     */
     @HeaderParam("X-Rate-Limit-Limit")
     String getRateLimitLimit();
 
-    //Número de créditos que restam no período atual.
+    /**
+     * Número de créditos que restam no período atual.
+     */
     @HeaderParam("X-Rate-Limit-Remaining")
     String getRateLimitRemaining();
 
-    //Número de segundos até que seja reinicializado o contador de créditos.
+    /**
+     * Número de segundos até que seja reinicializado o contador de créditos.
+     */
     @HeaderParam("X-Rate-Limit-Reset")
     String getRateLimitReset();
 
-    //Tempo de execução.
+    /**
+     * Tempo de execução.
+     */
     @HeaderParam("X-Runtime")
     String getRuntime();
 
-    //O número total de registros (incluindo aqueles que não foram devolvidos pelo limite de 100 registros)
+    /**
+     * O número total de registros (incluindo aqueles que não foram devolvidos pelo limite de 100 registros)
+     */
     @HeaderParam("X-Total-Count")
     String getTotalCount();
 
-    //Valor máximo da versão dos documentos devolvidos.
-    //Utilize este cabeçalho para utilizar na próxima busca de versão, caso seja necessário.
+    /**
+     * Valor máximo da versão dos documentos devolvidos.
+     * Utilize este cabeçalho para utilizar na próxima busca de versão, caso seja necessário.
+     */
     @HeaderParam("X-Max-Version")
     String getMaxVersion();
 
-    //Status Http da Chamada.
+    /**
+     * Status Http da Chamada.
+     */
     @Status
     Integer getStatus();
 
-    //Corpo da Resposta.
+    /**
+     * Corpo da Resposta.
+     */
     @Body
     MDeConsultarManifestosBodyResponse getBody();
 
-    //Response Completo.
+    /**
+     * Response Completo.
+     */
     Response getResponse();
 }

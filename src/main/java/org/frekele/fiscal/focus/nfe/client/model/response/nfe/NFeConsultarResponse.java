@@ -10,35 +10,51 @@ import javax.ws.rs.HeaderParam;
 import javax.ws.rs.core.Response;
 
 /**
+ * ResponseObject Consultar NF-e.
+ *
  * @author frekele - Leandro Kersting de Freitas
  */
 @ResponseObject
 public interface NFeConsultarResponse extends FocusNFeEntity {
 
-    //Número de créditos para o período atual.
+    /**
+     * Número de créditos para o período atual.
+     */
     @HeaderParam("X-Rate-Limit-Limit")
     String getRateLimitLimit();
 
-    //Número de créditos que restam no período atual.
+    /**
+     * Número de créditos que restam no período atual.
+     */
     @HeaderParam("X-Rate-Limit-Remaining")
     String getRateLimitRemaining();
 
-    //Número de segundos até que seja reinicializado o contador de créditos.
+    /**
+     * Número de segundos até que seja reinicializado o contador de créditos.
+     */
     @HeaderParam("X-Rate-Limit-Reset")
     String getRateLimitReset();
 
-    //Tempo de execução.
+    /**
+     * Tempo de execução.
+     */
     @HeaderParam("X-Runtime")
     String getRuntime();
 
-    //Status Http da Chamada.
+    /**
+     * Status Http da Chamada.
+     */
     @Status
     Integer getStatus();
 
-    //Corpo da Resposta.
+    /**
+     * Corpo da Resposta.
+     */
     @Body
     NFeConsultarBodyResponse getBody();
 
-    //Response Completo.
+    /**
+     * Response Completo.
+     */
     Response getResponse();
 }
