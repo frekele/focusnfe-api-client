@@ -21,20 +21,29 @@ public class MDeConsultarCCeBodyResponse implements FocusNFeEntity {
 
     private static final long serialVersionUID = 1L;
 
-    //As mensagens de erro serão apresentadas em qualquer operação sempre que for devolvido um código HTTP que começa com 4.
+    /**
+     * As mensagens de erro serão apresentadas em qualquer operação sempre que for devolvido um código HTTP que começa com 4.
+     */
     @JsonUnwrapped
     private NFeErro erro;
 
-    //Ultima Manifestação emitidas para uma NFe.
+    /**
+     * Ultima Manifestação emitidas para uma NFe.
+     */
     @JsonUnwrapped
     private MDeManifesto manifesto;
 
-    //Caso na requisição seja passado o parâmetro completa=1;
-    //Inclui os dados completos da requisição de Carta de Correção Eletrônica da NFe.
+    /**
+     * Inclui os dados completos da requisição de Carta de Correção Eletrônica da NFe.
+     * Caso na requisição seja passado o parâmetro completa=1;
+     */
     @JsonProperty("requisicao_carta_correcao")
     private NFeRequisicaoCartaCorrecao requisicaoCartaCorrecao;
 
-    //Inclui os dados completos do protocolo devolvido pela SEFAZ.
+    /**
+     * Inclui os dados completos do protocolo devolvido pela SEFAZ.
+     * Caso na requisição seja passado o parâmetro completa=1;
+     */
     @JsonProperty("protocolo_carta_correcao")
     private NFeProtocoloCartaCorrecao protocoloCartaCorrecao;
 
@@ -42,34 +51,62 @@ public class MDeConsultarCCeBodyResponse implements FocusNFeEntity {
         super();
     }
 
+    /**
+     * As mensagens de erro serão apresentadas em qualquer operação sempre que for devolvido um código HTTP que começa com 4.
+     */
     public NFeErro getErro() {
         return erro;
     }
 
+    /**
+     * As mensagens de erro serão apresentadas em qualquer operação sempre que for devolvido um código HTTP que começa com 4.
+     */
     public void setErro(NFeErro erro) {
         this.erro = erro;
     }
 
+    /**
+     * Ultima Manifestação emitidas para uma NFe.
+     */
     public MDeManifesto getManifesto() {
         return manifesto;
     }
 
+    /**
+     * Ultima Manifestação emitidas para uma NFe.
+     */
     public void setManifesto(MDeManifesto manifesto) {
         this.manifesto = manifesto;
     }
 
+    /**
+     * Inclui os dados completos da requisição de Carta de Correção Eletrônica da NFe.
+     * Caso na requisição seja passado o parâmetro completa=1;
+     */
     public NFeRequisicaoCartaCorrecao getRequisicaoCartaCorrecao() {
         return requisicaoCartaCorrecao;
     }
 
+    /**
+     * Inclui os dados completos da requisição de Carta de Correção Eletrônica da NFe.
+     * Caso na requisição seja passado o parâmetro completa=1;
+     */
     public void setRequisicaoCartaCorrecao(NFeRequisicaoCartaCorrecao requisicaoCartaCorrecao) {
         this.requisicaoCartaCorrecao = requisicaoCartaCorrecao;
     }
 
+    /**
+     * Inclui os dados completos do protocolo devolvido pela SEFAZ.
+     * Caso na requisição seja passado o parâmetro completa=1;
+     */
     public NFeProtocoloCartaCorrecao getProtocoloCartaCorrecao() {
         return protocoloCartaCorrecao;
     }
 
+    /**
+     * Inclui os dados completos do protocolo devolvido pela SEFAZ.
+     * Caso na requisição seja passado o parâmetro completa=1;
+     */
     public void setProtocoloCartaCorrecao(NFeProtocoloCartaCorrecao protocoloCartaCorrecao) {
         this.protocoloCartaCorrecao = protocoloCartaCorrecao;
     }

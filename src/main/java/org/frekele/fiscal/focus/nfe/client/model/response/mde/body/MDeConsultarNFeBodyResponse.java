@@ -21,20 +21,29 @@ public class MDeConsultarNFeBodyResponse implements FocusNFeEntity {
 
     private static final long serialVersionUID = 1L;
 
-    //As mensagens de erro serão apresentadas em qualquer operação sempre que for devolvido um código HTTP que começa com 4.
+    /**
+     * As mensagens de erro serão apresentadas em qualquer operação sempre que for devolvido um código HTTP que começa com 4.
+     */
     @JsonUnwrapped
     private NFeErro erro;
 
-    //Ultima Manifestação emitidas para uma NFe.
+    /**
+     * Ultima Manifestação emitidas para uma NFe.
+     */
     @JsonUnwrapped
     private MDeManifesto manifesto;
 
-    //Caso na requisição seja passado o parâmetro completa=1;
-    //Dados completos da nota fiscal em formato JSON.
+    /**
+     * Dados completos da nota fiscal em formato JSON.
+     * Caso na requisição seja passado o parâmetro completa=1.
+     */
     @JsonProperty("requisicao_nota_fiscal")
     private NFeRetornoRequisicaoNotaFiscal requisicaoNotaFiscal;
 
-    //Dados completos do retorno do SEFAZ em formato JSON.
+    /**
+     * Dados completos do retorno do SEFAZ em formato JSON.
+     * Caso na requisição seja passado o parâmetro completa=1.
+     */
     @JsonProperty("protocolo_nota_fiscal")
     private NFeProtocoloNotaFiscal protocoloNotaFiscal;
 
@@ -42,34 +51,62 @@ public class MDeConsultarNFeBodyResponse implements FocusNFeEntity {
         super();
     }
 
+    /**
+     * As mensagens de erro serão apresentadas em qualquer operação sempre que for devolvido um código HTTP que começa com 4.
+     */
     public NFeErro getErro() {
         return erro;
     }
 
+    /**
+     * As mensagens de erro serão apresentadas em qualquer operação sempre que for devolvido um código HTTP que começa com 4.
+     */
     public void setErro(NFeErro erro) {
         this.erro = erro;
     }
 
+    /**
+     * Ultima Manifestação emitidas para uma NFe.
+     */
     public MDeManifesto getManifesto() {
         return manifesto;
     }
 
+    /**
+     * Ultima Manifestação emitidas para uma NFe.
+     */
     public void setManifesto(MDeManifesto manifesto) {
         this.manifesto = manifesto;
     }
 
+    /**
+     * Dados completos da nota fiscal em formato JSON.
+     * Caso na requisição seja passado o parâmetro completa=1.
+     */
     public NFeRetornoRequisicaoNotaFiscal getRequisicaoNotaFiscal() {
         return requisicaoNotaFiscal;
     }
 
+    /**
+     * Dados completos da nota fiscal em formato JSON.
+     * Caso na requisição seja passado o parâmetro completa=1.
+     */
     public void setRequisicaoNotaFiscal(NFeRetornoRequisicaoNotaFiscal requisicaoNotaFiscal) {
         this.requisicaoNotaFiscal = requisicaoNotaFiscal;
     }
 
+    /**
+     * Dados completos do retorno do SEFAZ em formato JSON.
+     * Caso na requisição seja passado o parâmetro completa=1.
+     */
     public NFeProtocoloNotaFiscal getProtocoloNotaFiscal() {
         return protocoloNotaFiscal;
     }
 
+    /**
+     * Dados completos do retorno do SEFAZ em formato JSON.
+     * Caso na requisição seja passado o parâmetro completa=1.
+     */
     public void setProtocoloNotaFiscal(NFeProtocoloNotaFiscal protocoloNotaFiscal) {
         this.protocoloNotaFiscal = protocoloNotaFiscal;
     }
