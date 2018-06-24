@@ -19,12 +19,16 @@ public class NFePessoaAutorizada implements FocusNFeEntity {
 
     private static final long serialVersionUID = 1L;
 
-    //CNPJ autorizado
+    /**
+     * CNPJ autorizado.
+     */
     @Size(max = 14)
     @JsonProperty("cnpj")
     private String cnpj;
 
-    //CPF autorizado
+    /**
+     * CPF autorizado.
+     */
     @Size(max = 11)
     @JsonProperty("cpf")
     private String cpf;
@@ -42,22 +46,37 @@ public class NFePessoaAutorizada implements FocusNFeEntity {
         return new Builder();
     }
 
+    /**
+     * CNPJ autorizado.
+     */
     public String getCnpj() {
         return cnpj;
     }
 
+    /**
+     * CNPJ autorizado.
+     */
     public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
 
+    /**
+     * CPF autorizado.
+     */
     public String getCpf() {
         return cpf;
     }
 
+    /**
+     * CPF autorizado.
+     */
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
+    /**
+     * NFePessoaAutorizada Builder Pattern.
+     */
     public static final class Builder {
 
         private String cnpj;
@@ -67,11 +86,17 @@ public class NFePessoaAutorizada implements FocusNFeEntity {
         private Builder() {
         }
 
+        /**
+         * CNPJ autorizado.
+         */
         public Builder withCnpj(String val) {
             cnpj = val;
             return this;
         }
 
+        /**
+         * CPF autorizado.
+         */
         public Builder withCpf(String val) {
             cpf = val;
             return this;

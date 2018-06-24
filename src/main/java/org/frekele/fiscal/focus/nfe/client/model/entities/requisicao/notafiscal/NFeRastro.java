@@ -24,28 +24,38 @@ public class NFeRastro implements FocusNFeEntity {
 
     private static final long serialVersionUID = 1L;
 
-    //Número do lote do produto
+    /**
+     * Número do lote do produto.
+     */
     @Size(min = 1, max = 20)
     @JsonProperty("numero_lote")
     private String numeroLote;
 
-    //Quantidade de produtos no Lote.
+    /**
+     * Quantidade de produtos no Lote.
+     */
     @Digits(integer = 8, fraction = 3)
     @BigDecimalJsonConverter
     @JsonProperty("quantidade_lote")
     private BigDecimal quantidadeLote;
 
-    //Data de Fabricaçao do medicamento
+    /**
+     * Data de Fabricaçao do medicamento.
+     */
     @LocalDateJsonConverter
     @JsonProperty("data_fabricacao")
     private LocalDate dataFabricacao;
 
-    //Data de Validade do medicamento
+    /**
+     * Data de Validade do medicamento.
+     */
     @LocalDateJsonConverter
     @JsonProperty("data_validade")
     private LocalDate dataValidade;
 
-    //Código de agregação
+    /**
+     * Código de agregação.
+     */
     @Size(min = 1, max = 20)
     @JsonProperty("codigo_agregacao")
     private String codigoAgregacao;
@@ -66,46 +76,79 @@ public class NFeRastro implements FocusNFeEntity {
         return new Builder();
     }
 
+    /**
+     * Número do lote do produto.
+     */
     public String getNumeroLote() {
         return numeroLote;
     }
 
+    /**
+     * Número do lote do produto.
+     */
     public void setNumeroLote(String numeroLote) {
         this.numeroLote = numeroLote;
     }
 
+    /**
+     * Quantidade de produtos no Lote.
+     */
     public BigDecimal getQuantidadeLote() {
         return quantidadeLote;
     }
 
+    /**
+     * Quantidade de produtos no Lote.
+     */
     public void setQuantidadeLote(BigDecimal quantidadeLote) {
         this.quantidadeLote = quantidadeLote;
     }
 
+    /**
+     * Data de Fabricaçao do medicamento.
+     */
     public LocalDate getDataFabricacao() {
         return dataFabricacao;
     }
 
+    /**
+     * Data de Fabricaçao do medicamento.
+     */
     public void setDataFabricacao(LocalDate dataFabricacao) {
         this.dataFabricacao = dataFabricacao;
     }
 
+    /**
+     * Data de Validade do medicamento.
+     */
     public LocalDate getDataValidade() {
         return dataValidade;
     }
 
+    /**
+     * Data de Validade do medicamento.
+     */
     public void setDataValidade(LocalDate dataValidade) {
         this.dataValidade = dataValidade;
     }
 
+    /**
+     * Código de agregação.
+     */
     public String getCodigoAgregacao() {
         return codigoAgregacao;
     }
 
+    /**
+     * Código de agregação.
+     */
     public void setCodigoAgregacao(String codigoAgregacao) {
         this.codigoAgregacao = codigoAgregacao;
     }
 
+    /**
+     * NFeRastro Builder Pattern.
+     */
     public static final class Builder {
 
         private String numeroLote;
@@ -121,26 +164,41 @@ public class NFeRastro implements FocusNFeEntity {
         private Builder() {
         }
 
+        /**
+         * Número do lote do produto.
+         */
         public Builder withNumeroLote(String val) {
             numeroLote = val;
             return this;
         }
 
+        /**
+         * Quantidade de produtos no Lote.
+         */
         public Builder withQuantidadeLote(BigDecimal val) {
             quantidadeLote = val;
             return this;
         }
 
+        /**
+         * Data de Fabricaçao do medicamento.
+         */
         public Builder withDataFabricacao(LocalDate val) {
             dataFabricacao = val;
             return this;
         }
 
+        /**
+         * Data de Validade do medicamento.
+         */
         public Builder withDataValidade(LocalDate val) {
             dataValidade = val;
             return this;
         }
 
+        /**
+         * Código de agregação.
+         */
         public Builder withCodigoAgregacao(String val) {
             codigoAgregacao = val;
             return this;

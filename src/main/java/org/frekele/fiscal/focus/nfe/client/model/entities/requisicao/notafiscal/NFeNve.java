@@ -19,7 +19,9 @@ public class NFeNve implements FocusNFeEntity {
 
     private static final long serialVersionUID = 1L;
 
-    //Codificação opcional que detalha alguns NC<. Formato: duas letras maiúsculas e 4 algarismos
+    /**
+     * Codificação opcional que detalha alguns NC<. Formato: duas letras maiúsculas e 4 algarismos.
+     */
     @Size(max = 6)
     @JsonProperty("nve")
     private String nve;
@@ -40,14 +42,23 @@ public class NFeNve implements FocusNFeEntity {
         return new Builder();
     }
 
+    /**
+     * Codificação opcional que detalha alguns NC<. Formato: duas letras maiúsculas e 4 algarismos.
+     */
     public String getNve() {
         return nve;
     }
 
+    /**
+     * Codificação opcional que detalha alguns NC<. Formato: duas letras maiúsculas e 4 algarismos.
+     */
     public void setNve(String nve) {
         this.nve = nve;
     }
 
+    /**
+     * NFeNve Builder Pattern.
+     */
     public static final class Builder {
 
         private String nve;
@@ -55,6 +66,9 @@ public class NFeNve implements FocusNFeEntity {
         private Builder() {
         }
 
+        /**
+         * Codificação opcional que detalha alguns NC<. Formato: duas letras maiúsculas e 4 algarismos.
+         */
         public Builder withNve(String val) {
             nve = val;
             return this;

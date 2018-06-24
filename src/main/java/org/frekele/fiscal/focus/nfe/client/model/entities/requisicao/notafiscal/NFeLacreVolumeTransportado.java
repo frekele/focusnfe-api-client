@@ -19,7 +19,9 @@ public class NFeLacreVolumeTransportado implements FocusNFeEntity {
 
     private static final long serialVersionUID = 1L;
 
-    //Número do lacre.
+    /**
+     * Número do lacre.
+     */
     @Size(min = 1, max = 60)
     @JsonProperty("numero")
     private String numero;
@@ -40,14 +42,23 @@ public class NFeLacreVolumeTransportado implements FocusNFeEntity {
         return new Builder();
     }
 
+    /**
+     * Número do lacre.
+     */
     public String getNumero() {
         return numero;
     }
 
+    /**
+     * Número do lacre.
+     */
     public void setNumero(String numero) {
         this.numero = numero;
     }
 
+    /**
+     * NFeLacreVolumeTransportado Builder Pattern.
+     */
     public static final class Builder {
 
         private String numero;
@@ -55,6 +66,9 @@ public class NFeLacreVolumeTransportado implements FocusNFeEntity {
         private Builder() {
         }
 
+        /**
+         * Número do lacre.
+         */
         public Builder withNumero(String val) {
             numero = val;
             return this;

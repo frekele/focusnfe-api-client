@@ -23,39 +23,53 @@ public class NFeVolumeTransportado implements FocusNFeEntity {
 
     private static final long serialVersionUID = 1L;
 
-    //Quantidade de volumes transportados.
+    /**
+     * Quantidade de volumes transportados.
+     */
     @Size(min = 1, max = 15)
     @JsonProperty("quantidade")
     private String quantidade;
 
-    //Espécie dos volumes transportados.
+    /**
+     * Espécie dos volumes transportados.
+     */
     @Size(min = 1, max = 60)
     @JsonProperty("especie")
     private String especie;
 
-    //Marca dos volumes transportados.
+    /**
+     * Marca dos volumes transportados.
+     */
     @Size(min = 1, max = 60)
     @JsonProperty("marca")
     private String marca;
 
-    //Numeração dos volumes transportados.
+    /**
+     * Numeração dos volumes transportados.
+     */
     @Size(min = 1, max = 60)
     @JsonProperty("numero")
     private String numero;
 
-    //Peso líquido dos volumes transportados.
+    /**
+     * Peso líquido dos volumes transportados.
+     */
     @Digits(integer = 12, fraction = 3)
     @BigDecimalJsonConverter
     @JsonProperty("peso_liquido")
     private BigDecimal pesoLiquido;
 
-    //Peso bruto dos volumes transportados.
+    /**
+     * Peso bruto dos volumes transportados.
+     */
     @Digits(integer = 12, fraction = 3)
     @BigDecimalJsonConverter
     @JsonProperty("peso_bruto")
     private BigDecimal pesoBruto;
 
-    //Quantidade de volumes transportados.
+    /**
+     * Quantidade de volumes transportados.
+     */
     @Size(max = 5000)
     @JsonProperty("lacres")
     private List<NFeLacreVolumeTransportado> lacres;
@@ -78,62 +92,107 @@ public class NFeVolumeTransportado implements FocusNFeEntity {
         return new Builder();
     }
 
+    /**
+     * Quantidade de volumes transportados.
+     */
     public String getQuantidade() {
         return quantidade;
     }
 
+    /**
+     * Quantidade de volumes transportados.
+     */
     public void setQuantidade(String quantidade) {
         this.quantidade = quantidade;
     }
 
+    /**
+     * Espécie dos volumes transportados.
+     */
     public String getEspecie() {
         return especie;
     }
 
+    /**
+     * Espécie dos volumes transportados.
+     */
     public void setEspecie(String especie) {
         this.especie = especie;
     }
 
+    /**
+     * Marca dos volumes transportados.
+     */
     public String getMarca() {
         return marca;
     }
 
+    /**
+     * Marca dos volumes transportados.
+     */
     public void setMarca(String marca) {
         this.marca = marca;
     }
 
+    /**
+     * Numeração dos volumes transportados.
+     */
     public String getNumero() {
         return numero;
     }
 
+    /**
+     * Numeração dos volumes transportados.
+     */
     public void setNumero(String numero) {
         this.numero = numero;
     }
 
+    /**
+     * Peso líquido dos volumes transportados.
+     */
     public BigDecimal getPesoLiquido() {
         return pesoLiquido;
     }
 
+    /**
+     * Peso líquido dos volumes transportados.
+     */
     public void setPesoLiquido(BigDecimal pesoLiquido) {
         this.pesoLiquido = pesoLiquido;
     }
 
+    /**
+     * Peso bruto dos volumes transportados.
+     */
     public BigDecimal getPesoBruto() {
         return pesoBruto;
     }
 
+    /**
+     * Peso bruto dos volumes transportados.
+     */
     public void setPesoBruto(BigDecimal pesoBruto) {
         this.pesoBruto = pesoBruto;
     }
 
+    /**
+     * Quantidade de volumes transportados.
+     */
     public List<NFeLacreVolumeTransportado> getLacres() {
         return lacres;
     }
 
+    /**
+     * Quantidade de volumes transportados.
+     */
     public void setLacres(List<NFeLacreVolumeTransportado> lacres) {
         this.lacres = lacres;
     }
 
+    /**
+     * NFeVolumeTransportado Builder Pattern.
+     */
     public static final class Builder {
 
         private String quantidade;
@@ -153,36 +212,57 @@ public class NFeVolumeTransportado implements FocusNFeEntity {
         private Builder() {
         }
 
+        /**
+         * Quantidade de volumes transportados.
+         */
         public Builder withQuantidade(String val) {
             quantidade = val;
             return this;
         }
 
+        /**
+         * Espécie dos volumes transportados.
+         */
         public Builder withEspecie(String val) {
             especie = val;
             return this;
         }
 
+        /**
+         * Marca dos volumes transportados.
+         */
         public Builder withMarca(String val) {
             marca = val;
             return this;
         }
 
+        /**
+         * Numeração dos volumes transportados.
+         */
         public Builder withNumero(String val) {
             numero = val;
             return this;
         }
 
+        /**
+         * Peso líquido dos volumes transportados.
+         */
         public Builder withPesoLiquido(BigDecimal val) {
             pesoLiquido = val;
             return this;
         }
 
+        /**
+         * Peso bruto dos volumes transportados.
+         */
         public Builder withPesoBruto(BigDecimal val) {
             pesoBruto = val;
             return this;
         }
 
+        /**
+         * Quantidade de volumes transportados.
+         */
         public Builder withLacres(List<NFeLacreVolumeTransportado> val) {
             lacres = val;
             return this;

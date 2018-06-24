@@ -25,35 +25,49 @@ public class NFeFormaPagamento implements FocusNFeEntity {
 
     private static final long serialVersionUID = 1L;
 
-    //Forma de pagamento
+    /**
+     * Forma de pagamento.
+     */
     @JsonProperty("forma_pagamento")
     private NFeFormaPagamentoEnum formaPagamento;
 
-    //Valor do pagamento
+    /**
+     * Valor do pagamento.
+     */
     @Digits(integer = 13, fraction = 2)
     @BigDecimalJsonConverter
     @JsonProperty("valor_pagamento")
     private BigDecimal valorPagamento;
 
-    //Tipo de Integração para pagamento
+    /**
+     * Tipo de Integração para pagamento.
+     */
     @JsonProperty("tipo_integracao")
     private NFeTipoIntegracaoEnum tipoIntegracao;
 
-    //CNPJ da Credenciadora de cartão de crédito e/ou débito
+    /**
+     * CNPJ da Credenciadora de cartão de crédito e/ou débito.
+     */
     @Size(max = 14)
     @JsonProperty("cnpj_credenciadora")
     private String cnpjCredenciadora;
 
-    //Bandeira da operadora de cartão de crédito e/ou débito
+    /**
+     * Bandeira da operadora de cartão de crédito e/ou débito.
+     */
     @JsonProperty("bandeira_operadora")
     private NFeBandeiraOperadoraEnum bandeiraOperadora;
 
-    //Número de autorização da operação cartão de crédito e/ou débito
+    /**
+     * Número de autorização da operação cartão de crédito e/ou débito.
+     */
     @Size(min = 1, max = 20)
     @JsonProperty("numero_autorizacao")
     private String numeroAutorizacao;
 
-    //Valor do troco
+    /**
+     * Valor do troco.
+     */
     @Digits(integer = 13, fraction = 2)
     @BigDecimalJsonConverter
     @JsonProperty("valor_troco")
@@ -77,62 +91,107 @@ public class NFeFormaPagamento implements FocusNFeEntity {
         return new Builder();
     }
 
+    /**
+     * Forma de pagamento.
+     */
     public NFeFormaPagamentoEnum getFormaPagamento() {
         return formaPagamento;
     }
 
+    /**
+     * Forma de pagamento.
+     */
     public void setFormaPagamento(NFeFormaPagamentoEnum formaPagamento) {
         this.formaPagamento = formaPagamento;
     }
 
+    /**
+     * Valor do pagamento.
+     */
     public BigDecimal getValorPagamento() {
         return valorPagamento;
     }
 
+    /**
+     * Valor do pagamento.
+     */
     public void setValorPagamento(BigDecimal valorPagamento) {
         this.valorPagamento = valorPagamento;
     }
 
+    /**
+     * Tipo de Integração para pagamento.
+     */
     public NFeTipoIntegracaoEnum getTipoIntegracao() {
         return tipoIntegracao;
     }
 
+    /**
+     * Tipo de Integração para pagamento.
+     */
     public void setTipoIntegracao(NFeTipoIntegracaoEnum tipoIntegracao) {
         this.tipoIntegracao = tipoIntegracao;
     }
 
+    /**
+     * CNPJ da Credenciadora de cartão de crédito e/ou débito.
+     */
     public String getCnpjCredenciadora() {
         return cnpjCredenciadora;
     }
 
+    /**
+     * CNPJ da Credenciadora de cartão de crédito e/ou débito.
+     */
     public void setCnpjCredenciadora(String cnpjCredenciadora) {
         this.cnpjCredenciadora = cnpjCredenciadora;
     }
 
+    /**
+     * Bandeira da operadora de cartão de crédito e/ou débito.
+     */
     public NFeBandeiraOperadoraEnum getBandeiraOperadora() {
         return bandeiraOperadora;
     }
 
+    /**
+     * Bandeira da operadora de cartão de crédito e/ou débito.
+     */
     public void setBandeiraOperadora(NFeBandeiraOperadoraEnum bandeiraOperadora) {
         this.bandeiraOperadora = bandeiraOperadora;
     }
 
+    /**
+     * Número de autorização da operação cartão de crédito e/ou débito.
+     */
     public String getNumeroAutorizacao() {
         return numeroAutorizacao;
     }
 
+    /**
+     * Número de autorização da operação cartão de crédito e/ou débito.
+     */
     public void setNumeroAutorizacao(String numeroAutorizacao) {
         this.numeroAutorizacao = numeroAutorizacao;
     }
 
+    /**
+     * Valor do troco.
+     */
     public BigDecimal getValorTroco() {
         return valorTroco;
     }
 
+    /**
+     * Valor do troco.
+     */
     public void setValorTroco(BigDecimal valorTroco) {
         this.valorTroco = valorTroco;
     }
 
+    /**
+     * NFeFormaPagamento Builder Pattern.
+     */
     public static final class Builder {
 
         private NFeFormaPagamentoEnum formaPagamento;
@@ -152,36 +211,57 @@ public class NFeFormaPagamento implements FocusNFeEntity {
         private Builder() {
         }
 
+        /**
+         * Forma de pagamento.
+         */
         public Builder withFormaPagamento(NFeFormaPagamentoEnum val) {
             formaPagamento = val;
             return this;
         }
 
+        /**
+         * Valor do pagamento.
+         */
         public Builder withValorPagamento(BigDecimal val) {
             valorPagamento = val;
             return this;
         }
 
+        /**
+         * Tipo de Integração para pagamento.
+         */
         public Builder withTipoIntegracao(NFeTipoIntegracaoEnum val) {
             tipoIntegracao = val;
             return this;
         }
 
+        /**
+         * CNPJ da Credenciadora de cartão de crédito e/ou débito.
+         */
         public Builder withCnpjCredenciadora(String val) {
             cnpjCredenciadora = val;
             return this;
         }
 
+        /**
+         * Bandeira da operadora de cartão de crédito e/ou débito.
+         */
         public Builder withBandeiraOperadora(NFeBandeiraOperadoraEnum val) {
             bandeiraOperadora = val;
             return this;
         }
 
+        /**
+         * Número de autorização da operação cartão de crédito e/ou débito.
+         */
         public Builder withNumeroAutorizacao(String val) {
             numeroAutorizacao = val;
             return this;
         }
 
+        /**
+         * Valor do troco.
+         */
         public Builder withValorTroco(BigDecimal val) {
             valorTroco = val;
             return this;

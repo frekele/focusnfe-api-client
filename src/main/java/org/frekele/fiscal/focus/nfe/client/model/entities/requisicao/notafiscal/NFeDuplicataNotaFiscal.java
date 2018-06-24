@@ -24,17 +24,23 @@ public class NFeDuplicataNotaFiscal implements FocusNFeEntity {
 
     private static final long serialVersionUID = 1L;
 
-    //Número.
+    /**
+     * Número.
+     */
     @Size(min = 1, max = 60)
     @JsonProperty("numero")
     private String numero;
 
-    //Data de vencimento.
+    /**
+     * Data de vencimento.
+     */
     @LocalDateJsonConverter
     @JsonProperty("data_vencimento")
     private LocalDate dataVencimento;
 
-    //Valor.
+    /**
+     * Valor.
+     */
     @Digits(integer = 13, fraction = 2)
     @BigDecimalJsonConverter
     @JsonProperty("valor")
@@ -60,30 +66,51 @@ public class NFeDuplicataNotaFiscal implements FocusNFeEntity {
         return new Builder();
     }
 
+    /**
+     * Número.
+     */
     public String getNumero() {
         return numero;
     }
 
+    /**
+     * Número.
+     */
     public void setNumero(String numero) {
         this.numero = numero;
     }
 
+    /**
+     * Data de vencimento.
+     */
     public LocalDate getDataVencimento() {
         return dataVencimento;
     }
 
+    /**
+     * Data de vencimento.
+     */
     public void setDataVencimento(LocalDate dataVencimento) {
         this.dataVencimento = dataVencimento;
     }
 
+    /**
+     * Valor.
+     */
     public BigDecimal getValor() {
         return valor;
     }
 
+    /**
+     * Valor.
+     */
     public void setValor(BigDecimal valor) {
         this.valor = valor;
     }
 
+    /**
+     * NFeDuplicataNotaFiscal Builder Pattern.
+     */
     public static final class Builder {
 
         private String numero;
@@ -95,16 +122,25 @@ public class NFeDuplicataNotaFiscal implements FocusNFeEntity {
         private Builder() {
         }
 
+        /**
+         * Número.
+         */
         public Builder withNumero(String val) {
             numero = val;
             return this;
         }
 
+        /**
+         * Data de vencimento.
+         */
         public Builder withDataVencimento(LocalDate val) {
             dataVencimento = val;
             return this;
         }
 
+        /**
+         * Valor.
+         */
         public Builder withValor(BigDecimal val) {
             valor = val;
             return this;

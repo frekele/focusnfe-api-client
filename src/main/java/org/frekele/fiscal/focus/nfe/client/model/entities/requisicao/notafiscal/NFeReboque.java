@@ -20,16 +20,22 @@ public class NFeReboque implements FocusNFeEntity {
 
     private static final long serialVersionUID = 1L;
 
-    //Placa do veículo de transporte.
+    /**
+     * Placa do veículo de transporte.
+     */
     @Size(max = 7)
     @JsonProperty("veiculo_placa")
     private String veiculoPlaca;
 
-    //UF do veículo de transporte.
+    /**
+     * UF do veículo de transporte.
+     */
     @JsonProperty("veiculo_uf")
     private NFeUnidadeFederativaEnum veiculoUf;
 
-    //RNTC (Registro Nacional de Transportador de Carga - ANTT) do veículo de transporte.
+    /**
+     * RNTC (Registro Nacional de Transportador de Carga - ANTT) do veículo de transporte.
+     */
     @Size(min = 1, max = 20)
     @JsonProperty("veiculo_rntc")
     private String veiculoRntc;
@@ -48,30 +54,51 @@ public class NFeReboque implements FocusNFeEntity {
         return new Builder();
     }
 
+    /**
+     * Placa do veículo de transporte.
+     */
     public String getVeiculoPlaca() {
         return veiculoPlaca;
     }
 
+    /**
+     * Placa do veículo de transporte.
+     */
     public void setVeiculoPlaca(String veiculoPlaca) {
         this.veiculoPlaca = veiculoPlaca;
     }
 
+    /**
+     * UF do veículo de transporte.
+     */
     public NFeUnidadeFederativaEnum getVeiculoUf() {
         return veiculoUf;
     }
 
+    /**
+     * UF do veículo de transporte.
+     */
     public void setVeiculoUf(NFeUnidadeFederativaEnum veiculoUf) {
         this.veiculoUf = veiculoUf;
     }
 
+    /**
+     * RNTC (Registro Nacional de Transportador de Carga - ANTT) do veículo de transporte.
+     */
     public String getVeiculoRntc() {
         return veiculoRntc;
     }
 
+    /**
+     * RNTC (Registro Nacional de Transportador de Carga - ANTT) do veículo de transporte.
+     */
     public void setVeiculoRntc(String veiculoRntc) {
         this.veiculoRntc = veiculoRntc;
     }
 
+    /**
+     * NFeReboque Builder Pattern.
+     */
     public static final class Builder {
 
         private String veiculoPlaca;
@@ -83,16 +110,25 @@ public class NFeReboque implements FocusNFeEntity {
         private Builder() {
         }
 
+        /**
+         * Placa do veículo de transporte.
+         */
         public Builder withVeiculoPlaca(String val) {
             veiculoPlaca = val;
             return this;
         }
 
+        /**
+         * UF do veículo de transporte.
+         */
         public Builder withVeiculoUf(NFeUnidadeFederativaEnum val) {
             veiculoUf = val;
             return this;
         }
 
+        /**
+         * RNTC (Registro Nacional de Transportador de Carga - ANTT) do veículo de transporte.
+         */
         public Builder withVeiculoRntc(String val) {
             veiculoRntc = val;
             return this;
