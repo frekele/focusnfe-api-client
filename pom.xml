@@ -96,6 +96,7 @@
         <project.scm.id>github</project.scm.id>
 
         <resteasy.version>3.5.1.Final</resteasy.version>
+        <jackson-dataformat-xml.version>2.9.5</jackson-dataformat-xml.version>
         <hibernate-validator.version>5.4.2.Final</hibernate-validator.version>
         <javax.el.version>3.0.1-b10</javax.el.version>
         <validation-api.version>1.1.0.Final</validation-api.version>
@@ -182,6 +183,12 @@
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
+            <version>${jackson-dataformat-xml.version}</version>
         </dependency>
         <!-- End RESTEasy Dependencies -->
 
