@@ -13,17 +13,53 @@ import java.util.List;
 @XmlEnum(String.class)
 public enum NFeViaTransporteEnum {
 
+    /**
+     * 1 - Marítima.
+     */
     MARITIMA("1", "Marítima"),
+    /**
+     * 2 - Fluvial.
+     */
     FLUVIAL("2", "Fluvial"),
+    /**
+     * 3 - Lacustre.
+     */
     LACUSTRE("3", "Lacustre"),
+    /**
+     * 4 - Aérea.
+     */
     AEREA("4", "Aérea"),
+    /**
+     * 5 - Postal.
+     */
     POSTAL("5", "Postal"),
+    /**
+     * 6 - Ferroviária.
+     */
     FERROVIARIA("6", "Ferroviária"),
+    /**
+     * 7 - Rodoviária.
+     */
     RODOVIARIA("7", "Rodoviária"),
+    /**
+     * 8 - Conduto / Redes transmissão.
+     */
     CONDUTO_REDES_TRANSMISSAO("8", "Conduto / Redes transmissão"),
+    /**
+     * 9 - Meios próprios.
+     */
     MEIOS_PROPRIOS("9", "Meios próprios"),
+    /**
+     * 10 - Entrada / Saída ficta.
+     */
     ENTRADA_SAIDA_FICTA("10", "Entrada / Saída ficta"),
+    /**
+     * 11 - Courier.
+     */
     COURIER("11", "Courier"),
+    /**
+     * 12 - Handcarry.
+     */
     HANDCARRY("12", "Handcarry");
 
     private String code;

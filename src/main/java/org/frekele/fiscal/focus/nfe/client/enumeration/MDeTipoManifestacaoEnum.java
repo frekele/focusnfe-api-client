@@ -13,13 +13,21 @@ import java.util.List;
 @XmlEnum(String.class)
 public enum MDeTipoManifestacaoEnum {
 
-    //Significa que a operação é conhecida pela empresa, mas ainda não há informações suficientes para saber se ela foi concluída ou não.
+    /**
+     * Significa que a operação é conhecida pela empresa, mas ainda não há informações suficientes para saber se ela foi concluída ou não.
+     */
     CIENCIA("ciencia", "Ciência da operação"),
-    //Significa que a operação é conhecida e foi realizada com sucesso.
+    /**
+     * Significa que a operação é conhecida e foi realizada com sucesso.
+     */
     CONFIRMACAO("confirmacao", "Operação realizada"),
-    // Significa que a empresa não reconhece a nota fiscal emitida.
+    /**
+     * Significa que a empresa não reconhece a nota fiscal emitida.
+     */
     DESCONHECIMENTO("desconhecimento", "Desconhecimento da operação"),
-    //Significa que a operação é conhecida e por algum motivo não foi realizada.
+    /**
+     * Significa que a operação é conhecida e por algum motivo não foi realizada.
+     */
     NAO_REALIZADA("nao_realizada", "Operação não realizada");
 
     private String code;

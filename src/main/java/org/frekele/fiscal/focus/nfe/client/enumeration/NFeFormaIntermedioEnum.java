@@ -13,8 +13,17 @@ import java.util.List;
 @XmlEnum(String.class)
 public enum NFeFormaIntermedioEnum {
 
+    /**
+     * 1 - Importação por conta própria.
+     */
     IMPORTACAO_POR_CONTA_PROPRIA("1", "Importação por conta própria"),
+    /**
+     * 2 - Importação por conta e ordem.
+     */
     IMPORTACAO_POR_CONTA_E_ORDEM("2", "Importação por conta e ordem"),
+    /**
+     * 3 - Importação por encomenda.
+     */
     IMPORTACAO_POR_ENCOMENDA("3", "Importação por encomenda");
 
     private String code;

@@ -13,8 +13,17 @@ import java.util.List;
 @XmlEnum(String.class)
 public enum NFeModeloEcfEnum {
 
+    /**
+     * 2B - Cupom Fiscal emitido por máquina registradora (não ECF).
+     */
     CUPOM_FISCAL_EMITIDO_POR_MAQUINA_REGISTRADORA_NAO_ECF("2B", "Cupom Fiscal emitido por máquina registradora (não ECF)"),
+    /**
+     * 2C - Cupom Fiscal PDV.
+     */
     CUPOM_FISCAL_PDV("2C", "Cupom Fiscal PDV"),
+    /**
+     * 2D - Cupom Fiscal (emitido por ECF) (v2.0).
+     */
     CUPOM_FISCAL_EMITIDO_ECF("2D", "Cupom Fiscal (emitido por ECF) (v2.0)");
 
     private String code;

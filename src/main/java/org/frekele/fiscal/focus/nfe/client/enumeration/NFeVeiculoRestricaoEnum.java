@@ -13,11 +13,29 @@ import java.util.List;
 @XmlEnum(String.class)
 public enum NFeVeiculoRestricaoEnum {
 
+    /**
+     * 0 - Não há.
+     */
     NAO_HA("0", "Não há"),
+    /**
+     * 1 - Alienação fiduciária.
+     */
     ALIENACAO_FIDUCIARIA("1", "Alienação fiduciária"),
+    /**
+     * 2 - Arrendamento mercantil.
+     */
     ARRENDAMENTO_MERCANTIL("2", "Arrendamento mercantil"),
+    /**
+     * 3 - Reserva de domínio.
+     */
     RESERVA_DE_DOMINIO("3", "Reserva de domínio"),
+    /**
+     * 4 - Penhor de veículos.
+     */
     PENHOR_DE_VEICULOS("4", "Penhor de veículos"),
+    /**
+     * 9 - Outras.
+     */
     OUTRAS("9", "Outras");
 
     private String code;

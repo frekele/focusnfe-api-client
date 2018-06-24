@@ -13,8 +13,17 @@ import java.util.List;
 @XmlEnum(String.class)
 public enum NFeRegimeTributarioEmitenteEnum {
 
+    /**
+     * 1 - Simples Nacional.
+     */
     SIMPLES_NACIONAL("1", "Simples Nacional"),
+    /**
+     * 2 - Simples Nacional – excesso de sublimite de receita bruta.
+     */
     SIMPLES_NACIONAL_EXCETO_SUBLIMITE_RECEITA_BRUTA("2", "Simples Nacional – excesso de sublimite de receita bruta"),
+    /**
+     * 3 - Regime Normal.
+     */
     REGIME_NORMAL("3", "Regime Normal");
 
     private String code;

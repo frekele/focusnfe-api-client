@@ -13,11 +13,29 @@ import java.util.List;
 @XmlEnum(String.class)
 public enum NFeIcmsModalidadeBaseCalculoStEnum {
 
+    /**
+     * 0 - Preço tabelado ou máximo sugerido.
+     */
     PRECO_TABELADO_OU_MAXIMO_SUGERIDO("0", "Preço tabelado ou máximo sugerido"),
+    /**
+     * 1 - Lista negativa (valor).
+     */
     LISTA_NEGATIVA("1", "Lista negativa (valor)"),
+    /**
+     * 2 - Lista positiva (valor).
+     */
     LISTA_POSITIVA("2", "Lista positiva (valor)"),
+    /**
+     * 3 - Lista neutra (valor).
+     */
     LISTA_NEGRA("3", "Lista neutra (valor)"),
+    /**
+     * 4 - Margem de valor agregado (%).
+     */
     MARGEM_DE_VALOR_AGREGADO("4", "Margem de valor agregado (%)"),
+    /**
+     * 5 - Pauta (valor).
+     */
     PAUTA("5", "Pauta (valor)");
 
     private String code;

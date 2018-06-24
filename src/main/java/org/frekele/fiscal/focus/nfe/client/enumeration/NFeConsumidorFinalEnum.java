@@ -13,7 +13,13 @@ import java.util.List;
 @XmlEnum(String.class)
 public enum NFeConsumidorFinalEnum {
 
+    /**
+     * 0 - Normal.
+     */
     NORMAL("0", "Normal"),
+    /**
+     * 1 - Consumidor final.
+     */
     CONSUMIDOR_FINAL("1", "Consumidor final");
 
     private String code;

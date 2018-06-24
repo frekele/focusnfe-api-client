@@ -13,7 +13,13 @@ import java.util.List;
 @XmlEnum(String.class)
 public enum NFeTipoIntegracaoEnum {
 
+    /**
+     * 1 - Pagamento integrado com o sistema de automação da empresa (Ex.: equipamento TEF, Comércio Eletrônico) - Obrigatorio informar cnpj_credenciadora e numero_autorizacao.
+     */
     PAGAMENTO_INTEGRADO_COM_SISTEMA_DE_AUTOMACAO("1", "Pagamento integrado com o sistema de automação da empresa (Ex.: equipamento TEF, Comércio Eletrônico) - Obrigatorio informar cnpj_credenciadora e numero_autorizacao"),
+    /**
+     * 2 - Pagamento não integrado com o sistema de automação da empresa (Ex.: equipamento POS).
+     */
     PAGAMENTO_NAO_INTEGRADO_COM_SISTEMA_DE_AUTOMACAO("2", "Pagamento não integrado com o sistema de automação da empresa (Ex.: equipamento POS)");
 
     private String code;

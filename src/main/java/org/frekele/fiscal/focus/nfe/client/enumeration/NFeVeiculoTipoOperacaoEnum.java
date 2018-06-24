@@ -13,9 +13,21 @@ import java.util.List;
 @XmlEnum(String.class)
 public enum NFeVeiculoTipoOperacaoEnum {
 
+    /**
+     * 1 - Venda concessionária.
+     */
     VENDA_CONCESSIONARIA("1", "Venda concessionária"),
+    /**
+     * 2 - Faturamento direto.
+     */
     FATURAMENTO_DIRETO("2", "Faturamento direto"),
+    /**
+     * 3 - Venda direta.
+     */
     VENDA_DIRETA("3", "Venda direta"),
+    /**
+     * 0 - Outros.
+     */
     OUTROS("0", "Outros");
 
     private String code;

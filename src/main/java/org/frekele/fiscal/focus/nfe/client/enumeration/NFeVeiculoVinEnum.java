@@ -13,7 +13,13 @@ import java.util.List;
 @XmlEnum(String.class)
 public enum NFeVeiculoVinEnum {
 
+    /**
+     * R - Remarcado.
+     */
     REMARCADO("R", "Remarcado"),
+    /**
+     * N - Normal.
+     */
     NORMAL("N", "Normal");
 
     private String code;

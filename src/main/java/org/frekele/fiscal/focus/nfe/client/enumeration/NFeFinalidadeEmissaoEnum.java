@@ -13,9 +13,21 @@ import java.util.List;
 @XmlEnum(String.class)
 public enum NFeFinalidadeEmissaoEnum {
 
+    /**
+     * 1 - Nota normal.
+     */
     NOTA_NORMAL("1", "Nota normal"),
+    /**
+     * 2 - Nota complementar.
+     */
     NOTA_COMPLEMENTAR("2", "Nota complementar"),
+    /**
+     * 3 - Nota de ajuste.
+     */
     NOTA_DE_AJUSTE("3", "Nota de ajuste"),
+    /**
+     * 4 - Devolução de mercadoria.
+     */
     DEVOLUCAO_MERCADORIA("4", "Devolução de mercadoria");
 
     private String code;

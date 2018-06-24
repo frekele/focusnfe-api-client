@@ -13,11 +13,29 @@ import java.util.List;
 @XmlEnum(String.class)
 public enum NFeVeiculoTipoCombustivelEnum {
 
+    /**
+     * 01 - Álcool.
+     */
     ALCOOL("01", "Álcool"),
+    /**
+     * 02 - Gasolina.
+     */
     GASOLINA("02", "Gasolina"),
+    /**
+     * 03 - Diesel.
+     */
     DIESEL("03", "Diesel"),
+    /**
+     * 16 - Álcool/Gasolina.
+     */
     ALCOOL_GASOLINA("16", "Álcool/Gasolina"),
+    /**
+     * 17 - Gasolina/Álcool/GNV.
+     */
     GASOLINA_ALCOOL_GNV("17", "Gasolina/Álcool/GNV"),
+    /**
+     * 18 - Gasolina/Elétrico.
+     */
     GASOLINA_ELETRICO("18", "Gasolina/Elétrico");
 
     private String code;

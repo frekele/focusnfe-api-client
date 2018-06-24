@@ -13,7 +13,13 @@ import java.util.List;
 @XmlEnum(String.class)
 public enum NFeTipoDocumentoEnum {
 
+    /**
+     * 0 - Nota Fiscal de Entrada.
+     */
     NOTA_FISCAL_ENTRADA("0", "Nota Fiscal de Entrada"),
+    /**
+     * 1 - Nota Fiscal de Saída.
+     */
     NOTA_FISCAL_SAIDA("1", "Nota Fiscal de Saída");
 
     private String code;

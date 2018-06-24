@@ -13,11 +13,29 @@ import java.util.List;
 @XmlEnum(String.class)
 public enum NFeCodigoRegimeEspecialTributacaoEnum {
 
+    /**
+     * 1 - Microempresa Municipal.
+     */
     MICROEMPRESA_MUNICIPAL("1", "Microempresa Municipal"),
+    /**
+     * 2 - Estimativa.
+     */
     ESTIMATIVA("2", "Estimativa"),
+    /**
+     * 3 - Sociedade de Profissionais.
+     */
     SOCIEDADE_DE_PROFISSIONAIS("3", "Sociedade de Profissionais"),
+    /**
+     * 4 - Cooperativa.
+     */
     COOPERATIVA("4", "Cooperativa"),
+    /**
+     * 5 - Microempresário Individual (MEI).
+     */
     MICROEMPRESARIO_INDIVIDUAL_MEI("5", "Microempresário Individual (MEI)"),
+    /**
+     * 6 - Microempresário e Empresa de Pequeno Porte (ME/EPP).
+     */
     MICROEMPRESARIO_E_EMPRESA_PEQUENO_PORTE_ME_EPP("6", "Microempresário e Empresa de Pequeno Porte (ME/EPP)");
 
     private String code;

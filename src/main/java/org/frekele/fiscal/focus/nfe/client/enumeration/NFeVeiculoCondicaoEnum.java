@@ -13,8 +13,17 @@ import java.util.List;
 @XmlEnum(String.class)
 public enum NFeVeiculoCondicaoEnum {
 
+    /**
+     * 1 - Acabado.
+     */
     ACABADO("1", "Acabado"),
+    /**
+     * 2 - Inacabado.
+     */
     INACABADO("2", "Inacabado"),
+    /**
+     * 3 - Semi-acabado.
+     */
     SEMI_ACABADO("3", "Semi-acabado");
 
     private String code;

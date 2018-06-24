@@ -13,9 +13,21 @@ import java.util.List;
 @XmlEnum(String.class)
 public enum NFeIcmsModalidadeBaseCalculoEnum {
 
+    /**
+     * 0 - Margem de valor agregado (%).
+     */
     MARGEM_DE_VALOR_AGREGADO("0", "Margem de valor agregado (%)"),
+    /**
+     * 1 - Pauta (valor).
+     */
     PAUTA("1", "Pauta (valor)"),
+    /**
+     * 2 - Preço tabelado máximo (valor).
+     */
     PRECO_TABELADO_MAXIMO("2", "Preço tabelado máximo (valor)"),
+    /**
+     * 3 - Valor da operação.
+     */
     VALOR_DA_OPERACAO("3", "Valor da operação");
 
     private String code;

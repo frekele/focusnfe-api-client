@@ -13,12 +13,33 @@ import java.util.List;
 @XmlEnum(String.class)
 public enum NFeIssqnIndicadorExigibilidadeEnum {
 
+    /**
+     * 1 - Exigível.
+     */
     EXIGIVEL("1", "Exigível"),
+    /**
+     * 2 - Não incidência.
+     */
     NAO_INCIDENCIA("2", "Não incidência"),
+    /**
+     * 3 - Isenção.
+     */
     ISENCAO("3", "Isenção"),
+    /**
+     * 4 - Exportação.
+     */
     EXPORTACAO("4", "Exportação"),
+    /**
+     * 5 - Imunidade.
+     */
     IMUNIDADE("5", "Imunidade"),
+    /**
+     * 6 - Exigibilidade Suspensa por Decisão Judicial.
+     */
     EXIGIBILIDADE_SUSPENSA_POR_DECISAO_JUDICIAL("6", "Exigibilidade Suspensa por Decisão Judicial"),
+    /**
+     * 7- Exigibilidade Suspensa por Processo Administrativo.
+     */
     EXIGIBILIDADE_SUSPENSA_POR_PROCESSO_ADMINISTRATIVO("7", "Exigibilidade Suspensa por Processo Administrativo");
 
     private String code;

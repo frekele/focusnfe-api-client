@@ -13,8 +13,14 @@ import java.util.List;
 @XmlEnum(String.class)
 public enum NFeIncluiNoTotalEnum {
 
+    /**
+     * 0 - Não.
+     */
     NAO("0", "Não"),
-    SIM("1", "Sim");//(valor padrão)
+    /**
+     * 1- Sim - (valor padrão).
+     */
+    SIM("1", "Sim");
 
     private String code;
 

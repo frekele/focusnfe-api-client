@@ -13,11 +13,29 @@ import java.util.List;
 @XmlEnum(String.class)
 public enum NFeModalidadeFreteEnum {
 
+    /**
+     * 0 - Por conta do emitente.
+     */
     POR_CONTA_EMITENTE("0", "Por conta do emitente"),
+    /**
+     * 1 - Por conta do destinatário.
+     */
     POR_CONTA_DESTINATARIO("1", "Por conta do destinatário"),
+    /**
+     * 2 - Por conta de terceiros.
+     */
     POR_CONTA_TERCEIROS("2", "Por conta de terceiros"),
+    /**
+     * 3 - Transporte Próprio por conta do Remetente.
+     */
     TRANSPORTE_PROPRIO_POR_CONTA_REMETENTE("3", "Transporte Próprio por conta do Remetente"),
+    /**
+     * 4 - Transporte Próprio por conta do Destinatário.
+     */
     TRANSPORTE_PROPRIO_POR_CONTA_DESTINATARIO("4", "Transporte Próprio por conta do Destinatário"),
+    /**
+     * 9 - Sem frete.
+     */
     SEM_FRETE("9", "Sem frete");
 
     private String code;
