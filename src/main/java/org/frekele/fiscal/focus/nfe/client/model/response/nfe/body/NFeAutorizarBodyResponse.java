@@ -10,6 +10,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
+ * Response Body Autorizar NF-e.
+ *
  * @author frekele - Leandro Kersting de Freitas
  */
 @XmlRootElement

@@ -12,6 +12,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 
 /**
+ * Response Body Consultar Manifestos MD-e.
+ *
  * @author frekele - Leandro Kersting de Freitas
  */
 @XmlRootElement
