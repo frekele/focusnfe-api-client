@@ -13,6 +13,8 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
+ * Request Body Enviar Email NFC-e.
+ *
  * @author frekele - Leandro Kersting de Freitas
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
