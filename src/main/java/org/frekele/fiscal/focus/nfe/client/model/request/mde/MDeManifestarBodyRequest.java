@@ -20,11 +20,15 @@ public class MDeManifestarBodyRequest implements FocusNFeEntity {
 
     private static final long serialVersionUID = 1L;
 
-    //Tipo da manifestação podendo ser ciencia, confirmacao, desconhecimento ou nao_realizada.
+    /**
+     * Tipo da manifestação podendo ser ciencia, confirmacao, desconhecimento ou nao_realizada.
+     */
     @NotNull
     private MDeTipoManifestacaoEnum tipo;
 
-    //Justificativa do cancelamento. Deverá conter de 15 a 255 caracteres.
+    /**
+     * Justificativa do cancelamento. Deverá conter de 15 a 255 caracteres.
+     */
     @Size(min = 15, max = 255)
     private String justificativa;
 
@@ -50,22 +54,37 @@ public class MDeManifestarBodyRequest implements FocusNFeEntity {
         return new Builder();
     }
 
+    /**
+     * Tipo da manifestação podendo ser ciencia, confirmacao, desconhecimento ou nao_realizada.
+     */
     public MDeTipoManifestacaoEnum getTipo() {
         return tipo;
     }
 
+    /**
+     * Tipo da manifestação podendo ser ciencia, confirmacao, desconhecimento ou nao_realizada.
+     */
     public void setTipo(MDeTipoManifestacaoEnum tipo) {
         this.tipo = tipo;
     }
 
+    /**
+     * Justificativa do cancelamento. Deverá conter de 15 a 255 caracteres.
+     */
     public String getJustificativa() {
         return justificativa;
     }
 
+    /**
+     * Justificativa do cancelamento. Deverá conter de 15 a 255 caracteres.
+     */
     public void setJustificativa(String justificativa) {
         this.justificativa = justificativa;
     }
 
+    /**
+     * MDeManifestarBodyRequest Builder Pattern.
+     */
     public static final class Builder {
 
         private MDeTipoManifestacaoEnum tipo;
@@ -75,11 +94,17 @@ public class MDeManifestarBodyRequest implements FocusNFeEntity {
         private Builder() {
         }
 
+        /**
+         * Tipo da manifestação podendo ser ciencia, confirmacao, desconhecimento ou nao_realizada.
+         */
         public Builder withTipo(MDeTipoManifestacaoEnum val) {
             tipo = val;
             return this;
         }
 
+        /**
+         * Justificativa do cancelamento. Deverá conter de 15 a 255 caracteres.
+         */
         public Builder withJustificativa(String val) {
             justificativa = val;
             return this;

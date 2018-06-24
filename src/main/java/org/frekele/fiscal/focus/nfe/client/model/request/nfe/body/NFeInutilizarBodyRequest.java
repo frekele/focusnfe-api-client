@@ -20,31 +20,41 @@ public class NFeInutilizarBodyRequest implements FocusNFeEntity {
 
     private static final long serialVersionUID = 1L;
 
-    //CNPJ da empresa emitente
+    /**
+     * CNPJ da empresa emitente.
+     */
     @NotNull
     @Size(max = 14)
     @JsonProperty("cnpj")
     private String cnpj;
 
-    //Série da numeração da NFe que terá uma faixa de numeração inutilizada
+    /**
+     * Série da numeração da NFe que terá uma faixa de numeração inutilizada.
+     */
     @NotNull
     @Size(min = 1, max = 3)
     @JsonProperty("serie")
     private String serie;
 
-    //Número inicial a ser inutilizado
+    /**
+     * Número inicial a ser inutilizado.
+     */
     @NotNull
     @Size(min = 1, max = 9)
     @JsonProperty("numero_inicial")
     private String numeroInicial;
 
-    //Número final a ser inutilizado
+    /**
+     * Número final a ser inutilizado.
+     */
     @NotNull
     @Size(min = 1, max = 9)
     @JsonProperty("numero_final")
     private String numeroFinal;
 
-    //Justificativa da inutilização (mínimo 15 caracteres)
+    /**
+     * Justificativa da inutilização (mínimo 15 caracteres).
+     */
     @NotNull
     @Size(min = 15, max = 255)
     @JsonProperty("justificativa")
@@ -74,46 +84,79 @@ public class NFeInutilizarBodyRequest implements FocusNFeEntity {
         return new Builder();
     }
 
+    /**
+     * CNPJ da empresa emitente.
+     */
     public String getCnpj() {
         return cnpj;
     }
 
+    /**
+     * CNPJ da empresa emitente.
+     */
     public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
 
+    /**
+     * Série da numeração da NFe que terá uma faixa de numeração inutilizada.
+     */
     public String getSerie() {
         return serie;
     }
 
+    /**
+     * Série da numeração da NFe que terá uma faixa de numeração inutilizada.
+     */
     public void setSerie(String serie) {
         this.serie = serie;
     }
 
+    /**
+     * Número inicial a ser inutilizado.
+     */
     public String getNumeroInicial() {
         return numeroInicial;
     }
 
+    /**
+     * Número inicial a ser inutilizado.
+     */
     public void setNumeroInicial(String numeroInicial) {
         this.numeroInicial = numeroInicial;
     }
 
+    /**
+     * Número final a ser inutilizado.
+     */
     public String getNumeroFinal() {
         return numeroFinal;
     }
 
+    /**
+     * Número final a ser inutilizado.
+     */
     public void setNumeroFinal(String numeroFinal) {
         this.numeroFinal = numeroFinal;
     }
 
+    /**
+     * Justificativa da inutilização (mínimo 15 caracteres).
+     */
     public String getJustificativa() {
         return justificativa;
     }
 
+    /**
+     * Justificativa da inutilização (mínimo 15 caracteres).
+     */
     public void setJustificativa(String justificativa) {
         this.justificativa = justificativa;
     }
 
+    /**
+     * NFeInutilizarBodyRequest Builder Pattern.
+     */
     public static final class Builder {
 
         private String cnpj;
@@ -129,26 +172,41 @@ public class NFeInutilizarBodyRequest implements FocusNFeEntity {
         private Builder() {
         }
 
+        /**
+         * CNPJ da empresa emitente.
+         */
         public Builder withCnpj(String val) {
             cnpj = val;
             return this;
         }
 
+        /**
+         * Série da numeração da NFe que terá uma faixa de numeração inutilizada.
+         */
         public Builder withSerie(String val) {
             serie = val;
             return this;
         }
 
+        /**
+         * Número inicial a ser inutilizado.
+         */
         public Builder withNumeroInicial(String val) {
             numeroInicial = val;
             return this;
         }
 
+        /**
+         * Número final a ser inutilizado.
+         */
         public Builder withNumeroFinal(String val) {
             numeroFinal = val;
             return this;
         }
 
+        /**
+         * Justificativa da inutilização (mínimo 15 caracteres).
+         */
         public Builder withJustificativa(String val) {
             justificativa = val;
             return this;

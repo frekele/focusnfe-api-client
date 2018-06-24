@@ -20,7 +20,9 @@ public class NFeAutorizarBodyRequest implements FocusNFeEntity {
 
     private static final long serialVersionUID = 1L;
 
-    //Dados nfe da requisicao para autorizacao.
+    /**
+     * Dados nfe da requisicao para autorizacao.
+     */
     @JsonUnwrapped
     @NotNull
     private NFeEnvioRequisicaoNotaFiscal nfe;
@@ -41,14 +43,23 @@ public class NFeAutorizarBodyRequest implements FocusNFeEntity {
         return new Builder();
     }
 
+    /**
+     * Dados nfe da requisicao para autorizacao.
+     */
     public NFeEnvioRequisicaoNotaFiscal getNfe() {
         return nfe;
     }
 
+    /**
+     * Dados nfe da requisicao para autorizacao.
+     */
     public void setNfe(NFeEnvioRequisicaoNotaFiscal nfe) {
         this.nfe = nfe;
     }
 
+    /**
+     * NFeAutorizarBodyRequest Builder Pattern.
+     */
     public static final class Builder {
 
         private NFeEnvioRequisicaoNotaFiscal nfe;
@@ -56,6 +67,9 @@ public class NFeAutorizarBodyRequest implements FocusNFeEntity {
         private Builder() {
         }
 
+        /**
+         * Dados nfe da requisicao para autorizacao.
+         */
         public Builder withNfe(NFeEnvioRequisicaoNotaFiscal val) {
             nfe = val;
             return this;

@@ -19,7 +19,9 @@ public class NFeCancelarBodyRequest implements FocusNFeEntity {
 
     private static final long serialVersionUID = 1L;
 
-    //Justificativa do cancelamento. Deverá conter de 15 a 255 caracteres.
+    /**
+     * Justificativa do cancelamento. Deverá conter de 15 a 255 caracteres.
+     */
     @NotNull
     @Size(min = 15, max = 255)
     private String justificativa;
@@ -40,14 +42,23 @@ public class NFeCancelarBodyRequest implements FocusNFeEntity {
         return new Builder();
     }
 
+    /**
+     * Justificativa do cancelamento. Deverá conter de 15 a 255 caracteres.
+     */
     public String getJustificativa() {
         return justificativa;
     }
 
+    /**
+     * Justificativa do cancelamento. Deverá conter de 15 a 255 caracteres.
+     */
     public void setJustificativa(String justificativa) {
         this.justificativa = justificativa;
     }
 
+    /**
+     * NFeCancelarBodyRequest Builder Pattern.
+     */
     public static final class Builder {
 
         private String justificativa;
@@ -55,6 +66,9 @@ public class NFeCancelarBodyRequest implements FocusNFeEntity {
         private Builder() {
         }
 
+        /**
+         * Justificativa do cancelamento. Deverá conter de 15 a 255 caracteres.
+         */
         public Builder withJustificativa(String val) {
             justificativa = val;
             return this;

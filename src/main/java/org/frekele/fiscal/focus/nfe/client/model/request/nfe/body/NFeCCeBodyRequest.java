@@ -22,13 +22,17 @@ public class NFeCCeBodyRequest implements FocusNFeEntity {
 
     private static final long serialVersionUID = 1L;
 
-    //Texto da carta de correção. Deverá conter de 15 a 255 caracteres.
+    /**
+     * Texto da carta de correção. Deverá conter de 15 a 255 caracteres.
+     */
     @NotNull
     @Size(min = 15, max = 255)
     @JsonProperty("correcao")
     private String correcao;
 
-    //Campo opcional. Data do evento da carta de correção. Se não informado será usado a data atual.
+    /**
+     * Campo opcional. Data do evento da carta de correção. Se não informado será usado a data atual.
+     */
     @LocalDateJsonConverter
     @JsonProperty("data_evento")
     private LocalDate dataEvento;
@@ -55,22 +59,37 @@ public class NFeCCeBodyRequest implements FocusNFeEntity {
         return new Builder();
     }
 
+    /**
+     * Texto da carta de correção. Deverá conter de 15 a 255 caracteres.
+     */
     public String getCorrecao() {
         return correcao;
     }
 
+    /**
+     * Texto da carta de correção. Deverá conter de 15 a 255 caracteres.
+     */
     public void setCorrecao(String correcao) {
         this.correcao = correcao;
     }
 
+    /**
+     * Campo opcional. Data do evento da carta de correção. Se não informado será usado a data atual.
+     */
     public LocalDate getDataEvento() {
         return dataEvento;
     }
 
+    /**
+     * Campo opcional. Data do evento da carta de correção. Se não informado será usado a data atual.
+     */
     public void setDataEvento(LocalDate dataEvento) {
         this.dataEvento = dataEvento;
     }
 
+    /**
+     * NFeCCeBodyRequest Builder Pattern.
+     */
     public static final class Builder {
 
         private String correcao;
@@ -80,11 +99,17 @@ public class NFeCCeBodyRequest implements FocusNFeEntity {
         private Builder() {
         }
 
+        /**
+         * Texto da carta de correção. Deverá conter de 15 a 255 caracteres.
+         */
         public Builder withCorrecao(String val) {
             correcao = val;
             return this;
         }
 
+        /**
+         * Campo opcional. Data do evento da carta de correção. Se não informado será usado a data atual.
+         */
         public Builder withDataEvento(LocalDate val) {
             dataEvento = val;
             return this;
