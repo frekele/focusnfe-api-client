@@ -8,6 +8,8 @@ import javax.ws.rs.client.ClientRequestFilter;
 import java.io.IOException;
 
 /**
+ * Filtro de Logging do Requisições das chamadas.
+ *
  * @author frekele - Leandro Kersting de Freitas
  */
 

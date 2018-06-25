@@ -7,6 +7,9 @@ import java.lang.annotation.Target;
 
 import static java.lang.annotation.ElementType.*;
 
+/**
+ * Anotação para injeção de dependencia CDI.
+ */
 @Target({TYPE, FIELD, METHOD, PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
 @Qualifier

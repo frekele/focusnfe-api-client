@@ -4,11 +4,21 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
+ * A API do Focus NFe oferece dois ambientes para emissão de notas: homologação e produção.
+ *
  * @author frekele - Leandro Kersting de Freitas
  */
 public enum EnvironmentFocusNFeEnum {
 
+    /**
+     * Este é o ambiente com validade fiscal e tributária, pois isso, recomendamos que utilize este ambiente apenas quando for iniciar o processo de envio de notas válidas.
+     * Produção: https://api.focusnfe.com.br (obrigatório o uso de SSL).
+     */
     PRODUCTION("PRODUCTION", "https://api.focusnfe.com.br"),
+    /**
+     * O ambiente de homologação serve para envio de notas fiscais com a finalidade de teste. As notas emitidas aqui não possuem validade fiscal/tributária.
+     * Homologação: http://homologacao.acrasnfe.acras.com.br (note que não é utilizado SSL).
+     */
     HOMOLOGATION("HOMOLOGATION", "http://homologacao.acrasnfe.acras.com.br");
 
     private String value;

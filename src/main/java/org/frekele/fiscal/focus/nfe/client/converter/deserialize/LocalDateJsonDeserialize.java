@@ -10,6 +10,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 /**
+ * JsonDeserialize para LocalDate.
+ *
  * @author frekele - Leandro Kersting de Freitas
  */
 public class LocalDateJsonDeserialize extends StdDeserializer<LocalDate> {

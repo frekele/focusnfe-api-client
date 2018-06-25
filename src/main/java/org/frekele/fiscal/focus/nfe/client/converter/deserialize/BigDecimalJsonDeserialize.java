@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.math.BigDecimal;
 
 /**
+ * JsonDeserialize para BigDecimal.
+ *
  * @author frekele - Leandro Kersting de Freitas
  */
 public class BigDecimalJsonDeserialize extends StdDeserializer<BigDecimal> {

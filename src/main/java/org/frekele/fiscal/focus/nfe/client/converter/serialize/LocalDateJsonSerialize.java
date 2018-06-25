@@ -9,6 +9,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 /**
+ * JsonSerialize para LocalDate.
+ *
  * @author frekele - Leandro Kersting de Freitas
  */
 public class LocalDateJsonSerialize extends StdSerializer<LocalDate> {

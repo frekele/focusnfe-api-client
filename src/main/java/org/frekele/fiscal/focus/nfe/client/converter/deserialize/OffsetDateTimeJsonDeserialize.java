@@ -10,6 +10,8 @@ import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
+ * JsonDeserialize para OffsetDateTime.
+ *
  * @author frekele - Leandro Kersting de Freitas
  */
 public class OffsetDateTimeJsonDeserialize extends StdDeserializer<OffsetDateTime> {

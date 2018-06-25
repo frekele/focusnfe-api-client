@@ -30,6 +30,9 @@ import java.util.Set;
  */
 public final class FocusNFeUtils {
 
+    /**
+     * Valida se objeto(s) esteja nulo e joga um FocusNFeException.
+     */
     public static void throwInjection(Object... objects) {
         for (Object obj : objects) {
             if (obj == null) {
@@ -39,6 +42,9 @@ public final class FocusNFeUtils {
         }
     }
 
+    /**
+     * Valida campos de um objeto FocusNFeAuth caso esteja nulo ou vazio e joga um FocusNFeException.
+     */
     public static void throwAuth(FocusNFeAuth auth) {
         if (auth == null) {
             throw new FocusNFeException("FocusNFeAuth can not be Null!");
@@ -54,12 +60,18 @@ public final class FocusNFeUtils {
         }
     }
 
+    /**
+     * Valida se objeto esteja nulo ou vazio e joga um FocusNFeException.
+     */
     public static void throwObject(Object obj, String objectName) {
         if (obj == null || obj.toString().trim().isEmpty()) {
             throw new FocusNFeException("" + objectName + " can not be Null!");
         }
     }
 
+    /**
+     * Faz Validação de BeanValidation em objeto e joga um ConstraintViolationException.
+     */
     public static void throwBeanValidation(Object bean) {
         ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
         Set constraintViolations = validatorFactory.getValidator().validate(bean);
@@ -69,6 +81,9 @@ public final class FocusNFeUtils {
         validatorFactory.close();
     }
 
+    /**
+     * Descobre o Charset no ResponseContext.
+     */
     public static Charset discoveryCharset(ClientResponseContext responseContext) {
         Charset charset = null;
         MediaType mediaType = responseContext.getMediaType();
@@ -84,6 +99,9 @@ public final class FocusNFeUtils {
         return charset;
     }
 
+    /**
+     * Pega o corpo do ResponseContext e previne que EntityStream não seja encerrada.
+     */
     public static String responseBodyToString(ClientResponseContext responseContext) throws IOException {
         String body = null;
         if (responseContext.hasEntity()) {
@@ -97,6 +115,9 @@ public final class FocusNFeUtils {
         return body;
     }
 
+    /**
+     * Altera o corpo Json do ResponseContext de um Array Json para um Objeto Json 'de [] ara { arrayValues : [] }' e injeta novamente no corpo.
+     */
     public static void replaceResponseBodyJsonArrayToJsonObject(ClientResponseContext responseContext) throws IOException {
         if (responseContext.hasEntity()) {
             try (InputStream entityStream = responseContext.getEntityStream()) {
@@ -114,6 +135,9 @@ public final class FocusNFeUtils {
         }
     }
 
+    /**
+     * Codifica String para Base64.
+     */
     public static String encodeBase64(String value) {
         if (value != null && !value.isEmpty()) {
             return Base64.getEncoder().encodeToString(value.getBytes(Charset.forName("UTF-8")));
@@ -122,6 +146,9 @@ public final class FocusNFeUtils {
         }
     }
 
+    /**
+     * Decodifica String em Base64.
+     */
     public static String decodeBase64(String base64Value) {
         if (base64Value != null && !base64Value.isEmpty()) {
             byte[] bytesValue = Base64.getDecoder().decode(base64Value);
@@ -131,31 +158,52 @@ public final class FocusNFeUtils {
         }
     }
 
+    /**
+     * Cria Authorization em Base64 com senha em branco.
+     */
     public static String buildAuthorization(String username) {
         return buildAuthorization(username, "");
     }
 
+    /**
+     * Cria Authorization em Base64.
+     */
     public static String buildAuthorization(String username, String password) {
         String authorization = (username == null ? "" : username) + ":" + (password == null ? "" : password);
         return encodeBase64(authorization);
     }
 
+    /**
+     * Converte Json String para object JsonNode.
+     */
     public static JsonNode parseJsonToJsonNode(String content) throws IOException {
         return new ObjectMapper().readTree(content);
     }
 
+    /**
+     * Converte Json String para object com mapeamento Jersey.
+     */
     public static <T> T parseJsonTo(String content, Class<T> classType) throws IOException {
         return new ObjectMapper().readValue(content, classType);
     }
 
+    /**
+     * Converte object JsonNode para String.
+     */
     public static String parseJsonToString(JsonNode jsonValue) throws IOException {
         return parseJsonToString(jsonValue, false);
     }
 
+    /**
+     * Converte Object para String.
+     */
     public static String parseJsonToString(Object jsonValue) throws IOException {
         return parseJsonToString(jsonValue, false);
     }
 
+    /**
+     * Converte Object para String com impressão formatada 'Pretty Printer'.
+     */
     public static String parseJsonToString(Object jsonValue, boolean pretty) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         if (pretty) {
@@ -165,14 +213,23 @@ public final class FocusNFeUtils {
         }
     }
 
+    /**
+     * Converte Xml String para object JsonNode.
+     */
     public static JsonNode parseXmlToJsonNode(String content) throws IOException {
         return new XmlMapper().readTree(content);
     }
 
+    /**
+     * Converte Xml String para object Document.
+     */
     public static Document parseXmlToDocument(String content) throws ParserConfigurationException, IOException, SAXException {
         return parseXmlToDocument(content, Charset.forName("UTF-8"));
     }
 
+    /**
+     * Converte Xml String para object Document e informa o Charset.
+     */
     public static Document parseXmlToDocument(String content, Charset charset) throws ParserConfigurationException, IOException, SAXException {
         Document document;
         try (ByteArrayInputStream inputStream = new ByteArrayInputStream(content.getBytes(charset))) {
@@ -181,6 +238,9 @@ public final class FocusNFeUtils {
         return document;
     }
 
+    /**
+     * Converte Xml InputStream para object Document.
+     */
     public static Document parseXmlToDocument(InputStream xml) throws ParserConfigurationException, IOException, SAXException {
         return DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(xml);
     }

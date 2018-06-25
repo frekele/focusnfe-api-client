@@ -5,16 +5,28 @@ import org.frekele.fiscal.focus.nfe.client.util.FocusNFeUtils;
 import java.io.Serializable;
 
 /**
+ * FocusNFe HTTP Authorization, A autenticação é feita através de um token.
+ * Ao habilitar a API para sua empresa é fornecido uma string secreta e única que será usada para efetuar todas as operações.
+ *
  * @author frekele - Leandro Kersting de Freitas
  */
 public final class FocusNFeAuth implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     * Token de Autenticação fornecido pela Acras FocusNFe.
+     */
     private final String accessToken;
 
+    /**
+     * Ambiente que será conectado, homologacao ou producao.
+     */
     private final EnvironmentFocusNFeEnum environment;
 
+    /**
+     * Authorization contém os valores (token + senha em branco) codificado em Base64.
+     */
     private final String authorization;
 
     public FocusNFeAuth(String accessToken, EnvironmentFocusNFeEnum environment) {
@@ -39,18 +51,30 @@ public final class FocusNFeAuth implements Serializable {
         return new Builder();
     }
 
+    /**
+     * Token de Autenticação fornecido pela Acras FocusNFe.
+     */
     public String getAccessToken() {
         return accessToken;
     }
 
+    /**
+     * Ambiente que será conectado, homologacao ou producao.
+     */
     public EnvironmentFocusNFeEnum getEnvironment() {
         return environment;
     }
 
+    /**
+     * Authorization contém os valores (token + senha em branco) codificado em Base64.
+     */
     public String getAuthorization() {
         return authorization;
     }
 
+    /**
+     * FocusNFeAuth Builder Pattern.
+     */
     public static final class Builder {
 
         private String accessToken;
@@ -60,16 +84,25 @@ public final class FocusNFeAuth implements Serializable {
         private Builder() {
         }
 
+        /**
+         * Token de Autenticação fornecido pela Acras FocusNFe.
+         */
         public Builder withAccessToken(String val) {
             accessToken = val;
             return this;
         }
 
+        /**
+         * Ambiente que será conectado, homologacao ou producao.
+         */
         public Builder withEnvironment(EnvironmentFocusNFeEnum val) {
             environment = val;
             return this;
         }
 
+        /**
+         * Ambiente que será conectado, homologacao ou producao.
+         */
         public Builder withEnvironment(String val) {
             return withEnvironment(EnvironmentFocusNFeEnum.fromValue(val));
         }

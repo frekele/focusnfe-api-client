@@ -10,6 +10,8 @@ import javax.ws.rs.client.ClientResponseFilter;
 import java.io.IOException;
 
 /**
+ * Filtro de Logging do Resposta das chamadas.
+ *
  * @author frekele - Leandro Kersting de Freitas
  */
 

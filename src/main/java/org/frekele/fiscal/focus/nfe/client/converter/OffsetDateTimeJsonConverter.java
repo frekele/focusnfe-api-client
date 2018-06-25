@@ -10,6 +10,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 /**
+ * JsonSerialize e JsonDeserialize para OffsetDateTime.
+ *
  * @author frekele - Leandro Kersting de Freitas
  */
 

@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.math.BigDecimal;
 
 /**
+ * JsonSerialize para BigDecimal.
+ *
  * @author frekele - Leandro Kersting de Freitas
  */
 public class BigDecimalJsonSerialize extends StdSerializer<BigDecimal> {
