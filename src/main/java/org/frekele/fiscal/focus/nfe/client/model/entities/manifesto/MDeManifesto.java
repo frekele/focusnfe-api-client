@@ -2,12 +2,14 @@ package org.frekele.fiscal.focus.nfe.client.model.entities.manifesto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.frekele.fiscal.focus.nfe.client.converter.BigDecimalJsonConverter;
 import org.frekele.fiscal.focus.nfe.client.converter.OffsetDateTimeJsonConverter;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFeEntity;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 
 /**
@@ -34,8 +36,9 @@ public class MDeManifesto implements FocusNFeEntity {
     @JsonProperty("chave_nfe")
     private String chaveNfe;
 
+    @BigDecimalJsonConverter
     @JsonProperty("valor_total")
-    private String valorTotal;
+    private BigDecimal valorTotal;
 
     //Formato padrão ISO, exemplo: “2016-12-25T12:00-0300”.
     @OffsetDateTimeJsonConverter
@@ -139,11 +142,11 @@ public class MDeManifesto implements FocusNFeEntity {
         this.chaveNfe = chaveNfe;
     }
 
-    public String getValorTotal() {
+    public BigDecimal getValorTotal() {
         return valorTotal;
     }
 
-    public void setValorTotal(String valorTotal) {
+    public void setValorTotal(BigDecimal valorTotal) {
         this.valorTotal = valorTotal;
     }
 
@@ -256,7 +259,7 @@ public class MDeManifesto implements FocusNFeEntity {
 
         private String chaveNfe;
 
-        private String valorTotal;
+        private BigDecimal valorTotal;
 
         private OffsetDateTime dataEmissao;
 
@@ -305,7 +308,7 @@ public class MDeManifesto implements FocusNFeEntity {
             return this;
         }
 
-        public Builder withValorTotal(String val) {
+        public Builder withValorTotal(BigDecimal val) {
             valorTotal = val;
             return this;
         }
