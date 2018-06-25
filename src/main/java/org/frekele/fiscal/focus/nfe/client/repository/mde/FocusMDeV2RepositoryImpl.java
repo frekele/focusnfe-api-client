@@ -2,6 +2,7 @@ package org.frekele.fiscal.focus.nfe.client.repository.mde;
 
 import org.frekele.fiscal.focus.nfe.client.auth.FocusNFeAuth;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFe;
+import org.frekele.fiscal.focus.nfe.client.filter.ResponseArrayJsonReplaceFilter;
 import org.frekele.fiscal.focus.nfe.client.model.request.mde.MDeManifestarBodyRequest;
 import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarManifestosResponse;
 import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarNFeResponse;
@@ -34,17 +35,18 @@ public class FocusMDeV2RepositoryImpl implements FocusMDeV2Repository {
         FocusNFeUtils.throwAuth(auth);
         this.client = client;
         this.auth = auth;
+        this.client.register(ResponseArrayJsonReplaceFilter.class);
     }
 
-    public ResteasyClient getClient() {
+    ResteasyClient getClient() {
         return client;
     }
 
-    public FocusNFeAuth getAuth() {
+    FocusNFeAuth getAuth() {
         return auth;
     }
 
-    public FocusMDeV2ProxyClient getProxyClient() {
+    private FocusMDeV2ProxyClient getProxyClient() {
         ResteasyClient client = this.getClient();
         ResteasyWebTarget webTarget = client.target(this.getAuth().getEnvironment().getTargetUrl());
         return webTarget.proxy(FocusMDeV2ProxyClient.class);

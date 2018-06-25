@@ -5,7 +5,6 @@ import org.frekele.fiscal.focus.nfe.client.auth.FocusNFeAuth;
 import org.frekele.fiscal.focus.nfe.client.enumeration.MDeTipoManifestacaoEnum;
 import org.frekele.fiscal.focus.nfe.client.filter.RequestLoggingFilter;
 import org.frekele.fiscal.focus.nfe.client.filter.ResponseLoggingFilter;
-import org.frekele.fiscal.focus.nfe.client.filter.ResponseArrayJsonReplaceFilter;
 import org.frekele.fiscal.focus.nfe.client.model.request.mde.MDeManifestarBodyRequest;
 import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarManifestosResponse;
 import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarNFeResponse;
@@ -51,7 +50,6 @@ public class FocusMDeV2RepositoryIT {
         ResteasyClient client = new ResteasyClientBuilder()
             .register(RequestLoggingFilter.class)
             .register(ResponseLoggingFilter.class)
-            .register(ResponseArrayJsonReplaceFilter.class)
             .build();
         repository = new FocusMDeV2RepositoryImpl(client, auth);
     }
@@ -63,7 +61,7 @@ public class FocusMDeV2RepositoryIT {
     }
 
     @Test(expectedExceptions = ClientErrorException.class)
-    public void testManifestar() {
+    public void testManifestar() throws Exception {
         String chaveNFe = "41180603918468000158550010000000251406642480";
         MDeManifestarBodyRequest bodyRequest = MDeManifestarBodyRequest.newBuilder()
             .withTipo(MDeTipoManifestacaoEnum.CIENCIA)

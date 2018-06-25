@@ -3,7 +3,6 @@ package org.frekele.fiscal.focus.nfe.client.repository.webhook;
 import org.frekele.fiscal.focus.nfe.client.auth.EnvironmentFocusNFeEnum;
 import org.frekele.fiscal.focus.nfe.client.auth.FocusNFeAuth;
 import org.frekele.fiscal.focus.nfe.client.filter.RequestLoggingFilter;
-import org.frekele.fiscal.focus.nfe.client.filter.ResponseArrayJsonReplaceFilter;
 import org.frekele.fiscal.focus.nfe.client.filter.ResponseLoggingFilter;
 import org.frekele.fiscal.focus.nfe.client.model.request.webhook.body.WebHookCriarBodyRequest;
 import org.frekele.fiscal.focus.nfe.client.model.response.webhook.WebHookConsultarResponse;
@@ -47,7 +46,6 @@ public class FocusWebHookV2RepositoryIT {
         ResteasyClient client = new ResteasyClientBuilder()
             .register(RequestLoggingFilter.class)
             .register(ResponseLoggingFilter.class)
-            .register(ResponseArrayJsonReplaceFilter.class)
             .build();
         repository = new FocusWebHookV2RepositoryImpl(client, auth);
     }
