@@ -1,6 +1,6 @@
 package org.frekele.fiscal.focus.nfe.client.repository.mde;
 
-import org.frekele.fiscal.focus.nfe.client.model.request.mde.MDeManifestarBodyRequest;
+import org.frekele.fiscal.focus.nfe.client.model.request.mde.body.MDeManifestarBodyRequest;
 import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarCCeResponse;
 import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarCancelamentoResponse;
 import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarManifestosResponse;

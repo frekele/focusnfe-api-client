@@ -1,4 +1,4 @@
-package org.frekele.fiscal.focus.nfe.client.model.request.mde;
+package org.frekele.fiscal.focus.nfe.client.model.request.mde.body;
 
 import org.frekele.fiscal.focus.nfe.client.enumeration.MDeTipoManifestacaoEnum;
 import org.frekele.fiscal.focus.nfe.client.testng.InvokedMethodListener;

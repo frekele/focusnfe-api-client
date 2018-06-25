@@ -5,7 +5,7 @@ import org.frekele.fiscal.focus.nfe.client.core.FocusNFe;
 import org.frekele.fiscal.focus.nfe.client.filter.RequestLoggingFilter;
 import org.frekele.fiscal.focus.nfe.client.filter.ResponseArrayJsonReplaceFilter;
 import org.frekele.fiscal.focus.nfe.client.filter.ResponseLoggingFilter;
-import org.frekele.fiscal.focus.nfe.client.model.request.mde.MDeManifestarBodyRequest;
+import org.frekele.fiscal.focus.nfe.client.model.request.mde.body.MDeManifestarBodyRequest;
 import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarManifestosResponse;
 import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarNFeResponse;
 import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarUltimoManifestoResponse;

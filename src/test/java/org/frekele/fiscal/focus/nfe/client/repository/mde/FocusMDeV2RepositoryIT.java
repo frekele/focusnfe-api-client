@@ -3,7 +3,7 @@ package org.frekele.fiscal.focus.nfe.client.repository.mde;
 import org.frekele.fiscal.focus.nfe.client.auth.EnvironmentFocusNFeEnum;
 import org.frekele.fiscal.focus.nfe.client.auth.FocusNFeAuth;
 import org.frekele.fiscal.focus.nfe.client.enumeration.MDeTipoManifestacaoEnum;
-import org.frekele.fiscal.focus.nfe.client.model.request.mde.MDeManifestarBodyRequest;
+import org.frekele.fiscal.focus.nfe.client.model.request.mde.body.MDeManifestarBodyRequest;
 import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarManifestosResponse;
 import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarNFeResponse;
 import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarUltimoManifestoResponse;
