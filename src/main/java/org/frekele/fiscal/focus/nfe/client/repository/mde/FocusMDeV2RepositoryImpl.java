@@ -50,6 +50,10 @@ public class FocusMDeV2RepositoryImpl implements FocusMDeV2Repository {
         return webTarget.proxy(FocusMDeV2ProxyClient.class);
     }
 
+    /**
+     * POST - Realiza um manifesto na nota informada.
+     * Exemplo de requisição: POST https://api.focusnfe.com.br/v2/nfes_recebidas/CHAVE/manifesto
+     */
     @Override
     public MDeManifestarResponse manifestar(String chaveNFe, MDeManifestarBodyRequest bodyRequest) {
         FocusNFeUtils.throwObject(chaveNFe, "chaveNFe");
@@ -59,6 +63,10 @@ public class FocusMDeV2RepositoryImpl implements FocusMDeV2Repository {
         return proxyClient.manifestar(this.getAuth().getAuthorization(), chaveNFe, bodyRequest);
     }
 
+    /**
+     * GET - Busca informações resumidas de todas as NFe’s recebidas.
+     * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/v2/nfes_recebidas?cnpj=CNPJ
+     */
     @Override
     public MDeConsultarManifestosResponse consultarManifestos(String cnpj) {
         FocusNFeUtils.throwObject(cnpj, "cnpj");
@@ -66,6 +74,10 @@ public class FocusMDeV2RepositoryImpl implements FocusMDeV2Repository {
         return proxyClient.consultarManifestos(this.getAuth().getAuthorization(), cnpj);
     }
 
+    /**
+     * GET - Busca informações resumidas de todas as NFe’s recebidas.
+     * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/v2/nfes_recebidas?cnpj=CNPJ&versao=VERSAO
+     */
     @Override
     public MDeConsultarManifestosResponse consultarManifestos(String cnpj, Integer versao) {
         FocusNFeUtils.throwObject(cnpj, "cnpj");
@@ -74,6 +86,10 @@ public class FocusMDeV2RepositoryImpl implements FocusMDeV2Repository {
         return proxyClient.consultarManifestosVersao(this.getAuth().getAuthorization(), cnpj, versao);
     }
 
+    /**
+     * GET - Busca informações resumidas de todas as NFe’s recebidas.
+     * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/v2/nfes_recebidas?cnpj=CNPJ&pendente=PENDENTE
+     */
     @Override
     public MDeConsultarManifestosResponse consultarManifestosPendentes(String cnpj) {
         FocusNFeUtils.throwObject(cnpj, "cnpj");
@@ -81,6 +97,10 @@ public class FocusMDeV2RepositoryImpl implements FocusMDeV2Repository {
         return proxyClient.consultarManifestosPendente(this.getAuth().getAuthorization(), cnpj, "true");
     }
 
+    /**
+     * GET - Busca informações resumidas de todas as NFe’s recebidas.
+     * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/v2/nfes_recebidas?cnpj=CNPJ&versao=VERSAO&pendente=PENDENTE
+     */
     @Override
     public MDeConsultarManifestosResponse consultarManifestosPendentes(String cnpj, Integer versao) {
         FocusNFeUtils.throwObject(cnpj, "cnpj");
@@ -89,6 +109,10 @@ public class FocusMDeV2RepositoryImpl implements FocusMDeV2Repository {
         return proxyClient.consultarManifestosVersaoPendente(this.getAuth().getAuthorization(), cnpj, versao, "true");
     }
 
+    /**
+     * GET - Consulta o último manifesto válido na nota fiscal informada.
+     * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/nfes_recebidas/CHAVE/manifesto
+     */
     @Override
     public MDeConsultarUltimoManifestoResponse consultarUltimoManifesto(String chaveNFe) {
         FocusNFeUtils.throwObject(chaveNFe, "chaveNFe");
@@ -96,6 +120,10 @@ public class FocusMDeV2RepositoryImpl implements FocusMDeV2Repository {
         return proxyClient.consultarUltimoManifesto(this.getAuth().getAuthorization(), chaveNFe);
     }
 
+    /**
+     * GET - Consulta as informações da nota fiscal.
+     * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/nfes_recebidas/CHAVE.json
+     */
     @Override
     public MDeConsultarNFeResponse consultarNFe(String chaveNFe) {
         FocusNFeUtils.throwObject(chaveNFe, "chaveNFe");
@@ -103,6 +131,10 @@ public class FocusMDeV2RepositoryImpl implements FocusMDeV2Repository {
         return proxyClient.consultarNFe(this.getAuth().getAuthorization(), chaveNFe);
     }
 
+    /**
+     * GET - Consulta as informações da nota fiscal.
+     * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/nfes_recebidas/CHAVE.json?completa=1
+     */
     @Override
     public MDeConsultarNFeResponse consultarNFeCompleta(String chaveNFe) {
         FocusNFeUtils.throwObject(chaveNFe, "chaveNFe");
@@ -110,6 +142,10 @@ public class FocusMDeV2RepositoryImpl implements FocusMDeV2Repository {
         return proxyClient.consultarNFe(this.getAuth().getAuthorization(), chaveNFe, 1);
     }
 
+    /**
+     * GET - Baixar o XML de uma nota fiscal especifica:
+     * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/nfes_recebidas/CHAVE.xml
+     */
     @Override
     public MDeDownloadXmlResponse downloadNFe(String chaveNFe) {
         FocusNFeUtils.throwObject(chaveNFe, "chaveNFe");
@@ -117,6 +153,10 @@ public class FocusMDeV2RepositoryImpl implements FocusMDeV2Repository {
         return proxyClient.downloadNFe(this.getAuth().getAuthorization(), chaveNFe);
     }
 
+    /**
+     * GET - Baixar o XML de cancelamento de uma nota fiscal.
+     * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/nfes_recebidas/CHAVE/cancelamento.xml
+     */
     @Override
     public MDeDownloadXmlResponse downloadCancelamento(String chaveNFe) {
         FocusNFeUtils.throwObject(chaveNFe, "chaveNFe");
@@ -124,6 +164,10 @@ public class FocusMDeV2RepositoryImpl implements FocusMDeV2Repository {
         return proxyClient.downloadCancelamento(this.getAuth().getAuthorization(), chaveNFe);
     }
 
+    /**
+     * GET - Baixar o XML da última Carta de Correção Eletrônica de uma nota fiscal.
+     * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/nfes_recebidas/CHAVE/carta_correcao.xml
+     */
     @Override
     public MDeDownloadXmlResponse downloadUltimaCCe(String chaveNFe) {
         FocusNFeUtils.throwObject(chaveNFe, "chaveNFe");
