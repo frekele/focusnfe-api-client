@@ -23,6 +23,8 @@ import javax.ws.rs.core.MediaType;
 import java.io.Serializable;
 
 /**
+ * Proxy RestEasy para chamadas da API NFC-e.
+ *
  * @author frekele - Leandro Kersting de Freitas
  */
 @Path("/v2")

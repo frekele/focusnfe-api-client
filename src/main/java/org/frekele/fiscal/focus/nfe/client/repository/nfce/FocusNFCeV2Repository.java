@@ -13,6 +13,8 @@ import org.frekele.fiscal.focus.nfe.client.model.response.nfce.NFCeInutilizarRes
 import java.io.Serializable;
 
 /**
+ * Interface com chamadas para API NFC-e.
+ *
  * @author frekele - Leandro Kersting de Freitas
  */
 public interface FocusNFCeV2Repository extends Serializable {
