@@ -48,7 +48,7 @@ public class NFeErro implements FocusNFeEntity {
      * (Opcional) Quando for possível detalhar o erro, ele será informado nesta lista de objetos.
      */
     @JsonProperty("erros")
-    private List<String> erros;
+    private List<NFeErro> erros;
 
     public NFeErro() {
         super();
@@ -95,14 +95,14 @@ public class NFeErro implements FocusNFeEntity {
     /**
      * (Opcional) Quando for possível detalhar o erro, ele será informado nesta lista de objetos.
      */
-    public List<String> getErros() {
+    public List<NFeErro> getErros() {
         return erros;
     }
 
     /**
      * (Opcional) Quando for possível detalhar o erro, ele será informado nesta lista de objetos.
      */
-    public void setErros(List<String> erros) {
+    public void setErros(List<NFeErro> erros) {
         this.erros = erros;
     }
 
@@ -124,7 +124,7 @@ public class NFeErro implements FocusNFeEntity {
         /**
          * (Opcional) Quando for possível detalhar o erro, ele será informado nesta lista de objetos.
          */
-        private List<String> erros;
+        private List<NFeErro> erros;
 
         private Builder() {
         }
@@ -148,7 +148,7 @@ public class NFeErro implements FocusNFeEntity {
         /**
          * (Opcional) Quando for possível detalhar o erro, ele será informado nesta lista de objetos.
          */
-        public Builder withErros(List<String> val) {
+        public Builder withErros(List<NFeErro> val) {
             erros = val;
             return this;
         }

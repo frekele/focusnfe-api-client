@@ -19,8 +19,8 @@ public class NFeErroTest {
     public void testNewInstance() throws Exception {
         String codigo = "xxxxxxxx";
         String mensagem = "bla bla bla bla bla";
-        List<String> erros = new ArrayList<>();
-        erros.add("bla bla bla bla bla");
+        List<NFeErro> erros = new ArrayList<>();
+        erros.add(NFeErro.newBuilder().withCodigo("erro_xxx").withMensagem("bla bla bla bla bla").build());
 
         NFeErro entity = new NFeErro();
         entity.setCodigo(codigo);
