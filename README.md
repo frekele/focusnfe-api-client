@@ -16,7 +16,6 @@
 
 <img src="./docs/img/focusnfe-fiscal-man.svg" height="400" width="600">
 
-# Under construction, is not ready for use yet. :(
 
 Built-based on the documentation: [https://focusnfe.com.br/doc/](https://focusnfe.com.br/doc/)
 
