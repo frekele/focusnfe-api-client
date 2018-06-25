@@ -75,7 +75,7 @@ public final class FocusNFeUtils {
     public static void throwBeanValidation(Object bean) {
         ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
         Set constraintViolations = validatorFactory.getValidator().validate(bean);
-        if (constraintViolations != null && !constraintViolations.isEmpty()) {
+        if (!constraintViolations.isEmpty()) {
             throw new ConstraintViolationException(constraintViolations);
         }
         validatorFactory.close();

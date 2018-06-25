@@ -201,9 +201,12 @@ public class FocusNFeUtilsTest {
     public void testDiscoveryCharset() throws Exception {
         ClientResponseContext responseContext = mock(ClientResponseContext.class);
 
+        Charset value = FocusNFeUtils.discoveryCharset(responseContext);
+        assertEquals(value, Charset.defaultCharset());
+
         MediaType mediaType = MediaType.APPLICATION_JSON_TYPE;
         when(responseContext.getMediaType()).thenReturn(mediaType);
-        Charset value = FocusNFeUtils.discoveryCharset(responseContext);
+        value = FocusNFeUtils.discoveryCharset(responseContext);
         assertEquals(value, Charset.defaultCharset());
 
         mediaType = MediaType.APPLICATION_JSON_TYPE.withCharset("UTF-8");
