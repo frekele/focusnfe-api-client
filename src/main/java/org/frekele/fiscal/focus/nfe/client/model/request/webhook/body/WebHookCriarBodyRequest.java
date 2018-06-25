@@ -42,6 +42,12 @@ public class WebHookCriarBodyRequest implements FocusNFeEntity {
         super();
     }
 
+    public WebHookCriarBodyRequest(String cnpj, String event, String url) {
+        this.cnpj = cnpj;
+        this.event = event;
+        this.url = url;
+    }
+
     private WebHookCriarBodyRequest(Builder builder) {
         setCnpj(builder.cnpj);
         setEvent(builder.event);

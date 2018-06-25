@@ -67,6 +67,20 @@ public class WebHookBodyResponse implements FocusNFeEntity {
     }
 
     /**
+     * As mensagens de erro serão apresentadas em qualquer operação sempre que for devolvido um código HTTP que começa com 4.
+     */
+    public NFeErro getErro() {
+        return erro;
+    }
+
+    /**
+     * As mensagens de erro serão apresentadas em qualquer operação sempre que for devolvido um código HTTP que começa com 4.
+     */
+    public void setErro(NFeErro erro) {
+        this.erro = erro;
+    }
+
+    /**
      * ID da criação do WebHook.
      */
     public String getId() {
