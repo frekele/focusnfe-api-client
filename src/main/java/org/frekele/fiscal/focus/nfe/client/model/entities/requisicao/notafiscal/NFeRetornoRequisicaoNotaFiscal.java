@@ -188,6 +188,9 @@ public class NFeRetornoRequisicaoNotaFiscal implements FocusNFeEntity {
         this.nfe = nfe;
     }
 
+    /**
+     * NFeRetornoRequisicaoNotaFiscal Builder Pattern.
+     */
     public static final class Builder {
 
         private String versao;

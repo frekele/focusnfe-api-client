@@ -191,6 +191,9 @@ public class NFeRequisicaoCancelamento implements FocusNFeEntity {
         this.justificativa = justificativa;
     }
 
+    /**
+     * NFeRequisicaoCancelamento Builder Pattern.
+     */
     public static final class Builder {
 
         private String versao;

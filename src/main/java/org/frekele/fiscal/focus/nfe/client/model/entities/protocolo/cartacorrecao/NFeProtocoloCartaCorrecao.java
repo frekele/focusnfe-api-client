@@ -179,6 +179,9 @@ public class NFeProtocoloCartaCorrecao implements FocusNFeEntity {
         this.cnpj = cnpj;
     }
 
+    /**
+     * NFeProtocoloCartaCorrecao Builder Pattern.
+     */
     public static final class Builder {
 
         private String versao;

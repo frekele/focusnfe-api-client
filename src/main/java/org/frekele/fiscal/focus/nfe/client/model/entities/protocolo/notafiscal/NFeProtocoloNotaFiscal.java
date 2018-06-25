@@ -143,6 +143,9 @@ public class NFeProtocoloNotaFiscal implements FocusNFeEntity {
         this.motivo = motivo;
     }
 
+    /**
+     * NFeProtocoloNotaFiscal Builder Pattern.
+     */
     public static final class Builder {
 
         private String versao;

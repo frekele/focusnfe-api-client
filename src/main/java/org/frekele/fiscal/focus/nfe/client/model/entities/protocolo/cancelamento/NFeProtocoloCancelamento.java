@@ -179,6 +179,9 @@ public class NFeProtocoloCancelamento implements FocusNFeEntity {
         this.cnpj = cnpj;
     }
 
+    /**
+     * NFeProtocoloCancelamento Builder Pattern.
+     */
     public static final class Builder {
 
         private String versao;

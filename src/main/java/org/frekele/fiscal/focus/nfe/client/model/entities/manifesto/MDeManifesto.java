@@ -243,6 +243,9 @@ public class MDeManifesto implements FocusNFeEntity {
         this.justificativaCancelamento = justificativaCancelamento;
     }
 
+    /**
+     * MDeManifesto Builder Pattern.
+     */
     public static final class Builder {
 
         private String nomeEmitente;

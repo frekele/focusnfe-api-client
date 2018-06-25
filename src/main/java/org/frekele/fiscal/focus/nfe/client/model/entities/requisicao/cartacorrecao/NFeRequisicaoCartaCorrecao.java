@@ -191,6 +191,9 @@ public class NFeRequisicaoCartaCorrecao implements FocusNFeEntity {
         this.condicoesUso = condicoesUso;
     }
 
+    /**
+     * NFeRequisicaoCartaCorrecao Builder Pattern.
+     */
     public static final class Builder {
 
         private String versao;
