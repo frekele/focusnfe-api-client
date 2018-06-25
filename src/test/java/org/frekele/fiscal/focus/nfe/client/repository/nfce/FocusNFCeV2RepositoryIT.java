@@ -9,6 +9,7 @@ import org.frekele.fiscal.focus.nfe.client.enumeration.NFeIndicadorInscricaoEsta
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeModalidadeFreteEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFePisCofinsSituacaoTributariaEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFePresencaCompradorEnum;
+import org.frekele.fiscal.focus.nfe.client.enumeration.NFeTipoDocumentoEnum;
 import org.frekele.fiscal.focus.nfe.client.model.entities.requisicao.notafiscal.NFeEnvioRequisicaoNotaFiscal;
 import org.frekele.fiscal.focus.nfe.client.model.entities.requisicao.notafiscal.NFeItem;
 import org.frekele.fiscal.focus.nfe.client.model.request.nfce.body.NFCeAutorizarBodyRequest;
@@ -72,6 +73,7 @@ public class FocusNFCeV2RepositoryIT {
 
         nfce = NFeEnvioRequisicaoNotaFiscal.newBuilder()
             .withNaturezaOperacao("VENDA DE MERCADORIA")
+            .withTipoDocumento(NFeTipoDocumentoEnum.NOTA_FISCAL_SAIDA)
             .withDataEmissao(OffsetDateTime.now())
             .withIndicadorInscricaoEstadualDestinatario(NFeIndicadorInscricaoEstadualDestinatarioEnum.NAO_CONTRIBUINTE)
             .withPresencaComprador(NFePresencaCompradorEnum.OPERACAO_PRESENCIAL)
