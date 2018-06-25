@@ -2,7 +2,9 @@ package org.frekele.fiscal.focus.nfe.client.repository.mde;
 
 import org.frekele.fiscal.focus.nfe.client.auth.FocusNFeAuth;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFe;
+import org.frekele.fiscal.focus.nfe.client.filter.RequestLoggingFilter;
 import org.frekele.fiscal.focus.nfe.client.filter.ResponseArrayJsonReplaceFilter;
+import org.frekele.fiscal.focus.nfe.client.filter.ResponseLoggingFilter;
 import org.frekele.fiscal.focus.nfe.client.model.request.mde.MDeManifestarBodyRequest;
 import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarManifestosResponse;
 import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarNFeResponse;
@@ -33,9 +35,11 @@ public class FocusMDeV2RepositoryImpl implements FocusMDeV2Repository {
     public FocusMDeV2RepositoryImpl(@FocusNFe ResteasyClient client, @FocusNFe FocusNFeAuth auth) {
         FocusNFeUtils.throwInjection(client, auth);
         FocusNFeUtils.throwAuth(auth);
-        this.client = client;
+        this.client = client
+            .register(RequestLoggingFilter.class)
+            .register(ResponseLoggingFilter.class)
+            .register(ResponseArrayJsonReplaceFilter.class);
         this.auth = auth;
-        this.client.register(ResponseArrayJsonReplaceFilter.class);
     }
 
     ResteasyClient getClient() {

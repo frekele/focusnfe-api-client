@@ -2,6 +2,8 @@ package org.frekele.fiscal.focus.nfe.client.repository.nfe;
 
 import org.frekele.fiscal.focus.nfe.client.auth.FocusNFeAuth;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFe;
+import org.frekele.fiscal.focus.nfe.client.filter.RequestLoggingFilter;
+import org.frekele.fiscal.focus.nfe.client.filter.ResponseLoggingFilter;
 import org.frekele.fiscal.focus.nfe.client.model.request.nfe.body.NFeAutorizarBodyRequest;
 import org.frekele.fiscal.focus.nfe.client.model.request.nfe.body.NFeCCeBodyRequest;
 import org.frekele.fiscal.focus.nfe.client.model.request.nfe.body.NFeCancelarBodyRequest;
@@ -37,7 +39,9 @@ public class FocusNFeV2RepositoryImpl implements FocusNFeV2Repository {
     public FocusNFeV2RepositoryImpl(@FocusNFe ResteasyClient client, @FocusNFe FocusNFeAuth auth) {
         FocusNFeUtils.throwInjection(client, auth);
         FocusNFeUtils.throwAuth(auth);
-        this.client = client;
+        this.client = client
+            .register(RequestLoggingFilter.class)
+            .register(ResponseLoggingFilter.class);
         this.auth = auth;
     }
 

@@ -3,8 +3,6 @@ package org.frekele.fiscal.focus.nfe.client.repository.mde;
 import org.frekele.fiscal.focus.nfe.client.auth.EnvironmentFocusNFeEnum;
 import org.frekele.fiscal.focus.nfe.client.auth.FocusNFeAuth;
 import org.frekele.fiscal.focus.nfe.client.enumeration.MDeTipoManifestacaoEnum;
-import org.frekele.fiscal.focus.nfe.client.filter.RequestLoggingFilter;
-import org.frekele.fiscal.focus.nfe.client.filter.ResponseLoggingFilter;
 import org.frekele.fiscal.focus.nfe.client.model.request.mde.MDeManifestarBodyRequest;
 import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarManifestosResponse;
 import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarNFeResponse;
@@ -47,10 +45,7 @@ public class FocusMDeV2RepositoryIT {
             .withAccessToken(accessToken)
             .withEnvironment(environment)
             .build();
-        ResteasyClient client = new ResteasyClientBuilder()
-            .register(RequestLoggingFilter.class)
-            .register(ResponseLoggingFilter.class)
-            .build();
+        ResteasyClient client = new ResteasyClientBuilder().build();
         repository = new FocusMDeV2RepositoryImpl(client, auth);
     }
 

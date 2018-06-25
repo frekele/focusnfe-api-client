@@ -10,8 +10,6 @@ import org.frekele.fiscal.focus.nfe.client.enumeration.NFeModalidadeFreteEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFePisCofinsSituacaoTributariaEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeTipoDocumentoEnum;
 import org.frekele.fiscal.focus.nfe.client.enumeration.NFeUnidadeFederativaEnum;
-import org.frekele.fiscal.focus.nfe.client.filter.RequestLoggingFilter;
-import org.frekele.fiscal.focus.nfe.client.filter.ResponseLoggingFilter;
 import org.frekele.fiscal.focus.nfe.client.model.entities.requisicao.notafiscal.NFeEnvioRequisicaoNotaFiscal;
 import org.frekele.fiscal.focus.nfe.client.model.entities.requisicao.notafiscal.NFeItem;
 import org.frekele.fiscal.focus.nfe.client.model.request.nfe.body.NFeAutorizarBodyRequest;
@@ -68,10 +66,7 @@ public class FocusNFeV2RepositoryIT {
             .withAccessToken(accessToken)
             .withEnvironment(environment)
             .build();
-        ResteasyClient client = new ResteasyClientBuilder()
-            .register(RequestLoggingFilter.class)
-            .register(ResponseLoggingFilter.class)
-            .build();
+        ResteasyClient client = new ResteasyClientBuilder().build();
         repository = new FocusNFeV2RepositoryImpl(client, auth);
 
         reference = UUID.randomUUID().toString();
