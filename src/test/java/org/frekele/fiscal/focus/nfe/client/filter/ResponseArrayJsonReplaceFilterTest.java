@@ -30,5 +30,9 @@ public class ResponseArrayJsonReplaceFilterTest {
         when(requestContext.getMethod()).thenReturn("GET");
         when(requestContext.getUri()).thenReturn(new URI("/v2/hooks?hooks=hooks"));
         new ResponseArrayJsonReplaceFilter().filter(requestContext, responseContext);
+
+        when(requestContext.getMethod()).thenReturn("GET");
+        when(requestContext.getUri()).thenReturn(new URI("/v2/ncms"));
+        new ResponseArrayJsonReplaceFilter().filter(requestContext, responseContext);
     }
 }
