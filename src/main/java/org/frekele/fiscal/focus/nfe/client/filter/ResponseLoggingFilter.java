@@ -10,7 +10,7 @@ import javax.ws.rs.client.ClientResponseFilter;
 import java.io.IOException;
 
 /**
- * Filtro de Logging do Resposta das chamadas.
+ * Filtro de Logging para as Respostas RestEasy.
  *
  * @author frekele - Leandro Kersting de Freitas
  */

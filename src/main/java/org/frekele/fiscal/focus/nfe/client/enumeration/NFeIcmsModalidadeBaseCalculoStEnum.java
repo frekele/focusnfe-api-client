@@ -9,6 +9,11 @@ import javax.xml.bind.annotation.XmlValue;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Modalidade de determinação da base de cálculo do ICMS ST.
+ *
+ * @author frekele - Leandro Kersting de Freitas
+ */
 @XmlType
 @XmlEnum(String.class)
 public enum NFeIcmsModalidadeBaseCalculoStEnum {

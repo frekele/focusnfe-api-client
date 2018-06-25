@@ -9,12 +9,17 @@ import javax.xml.bind.annotation.XmlValue;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Indicador da exigibilidade do ISS.
+ *
+ * @author frekele - Leandro Kersting de Freitas
+ */
 @XmlType
 @XmlEnum(String.class)
 public enum NFeIssqnIndicadorExigibilidadeEnum {
 
     /**
-     * 1 - Exigível.
+     * 1 - Exigível, (Valor Padrão).
      */
     EXIGIVEL("1", "Exigível"),
     /**

@@ -9,12 +9,17 @@ import javax.xml.bind.annotation.XmlValue;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Forma de importação quanto a intermediação.
+ *
+ * @author frekele - Leandro Kersting de Freitas
+ */
 @XmlType
 @XmlEnum(String.class)
 public enum NFeFormaIntermedioEnum {
 
     /**
-     * 1 - Importação por conta própria.
+     * 1 - Importação por conta própria, (Valor Padrão.
      */
     IMPORTACAO_POR_CONTA_PROPRIA("1", "Importação por conta própria"),
     /**

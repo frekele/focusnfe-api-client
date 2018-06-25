@@ -9,6 +9,11 @@ import javax.xml.bind.annotation.XmlValue;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Valor do item (valor_bruto) compõe valor total da NFe (valor_produtos).
+ *
+ * @author frekele - Leandro Kersting de Freitas
+ */
 @XmlType
 @XmlEnum(String.class)
 public enum NFeIncluiNoTotalEnum {

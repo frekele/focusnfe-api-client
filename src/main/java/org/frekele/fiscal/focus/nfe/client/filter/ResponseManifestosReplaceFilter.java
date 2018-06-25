@@ -9,7 +9,7 @@ import javax.ws.rs.client.ClientResponseFilter;
 import java.io.IOException;
 
 /**
- * Filtro que altera a resposta da consulta dos manifestos de um Array Json para Objeto Json, 'de [] para { arrayValues : [] }'.
+ * Filtro que altera a resposta da consulta dos manifestos de um Array Json para Objeto Json, ou seja, 'de [] para { arrayValues : [] }'.
  * '/v2/nfes_recebidas?cnpj=CNPJ'.
  *
  * @author frekele - Leandro Kersting de Freitas

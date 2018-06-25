@@ -14,7 +14,6 @@ import java.lang.annotation.RetentionPolicy;
  *
  * @author frekele - Leandro Kersting de Freitas
  */
-
 @Retention(RetentionPolicy.RUNTIME)
 @JacksonAnnotationsInside
 @JsonDeserialize(using = BigDecimalJsonDeserialize.class)

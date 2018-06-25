@@ -9,6 +9,11 @@ import javax.xml.bind.annotation.XmlValue;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Indicador de presença do comprador no estabelecimento comercial no momento da operação.
+ *
+ * @author frekele - Leandro Kersting de Freitas
+ */
 @XmlType
 @XmlEnum(String.class)
 public enum NFePresencaCompradorEnum {
