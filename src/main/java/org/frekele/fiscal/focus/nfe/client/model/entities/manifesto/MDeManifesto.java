@@ -11,6 +11,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.time.OffsetDateTime;
 
 /**
+ * Manifesto MD-e.
+ *
  * @author frekele - Leandro Kersting de Freitas
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)

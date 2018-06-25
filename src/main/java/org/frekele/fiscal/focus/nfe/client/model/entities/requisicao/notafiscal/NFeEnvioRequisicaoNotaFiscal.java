@@ -29,6 +29,8 @@ import java.time.OffsetDateTime;
 import java.util.List;
 
 /**
+ * NF-e - Envio da Requisicao Nota Fiscal para Autorização.
+ *
  * @author frekele - Leandro Kersting de Freitas
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)

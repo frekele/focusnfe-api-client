@@ -10,6 +10,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
+ * Codificação NVE - Nomenclatura de Valor Aduaneiro e Estatística.
+ *
  * @author frekele - Leandro Kersting de Freitas
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)

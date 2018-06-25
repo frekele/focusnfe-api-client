@@ -11,6 +11,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.time.OffsetDateTime;
 
 /**
+ * Protocolo Cancelamento, Inclui os dados completos do protocolo devolvido pela SEFAZ - 'protocolo_cancelamento'.
+ *
  * @author frekele - Leandro Kersting de Freitas
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)

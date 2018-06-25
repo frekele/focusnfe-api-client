@@ -15,6 +15,11 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 /**
+ * Permite a rastreabilidade de qualquer produto sujeito a regulações sanitárias, casos de recolhimento/recall,
+ * além de defensivos agrícolas, produtos veterinários, odontológicos, medicamentos, bebidas, águas envasadas, embalagens, etc.,
+ * a partir da indicação de informações de número de lote, data de fabricação/produção, data de validade, etc.
+ * Obrigatório o preenchimento deste grupo no caso de medicamentos e produtos farmacêuticos.
+ *
  * @author frekele - Leandro Kersting de Freitas
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)

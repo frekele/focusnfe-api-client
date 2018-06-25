@@ -16,6 +16,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.math.BigDecimal;
 
 /**
+ * Forma de pagamento para NF-e e NFC-e.
+ *
  * @author frekele - Leandro Kersting de Freitas
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)

@@ -11,6 +11,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.time.OffsetDateTime;
 
 /**
+ * Protocolo Nota Fiscal, Inclui os dados completos do protocolo devolvido pela SEFAZ - 'protocolo_nota_fiscal'.
+ *
  * @author frekele - Leandro Kersting de Freitas
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)

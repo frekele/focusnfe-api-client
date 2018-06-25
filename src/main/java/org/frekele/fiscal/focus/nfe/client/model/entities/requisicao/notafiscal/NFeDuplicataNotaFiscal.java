@@ -15,6 +15,8 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 /**
+ * Duplicata da Nota Fiscal.
+ *
  * @author frekele - Leandro Kersting de Freitas
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)

@@ -12,6 +12,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
+ * Nota fiscal referenciada. Informar exclusivamente 1 das seções: NFe (camo chave_nfe), nota modelo 1 ou cupom fiscal.
+ *
  * @author frekele - Leandro Kersting de Freitas
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)

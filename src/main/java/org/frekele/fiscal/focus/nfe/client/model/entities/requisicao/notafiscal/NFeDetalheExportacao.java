@@ -13,6 +13,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.math.BigDecimal;
 
 /**
+ * Detalhe de exportação.
+ *
  * @author frekele - Leandro Kersting de Freitas
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)

@@ -19,6 +19,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 /**
+ * Documento de importação.
+ *
  * @author frekele - Leandro Kersting de Freitas
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)

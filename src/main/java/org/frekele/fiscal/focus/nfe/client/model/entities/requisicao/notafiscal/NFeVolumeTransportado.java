@@ -14,6 +14,8 @@ import java.math.BigDecimal;
 import java.util.List;
 
 /**
+ * Volume transportado.
+ *
  * @author frekele - Leandro Kersting de Freitas
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
