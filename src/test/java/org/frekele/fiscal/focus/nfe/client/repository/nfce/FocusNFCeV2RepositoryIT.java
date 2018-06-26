@@ -163,9 +163,9 @@ public class FocusNFCeV2RepositoryIT {
     }
 
     @Test(dependsOnMethods = "testConsultar")
-    public void testConsultarTudo() throws Exception {
+    public void testConsultarNFeCompleta() throws Exception {
         System.out.println("Reference: " + reference);
-        NFCeConsultarResponse response = repository.consultarTudo(reference);
+        NFCeConsultarResponse response = repository.consultarNFeCompleta(reference);
         System.out.println("RateLimitLimit: " + response.getRateLimitLimit());
         System.out.println("RateLimitRemaining: " + response.getRateLimitRemaining());
         System.out.println("RateLimitReset: " + response.getRateLimitReset());
@@ -175,7 +175,7 @@ public class FocusNFCeV2RepositoryIT {
         System.out.println("Body.Status.ProtocoloNotaFiscal.Motivo: " + bodyResponse.getProtocoloNotaFiscal().getMotivo());
     }
 
-    @Test(dependsOnMethods = "testConsultarTudo")
+    @Test(dependsOnMethods = "testConsultarNFeCompleta")
     public void testInutilizar() throws Exception {
         NFCeInutilizarBodyRequest bodyRequest = NFCeInutilizarBodyRequest.newBuilder()
             .withCnpj(cnpjEmitente)
@@ -212,11 +212,11 @@ public class FocusNFCeV2RepositoryIT {
     }
 
     @Test(dependsOnMethods = "testInutilizarWithError")
-    public void testAutorizarConsultarTudo() throws Exception {
+    public void testAutorizarConsultarNFeCompleta() throws Exception {
         String reference = UUID.randomUUID().toString();
         System.out.println("Reference: " + reference);
         NFCeAutorizarBodyRequest bodyRequest = NFCeAutorizarBodyRequest.newBuilder().withNfce(nfce).build();
-        NFCeAutorizarResponse response = repository.autorizarConsultarTudo(reference, bodyRequest);
+        NFCeAutorizarResponse response = repository.autorizarConsultarNFeCompleta(reference, bodyRequest);
         System.out.println("RateLimitLimit: " + response.getRateLimitLimit());
         System.out.println("RateLimitRemaining: " + response.getRateLimitRemaining());
         System.out.println("RateLimitReset: " + response.getRateLimitReset());

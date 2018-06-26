@@ -96,7 +96,7 @@ public class FocusNFeV2RepositoryImpl implements FocusNFeV2Repository {
      * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/nfe/REFERENCIA?completa=(0|1)
      */
     @Override
-    public NFeConsultarResponse consultarTudo(String referencia) {
+    public NFeConsultarResponse consultarNFeCompleta(String referencia) {
         FocusNFeUtils.throwObject(referencia, "referencia");
         FocusNFeV2ProxyClient proxyClient = this.getProxyClient();
         return proxyClient.consultar(this.getAuth().getBasicAuthorization(), referencia, 1);

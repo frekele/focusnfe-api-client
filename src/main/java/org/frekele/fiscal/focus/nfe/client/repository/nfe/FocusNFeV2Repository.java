@@ -43,7 +43,7 @@ public interface FocusNFeV2Repository extends Serializable {
      * Consulta a nota fiscal com a referência informada e o seu status de processamento.
      * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/nfe/REFERENCIA?completa=(0|1)
      */
-    NFeConsultarResponse consultarTudo(String referencia);
+    NFeConsultarResponse consultarNFeCompleta(String referencia);
 
     /**
      * DELETE - Cancelar NFe.

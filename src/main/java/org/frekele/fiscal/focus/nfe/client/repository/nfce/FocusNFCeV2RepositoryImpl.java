@@ -81,7 +81,7 @@ public class FocusNFCeV2RepositoryImpl implements FocusNFCeV2Repository {
      * Exemplo de requisição: POST https://api.focusnfe.com.br/v2/nfce?ref=REFERENCIA&completa=(0|1)
      */
     @Override
-    public NFCeAutorizarResponse autorizarConsultarTudo(String referencia, NFCeAutorizarBodyRequest bodyRequest) {
+    public NFCeAutorizarResponse autorizarConsultarNFeCompleta(String referencia, NFCeAutorizarBodyRequest bodyRequest) {
         FocusNFeUtils.throwObject(referencia, "referencia");
         FocusNFeUtils.throwObject(bodyRequest, "NFCeAutorizarBodyRequest");
         FocusNFeUtils.throwBeanValidation(bodyRequest);
@@ -109,7 +109,7 @@ public class FocusNFCeV2RepositoryImpl implements FocusNFCeV2Repository {
      * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/nfce/REFERENCIA?completa=(0|1)
      */
     @Override
-    public NFCeConsultarResponse consultarTudo(String referencia) {
+    public NFCeConsultarResponse consultarNFeCompleta(String referencia) {
         FocusNFeUtils.throwObject(referencia, "referencia");
         FocusNFCeV2ProxyClient proxyClient = this.getProxyClient();
         return proxyClient.consultar(this.getAuth().getBasicAuthorization(), referencia, 1);

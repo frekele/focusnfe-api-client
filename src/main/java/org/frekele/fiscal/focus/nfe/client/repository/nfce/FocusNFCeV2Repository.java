@@ -33,7 +33,7 @@ public interface FocusNFCeV2Repository extends Serializable {
      * Cria uma nota fiscal e a envia para processamento Síncronos e retorna informações completa.
      * Exemplo de requisição: POST https://api.focusnfe.com.br/v2/nfce?ref=REFERENCIA&completa=(0|1)
      */
-    NFCeAutorizarResponse autorizarConsultarTudo(String referencia, NFCeAutorizarBodyRequest bodyRequest);
+    NFCeAutorizarResponse autorizarConsultarNFeCompleta(String referencia, NFCeAutorizarBodyRequest bodyRequest);
 
     /**
      * GET - Consultar o status de NFCe emitidas.
@@ -49,7 +49,7 @@ public interface FocusNFCeV2Repository extends Serializable {
      * Consulta a nota fiscal com a referência informada e o seu status de processamento.
      * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/nfce/REFERENCIA?completa=(0|1)
      */
-    NFCeConsultarResponse consultarTudo(String referencia);
+    NFCeConsultarResponse consultarNFeCompleta(String referencia);
 
     /**
      * DELETE - Cancelar NFCe.

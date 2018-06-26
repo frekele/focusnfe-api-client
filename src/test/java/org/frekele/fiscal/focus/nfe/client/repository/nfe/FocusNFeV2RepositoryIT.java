@@ -206,9 +206,9 @@ public class FocusNFeV2RepositoryIT {
     }
 
     @Test(dependsOnMethods = "testConsultar")
-    public void testConsultarTudo() throws Exception {
+    public void testConsultarNFeCompleta() throws Exception {
         System.out.println("Reference: " + reference);
-        NFeConsultarResponse response = repository.consultarTudo(reference);
+        NFeConsultarResponse response = repository.consultarNFeCompleta(reference);
         System.out.println("RateLimitLimit: " + response.getRateLimitLimit());
         System.out.println("RateLimitRemaining: " + response.getRateLimitRemaining());
         System.out.println("RateLimitReset: " + response.getRateLimitReset());
@@ -218,7 +218,7 @@ public class FocusNFeV2RepositoryIT {
         System.out.println("Body.Status.ProtocoloNotaFiscal.Motivo: " + bodyResponse.getProtocoloNotaFiscal().getMotivo());
     }
 
-    @Test(dependsOnMethods = "testConsultarTudo")
+    @Test(dependsOnMethods = "testConsultarNFeCompleta")
     public void testInutilizar() throws Exception {
         NFeInutilizarBodyRequest bodyRequest = NFeInutilizarBodyRequest.newBuilder()
             .withCnpj(cnpjEmitente)
