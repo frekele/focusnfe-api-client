@@ -39,7 +39,6 @@ public class FocusWebHookV2RepositoryImpl implements FocusWebHookV2Repository {
             .register(ResponseLoggingFilter.class)
             .register(ResponseArrayJsonReplaceFilter.class);
         this.auth = auth;
-        this.client.register(ResponseArrayJsonReplaceFilter.class);
     }
 
     ResteasyClient getClient() {
