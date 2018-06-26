@@ -65,7 +65,7 @@ public class FocusWebHookV2RepositoryImpl implements FocusWebHookV2Repository {
         FocusNFeUtils.throwObject(bodyRequest, "WebHookCriarBodyRequest");
         FocusNFeUtils.throwBeanValidation(bodyRequest);
         FocusWebHookV2ProxyClient proxyClient = this.getProxyClient();
-        return proxyClient.criar(this.getAuth().getAuthorization(), bodyRequest);
+        return proxyClient.criar(this.getAuth().getBasicAuthorization(), bodyRequest);
     }
 
     /**
@@ -76,7 +76,7 @@ public class FocusWebHookV2RepositoryImpl implements FocusWebHookV2Repository {
     public WebHookConsultarResponse consultar(String webHookId) {
         FocusNFeUtils.throwObject(webHookId, "webHookId");
         FocusWebHookV2ProxyClient proxyClient = this.getProxyClient();
-        return proxyClient.consultar(this.getAuth().getAuthorization(), webHookId);
+        return proxyClient.consultar(this.getAuth().getBasicAuthorization(), webHookId);
     }
 
     /**
@@ -87,7 +87,7 @@ public class FocusWebHookV2RepositoryImpl implements FocusWebHookV2Repository {
     public WebHookConsultarTodosResponse consultarTodos() {
         FocusWebHookV2ProxyClient proxyClient = this.getProxyClient();
         //QueryParam '?hooks=hooks' é usado para reconhecimento do ResponseArrayJsonReplaceFilter.
-        return proxyClient.consultarTodos(this.getAuth().getAuthorization(), "hooks");
+        return proxyClient.consultarTodos(this.getAuth().getBasicAuthorization(), "hooks");
     }
 
     /**
@@ -98,6 +98,6 @@ public class FocusWebHookV2RepositoryImpl implements FocusWebHookV2Repository {
     public WebHookExcluirResponse excluir(String webHookId) {
         FocusNFeUtils.throwObject(webHookId, "webHookId");
         FocusWebHookV2ProxyClient proxyClient = this.getProxyClient();
-        return proxyClient.excluir(this.getAuth().getAuthorization(), webHookId);
+        return proxyClient.excluir(this.getAuth().getBasicAuthorization(), webHookId);
     }
 }

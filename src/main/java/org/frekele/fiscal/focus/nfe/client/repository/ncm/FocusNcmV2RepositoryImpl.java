@@ -62,7 +62,7 @@ public class FocusNcmV2RepositoryImpl implements FocusNcmV2Repository {
     public NcmConsultarResponse consultar(String ncm) {
         FocusNFeUtils.throwObject(ncm, "ncm");
         FocusNcmV2ProxyClient proxyClient = this.getProxyClient();
-        return proxyClient.consultar(this.getAuth().getAuthorization(), ncm);
+        return proxyClient.consultar(this.getAuth().getBasicAuthorization(), ncm);
     }
 
     /**
@@ -90,7 +90,7 @@ public class FocusNcmV2RepositoryImpl implements FocusNcmV2Repository {
         FocusNFeUtils.throwBeanValidation(queryParam);
         FocusNcmV2ProxyClient proxyClient = this.getProxyClient();
 
-        return proxyClient.consultarTodos(this.getAuth().getAuthorization(),
+        return proxyClient.consultarTodos(this.getAuth().getBasicAuthorization(),
             queryParam.getCodigo(), queryParam.getDescricao(),
             queryParam.getCapitulo(), queryParam.getPosicao(),
             queryParam.getSubposicao1(), queryParam.getSubposicao2(),

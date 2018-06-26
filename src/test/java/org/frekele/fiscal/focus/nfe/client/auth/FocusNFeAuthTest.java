@@ -25,6 +25,7 @@ public class FocusNFeAuthTest {
         assertEquals(accessToken, auth.getAccessToken());
         assertEquals(environment, auth.getEnvironment());
         assertEquals(authorization, auth.getAuthorization());
+        assertEquals("Basic " + authorization, auth.getBasicAuthorization());
     }
 
     @Test
@@ -40,6 +41,7 @@ public class FocusNFeAuthTest {
         assertNotNull(auth.getEnvironment());
         assertEquals(environment, auth.getEnvironment().getValue());
         assertEquals(authorization, auth.getAuthorization());
+        assertEquals("Basic " + authorization, auth.getBasicAuthorization());
 
         auth = FocusNFeAuth.newBuilder()
             .withAccessToken(accessToken)
@@ -51,5 +53,6 @@ public class FocusNFeAuthTest {
         assertNotNull(auth.getEnvironment());
         assertEquals(environment, auth.getEnvironment().getValue());
         assertEquals(authorization, auth.getAuthorization());
+        assertEquals("Basic " + authorization, auth.getBasicAuthorization());
     }
 }

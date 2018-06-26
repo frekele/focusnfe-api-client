@@ -66,7 +66,7 @@ public class FocusMDeV2RepositoryImpl implements FocusMDeV2Repository {
         FocusNFeUtils.throwObject(bodyRequest, "MDeManifestarBodyRequest");
         FocusNFeUtils.throwBeanValidation(bodyRequest);
         FocusMDeV2ProxyClient proxyClient = this.getProxyClient();
-        return proxyClient.manifestar(this.getAuth().getAuthorization(), chaveNFe, bodyRequest);
+        return proxyClient.manifestar(this.getAuth().getBasicAuthorization(), chaveNFe, bodyRequest);
     }
 
     /**
@@ -77,7 +77,7 @@ public class FocusMDeV2RepositoryImpl implements FocusMDeV2Repository {
     public MDeConsultarManifestosResponse consultarManifestos(String cnpj) {
         FocusNFeUtils.throwObject(cnpj, "cnpj");
         FocusMDeV2ProxyClient proxyClient = this.getProxyClient();
-        return proxyClient.consultarManifestos(this.getAuth().getAuthorization(), cnpj);
+        return proxyClient.consultarManifestos(this.getAuth().getBasicAuthorization(), cnpj);
     }
 
     /**
@@ -89,7 +89,7 @@ public class FocusMDeV2RepositoryImpl implements FocusMDeV2Repository {
         FocusNFeUtils.throwObject(cnpj, "cnpj");
         FocusNFeUtils.throwObject(versao, "versao");
         FocusMDeV2ProxyClient proxyClient = this.getProxyClient();
-        return proxyClient.consultarManifestosVersao(this.getAuth().getAuthorization(), cnpj, versao);
+        return proxyClient.consultarManifestosVersao(this.getAuth().getBasicAuthorization(), cnpj, versao);
     }
 
     /**
@@ -100,7 +100,7 @@ public class FocusMDeV2RepositoryImpl implements FocusMDeV2Repository {
     public MDeConsultarManifestosResponse consultarManifestosPendentes(String cnpj) {
         FocusNFeUtils.throwObject(cnpj, "cnpj");
         FocusMDeV2ProxyClient proxyClient = this.getProxyClient();
-        return proxyClient.consultarManifestosPendente(this.getAuth().getAuthorization(), cnpj, "true");
+        return proxyClient.consultarManifestosPendente(this.getAuth().getBasicAuthorization(), cnpj, "true");
     }
 
     /**
@@ -112,7 +112,7 @@ public class FocusMDeV2RepositoryImpl implements FocusMDeV2Repository {
         FocusNFeUtils.throwObject(cnpj, "cnpj");
         FocusNFeUtils.throwObject(versao, "versao");
         FocusMDeV2ProxyClient proxyClient = this.getProxyClient();
-        return proxyClient.consultarManifestosVersaoPendente(this.getAuth().getAuthorization(), cnpj, versao, "true");
+        return proxyClient.consultarManifestosVersaoPendente(this.getAuth().getBasicAuthorization(), cnpj, versao, "true");
     }
 
     /**
@@ -123,7 +123,7 @@ public class FocusMDeV2RepositoryImpl implements FocusMDeV2Repository {
     public MDeConsultarUltimoManifestoResponse consultarUltimoManifesto(String chaveNFe) {
         FocusNFeUtils.throwObject(chaveNFe, "chaveNFe");
         FocusMDeV2ProxyClient proxyClient = this.getProxyClient();
-        return proxyClient.consultarUltimoManifesto(this.getAuth().getAuthorization(), chaveNFe);
+        return proxyClient.consultarUltimoManifesto(this.getAuth().getBasicAuthorization(), chaveNFe);
     }
 
     /**
@@ -134,7 +134,7 @@ public class FocusMDeV2RepositoryImpl implements FocusMDeV2Repository {
     public MDeConsultarNFeResponse consultarNFe(String chaveNFe) {
         FocusNFeUtils.throwObject(chaveNFe, "chaveNFe");
         FocusMDeV2ProxyClient proxyClient = this.getProxyClient();
-        return proxyClient.consultarNFe(this.getAuth().getAuthorization(), chaveNFe);
+        return proxyClient.consultarNFe(this.getAuth().getBasicAuthorization(), chaveNFe);
     }
 
     /**
@@ -145,7 +145,7 @@ public class FocusMDeV2RepositoryImpl implements FocusMDeV2Repository {
     public MDeConsultarNFeResponse consultarNFeCompleta(String chaveNFe) {
         FocusNFeUtils.throwObject(chaveNFe, "chaveNFe");
         FocusMDeV2ProxyClient proxyClient = this.getProxyClient();
-        return proxyClient.consultarNFe(this.getAuth().getAuthorization(), chaveNFe, 1);
+        return proxyClient.consultarNFe(this.getAuth().getBasicAuthorization(), chaveNFe, 1);
     }
 
     /**
@@ -156,7 +156,7 @@ public class FocusMDeV2RepositoryImpl implements FocusMDeV2Repository {
     public MDeDownloadXmlResponse downloadNFe(String chaveNFe) {
         FocusNFeUtils.throwObject(chaveNFe, "chaveNFe");
         FocusMDeV2ProxyClient proxyClient = this.getProxyClient();
-        return proxyClient.downloadNFe(this.getAuth().getAuthorization(), chaveNFe);
+        return proxyClient.downloadNFe(this.getAuth().getBasicAuthorization(), chaveNFe);
     }
 
     /**
@@ -167,7 +167,7 @@ public class FocusMDeV2RepositoryImpl implements FocusMDeV2Repository {
     public MDeDownloadXmlResponse downloadCancelamento(String chaveNFe) {
         FocusNFeUtils.throwObject(chaveNFe, "chaveNFe");
         FocusMDeV2ProxyClient proxyClient = this.getProxyClient();
-        return proxyClient.downloadCancelamento(this.getAuth().getAuthorization(), chaveNFe);
+        return proxyClient.downloadCancelamento(this.getAuth().getBasicAuthorization(), chaveNFe);
     }
 
     /**
@@ -178,6 +178,6 @@ public class FocusMDeV2RepositoryImpl implements FocusMDeV2Repository {
     public MDeDownloadXmlResponse downloadUltimaCCe(String chaveNFe) {
         FocusNFeUtils.throwObject(chaveNFe, "chaveNFe");
         FocusMDeV2ProxyClient proxyClient = this.getProxyClient();
-        return proxyClient.downloadUltimaCCe(this.getAuth().getAuthorization(), chaveNFe);
+        return proxyClient.downloadUltimaCCe(this.getAuth().getBasicAuthorization(), chaveNFe);
     }
 }

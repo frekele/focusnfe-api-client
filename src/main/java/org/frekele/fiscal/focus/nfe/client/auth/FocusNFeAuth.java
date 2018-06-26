@@ -73,6 +73,13 @@ public final class FocusNFeAuth implements Serializable {
     }
 
     /**
+     * Authorization contém os valores Basic + (token + senha em branco) codificado em Base64.
+     */
+    public String getBasicAuthorization() {
+        return "Basic " + authorization;
+    }
+
+    /**
      * FocusNFeAuth Builder Pattern.
      */
     public static final class Builder {
