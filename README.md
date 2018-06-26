@@ -182,6 +182,68 @@ public class CustomLoggingFilter implements ClientResponseFilter, ClientRequestF
 
 ### Example usage
 
+#### POST - Autorizar
+```java
+NFeEnvioRequisicaoNotaFiscal nfe = NFeEnvioRequisicaoNotaFiscal.newBuilder()
+    .withNaturezaOperacao("VENDA DE MERCADORIA")
+    .withDataEmissao(OffsetDateTime.now())
+    .withTipoDocumento(NFeTipoDocumentoEnum.NOTA_FISCAL_SAIDA)
+    .withFinalidadeEmissao(NFeFinalidadeEmissaoEnum.NOTA_NORMAL)
+    .withCnpjEmitente(cnpjEmitente)
+    .withNomeDestinatario("NF-E EMITIDA EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL")
+    .withCpfDestinatario("98445556550")
+    .withTelefoneDestinatario("5196185555")
+    .withLogradouroDestinatario("Av Otto Niemeyer")
+    .withNumeroDestinatario("600")
+    .withBairroDestinatario("Tristeza")
+    .withMunicipioDestinatario("Porto Alegre")
+    .withUfDestinatario(NFeUnidadeFederativaEnum.RIO_GRANDE_DO_SUL)
+    .withCepDestinatario("91910-001")
+    .withModalidadeFrete(NFeModalidadeFreteEnum.POR_CONTA_EMITENTE)
+    .withItems(new ArrayList<>())
+    .build();
+NFeItem item = NFeItem.newBuilder()
+    .withNumeroItem("1")
+    .withCodigoProduto("XYZ-12345")
+    .withDescricao("Produto Teste 12345 XYZ")
+    .withCfop("5102")
+    .withCodigoNcm("94036000")
+    .withUnidadeComercial("UN")
+    .withQuantidadeComercial(BigDecimal.valueOf(1))
+    .withValorUnitarioComercial(new BigDecimal("124.35"))
+    .withUnidadeTributavel("UN")
+    .withQuantidadeTributavel(BigDecimal.valueOf(1))
+    .withValorUnitarioTributavel(new BigDecimal("124.35"))
+    .withValorBruto(new BigDecimal("124.35"))
+    .withIcmsSituacaoTributaria(NFeIcmsSituacaoTributariaEnum.TRIBUTADA_SIMPLES_NACIONAL_SEM_PERMISSAO_CREDITO)
+    .withIcmsOrigem(NFeIcmsOrigemEnum.NACIONAL)
+    .withPisSituacaoTributaria(NFePisCofinsSituacaoTributariaEnum.OPERACAO_ISENTA_DA_CONTRIBUICAO)
+    .withCofinsSituacaoTributaria(NFePisCofinsSituacaoTributariaEnum.OPERACAO_ISENTA_DA_CONTRIBUICAO)
+    .withIncluiNoTotal(NFeIncluiNoTotalEnum.SIM)
+    .build();
+nfe.getItems().add(item);
+
+NFeAutorizarBodyRequest bodyRequest = NFeAutorizarBodyRequest.newBuilder().withNfe(nfe).build();
+NFeAutorizarResponse response = repository.autorizar(reference, bodyRequest);
+
+//Get Body with Json Object Mapping.
+NFeAutorizarBodyResponse responseBody = response.getBody();
+//Get Body with String.
+String responseBodyString = response.getBodyString();
+
+//Get Http Header 'X-Rate-Limit-Limit'.
+String responseHeaderValue = response.getRateLimitLimit();
+//Get Http Header 'X-Rate-Limit-Remaining'.
+String responseHeaderValue = response.getRateLimitRemaining();
+//Get Http Header 'X-Rate-Limit-Reset'.
+String responseHeaderValue = response.getRateLimitReset();
+//Get Http Header 'X-Runtime'.
+String responseHeaderValue = response.getRuntime();
+
+//Get All Http Response.
+Response httpResponse = response.getResponse();
+```
+
 
 
 frekele/focusnfe-api-client is **licensed** under the **[MIT License]**. The terms of the license are as follows:
