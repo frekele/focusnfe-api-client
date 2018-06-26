@@ -31,18 +31,131 @@ Project built with RESTEasy 3.5.x + Jackson 2.x.x.
 <dependency>
     <groupId>org.frekele.fiscal</groupId>
     <artifactId>focusnfe-api-client</artifactId>
-    <version>1.0.0-RC2</version>
+    <version>1.0.0-RC3</version>
 </dependency>
 ```
 
 #### Gradle dependency:
 ```gradle
-compile 'org.frekele.fiscal:focusnfe-api-client:1.0.0-RC2'
+compile 'org.frekele.fiscal:focusnfe-api-client:1.0.0-RC3'
 ```
 
-#### Usage
+#### Usage with CDI (Contexts and Dependency Injection)
 
-TODO
+```java
+public class FocusNFeProducer {
+
+    @Produces
+    @FocusNFe
+    public FocusNFeAuth producesFocusNFeAuth() {
+        String accessToken = System.getenv("FOCUS_NFE_ACCESS_TOKEN");
+        String environment = System.getenv("FOCUS_NFE_ENVIRONMENT");
+        return new FocusNFeAuth(accessToken, environment);
+    }
+
+    @Produces
+    @FocusNFe
+    public ResteasyClient producesResteasyClient() {
+        ResteasyClient client = new ResteasyClientBuilder()
+                // Example, you can customize a connections.
+                // Add proxy
+                //.defaultProxy("192.168.56.67", 3456)
+                // Change connection Pool size.
+                //.connectionPoolSize(3)
+                // Change connection TTL.
+                //.connectionTTL(30, TimeUnit.MINUTES)
+                .build();
+        return client;
+    }
+
+    public void closeResteasyClient(@Disposes @FocusNFe ResteasyClient client) {
+        client.close();
+    }
+}
+
+//Then you just need to @inject.
+public class MyService {
+
+    @Inject
+    @FocusNFe
+    private FocusNFeV2Repository repository;
+
+    public void callExample() {
+        String reference = UUID.randomUUID().toString();
+        NFeEnvioRequisicaoNotaFiscal nfe = NFeEnvioRequisicaoNotaFiscal.newBuilder()
+            .withNaturezaOperacao("VENDA DE MERCADORIA")
+            .withDataEmissao(OffsetDateTime.now())
+            .withTipoDocumento(NFeTipoDocumentoEnum.NOTA_FISCAL_SAIDA)
+	    ........... (more fields)
+            .build();
+        NFeAutorizarResponse response = repository.autorizar(reference, new NFeAutorizarBodyRequest(nfe));
+        NFeAutorizarBodyResponse body = response.getBody();
+    }
+}
+
+```
+
+#### Usage without CDI
+
+```java
+public class MyService {
+    
+    public void callExample() {
+        //First create FocusNFeAuth
+        Properties prop = // read your Properties or System.env
+        String accessToken = prop.getProperty("accessToken");
+        String environment = prop.getProperty("environment"); // PRODUCTION OR HOMOLOGATION
+        FocusNFeAuth auth = FocusNFeAuth.newBuilder()
+                .withAccessToken(accessToken)
+                .withEnvironment(environment)
+                .build();
+
+        //Build one client per thread, or use CDI Injection.
+        ResteasyClient client = new ResteasyClientBuilder()
+                // Register your Custom Logging here.
+                //.register(CustomLoggingFilter.class)
+                .build();
+
+        FocusNFeV2Repository repository = new FocusNFeV2RepositoryImpl(client, auth);
+        repository.autorizar(reference, new NFeAutorizarBodyRequest(nfe));
+
+        //Is important to close in end, or use CDI.
+        client.close();
+    }
+}
+```
+
+#### Custom Logging for Response and Request
+
+With the filter you can intercept all requests during sending and receiving responses.
+Everything before the Jackson conversion (json to Object) and (Object to Json).
+
+```java
+public class CustomLoggingFilter implements ClientResponseFilter, ClientRequestFilter {
+
+    private Logger logger = Logger.getLogger(CustomLoggingFilter.class.getName());
+
+    @Override
+    public void filter(ClientRequestContext requestContext) throws IOException {
+        this.getLogger().debug("--> Request LoggingFilter: Uri = " + requestContext.getUri());
+        this.getLogger().debug("--> Request LoggingFilter: Method= " + requestContext.getMethod());
+        // Add more logs as you want.
+    }
+
+    @Override
+    public void filter(ClientRequestContext requestContext, ClientResponseContext responseContext) throws IOException {
+        this.getLogger().debug("<-- Response LoggingFilter:");
+        this.getLogger().debug("<-- Response LoggingFilter: Status = " + responseContext.getStatus());
+        // Add more logs as you want.
+    }
+
+    public Logger getLogger() {
+        return logger;
+    }
+}
+```
+
+### Example usage
 
 
 
