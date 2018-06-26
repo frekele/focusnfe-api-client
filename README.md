@@ -115,6 +115,7 @@ public class MyService {
                 // Register your Custom Logging here.
                 //.register(CustomLoggingFilter.class)
                 .build();
+
         FocusNFeV2Repository repository = new FocusNFeV2RepositoryImpl(client, auth);
         repository.autorizar(reference, new NFeAutorizarBodyRequest(nfe));
 
@@ -123,6 +124,38 @@ public class MyService {
     }
 }
 ```
+
+#### Custom Logging for Response and Request
+
+With the filter you can intercept all requests during sending and receiving responses.
+Everything before the Jackson conversion (json to Object) and (Object to Json).
+
+```java
+public class CustomLoggingFilter implements ClientResponseFilter, ClientRequestFilter {
+
+    private Logger logger = Logger.getLogger(CustomLoggingFilter.class.getName());
+
+    @Override
+    public void filter(ClientRequestContext requestContext) throws IOException {
+        this.getLogger().debug("--> Request LoggingFilter: Uri = " + requestContext.getUri());
+        this.getLogger().debug("--> Request LoggingFilter: Method= " + requestContext.getMethod());
+        // Add more logs as you want.
+    }
+
+    @Override
+    public void filter(ClientRequestContext requestContext, ClientResponseContext responseContext) throws IOException {
+        this.getLogger().debug("<-- Response LoggingFilter:");
+        this.getLogger().debug("<-- Response LoggingFilter: Status = " + responseContext.getStatus());
+        // Add more logs as you want.
+    }
+
+    public Logger getLogger() {
+        return logger;
+    }
+}
+```
+
+### Example usage
 
 
 
