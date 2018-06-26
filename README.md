@@ -57,11 +57,12 @@ public class FocusNFeProducer {
     @FocusNFe
     public ResteasyClient producesResteasyClient() {
         ResteasyClient client = new ResteasyClientBuilder()
-                //Example Add proxy
+                // Example, you can customize a connections.
+                // Add proxy
                 //.defaultProxy("192.168.56.67", 3456)
-                //Change connection Pool size.
+                // Change connection Pool size.
                 //.connectionPoolSize(3)
-                //Change connection TTL.
+                // Change connection TTL.
                 //.connectionTTL(30, TimeUnit.MINUTES)
                 .build();
         return client;
