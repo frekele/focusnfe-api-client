@@ -83,7 +83,7 @@ public class FocusNFeProducer {
     public ResteasyClient producesResteasyClient() {
         ResteasyClient client = new ResteasyClientBuilder()
                 // Example, you can customize a connections.
-                // Add proxy
+                // Add proxy.
                 //.defaultProxy("192.168.56.67", 3456)
                 // Change connection Pool size.
                 //.connectionPoolSize(3)
@@ -323,7 +323,7 @@ String cnpjEmitente = "39315364000104";
 MDeConsultarManifestosResponse response = repository.consultarManifestosPendentes(cnpjEmitente);
 
 //Or with parameter 'versao'
-MDeConsultarManifestosResponse response = repository.consultarManifestosPendentes("cnpjEmitente, 40);
+MDeConsultarManifestosResponse response = repository.consultarManifestosPendentes(cnpjEmitente, 40);
 ```
 
 #### GET - ConsultarUltimoManifesto
@@ -361,6 +361,46 @@ MDeDownloadXmlResponse response = repository.downloadCancelamento(chaveNFe);
 String chaveNFe = "41180684689100015855001002510000040306642480";
 MDeDownloadXmlResponse response = repository.downloadUltimaCCe(chaveNFe);
 ```
+
+
+### Example usage NCMs
+
+#### GET - Consultar
+```java
+NcmConsultarResponse response = repository.consultar("94036000");
+```
+
+#### GET - ConsultarTodos
+```java
+NcmQueryParam queryParam = NcmQueryParam.newBuilder().build();
+NcmConsultarTodosResponse response = repository.consultarTodos(queryParam);
+```
+
+#### GET - ConsultarTodos
+```java
+NcmQueryParam queryParam = NcmQueryParam.newBuilder().build();
+NcmConsultarTodosResponse response = repository.consultarTodos(queryParam);
+
+//Or with queryParams
+NcmQueryParam queryParam = NcmQueryParam.newBuilder()
+    .withCapitulo("94")
+    .withPosicao("03")
+    .withSubposicao1("6")
+    .withSubposicao2("0")
+    .withItem1("0")
+    .withItem2("0")
+    .build();
+NcmConsultarTodosResponse response = repository.consultarTodos(queryParam);
+
+//Or with offset
+NcmQueryParam queryParam = NcmQueryParam.newBuilder()
+    .withCodigo("9")
+    .withOffset("20")
+    .build();
+NcmConsultarTodosResponse response = repository.consultarTodos(queryParam);
+```
+
+
 
 
 frekele/focusnfe-api-client is **licensed** under the **[MIT License]**. The terms of the license are as follows:
