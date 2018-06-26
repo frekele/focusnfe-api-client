@@ -457,6 +457,64 @@ public class CustomLoggingFilter implements ClientResponseFilter, ClientRequestF
 ```
 
 
+### If you need to convert Json or Objects manually, do so:
+
+#### Json --> Object
+```java
+ObjectMapper mapper = new ObjectMapper();
+String json = "{ ........ }";
+MDeManifesto manifesto = mapper.readValue(json, MDeManifesto.class);
+```
+
+#### Json --> List
+```java
+ObjectMapper mapper = new ObjectMapper();
+String jsonArray = "[{ ........ }]";
+List<MDeManifesto> manifestos = mapper.readValue(jsonArray, new TypeReference<List<MDeManifesto>>(){});
+```
+
+#### Object --> Json
+```java
+ObjectMapper mapper = new ObjectMapper();
+MDeManifesto manifesto = MDeManifesto.newBuilder().build();
+String json = mapper.writeValueAsString(manifesto);
+```
+
+#### List --> Json
+```java
+ObjectMapper mapper = new ObjectMapper();
+List<MDeManifesto> manifestos = new ArrayList<>();
+manifestos.add(manifesto1);
+manifestos.add(manifesto2);
+String jsonArray = mapper.writeValueAsString(manifestos);
+```
+
+#### Json --> Object
+```java
+MDeManifesto manifesto = FocusNFeUtils.parseJsonToJsonNode(content, classType);
+```
+
+#### Json --> JsonNode
+```java
+JsonNode jsonNode = FocusNFeUtils.parseJsonToJsonNode(content);
+```
+
+#### JsonNode --> String
+```java
+String jsonString = FocusNFeUtils.parseJsonToString(jsonNode);
+String jsonString = FocusNFeUtils.parseJsonToString(jsonNode, true);
+```
+
+#### Xml --> JsonNode
+```java
+JsonNode jsonNode = FocusNFeUtils.parseXmlToJsonNode(content);
+```
+
+#### Xml --> Document
+```java
+Document document = FocusNFeUtils.parseXmlToDocument(content);
+```
+
 
 frekele/focusnfe-api-client is **licensed** under the **[MIT License]**. The terms of the license are as follows:
 
