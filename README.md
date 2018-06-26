@@ -152,9 +152,9 @@ public class MyService {
 
 
 
-### Example usage NF-e and NFC-e
+### Example usage NF-e and NFC-e 
 
-#### POST - Autorizar
+#### POST - Autorizar NF-e (Asynchronous)
 ```java
 String reference = UUID.randomUUID().toString();
 NFeEnvioRequisicaoNotaFiscal nfe = NFeEnvioRequisicaoNotaFiscal.newBuilder()
@@ -217,7 +217,21 @@ String responseHeaderValue = response.getRuntime();
 Response httpResponse = response.getResponse();
 ```
 
-#### DELETE - Cancelar
+#### POST - Autorizar NFC-e (Synchronous)
+```java
+.....
+NFCeAutorizarBodyRequest bodyRequest = new NFCeAutorizarBodyRequest(nfce);
+NFCeAutorizarResponse response = repository.autorizarConsultarNFeCompleta(reference, bodyRequest);
+```
+
+#### POST - AutorizarConsultarNFeCompleta NFC-e (Synchronous)
+```java
+.....
+NFCeAutorizarBodyRequest bodyRequest = new NFCeAutorizarBodyRequest(nfce);
+NFCeAutorizarResponse response = repository.autorizarConsultarNFeCompleta(reference, bodyRequest);
+```
+
+#### DELETE - Cancelar NF-e NFC-e
 ```java
 NFeCancelarResponse response = repository.cancelar(reference, new NFeCancelarBodyRequest("Teste de cancelamento de nota"));
 
@@ -228,7 +242,7 @@ NFeCancelarBodyRequest bodyRequest = NFeCancelarBodyRequest.newBuilder()
 NFeCancelarResponse response = repository.cancelar(reference, bodyRequest);
 ```
 
-#### POST - EmitirCCe
+#### POST - EmitirCCe NF-e
 ```java
 NFeCCeBodyRequest bodyRequest = NFeCCeBodyRequest.newBuilder()
     .withCorrecao("Teste de carta de correcao")
@@ -236,7 +250,7 @@ NFeCCeBodyRequest bodyRequest = NFeCCeBodyRequest.newBuilder()
 NFeCCeResponse response = repository.emitirCCe(reference, bodyRequest);
 ```
 
-#### POST - EnviarEmail
+#### POST - EnviarEmail NF-e NFC-e
 ```java
 NFeEmailBodyRequest bodyRequest = NFeEmailBodyRequest.newBuilder()
     .withEmails("alguem@example.org", "teste@teste.com.br")
@@ -244,17 +258,17 @@ NFeEmailBodyRequest bodyRequest = NFeEmailBodyRequest.newBuilder()
 NFeEmailResponse response = repository.enviarEmail(reference, bodyRequest);
 ```
 
-#### GET - Consultar
+#### GET - Consultar NF-e NFC-e
 ```java
  NFeConsultarResponse response = repository.consultar(reference);
 ```
 
-#### GET - ConsultarNFeCompleta
+#### GET - ConsultarNFeCompleta NF-e NFC-e
 ```java
 NFeConsultarResponse response = repository.consultarNFeCompleta(reference);
 ```
 
-#### POST - Inutilizar
+#### POST - Inutilizar NF-e NFC-e
 ```java
 NFeInutilizarBodyRequest bodyRequest = NFeInutilizarBodyRequest.newBuilder()
     .withCnpj("39315364000104")
