@@ -213,6 +213,9 @@ String responseHeaderValue = response.getRateLimitReset();
 //Get Http Header 'X-Runtime'.
 String responseHeaderValue = response.getRuntime();
 
+//Get Http Status Response.
+String responseStatus = response.getStatus();
+
 //Get All Http Response.
 Response httpResponse = response.getResponse();
 ```
