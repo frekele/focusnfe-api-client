@@ -253,4 +253,9 @@ public class FocusNFeV2RepositoryIT {
         NFeInutilizarBodyResponse bodyResponse = response.getBody();
         System.out.println("Body.Status: " + bodyResponse.getStatus());
     }
+
+    @Test(dependsOnMethods = "testInutilizarWithError")
+    public void testAutorizar2() throws Exception {
+        testAutorizar();
+    }
 }
