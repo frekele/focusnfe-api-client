@@ -180,7 +180,7 @@ public class CustomLoggingFilter implements ClientResponseFilter, ClientRequestF
 }
 ```
 
-### Example usage
+### Example usage NF-e and NFC-e
 
 #### POST - Autorizar
 ```java
@@ -295,6 +295,72 @@ NFeInutilizarBodyRequest bodyRequest = NFeInutilizarBodyRequest.newBuilder()
 NFeInutilizarResponse response = repository.inutilizar(bodyRequest);
 ```
 
+### Example usage MD-e
+
+#### POST - Manifestar
+```java
+NFeConsultarResponse response = repository.consultarTudo(reference);
+String chaveNFe = "41180684689100015855001002510000040306642480";
+MDeManifestarBodyRequest bodyRequest = MDeManifestarBodyRequest.newBuilder()
+    .withTipo(MDeTipoManifestacaoEnum.CONFIRMACAO)
+    .withJustificativa("Fornecedor entregou produtos")
+    .build();
+MDeManifestarResponse response = repository.manifestar(chaveNFe, bodyRequest);
+```
+
+#### GET - ConsultarManifestos
+```java
+String cnpjEmitente = "39315364000104";
+MDeConsultarManifestosResponse response = repository.consultarManifestos(cnpjEmitente);
+
+//Or with parameter 'versao'
+MDeConsultarManifestosResponse response = repository.consultarManifestos(cnpjEmitente, 40);
+```
+
+#### GET - ConsultarManifestos
+```java
+String cnpjEmitente = "39315364000104";
+MDeConsultarManifestosResponse response = repository.consultarManifestosPendentes(cnpjEmitente);
+
+//Or with parameter 'versao'
+MDeConsultarManifestosResponse response = repository.consultarManifestosPendentes("cnpjEmitente, 40);
+```
+
+#### GET - ConsultarUltimoManifesto
+```java
+String chaveNFe = "41180684689100015855001002510000040306642480";
+MDeConsultarUltimoManifestoResponse response = repository.consultarUltimoManifesto(chaveNFe);
+```
+
+#### GET - ConsultarNFe
+```java
+String chaveNFe = "41180684689100015855001002510000040306642480";
+MDeConsultarNFeResponse response = repository.consultarNFe(chaveNFe);
+```
+
+#### GET - ConsultarNFeCompleta
+```java
+String chaveNFe = "41180684689100015855001002510000040306642480";
+MDeConsultarNFeResponse response = repository.consultarNFeCompleta(chaveNFe);
+```
+
+#### GET - DownloadNFe
+```java
+String chaveNFe = "41180684689100015855001002510000040306642480";
+MDeDownloadXmlResponse response = repository.downloadNFe(chaveNFe);
+```
+
+#### GET - DownloadCancelamento
+```java
+String chaveNFe = "41180684689100015855001002510000040306642480";
+MDeDownloadXmlResponse response = repository.downloadCancelamento(chaveNFe);
+```
+
+#### GET - DownloadUltimaCCe
+```java
+String chaveNFe = "41180684689100015855001002510000040306642480";
+MDeDownloadXmlResponse response = repository.downloadUltimaCCe(chaveNFe);
+```
 
 
 frekele/focusnfe-api-client is **licensed** under the **[MIT License]**. The terms of the license are as follows:
