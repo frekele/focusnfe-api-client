@@ -31,13 +31,13 @@ Project built with RESTEasy 3.5.x + Jackson 2.x.x.
 <dependency>
     <groupId>org.frekele.fiscal</groupId>
     <artifactId>focusnfe-api-client</artifactId>
-    <version>1.0.0-RC2</version>
+    <version>1.0.0-RC3</version>
 </dependency>
 ```
 
 #### Gradle dependency:
 ```gradle
-compile 'org.frekele.fiscal:focusnfe-api-client:1.0.0-RC2'
+compile 'org.frekele.fiscal:focusnfe-api-client:1.0.0-RC3'
 ```
 
 #### Usage
