@@ -95,6 +95,35 @@ public class MyService {
 
 ```
 
+#### Usage without CDI
+
+```java
+public class MyService {
+    
+    public void callExample() {
+        //First create FocusNFeAuth
+        Properties prop = // read your Properties or System.env
+        String accessToken = prop.getProperty("accessToken");
+        String environment = prop.getProperty("environment"); // PRODUCTION OR HOMOLOGATION
+        FocusNFeAuth auth = FocusNFeAuth.newBuilder()
+                .withAccessToken(accessToken)
+                .withEnvironment(environment)
+                .build();
+
+        //Build one client per thread, or use CDI Injection.
+        ResteasyClient client = new ResteasyClientBuilder()
+                // Register your Custom Logging here.
+                //.register(CustomLoggingFilter.class)
+                .build();
+        FocusNFeV2Repository repository = new FocusNFeV2RepositoryImpl(client, auth);
+        repository.autorizar(reference, new NFeAutorizarBodyRequest(nfe));
+
+        //Is important to close in end, or use CDI.
+        client.close();
+    }
+}
+```
+
 
 
 frekele/focusnfe-api-client is **licensed** under the **[MIT License]**. The terms of the license are as follows:
