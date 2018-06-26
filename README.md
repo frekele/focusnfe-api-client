@@ -249,9 +249,9 @@ NFeEmailResponse response = repository.enviarEmail(reference, bodyRequest);
  NFeConsultarResponse response = repository.consultar(reference);
 ```
 
-#### GET - ConsultarTudo
+#### GET - ConsultarNFeCompleta
 ```java
-NFeConsultarResponse response = repository.consultarTudo(reference);
+NFeConsultarResponse response = repository.consultarNFeCompleta(reference);
 ```
 
 #### POST - Inutilizar
@@ -271,7 +271,6 @@ NFeInutilizarResponse response = repository.inutilizar(bodyRequest);
 
 #### POST - Manifestar
 ```java
-NFeConsultarResponse response = repository.consultarTudo(reference);
 String chaveNFe = "41180684689100015855001002510000040306642480";
 MDeManifestarBodyRequest bodyRequest = MDeManifestarBodyRequest.newBuilder()
     .withTipo(MDeTipoManifestacaoEnum.CONFIRMACAO)
