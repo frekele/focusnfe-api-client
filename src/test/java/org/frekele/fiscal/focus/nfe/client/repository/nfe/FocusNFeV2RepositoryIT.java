@@ -256,6 +256,8 @@ public class FocusNFeV2RepositoryIT {
 
     @Test(dependsOnMethods = "testInutilizarWithError")
     public void testAutorizar2() throws Exception {
+        reference = UUID.randomUUID().toString();
+        System.out.println("Reference: " + reference);
         testAutorizar();
     }
 }
