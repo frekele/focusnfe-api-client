@@ -40,9 +40,59 @@ Project built with RESTEasy 3.5.x + Jackson 2.x.x.
 compile 'org.frekele.fiscal:focusnfe-api-client:1.0.0-RC3'
 ```
 
-#### Usage
+#### Usage with CDI (Contexts and Dependency Injection)
 
-TODO
+```java
+public class FocusNFeProducer {
+
+    @Produces
+    @FocusNFe
+    public FocusNFeAuth producesFocusNFeAuth() {
+        String accessToken = System.getenv("FOCUS_NFE_ACCESS_TOKEN");
+        String environment = System.getenv("FOCUS_NFE_ENVIRONMENT");
+        return new FocusNFeAuth(accessToken, environment);
+    }
+
+    @Produces
+    @FocusNFe
+    public ResteasyClient producesResteasyClient() {
+        ResteasyClient client = new ResteasyClientBuilder()
+                //Example Add proxy
+                //.defaultProxy("192.168.56.67", 3456)
+                //Change connection Pool size.
+                //.connectionPoolSize(3)
+                //Change connection TTL.
+                //.connectionTTL(30, TimeUnit.MINUTES)
+                .build();
+        return client;
+    }
+
+    public void closeResteasyClient(@Disposes @FocusNFe ResteasyClient client) {
+        client.close();
+    }
+}
+
+//Then you just need to @inject.
+public class MyService {
+
+    @Inject
+    @FocusNFe
+    private FocusNFeV2Repository repository;
+
+    public void callExample() {
+        String reference = UUID.randomUUID().toString();
+        NFeEnvioRequisicaoNotaFiscal nfe = NFeEnvioRequisicaoNotaFiscal.newBuilder()
+            .withNaturezaOperacao("VENDA DE MERCADORIA")
+            .withDataEmissao(OffsetDateTime.now())
+            .withTipoDocumento(NFeTipoDocumentoEnum.NOTA_FISCAL_SAIDA)
+			...........
+            .build();
+        NFeAutorizarResponse response = repository.autorizar(reference, new NFeAutorizarBodyRequest(nfe));
+        NFeAutorizarBodyResponse body = response.getBody();
+    }
+}
+
+```
 
 
 
