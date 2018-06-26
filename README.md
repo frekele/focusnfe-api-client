@@ -40,6 +40,18 @@ Project built with RESTEasy 3.5.x + Jackson 2.x.x.
 compile 'org.frekele.fiscal:focusnfe-api-client:1.0.0-RC3'
 ```
 
+#### Repositories Interfaces:
+
+| Interface                  | Description                             |
+| -------------------------- | --------------------------------------- |
+| FocusNFeV2Repository       | NF-e API V2 remote call                 |
+| FocusNFCeV2Repository      | NFC-e API V2 remote call                |
+| FocusMDeV2Repository       | MD-e API V2 remote call                 |
+| FocusNcmV2Repository       | NCM API V2 remote call                  |
+| FocusWebHookV2Repository   | WebHook API V2 remote call              |
+| FocusBackupRepository      | Backups API remote call                 |
+
+
 #### Usage with CDI (Contexts and Dependency Injection)
 
 ```java
