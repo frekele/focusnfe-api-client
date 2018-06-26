@@ -54,6 +54,12 @@ public interface NFCeAutorizarResponse extends FocusNFeEntity {
     NFCeAutorizarBodyResponse getBody();
 
     /**
+     * Corpo da Resposta em String.
+     */
+    @Body
+    String getBodyString();
+
+    /**
      * Response Completo.
      */
     Response getResponse();

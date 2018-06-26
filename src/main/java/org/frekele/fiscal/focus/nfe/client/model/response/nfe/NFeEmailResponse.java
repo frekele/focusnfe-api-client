@@ -54,6 +54,12 @@ public interface NFeEmailResponse extends FocusNFeEntity {
     NFeEmailBodyResponse getBody();
 
     /**
+     * Corpo da Resposta em String.
+     */
+    @Body
+    String getBodyString();
+
+    /**
      * Response Completo.
      */
     Response getResponse();

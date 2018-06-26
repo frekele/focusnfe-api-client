@@ -54,6 +54,12 @@ public interface NFeConsultarResponse extends FocusNFeEntity {
     NFeConsultarBodyResponse getBody();
 
     /**
+     * Corpo da Resposta em String.
+     */
+    @Body
+    String getBodyString();
+
+    /**
      * Response Completo.
      */
     Response getResponse();

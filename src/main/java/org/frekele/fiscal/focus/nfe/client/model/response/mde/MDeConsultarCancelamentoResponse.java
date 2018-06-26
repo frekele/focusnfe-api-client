@@ -54,6 +54,12 @@ public interface MDeConsultarCancelamentoResponse extends FocusNFeEntity {
     MDeConsultarCancelamentoBodyResponse getBody();
 
     /**
+     * Corpo da Resposta em String.
+     */
+    @Body
+    String getBodyString();
+
+    /**
      * Response Completo.
      */
     Response getResponse();

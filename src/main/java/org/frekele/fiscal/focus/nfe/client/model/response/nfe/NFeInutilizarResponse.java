@@ -54,6 +54,12 @@ public interface NFeInutilizarResponse extends FocusNFeEntity {
     NFeInutilizarBodyResponse getBody();
 
     /**
+     * Corpo da Resposta em String.
+     */
+    @Body
+    String getBodyString();
+
+    /**
      * Response Completo.
      */
     Response getResponse();

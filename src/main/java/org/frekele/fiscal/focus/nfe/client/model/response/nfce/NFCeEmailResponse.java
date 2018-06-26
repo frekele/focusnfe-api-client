@@ -54,6 +54,12 @@ public interface NFCeEmailResponse extends FocusNFeEntity {
     NFCeEmailBodyResponse getBody();
 
     /**
+     * Corpo da Resposta em String.
+     */
+    @Body
+    String getBodyString();
+
+    /**
      * Response Completo.
      */
     Response getResponse();

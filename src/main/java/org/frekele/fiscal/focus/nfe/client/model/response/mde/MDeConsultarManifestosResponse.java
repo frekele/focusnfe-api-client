@@ -67,6 +67,12 @@ public interface MDeConsultarManifestosResponse extends FocusNFeEntity {
     MDeConsultarManifestosBodyResponse getBody();
 
     /**
+     * Corpo da Resposta em String.
+     */
+    @Body
+    String getBodyString();
+
+    /**
      * Response Completo.
      */
     Response getResponse();

@@ -54,6 +54,12 @@ public interface WebHookExcluirResponse extends FocusNFeEntity {
     WebHookBodyResponse getBody();
 
     /**
+     * Corpo da Resposta em String.
+     */
+    @Body
+    String getBodyString();
+
+    /**
      * Response Completo.
      */
     Response getResponse();

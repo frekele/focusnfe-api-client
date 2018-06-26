@@ -54,6 +54,12 @@ public interface MDeManifestarResponse extends FocusNFeEntity {
     MDeManifestarBodyResponse getBody();
 
     /**
+     * Corpo da Resposta em String.
+     */
+    @Body
+    String getBodyString();
+
+    /**
      * Response Completo.
      */
     Response getResponse();

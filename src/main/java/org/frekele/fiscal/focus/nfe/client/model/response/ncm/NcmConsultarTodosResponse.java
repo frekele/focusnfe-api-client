@@ -60,6 +60,12 @@ public interface NcmConsultarTodosResponse extends FocusNFeEntity {
     NcmsBodyResponse getBody();
 
     /**
+     * Corpo da Resposta em String.
+     */
+    @Body
+    String getBodyString();
+
+    /**
      * Response Completo.
      */
     Response getResponse();

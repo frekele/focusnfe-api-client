@@ -54,6 +54,12 @@ public interface WebHookConsultarTodosResponse extends FocusNFeEntity {
     WebHooksBodyResponse getBody();
 
     /**
+     * Corpo da Resposta em String.
+     */
+    @Body
+    String getBodyString();
+
+    /**
      * Response Completo.
      */
     Response getResponse();

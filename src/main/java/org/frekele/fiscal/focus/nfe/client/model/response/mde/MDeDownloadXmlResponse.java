@@ -53,6 +53,12 @@ public interface MDeDownloadXmlResponse extends FocusNFeEntity {
     String getBody();
 
     /**
+     * Corpo da Resposta em String.
+     */
+    @Body
+    String getBodyString();
+
+    /**
      * Response Completo.
      */
     Response getResponse();
