@@ -184,12 +184,13 @@ public class CustomLoggingFilter implements ClientResponseFilter, ClientRequestF
 
 #### POST - Autorizar
 ```java
+String reference = UUID.randomUUID().toString();
 NFeEnvioRequisicaoNotaFiscal nfe = NFeEnvioRequisicaoNotaFiscal.newBuilder()
     .withNaturezaOperacao("VENDA DE MERCADORIA")
     .withDataEmissao(OffsetDateTime.now())
     .withTipoDocumento(NFeTipoDocumentoEnum.NOTA_FISCAL_SAIDA)
     .withFinalidadeEmissao(NFeFinalidadeEmissaoEnum.NOTA_NORMAL)
-    .withCnpjEmitente(cnpjEmitente)
+    .withCnpjEmitente("39315364000104")
     .withNomeDestinatario("NF-E EMITIDA EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL")
     .withCpfDestinatario("98445556550")
     .withTelefoneDestinatario("5196185555")
@@ -242,6 +243,56 @@ String responseHeaderValue = response.getRuntime();
 
 //Get All Http Response.
 Response httpResponse = response.getResponse();
+```
+
+
+#### POST - Cancelar
+```java
+NFeCancelarResponse response = repository.cancelar(reference, new NFeCancelarBodyRequest("Teste de cancelamento de nota"));
+
+//Or with Builder Pattern.
+NFeCancelarBodyRequest bodyRequest = NFeCancelarBodyRequest.newBuilder()
+    .withJustificativa("Teste de cancelamento de nota")
+    .build();
+NFeCancelarResponse response = repository.cancelar(reference, bodyRequest);
+```
+
+#### POST - EmitirCCe
+```java
+NFeCCeBodyRequest bodyRequest = NFeCCeBodyRequest.newBuilder()
+    .withCorrecao("Teste de carta de correcao")
+    .build();
+NFeCCeResponse response = repository.emitirCCe(reference, bodyRequest);
+```
+
+#### POST - EnviarEmail
+```java
+NFeEmailBodyRequest bodyRequest = NFeEmailBodyRequest.newBuilder()
+    .withEmails("alguem@example.org", "teste@teste.com.br")
+    .build();
+NFeEmailResponse response = repository.enviarEmail(reference, bodyRequest);
+```
+
+#### POST - Consultar
+```java
+ NFeConsultarResponse response = repository.consultar(reference);
+```
+
+#### POST - ConsultarTudo
+```java
+NFeConsultarResponse response = repository.consultarTudo(reference);
+```
+
+#### POST - Inutilizar
+```java
+NFeInutilizarBodyRequest bodyRequest = NFeInutilizarBodyRequest.newBuilder()
+    .withCnpj("39315364000104")
+    .withSerie("1")
+    .withNumeroInicial("7")
+    .withNumeroFinal("9")
+    .withJustificativa("Teste de inutilizacao de nota")
+    .build();
+NFeInutilizarResponse response = repository.inutilizar(bodyRequest);
 ```
 
 
