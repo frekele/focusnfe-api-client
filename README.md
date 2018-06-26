@@ -515,6 +515,18 @@ JsonNode jsonNode = FocusNFeUtils.parseXmlToJsonNode(content);
 Document document = FocusNFeUtils.parseXmlToDocument(content);
 ```
 
+#### Compile with Maven:
+```
+mvn clean install -Dgpg.skip
+```
+
+#### Compile with integration Tests:
+You need to add the environment variables to run the integration tests.
+ - FOCUS_NFE_ACCESS_TOKEN = //Your Access-Token
+ - FOCUS_NFE_CNPJ_EMITENTE  = //Your CNPJ
+```
+mvn clean install -Dgpg.skip -DskipITs=false
+```
 
 frekele/focusnfe-api-client is **licensed** under the **[MIT License]**. The terms of the license are as follows:
 
