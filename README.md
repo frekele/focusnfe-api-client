@@ -246,7 +246,7 @@ Response httpResponse = response.getResponse();
 ```
 
 
-#### POST - Cancelar
+#### DELETE - Cancelar
 ```java
 NFeCancelarResponse response = repository.cancelar(reference, new NFeCancelarBodyRequest("Teste de cancelamento de nota"));
 
@@ -273,12 +273,12 @@ NFeEmailBodyRequest bodyRequest = NFeEmailBodyRequest.newBuilder()
 NFeEmailResponse response = repository.enviarEmail(reference, bodyRequest);
 ```
 
-#### POST - Consultar
+#### GET - Consultar
 ```java
  NFeConsultarResponse response = repository.consultar(reference);
 ```
 
-#### POST - ConsultarTudo
+#### GET - ConsultarTudo
 ```java
 NFeConsultarResponse response = repository.consultarTudo(reference);
 ```
