@@ -86,7 +86,7 @@ public class MyService {
             .withNaturezaOperacao("VENDA DE MERCADORIA")
             .withDataEmissao(OffsetDateTime.now())
             .withTipoDocumento(NFeTipoDocumentoEnum.NOTA_FISCAL_SAIDA)
-			...........
+	    ...........
             .build();
         NFeAutorizarResponse response = repository.autorizar(reference, new NFeAutorizarBodyRequest(nfe));
         NFeAutorizarBodyResponse body = response.getBody();
