@@ -44,24 +44,24 @@ compile 'org.frekele.fiscal:focusnfe-api-client:1.0.0-RC3'
 | [FocusNFeV2Repository]       | NF-e API V2 remote call                 | [FocusNFeV2RepositoryIT]        |
 | [FocusNFCeV2Repository]      | NFC-e API V2 remote call                | [FocusNFCeV2RepositoryIT]       |
 | [FocusMDeV2Repository]       | MD-e API V2 remote call                 | [FocusMDeV2RepositoryIT]        |
-| [FocusNcmV2Repository]       | NCM API V2 remote call                  | [FocusNcmV2RepositoryIT]        |
 | [FocusWebHookV2Repository]   | WebHook API V2 remote call              | [FocusWebHookV2RepositoryIT]    |
+| [FocusNcmV2Repository]       | NCM API V2 remote call                  | [FocusNcmV2RepositoryIT]        |
 | [FocusBackupRepository]      | Backups API remote call                 | [FocusBackupRepositoryIT]       |
 
 
 [FocusNFeV2Repository]: ./src/main/java/org/frekele/fiscal/focus/nfe/client/repository/nfe/FocusNFeV2Repository.java
 [FocusNFCeV2Repository]: ./src/main/java/org/frekele/fiscal/focus/nfe/client/repository/nfce/FocusNFCeV2Repository.java
 [FocusMDeV2Repository]: ./src/main/java/org/frekele/fiscal/focus/nfe/client/repository/mde/FocusMDeV2Repository.java
-[FocusNcmV2Repository]: ./src/main/java/org/frekele/fiscal/focus/nfe/client/repository/ncm/FocusNcmV2Repository.java
 [FocusWebHookV2Repository]: ./src/main/java/org/frekele/fiscal/focus/nfe/client/repository/webhook/FocusWebHookV2Repository.java
+[FocusNcmV2Repository]: ./src/main/java/org/frekele/fiscal/focus/nfe/client/repository/ncm/FocusNcmV2Repository.java
 [FocusBackupRepository]: ./src/main/java/org/frekele/fiscal/focus/nfe/client/repository/backup/FocusBackupRepository.java
 
 
 [FocusNFeV2RepositoryIT]: ./src/test/java/org/frekele/fiscal/focus/nfe/client/repository/nfe/FocusNFeV2RepositoryIT.java
 [FocusNFCeV2RepositoryIT]: ./src/test/java/org/frekele/fiscal/focus/nfe/client/repository/nfce/FocusNFCeV2RepositoryIT.java
 [FocusMDeV2RepositoryIT]: ./src/test/java/org/frekele/fiscal/focus/nfe/client/repository/mde/FocusMDeV2RepositoryIT.java
-[FocusNcmV2RepositoryIT]: ./src/test/java/org/frekele/fiscal/focus/nfe/client/repository/ncm/FocusNcmV2RepositoryIT.java
 [FocusWebHookV2RepositoryIT]: ./src/test/java/org/frekele/fiscal/focus/nfe/client/repository/webhook/FocusWebHookV2RepositoryIT.java
+[FocusNcmV2RepositoryIT]: ./src/test/java/org/frekele/fiscal/focus/nfe/client/repository/ncm/FocusNcmV2RepositoryIT.java
 [FocusBackupRepositoryIT]: ./src/test/java/org/frekele/fiscal/focus/nfe/client/repository/backup/FocusBackupRepositoryIT.java
 
 
@@ -180,6 +180,7 @@ public class CustomLoggingFilter implements ClientResponseFilter, ClientRequestF
 }
 ```
 
+
 ### Example usage NF-e and NFC-e
 
 #### POST - Autorizar
@@ -245,7 +246,6 @@ String responseHeaderValue = response.getRuntime();
 Response httpResponse = response.getResponse();
 ```
 
-
 #### DELETE - Cancelar
 ```java
 NFeCancelarResponse response = repository.cancelar(reference, new NFeCancelarBodyRequest("Teste de cancelamento de nota"));
@@ -294,6 +294,7 @@ NFeInutilizarBodyRequest bodyRequest = NFeInutilizarBodyRequest.newBuilder()
     .build();
 NFeInutilizarResponse response = repository.inutilizar(bodyRequest);
 ```
+
 
 ### Example usage MD-e
 
@@ -363,7 +364,37 @@ MDeDownloadXmlResponse response = repository.downloadUltimaCCe(chaveNFe);
 ```
 
 
-### Example usage NCMs
+### Example usage WebHooks
+
+#### POST - Criar
+```java
+WebHookCriarBodyRequest bodyRequest = WebHookCriarBodyRequest.newBuilder()
+    .withCnpj(cnpjEmitente)
+    .withEvent("nfe")
+    .withUrl("http://minha.url/nfe")
+    .build();
+WebHookCriarResponse response = repository.criar(bodyRequest);
+String webHookId = bodyResponse.getId());
+```
+
+#### GET - Consultar
+```java
+WebHookConsultarResponse response = repository.consultar(webHookId);
+```
+
+#### GET - ConsultarTodos
+```java
+WebHookConsultarTodosResponse response = repository.consultarTodos();
+```
+
+#### GET - Excluir
+```java
+WebHookExcluirResponse response = repository.excluir(webHookId);
+```
+
+
+
+### Example usage for search NCMs
 
 #### GET - Consultar
 ```java
