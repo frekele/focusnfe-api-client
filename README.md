@@ -40,16 +40,32 @@ Project built with RESTEasy 3.5.x + Jackson 2.x.x.
 compile 'org.frekele.fiscal:focusnfe-api-client:1.0.0-RC3'
 ```
 
-#### Repositories Interfaces:
+#### Repositories:
 
-| Interface                  | Description                             |
-| -------------------------- | --------------------------------------- |
-| FocusNFeV2Repository       | NF-e API V2 remote call                 |
-| FocusNFCeV2Repository      | NFC-e API V2 remote call                |
-| FocusMDeV2Repository       | MD-e API V2 remote call                 |
-| FocusNcmV2Repository       | NCM API V2 remote call                  |
-| FocusWebHookV2Repository   | WebHook API V2 remote call              |
-| FocusBackupRepository      | Backups API remote call                 |
+| Interfaces                   | Descriptions                            | Usage Examples                  |
+| ---------------------------- | --------------------------------------- |-------------------------------- |
+| [FocusNFeV2Repository]       | NF-e API V2 remote call                 | [FocusNFeV2RepositoryIT]        |
+| [FocusNFCeV2Repository]      | NFC-e API V2 remote call                | [FocusNFCeV2RepositoryIT]       |
+| [FocusMDeV2Repository]       | MD-e API V2 remote call                 | [FocusMDeV2RepositoryIT]        |
+| [FocusNcmV2Repository]       | NCM API V2 remote call                  | [FocusNcmV2RepositoryIT]        |
+| [FocusWebHookV2Repository]   | WebHook API V2 remote call              | [FocusWebHookV2RepositoryIT]    |
+| [FocusBackupRepository]      | Backups API remote call                 | [FocusBackupRepositoryIT]       |
+
+
+[FocusNFeV2Repository]: ./src/main/java/org/frekele/fiscal/focus/nfe/client/repository/nfe/FocusNFeV2Repository.java
+[FocusNFCeV2Repository]: ./src/main/java/org/frekele/fiscal/focus/nfe/client/repository/nfce/FocusNFCeV2Repository.java
+[FocusMDeV2Repository]: ./src/main/java/org/frekele/fiscal/focus/nfe/client/repository/mde/FocusMDeV2Repository.java
+[FocusNcmV2Repository]: ./src/main/java/org/frekele/fiscal/focus/nfe/client/repository/ncm/FocusNcmV2Repository.java
+[FocusWebHookV2Repository]: ./src/main/java/org/frekele/fiscal/focus/nfe/client/repository/webhook/FocusWebHookV2Repository.java
+[FocusBackupRepository]: ./src/main/java/org/frekele/fiscal/focus/nfe/client/repository/backup/FocusBackupRepository.java
+
+
+[FocusNFeV2RepositoryIT]: ./src/test/java/org/frekele/fiscal/focus/nfe/client/repository/nfe/FocusNFeV2RepositoryIT.java
+[FocusNFCeV2RepositoryIT]: ./src/test/java/org/frekele/fiscal/focus/nfe/client/repository/nfce/FocusNFCeV2RepositoryIT.java
+[FocusMDeV2RepositoryIT]: ./src/test/java/org/frekele/fiscal/focus/nfe/client/repository/mde/FocusMDeV2RepositoryIT.java
+[FocusNcmV2RepositoryIT]: ./src/test/java/org/frekele/fiscal/focus/nfe/client/repository/ncm/FocusNcmV2RepositoryIT.java
+[FocusWebHookV2RepositoryIT]: ./src/test/java/org/frekele/fiscal/focus/nfe/client/repository/webhook/FocusWebHookV2RepositoryIT.java
+[FocusBackupRepositoryIT]: ./src/test/java/org/frekele/fiscal/focus/nfe/client/repository/backup/FocusBackupRepositoryIT.java
 
 
 #### Usage with CDI (Contexts and Dependency Injection)
