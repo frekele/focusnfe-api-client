@@ -2,6 +2,7 @@ package org.frekele.fiscal.focus.nfe.client.repository.backup;
 
 import org.frekele.fiscal.focus.nfe.client.auth.FocusNFeAuth;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFe;
+import org.frekele.fiscal.focus.nfe.client.filter.RequestHeaderInfoFilter;
 import org.frekele.fiscal.focus.nfe.client.filter.RequestLoggingFilter;
 import org.frekele.fiscal.focus.nfe.client.filter.ResponseLoggingFilter;
 import org.frekele.fiscal.focus.nfe.client.model.response.backup.BackupConsultaResponse;
@@ -31,7 +32,8 @@ public class FocusBackupRepositoryImpl implements FocusBackupRepository {
         FocusNFeUtils.throwAuth(auth);
         this.client = client
             .register(RequestLoggingFilter.class)
-            .register(ResponseLoggingFilter.class);
+            .register(ResponseLoggingFilter.class)
+            .register(RequestHeaderInfoFilter.class);
         this.auth = auth;
     }
 

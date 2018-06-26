@@ -2,6 +2,7 @@ package org.frekele.fiscal.focus.nfe.client.repository.mde;
 
 import org.frekele.fiscal.focus.nfe.client.auth.FocusNFeAuth;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFe;
+import org.frekele.fiscal.focus.nfe.client.filter.RequestHeaderInfoFilter;
 import org.frekele.fiscal.focus.nfe.client.filter.RequestLoggingFilter;
 import org.frekele.fiscal.focus.nfe.client.filter.ResponseArrayJsonReplaceFilter;
 import org.frekele.fiscal.focus.nfe.client.filter.ResponseLoggingFilter;
@@ -38,6 +39,7 @@ public class FocusMDeV2RepositoryImpl implements FocusMDeV2Repository {
         this.client = client
             .register(RequestLoggingFilter.class)
             .register(ResponseLoggingFilter.class)
+            .register(RequestHeaderInfoFilter.class)
             .register(ResponseArrayJsonReplaceFilter.class);
         this.auth = auth;
     }
