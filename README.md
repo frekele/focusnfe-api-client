@@ -150,35 +150,6 @@ public class MyService {
 }
 ```
 
-#### Custom Logging for Response and Request
-
-With the filter you can intercept all requests during sending and receiving responses.
-Everything before the Jackson conversion (json to Object) and (Object to Json).
-
-```java
-public class CustomLoggingFilter implements ClientResponseFilter, ClientRequestFilter {
-
-    private Logger logger = Logger.getLogger(CustomLoggingFilter.class.getName());
-
-    @Override
-    public void filter(ClientRequestContext requestContext) throws IOException {
-        this.getLogger().debug("--> Request LoggingFilter: Uri = " + requestContext.getUri());
-        this.getLogger().debug("--> Request LoggingFilter: Method= " + requestContext.getMethod());
-        // Add more logs as you want.
-    }
-
-    @Override
-    public void filter(ClientRequestContext requestContext, ClientResponseContext responseContext) throws IOException {
-        this.getLogger().debug("<-- Response LoggingFilter:");
-        this.getLogger().debug("<-- Response LoggingFilter: Status = " + responseContext.getStatus());
-        // Add more logs as you want.
-    }
-
-    public Logger getLogger() {
-        return logger;
-    }
-}
-```
 
 
 ### Example usage NF-e and NFC-e
@@ -368,6 +339,7 @@ MDeDownloadXmlResponse response = repository.downloadUltimaCCe(chaveNFe);
 
 #### POST - Criar
 ```java
+String cnpjEmitente = "39315364000104";
 WebHookCriarBodyRequest bodyRequest = WebHookCriarBodyRequest.newBuilder()
     .withCnpj(cnpjEmitente)
     .withEvent("nfe")
@@ -431,6 +403,45 @@ NcmQueryParam queryParam = NcmQueryParam.newBuilder()
 NcmConsultarTodosResponse response = repository.consultarTodos(queryParam);
 ```
 
+
+### Example usage for search Backups
+
+#### GET - Consultar
+```java
+String cnpjEmitente = "39315364000104";
+BackupConsultaResponse response = repository.consultarTodos(cnpjEmitente);
+```
+
+
+#### Custom Logging for Response and Request
+
+With the filter you can intercept all requests during sending and receiving responses.
+Everything before the Jackson conversion (json to Object) and (Object to Json).
+
+```java
+public class CustomLoggingFilter implements ClientResponseFilter, ClientRequestFilter {
+
+    private Logger logger = Logger.getLogger(CustomLoggingFilter.class.getName());
+
+    @Override
+    public void filter(ClientRequestContext requestContext) throws IOException {
+        this.getLogger().debug("--> Request LoggingFilter: Uri = " + requestContext.getUri());
+        this.getLogger().debug("--> Request LoggingFilter: Method= " + requestContext.getMethod());
+        // Add more logs as you want.
+    }
+
+    @Override
+    public void filter(ClientRequestContext requestContext, ClientResponseContext responseContext) throws IOException {
+        this.getLogger().debug("<-- Response LoggingFilter:");
+        this.getLogger().debug("<-- Response LoggingFilter: Status = " + responseContext.getStatus());
+        // Add more logs as you want.
+    }
+
+    public Logger getLogger() {
+        return logger;
+    }
+}
+```
 
 
 
