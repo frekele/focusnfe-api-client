@@ -10,7 +10,7 @@
 
 ![focusnfe](https://raw.githubusercontent.com/frekele/focusnfe-api-client/master/docs/img/focusnfe-logo.png)
 
-<img src="./docs/img/focusnfe-fiscal-man.svg" height="400" width="600">
+<img src="./docs/img/focusnfe-fiscal-man.svg" height="300" width="450">
 
 ### REST Client - FocusNFe Brazilian fiscal Issuer NF-e NFC-e API
 
