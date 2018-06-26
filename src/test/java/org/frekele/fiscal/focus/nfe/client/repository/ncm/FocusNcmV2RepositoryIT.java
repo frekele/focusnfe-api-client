@@ -64,7 +64,7 @@ public class FocusNcmV2RepositoryIT {
         System.out.println("RateLimitReset: " + response.getRateLimitReset());
         System.out.println("Status: " + response.getStatus());
         NcmBodyResponse bodyResponse = response.getBody();
-        System.out.println("Body.DescricaoCompleta: " + bodyResponse.getDescricaoCompleta());
+        System.out.println("Body.Ncm.DescricaoCompleta: " + bodyResponse.getNcm().getDescricaoCompleta());
     }
 
     @Test

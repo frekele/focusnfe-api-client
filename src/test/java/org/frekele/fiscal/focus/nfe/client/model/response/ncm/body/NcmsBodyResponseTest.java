@@ -1,6 +1,7 @@
 package org.frekele.fiscal.focus.nfe.client.model.response.ncm.body;
 
 import org.frekele.fiscal.focus.nfe.client.model.entities.erro.NFeErro;
+import org.frekele.fiscal.focus.nfe.client.model.entities.ncm.NFeNcm;
 import org.frekele.fiscal.focus.nfe.client.testng.InvokedMethodListener;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -19,8 +20,8 @@ public class NcmsBodyResponseTest {
     @Test
     public void testNewInstance() throws Exception {
         NFeErro erro = new NFeErro();
-        List<NcmBodyResponse> ncms = new ArrayList<>();
-        ncms.add(new NcmBodyResponse());
+        List<NFeNcm> ncms = new ArrayList<>();
+        ncms.add(new NFeNcm());
 
         NcmsBodyResponse entity = new NcmsBodyResponse();
         entity.setErro(erro);

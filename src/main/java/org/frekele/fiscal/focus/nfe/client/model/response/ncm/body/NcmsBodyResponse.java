@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFeEntity;
 import org.frekele.fiscal.focus.nfe.client.model.entities.erro.NFeErro;
+import org.frekele.fiscal.focus.nfe.client.model.entities.ncm.NFeNcm;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -28,10 +29,10 @@ public class NcmsBodyResponse implements FocusNFeEntity {
     private NFeErro erro;
 
     /**
-     * Lista de Ncms.
+     * Lista de Ncms - "Nomenclatura Comum do Mercosul".
      */
     @JsonProperty("arrayValues")
-    private List<NcmBodyResponse> ncms;
+    private List<NFeNcm> ncms;
 
     public NcmsBodyResponse() {
         super();
@@ -54,14 +55,14 @@ public class NcmsBodyResponse implements FocusNFeEntity {
     /**
      * Lista de Ncms.
      */
-    public List<NcmBodyResponse> getNcms() {
+    public List<NFeNcm> getNcms() {
         return ncms;
     }
 
     /**
      * Lista de Ncms.
      */
-    public void setNcms(List<NcmBodyResponse> ncms) {
+    public void setNcms(List<NFeNcm> ncms) {
         this.ncms = ncms;
     }
 }
