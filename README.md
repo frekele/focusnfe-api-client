@@ -82,7 +82,7 @@ public class MyMainExample {
 
         FocusNFeV2Repository repository = new FocusNFeV2RepositoryImpl(client, auth);
 
-        String reference = UUID.randomUUID().toString();
+        String reference = "your-nfe-reference";
         NFeConsultarBodyResponse bodyResponse = repository.consultarNFeCompleta(reference).getBody();
 
         NFeProtocoloNotaFiscal protocoloNotaFiscal = bodyResponse.getProtocoloNotaFiscal();
