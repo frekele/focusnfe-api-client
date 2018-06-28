@@ -1,5 +1,6 @@
 package org.frekele.fiscal.focus.nfe.client.repository.ncm;
 
+import org.frekele.fiscal.focus.nfe.client.core.FocusMediaType;
 import org.frekele.fiscal.focus.nfe.client.model.response.ncm.NcmConsultarResponse;
 import org.frekele.fiscal.focus.nfe.client.model.response.ncm.NcmConsultarTodosResponse;
 
@@ -10,7 +11,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.MediaType;
 import java.io.Serializable;
 
 /**
@@ -19,8 +19,8 @@ import java.io.Serializable;
  * @author frekele - Leandro Kersting de Freitas
  */
 @Path("/v2")
-@Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-@Consumes({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+@Produces({FocusMediaType.APPLICATION_JSON_CHARSET_UTF8})
+@Consumes({FocusMediaType.APPLICATION_JSON_CHARSET_UTF8})
 interface FocusNcmV2ProxyClient extends Serializable {
 
     /**

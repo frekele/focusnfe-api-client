@@ -1,5 +1,6 @@
 package org.frekele.fiscal.focus.nfe.client.repository.mde;
 
+import org.frekele.fiscal.focus.nfe.client.core.FocusMediaType;
 import org.frekele.fiscal.focus.nfe.client.model.request.mde.body.MDeManifestarBodyRequest;
 import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarCCeResponse;
 import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarCancelamentoResponse;
@@ -17,7 +18,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.MediaType;
 import java.io.Serializable;
 
 /**
@@ -26,8 +26,8 @@ import java.io.Serializable;
  * @author frekele - Leandro Kersting de Freitas
  */
 @Path("/v2")
-@Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-@Consumes({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+@Produces({FocusMediaType.APPLICATION_JSON_CHARSET_UTF8})
+@Consumes({FocusMediaType.APPLICATION_JSON_CHARSET_UTF8})
 interface FocusMDeV2ProxyClient extends Serializable {
 
     /**
@@ -152,7 +152,7 @@ interface FocusMDeV2ProxyClient extends Serializable {
      */
     @GET
     @Path("nfes_recebidas/{chaveNFe}.xml")
-    @Consumes({MediaType.APPLICATION_XML + ";charset=UTF-8", MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+    @Consumes({FocusMediaType.APPLICATION_XML_CHARSET_UTF8, FocusMediaType.APPLICATION_JSON_CHARSET_UTF8})
     MDeDownloadXmlResponse downloadNFe(@HeaderParam("Authorization") String authorization,
                                        @PathParam("chaveNFe") String chaveNFe);
 
@@ -162,7 +162,7 @@ interface FocusMDeV2ProxyClient extends Serializable {
      */
     @GET
     @Path("nfes_recebidas/{chaveNFe}/cancelamento.xml")
-    @Consumes({MediaType.APPLICATION_XML + ";charset=UTF-8", MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+    @Consumes({FocusMediaType.APPLICATION_XML_CHARSET_UTF8, FocusMediaType.APPLICATION_JSON_CHARSET_UTF8})
     MDeDownloadXmlResponse downloadCancelamento(@HeaderParam("Authorization") String authorization,
                                                 @PathParam("chaveNFe") String chaveNFe);
 
@@ -172,7 +172,7 @@ interface FocusMDeV2ProxyClient extends Serializable {
      */
     @GET
     @Path("nfes_recebidas/{chaveNFe}/carta_correcao.xml")
-    @Consumes({MediaType.APPLICATION_XML + ";charset=UTF-8", MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+    @Consumes({FocusMediaType.APPLICATION_XML_CHARSET_UTF8, FocusMediaType.APPLICATION_JSON_CHARSET_UTF8})
     MDeDownloadXmlResponse downloadUltimaCCe(@HeaderParam("Authorization") String authorization,
                                              @PathParam("chaveNFe") String chaveNFe);
 }

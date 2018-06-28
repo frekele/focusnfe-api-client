@@ -1,5 +1,6 @@
 package org.frekele.fiscal.focus.nfe.client.repository.download;
 
+import org.frekele.fiscal.focus.nfe.client.core.FocusMediaType;
 import org.frekele.fiscal.focus.nfe.client.model.response.download.DownloadFileResponse;
 
 import javax.ws.rs.Consumes;
@@ -8,7 +9,6 @@ import javax.ws.rs.HeaderParam;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 import java.io.Serializable;
 
 /**
@@ -17,8 +17,8 @@ import java.io.Serializable;
  * @author frekele - Leandro Kersting de Freitas
  */
 @Path("/")
-@Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-@Consumes({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+@Produces({FocusMediaType.APPLICATION_JSON_CHARSET_UTF8})
+@Consumes({FocusMediaType.APPLICATION_JSON_CHARSET_UTF8})
 interface FocusDownloadProxyClient extends Serializable {
 
     /**
@@ -28,7 +28,8 @@ interface FocusDownloadProxyClient extends Serializable {
     @GET
     @Path("{path}.xml")
     @Consumes({
-        MediaType.TEXT_XML + ";charset=UTF-8", MediaType.APPLICATION_XML + ";charset=UTF-8"})
+        FocusMediaType.TEXT_XML, FocusMediaType.TEXT_XML_CHARSET_UTF8,
+        FocusMediaType.APPLICATION_XML, FocusMediaType.APPLICATION_XML_CHARSET_UTF8})
     DownloadFileResponse downloadXml(@HeaderParam("Authorization") String authorization,
                                      @PathParam("path") String path);
 
@@ -38,7 +39,7 @@ interface FocusDownloadProxyClient extends Serializable {
      */
     @GET
     @Path("{path}.pdf")
-    @Consumes({"application/pdf;charset=UTF-8"})
+    @Consumes({FocusMediaType.APPLICATION_PDF, FocusMediaType.APPLICATION_PDF_CHARSET_UTF8})
     DownloadFileResponse downloadPdf(@HeaderParam("Authorization") String authorization,
                                      @PathParam("path") String path);
 
@@ -48,7 +49,7 @@ interface FocusDownloadProxyClient extends Serializable {
      */
     @GET
     @Path("{path}.html")
-    @Consumes({MediaType.TEXT_HTML + ";charset=UTF-8"})
+    @Consumes({FocusMediaType.TEXT_HTML, FocusMediaType.TEXT_HTML_CHARSET_UTF8})
     DownloadFileResponse downloadHtml(@HeaderParam("Authorization") String authorization,
                                       @PathParam("path") String path);
 
@@ -58,7 +59,7 @@ interface FocusDownloadProxyClient extends Serializable {
      */
     @GET
     @Path("{path}.zip")
-    @Consumes({"application/zip;charset=UTF-8"})
+    @Consumes({FocusMediaType.APPLICATION_ZIP, FocusMediaType.APPLICATION_ZIP_CHARSET_UTF8})
     DownloadFileResponse downloadZip(@HeaderParam("Authorization") String authorization,
                                      @PathParam("path") String path);
 }
