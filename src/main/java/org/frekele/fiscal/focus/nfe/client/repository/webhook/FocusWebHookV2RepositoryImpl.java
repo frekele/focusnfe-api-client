@@ -18,7 +18,7 @@ import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
 import javax.inject.Inject;
 
 /**
- * Classe com implementação das chamadas para API WebHooks.
+ * Classe com implementação das chamadas para API V2 WebHooks.
  *
  * @author frekele - Leandro Kersting de Freitas
  */

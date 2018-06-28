@@ -14,7 +14,7 @@ import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
 import javax.inject.Inject;
 
 /**
- * Classe com implementação das chamadas para API Backups.
+ * Classe com implementação das chamadas para API V2 Backups.
  *
  * @author frekele - Leandro Kersting de Freitas
  */

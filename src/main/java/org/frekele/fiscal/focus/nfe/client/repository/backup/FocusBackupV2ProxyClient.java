@@ -12,7 +12,7 @@ import javax.ws.rs.core.MediaType;
 import java.io.Serializable;
 
 /**
- * Proxy RestEasy para chamadas da API Backups.
+ * Proxy RestEasy para chamadas da API V2 Backups.
  *
  * @author frekele - Leandro Kersting de Freitas
  */

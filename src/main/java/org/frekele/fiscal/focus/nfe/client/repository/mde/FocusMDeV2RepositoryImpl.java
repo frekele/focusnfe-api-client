@@ -19,7 +19,7 @@ import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
 import javax.inject.Inject;
 
 /**
- * Classe com implementação das chamadas para API MD-e.
+ * Classe com implementação das chamadas para API V2 MD-e.
  *
  * @author frekele - Leandro Kersting de Freitas
  */

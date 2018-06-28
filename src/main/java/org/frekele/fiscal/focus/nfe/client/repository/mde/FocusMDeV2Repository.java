@@ -10,7 +10,7 @@ import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeManifestarRespo
 import java.io.Serializable;
 
 /**
- * Interface com chamadas para API MD-e.
+ * Interface com chamadas para API V2 MD-e.
  *
  * @author frekele - Leandro Kersting de Freitas
  */

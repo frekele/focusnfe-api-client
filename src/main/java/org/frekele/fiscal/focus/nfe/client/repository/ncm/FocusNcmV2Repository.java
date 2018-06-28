@@ -7,7 +7,7 @@ import org.frekele.fiscal.focus.nfe.client.model.response.ncm.NcmConsultarTodosR
 import java.io.Serializable;
 
 /**
- * Interface com chamadas para API NCM.
+ * Interface com chamadas para API V2 NCM.
  *
  * @author frekele - Leandro Kersting de Freitas
  */

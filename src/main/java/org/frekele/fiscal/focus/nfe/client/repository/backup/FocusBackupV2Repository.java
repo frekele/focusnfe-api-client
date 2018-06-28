@@ -5,7 +5,7 @@ import org.frekele.fiscal.focus.nfe.client.model.response.backup.BackupConsultaR
 import java.io.Serializable;
 
 /**
- * Interface com chamadas para API Backups.
+ * Interface com chamadas para API V2 Backups.
  *
  * @author frekele - Leandro Kersting de Freitas
  */

@@ -16,7 +16,7 @@ import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
 import javax.inject.Inject;
 
 /**
- * Classe com implementação das chamadas para API NCM.
+ * Classe com implementação das chamadas para API V2 NCM.
  *
  * @author frekele - Leandro Kersting de Freitas
  */

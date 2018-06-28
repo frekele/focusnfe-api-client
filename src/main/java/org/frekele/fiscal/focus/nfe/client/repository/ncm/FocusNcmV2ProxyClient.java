@@ -14,7 +14,7 @@ import javax.ws.rs.core.MediaType;
 import java.io.Serializable;
 
 /**
- * Proxy RestEasy para chamadas da API NCM.
+ * Proxy RestEasy para chamadas da API V2 NCM.
  *
  * @author frekele - Leandro Kersting de Freitas
  */

@@ -23,7 +23,7 @@ import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
 import javax.inject.Inject;
 
 /**
- * Classe com implementação das chamadas para API NF-e.
+ * Classe com implementação das chamadas para API V2 NF-e.
  *
  * @author frekele - Leandro Kersting de Freitas
  */

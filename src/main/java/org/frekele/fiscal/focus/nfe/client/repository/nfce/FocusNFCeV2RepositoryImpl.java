@@ -21,7 +21,7 @@ import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
 import javax.inject.Inject;
 
 /**
- * Classe com implementação das chamadas para API NFC-e.
+ * Classe com implementação das chamadas para API V2 NFC-e.
  *
  * @author frekele - Leandro Kersting de Freitas
  */

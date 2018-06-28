@@ -21,7 +21,7 @@ import javax.ws.rs.core.MediaType;
 import java.io.Serializable;
 
 /**
- * Proxy RestEasy para chamadas da API MD-e.
+ * Proxy RestEasy para chamadas da API V2 MD-e.
  *
  * @author frekele - Leandro Kersting de Freitas
  */

@@ -15,7 +15,7 @@ import org.frekele.fiscal.focus.nfe.client.model.response.nfe.NFeInutilizarRespo
 import java.io.Serializable;
 
 /**
- * Interface com chamadas para API NF-e.
+ * Interface com chamadas para API V2 NF-e.
  *
  * @author frekele - Leandro Kersting de Freitas
  */
