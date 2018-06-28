@@ -594,6 +594,18 @@ manifestos.add(manifesto2);
 String jsonArray = mapper.writeValueAsString(manifestos);
 ```
 
+#### InputStream -->  byte[]
+```java
+byte[] arrayBytes = FocusNFeUtils.parseToByteArray(inputStream);
+```
+
+#### InputStream -->  ByteArrayOutputStream
+```java
+ByteArrayOutputStream outputStream = FocusNFeUtils.parseToByteArrayOutputStream(inputStream);
+```
+
+
+
 ### Compile:
 
 #### Compile with Maven:
