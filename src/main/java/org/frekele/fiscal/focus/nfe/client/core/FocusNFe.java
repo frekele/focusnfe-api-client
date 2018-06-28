@@ -9,6 +9,8 @@ import static java.lang.annotation.ElementType.*;
 
 /**
  * Anotação para injeção de dependencia CDI.
+ *
+ * @author frekele - Leandro Kersting de Freitas
  */
 @Target({TYPE, FIELD, METHOD, PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
