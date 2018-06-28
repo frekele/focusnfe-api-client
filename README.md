@@ -46,7 +46,7 @@ compile 'org.frekele.fiscal:focusnfe-api-client:1.0.0'
 | [FocusMDeV2Repository]       | MD-e API V2 remote call                 | [FocusMDeV2RepositoryIT]        |
 | [FocusWebHookV2Repository]   | WebHook API V2 remote call              | [FocusWebHookV2RepositoryIT]    |
 | [FocusNcmV2Repository]       | NCM API V2 remote call                  | [FocusNcmV2RepositoryIT]        |
-| [FocusBackupRepository]      | Backups API remote call                 | [FocusBackupRepositoryIT]       |
+| [FocusBackupV2Repository]    | Backups API V2 remote call              | [FocusBackupV2RepositoryIT]     |
 
 
 [FocusNFeV2Repository]: ./src/main/java/org/frekele/fiscal/focus/nfe/client/repository/nfe/FocusNFeV2Repository.java
@@ -54,7 +54,7 @@ compile 'org.frekele.fiscal:focusnfe-api-client:1.0.0'
 [FocusMDeV2Repository]: ./src/main/java/org/frekele/fiscal/focus/nfe/client/repository/mde/FocusMDeV2Repository.java
 [FocusWebHookV2Repository]: ./src/main/java/org/frekele/fiscal/focus/nfe/client/repository/webhook/FocusWebHookV2Repository.java
 [FocusNcmV2Repository]: ./src/main/java/org/frekele/fiscal/focus/nfe/client/repository/ncm/FocusNcmV2Repository.java
-[FocusBackupRepository]: ./src/main/java/org/frekele/fiscal/focus/nfe/client/repository/backup/FocusBackupRepository.java
+[FocusBackupV2Repository]: ./src/main/java/org/frekele/fiscal/focus/nfe/client/repository/backup/FocusBackupV2Repository.java
 
 
 [FocusNFeV2RepositoryIT]: ./src/test/java/org/frekele/fiscal/focus/nfe/client/repository/nfe/FocusNFeV2RepositoryIT.java
@@ -62,7 +62,7 @@ compile 'org.frekele.fiscal:focusnfe-api-client:1.0.0'
 [FocusMDeV2RepositoryIT]: ./src/test/java/org/frekele/fiscal/focus/nfe/client/repository/mde/FocusMDeV2RepositoryIT.java
 [FocusWebHookV2RepositoryIT]: ./src/test/java/org/frekele/fiscal/focus/nfe/client/repository/webhook/FocusWebHookV2RepositoryIT.java
 [FocusNcmV2RepositoryIT]: ./src/test/java/org/frekele/fiscal/focus/nfe/client/repository/ncm/FocusNcmV2RepositoryIT.java
-[FocusBackupRepositoryIT]: ./src/test/java/org/frekele/fiscal/focus/nfe/client/repository/backup/FocusBackupRepositoryIT.java
+[FocusBackupV2RepositoryIT]: ./src/test/java/org/frekele/fiscal/focus/nfe/client/repository/backup/FocusBackupV2RepositoryIT.java
 
 
 
