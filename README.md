@@ -66,14 +66,15 @@ compile 'org.frekele.fiscal:focusnfe-api-client:1.0.0'
 
 
 
-#### Example of use
+#### Example
+
 ```java
 public class MyMainExample {
 
     public static void main(String[] args) {
         ResteasyClient client = new ResteasyClientBuilder().build();
         FocusNFeAuth auth = FocusNFeAuth.newBuilder()
-            .withAccessToken("q1w2e3r4t5y6u7i8o9p0a1s2d3f4g5h6j7kl")
+            .withAccessToken("your-token-here")
             .withEnvironment(EnvironmentFocusNFeEnum.HOMOLOGATION)
             .build();
 
