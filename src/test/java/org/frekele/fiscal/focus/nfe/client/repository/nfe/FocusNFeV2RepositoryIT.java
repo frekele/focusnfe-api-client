@@ -17,6 +17,7 @@ import org.frekele.fiscal.focus.nfe.client.model.request.nfe.body.NFeCCeBodyRequ
 import org.frekele.fiscal.focus.nfe.client.model.request.nfe.body.NFeCancelarBodyRequest;
 import org.frekele.fiscal.focus.nfe.client.model.request.nfe.body.NFeEmailBodyRequest;
 import org.frekele.fiscal.focus.nfe.client.model.request.nfe.body.NFeInutilizarBodyRequest;
+import org.frekele.fiscal.focus.nfe.client.model.response.download.DownloadFileResponse;
 import org.frekele.fiscal.focus.nfe.client.model.response.nfe.NFeAutorizarResponse;
 import org.frekele.fiscal.focus.nfe.client.model.response.nfe.NFeCCeResponse;
 import org.frekele.fiscal.focus.nfe.client.model.response.nfe.NFeCancelarResponse;
@@ -28,6 +29,8 @@ import org.frekele.fiscal.focus.nfe.client.model.response.nfe.body.NFeCCeBodyRes
 import org.frekele.fiscal.focus.nfe.client.model.response.nfe.body.NFeCancelarBodyResponse;
 import org.frekele.fiscal.focus.nfe.client.model.response.nfe.body.NFeConsultarBodyResponse;
 import org.frekele.fiscal.focus.nfe.client.model.response.nfe.body.NFeInutilizarBodyResponse;
+import org.frekele.fiscal.focus.nfe.client.repository.download.FocusDownloadRepository;
+import org.frekele.fiscal.focus.nfe.client.repository.download.FocusDownloadRepositoryImpl;
 import org.frekele.fiscal.focus.nfe.client.testng.FocusTestNGUtils;
 import org.frekele.fiscal.focus.nfe.client.testng.InvokedMethodListener;
 import org.jboss.resteasy.client.jaxrs.ResteasyClient;
@@ -39,6 +42,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import javax.ws.rs.ClientErrorException;
+import java.io.InputStream;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -51,6 +55,8 @@ import java.util.UUID;
 public class FocusNFeV2RepositoryIT {
 
     private FocusNFeV2Repository repository;
+
+    private FocusDownloadRepository downloadRepository;
 
     private String cnpjEmitente;
 
@@ -68,6 +74,7 @@ public class FocusNFeV2RepositoryIT {
             .build();
         ResteasyClient client = new ResteasyClientBuilder().build();
         repository = new FocusNFeV2RepositoryImpl(client, auth);
+        downloadRepository = new FocusDownloadRepositoryImpl(client, auth);
 
         reference = UUID.randomUUID().toString();
         System.out.println("Reference: " + reference);
@@ -256,8 +263,23 @@ public class FocusNFeV2RepositoryIT {
 
     @Test(dependsOnMethods = "testInutilizarWithError")
     public void testAutorizar2() throws Exception {
+        //Create a new reference.
         reference = UUID.randomUUID().toString();
         System.out.println("Reference: " + reference);
         testAutorizar();
+    }
+
+    @Test(dependsOnMethods = "testAutorizar2")
+    public void testDownloadXmlFile() throws Exception {
+        String pathXmlNFe = repository.consultar(reference).getBody().getCaminhoXmlNotaFiscal();
+        DownloadFileResponse response = downloadRepository.downloadXml(pathXmlNFe);
+        InputStream inputStream = response.getBody();
+    }
+
+    @Test(dependsOnMethods = "testDownloadXmlFile")
+    public void testDownloadDanfeFile() throws Exception {
+        String pathDanfeNFe = repository.consultar(reference).getBody().getCaminhoDanfe();
+        DownloadFileResponse response = downloadRepository.downloadPdf(pathDanfeNFe);
+        InputStream inputStream = response.getBody();
     }
 }

@@ -2,8 +2,12 @@ package org.frekele.fiscal.focus.nfe.client.repository.backup;
 
 import org.frekele.fiscal.focus.nfe.client.auth.EnvironmentFocusNFeEnum;
 import org.frekele.fiscal.focus.nfe.client.auth.FocusNFeAuth;
+import org.frekele.fiscal.focus.nfe.client.model.entities.backup.NFeBackup;
 import org.frekele.fiscal.focus.nfe.client.model.response.backup.BackupConsultaResponse;
 import org.frekele.fiscal.focus.nfe.client.model.response.backup.body.BackupConsultarBodyResponse;
+import org.frekele.fiscal.focus.nfe.client.model.response.download.DownloadFileResponse;
+import org.frekele.fiscal.focus.nfe.client.repository.download.FocusDownloadRepository;
+import org.frekele.fiscal.focus.nfe.client.repository.download.FocusDownloadRepositoryImpl;
 import org.frekele.fiscal.focus.nfe.client.testng.FocusTestNGUtils;
 import org.frekele.fiscal.focus.nfe.client.testng.InvokedMethodListener;
 import org.jboss.resteasy.client.jaxrs.ResteasyClient;
@@ -14,6 +18,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 /**
  * @author frekele - Leandro Kersting de Freitas
  */
@@ -21,6 +27,8 @@ import org.testng.annotations.Test;
 public class FocusBackupV2RepositoryIT {
 
     private FocusBackupV2Repository repository;
+
+    private FocusDownloadRepository downloadRepository;
 
     private String cnpjEmitente;
 
@@ -36,6 +44,7 @@ public class FocusBackupV2RepositoryIT {
             .build();
         ResteasyClient client = new ResteasyClientBuilder().build();
         repository = new FocusBackupV2RepositoryImpl(client, auth);
+        downloadRepository = new FocusDownloadRepositoryImpl(client, auth);
     }
 
     @AfterMethod
@@ -53,5 +62,17 @@ public class FocusBackupV2RepositoryIT {
         System.out.println("Status: " + response.getStatus());
         BackupConsultarBodyResponse bodyResponse = response.getBody();
         System.out.println("Body.Backups.size: " + bodyResponse.getBackups().size());
+    }
+
+    @Test(dependsOnMethods = "testConsultarTodos")
+    public void testDownloadZip() throws Exception {
+        List<NFeBackup> backups = repository.consultarTodos(cnpjEmitente).getBody().getBackups();
+        if (!backups.isEmpty()) {
+            if (backups.get(0) != null && backups.get(0).getDanfes() != null && !backups.get(0).getDanfes().isEmpty()) {
+                String pathBackupDanfes = backups.get(0).getDanfes();
+                DownloadFileResponse response = downloadRepository.downloadZip(pathBackupDanfes);
+                response.getBody();
+            }
+        }
     }
 }

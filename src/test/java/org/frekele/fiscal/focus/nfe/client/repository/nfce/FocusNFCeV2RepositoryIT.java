@@ -16,6 +16,7 @@ import org.frekele.fiscal.focus.nfe.client.model.request.nfce.body.NFCeAutorizar
 import org.frekele.fiscal.focus.nfe.client.model.request.nfce.body.NFCeCancelarBodyRequest;
 import org.frekele.fiscal.focus.nfe.client.model.request.nfce.body.NFCeEmailBodyRequest;
 import org.frekele.fiscal.focus.nfe.client.model.request.nfce.body.NFCeInutilizarBodyRequest;
+import org.frekele.fiscal.focus.nfe.client.model.response.download.DownloadFileResponse;
 import org.frekele.fiscal.focus.nfe.client.model.response.nfce.NFCeAutorizarResponse;
 import org.frekele.fiscal.focus.nfe.client.model.response.nfce.NFCeCancelarResponse;
 import org.frekele.fiscal.focus.nfe.client.model.response.nfce.NFCeConsultarResponse;
@@ -25,6 +26,8 @@ import org.frekele.fiscal.focus.nfe.client.model.response.nfce.body.NFCeAutoriza
 import org.frekele.fiscal.focus.nfe.client.model.response.nfce.body.NFCeCancelarBodyResponse;
 import org.frekele.fiscal.focus.nfe.client.model.response.nfce.body.NFCeConsultarBodyResponse;
 import org.frekele.fiscal.focus.nfe.client.model.response.nfce.body.NFCeInutilizarBodyResponse;
+import org.frekele.fiscal.focus.nfe.client.repository.download.FocusDownloadRepository;
+import org.frekele.fiscal.focus.nfe.client.repository.download.FocusDownloadRepositoryImpl;
 import org.frekele.fiscal.focus.nfe.client.testng.FocusTestNGUtils;
 import org.frekele.fiscal.focus.nfe.client.testng.InvokedMethodListener;
 import org.jboss.resteasy.client.jaxrs.ResteasyClient;
@@ -36,6 +39,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import javax.ws.rs.ClientErrorException;
+import java.io.InputStream;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -49,11 +53,13 @@ public class FocusNFCeV2RepositoryIT {
 
     private FocusNFCeV2Repository repository;
 
+    private FocusDownloadRepository downloadRepository;
+
     private String cnpjEmitente;
 
     private String reference;
 
-    NFeEnvioRequisicaoNotaFiscal nfce;
+    private NFeEnvioRequisicaoNotaFiscal nfce;
 
     @BeforeClass
     public void init() throws Exception {
@@ -67,6 +73,7 @@ public class FocusNFCeV2RepositoryIT {
             .build();
         ResteasyClient client = new ResteasyClientBuilder().build();
         repository = new FocusNFCeV2RepositoryImpl(client, auth);
+        downloadRepository = new FocusDownloadRepositoryImpl(client, auth);
 
         reference = UUID.randomUUID().toString();
         System.out.println("Reference: " + reference);
@@ -213,7 +220,7 @@ public class FocusNFCeV2RepositoryIT {
 
     @Test(dependsOnMethods = "testInutilizarWithError")
     public void testAutorizarConsultarNFeCompleta() throws Exception {
-        String reference = UUID.randomUUID().toString();
+        reference = UUID.randomUUID().toString();
         System.out.println("Reference: " + reference);
         NFCeAutorizarBodyRequest bodyRequest = NFCeAutorizarBodyRequest.newBuilder().withNfce(nfce).build();
         NFCeAutorizarResponse response = repository.autorizarConsultarNFeCompleta(reference, bodyRequest);
@@ -223,5 +230,19 @@ public class FocusNFCeV2RepositoryIT {
         System.out.println("Status: " + response.getStatus());
         NFCeAutorizarBodyResponse bodyResponse = response.getBody();
         System.out.println("Body.Status: " + bodyResponse.getStatus());
+    }
+
+    @Test(dependsOnMethods = "testAutorizarConsultarNFeCompleta")
+    public void testDownloadXmlFile() throws Exception {
+        String pathXmlNFe = repository.consultar(reference).getBody().getCaminhoXmlNotaFiscal();
+        DownloadFileResponse response = downloadRepository.downloadXml(pathXmlNFe);
+        InputStream inputStream = response.getBody();
+    }
+
+    @Test(dependsOnMethods = "testDownloadXmlFile")
+    public void testDownloadDanfeFile() throws Exception {
+        String pathDanfeNFe = repository.consultar(reference).getBody().getCaminhoDanfe();
+        DownloadFileResponse response = downloadRepository.downloadHtml(pathDanfeNFe);
+        InputStream inputStream = response.getBody();
     }
 }
