@@ -47,6 +47,7 @@ compile 'org.frekele.fiscal:focusnfe-api-client:1.0.1'
 | [FocusWebHookV2Repository]   | WebHook API V2 remote call              | [FocusWebHookV2RepositoryIT]    |
 | [FocusNcmV2Repository]       | NCM API V2 remote call                  | [FocusNcmV2RepositoryIT]        |
 | [FocusBackupV2Repository]    | Backups API V2 remote call              | [FocusBackupV2RepositoryIT]     |
+| [FocusDownloadRepository]    | Download Files remote call              | [FocusDownloadRepositoryIT]     |
 
 
 [FocusNFeV2Repository]: ./src/main/java/org/frekele/fiscal/focus/nfe/client/repository/nfe/FocusNFeV2Repository.java
@@ -55,6 +56,7 @@ compile 'org.frekele.fiscal:focusnfe-api-client:1.0.1'
 [FocusWebHookV2Repository]: ./src/main/java/org/frekele/fiscal/focus/nfe/client/repository/webhook/FocusWebHookV2Repository.java
 [FocusNcmV2Repository]: ./src/main/java/org/frekele/fiscal/focus/nfe/client/repository/ncm/FocusNcmV2Repository.java
 [FocusBackupV2Repository]: ./src/main/java/org/frekele/fiscal/focus/nfe/client/repository/backup/FocusBackupV2Repository.java
+[FocusDownloadRepository]: ./src/main/java/org/frekele/fiscal/focus/nfe/client/repository/download/FocusDownloadRepository.java
 
 
 [FocusNFeV2RepositoryIT]: ./src/test/java/org/frekele/fiscal/focus/nfe/client/repository/nfe/FocusNFeV2RepositoryIT.java
@@ -63,6 +65,7 @@ compile 'org.frekele.fiscal:focusnfe-api-client:1.0.1'
 [FocusWebHookV2RepositoryIT]: ./src/test/java/org/frekele/fiscal/focus/nfe/client/repository/webhook/FocusWebHookV2RepositoryIT.java
 [FocusNcmV2RepositoryIT]: ./src/test/java/org/frekele/fiscal/focus/nfe/client/repository/ncm/FocusNcmV2RepositoryIT.java
 [FocusBackupV2RepositoryIT]: ./src/test/java/org/frekele/fiscal/focus/nfe/client/repository/backup/FocusBackupV2RepositoryIT.java
+[FocusDownloadRepositoryIT]: ./src/test/java/org/frekele/fiscal/focus/nfe/client/repository/download/FocusDownloadRepositoryIT.java
 
 
 
@@ -192,7 +195,7 @@ NFeEnvioRequisicaoNotaFiscal nfe = NFeEnvioRequisicaoNotaFiscal.newBuilder()
     .withDataEmissao(OffsetDateTime.now())
     .withTipoDocumento(NFeTipoDocumentoEnum.NOTA_FISCAL_SAIDA)
     .withFinalidadeEmissao(NFeFinalidadeEmissaoEnum.NOTA_NORMAL)
-    .withCnpjEmitente("39315364000104")
+    .withCnpjEmitente("your-cnpj-here")
     .withNomeDestinatario("NF-E EMITIDA EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL")
     .withCpfDestinatario("98445556550")
     .withTelefoneDestinatario("5196185555")
@@ -304,7 +307,7 @@ NFeConsultarResponse response = repository.consultarNFeCompleta(reference);
 #### POST - Inutilizar NF-e NFC-e
 ```java
 NFeInutilizarBodyRequest bodyRequest = NFeInutilizarBodyRequest.newBuilder()
-    .withCnpj("39315364000104")
+    .withCnpj("your-cnpj-here")
     .withSerie("1")
     .withNumeroInicial("7")
     .withNumeroFinal("9")
@@ -328,7 +331,7 @@ MDeManifestarResponse response = repository.manifestar(chaveNFe, bodyRequest);
 
 #### GET - ConsultarManifestos
 ```java
-String cnpjEmitente = "39315364000104";
+String cnpjEmitente = "your-cnpj-here";
 MDeConsultarManifestosResponse response = repository.consultarManifestos(cnpjEmitente);
 
 //Or with parameter 'versao'
@@ -337,7 +340,7 @@ MDeConsultarManifestosResponse response = repository.consultarManifestos(cnpjEmi
 
 #### GET - ConsultarManifestos
 ```java
-String cnpjEmitente = "39315364000104";
+String cnpjEmitente = "your-cnpj-here";
 MDeConsultarManifestosResponse response = repository.consultarManifestosPendentes(cnpjEmitente);
 
 //Or with parameter 'versao'
@@ -385,7 +388,7 @@ MDeDownloadXmlResponse response = repository.downloadUltimaCCe(chaveNFe);
 
 #### POST - Criar
 ```java
-String cnpjEmitente = "39315364000104";
+String cnpjEmitente = "your-cnpj-here";
 WebHookCriarBodyRequest bodyRequest = WebHookCriarBodyRequest.newBuilder()
     .withCnpj(cnpjEmitente)
     .withEvent("nfe")
@@ -450,13 +453,51 @@ NcmConsultarTodosResponse response = repository.consultarTodos(queryParam);
 ```
 
 
+
 ### Example usage for search Backups
 
 #### GET - Consultar
 ```java
-String cnpjEmitente = "39315364000104";
+String cnpjEmitente = "your-cnpj-here";
 BackupConsultaResponse response = repository.consultarTodos(cnpjEmitente);
 ```
+
+
+
+### Example usage for Download Files
+
+#### GET - DownloadXml
+```java
+String reference = "your-reference";
+ String pathXmlNFe = nfeRepository.consultar(reference).getBody().getCaminhoXmlNotaFiscal();
+DownloadFileResponse response = downloadRepository.downloadXml(pathXmlNFe);
+InputStream inputStream = response.getBody();
+```
+
+#### GET - DownloadPdf
+```java
+String reference = "your-reference";
+ String pathDanfeNFe = nfeRepository.consultar(reference).getBody().getCaminhoDanfe();
+DownloadFileResponse response = downloadRepository.downloadPdf(pathDanfeNFe);
+InputStream inputStream = response.getBody();
+```
+
+#### GET - DownloadHtml
+```java
+String reference = "your-reference";
+ String pathDanfeNFCe = nfeRepository.consultar(reference).getBody().getCaminhoDanfe();
+DownloadFileResponse response = downloadRepository.downloadHtml(pathDanfeNFe);
+InputStream inputStream = response.getBody();
+```
+
+#### GET - DownloadZip
+```java
+String cnpjEmitente = "your-cnpj-here";
+NFeBackup backup = backupRepository.consultarTodos(cnpjEmitente).getBody().getBackups().get(0);
+DownloadFileResponse response = downloadRepository.downloadZip(backup.getDanfes());
+InputStream inputStream = response.getBody();
+```
+
 
 
 #### Custom Logging for Response and Request
