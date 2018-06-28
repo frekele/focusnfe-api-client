@@ -33,5 +33,15 @@ public class ResponseLoggingFilterTest {
         when(responseContext.getEntityStream()).thenReturn(new ByteArrayInputStream(content.getBytes("UTF-8")));
         when(responseContext.getMediaType()).thenReturn(MediaType.APPLICATION_JSON_TYPE.withCharset("UTF-8"));
         new ResponseLoggingFilter().filter(requestContext, responseContext);
+
+        when(responseContext.hasEntity()).thenReturn(true);
+        when(responseContext.getEntityStream()).thenReturn(new ByteArrayInputStream(content.getBytes("UTF-8")));
+        when(responseContext.getMediaType()).thenReturn(new MediaType("application", "pdf"));
+        new ResponseLoggingFilter().filter(requestContext, responseContext);
+
+        when(responseContext.hasEntity()).thenReturn(true);
+        when(responseContext.getEntityStream()).thenReturn(new ByteArrayInputStream(content.getBytes("UTF-8")));
+        when(responseContext.getMediaType()).thenReturn(new MediaType("application", "zip"));
+        new ResponseLoggingFilter().filter(requestContext, responseContext);
     }
 }
