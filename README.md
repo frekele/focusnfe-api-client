@@ -65,6 +65,34 @@ compile 'org.frekele.fiscal:focusnfe-api-client:1.0.0'
 [FocusBackupRepositoryIT]: ./src/test/java/org/frekele/fiscal/focus/nfe/client/repository/backup/FocusBackupRepositoryIT.java
 
 
+
+#### Example of use
+```java
+public class MyMainExample {
+
+    public static void main(String[] args) {
+        ResteasyClient client = new ResteasyClientBuilder().build();
+        FocusNFeAuth auth = FocusNFeAuth.newBuilder()
+            .withAccessToken("q1w2e3r4t5y6u7i8o9p0a1s2d3f4g5h6j7kl")
+            .withEnvironment(EnvironmentFocusNFeEnum.HOMOLOGATION)
+            .build();
+
+        FocusNFeV2Repository repository = new FocusNFeV2RepositoryImpl(client, auth);
+
+        String reference = UUID.randomUUID().toString();
+        NFeConsultarBodyResponse bodyResponse = repository.consultarNFeCompleta(reference).getBody();
+
+        NFeProtocoloNotaFiscal protocoloNotaFiscal = bodyResponse.getProtocoloNotaFiscal();
+        NFeRetornoRequisicaoNotaFiscal requisicaoNotaFiscal = bodyResponse.getRequisicaoNotaFiscal();
+        String chaveNfe = requisicaoNotaFiscal.getChaveNfe();
+        String pathXmlNFe = bodyResponse.getCaminhoXmlNotaFiscal();
+        String pathDanfeNFe = bodyResponse.getCaminhoDanfe();
+    }
+}
+```
+
+
+
 #### Usage with CDI (Contexts and Dependency Injection)
 
 ```java
@@ -82,13 +110,9 @@ public class FocusNFeProducer {
     @FocusNFe
     public ResteasyClient producesResteasyClient() {
         ResteasyClient client = new ResteasyClientBuilder()
-                // Example, you can customize a connections.
-                // Add proxy.
-                //.defaultProxy("192.168.56.67", 3456)
-                // Change connection Pool size.
-                //.connectionPoolSize(3)
-                // Change connection TTL.
-                //.connectionTTL(30, TimeUnit.MINUTES)
+                // Example:
+                // Register your Custom Logging here.
+                //.register(CustomLoggingFilter.class)
                 .build();
         return client;
     }
@@ -111,14 +135,14 @@ public class MyService {
             .withNaturezaOperacao("VENDA DE MERCADORIA")
             .withDataEmissao(OffsetDateTime.now())
             .withTipoDocumento(NFeTipoDocumentoEnum.NOTA_FISCAL_SAIDA)
-	    ........... (more fields)
+	    ........... (add more fields)
             .build();
         NFeAutorizarResponse response = repository.autorizar(reference, new NFeAutorizarBodyRequest(nfe));
         NFeAutorizarBodyResponse body = response.getBody();
     }
 }
-
 ```
+
 
 #### Usage without CDI
 
@@ -137,8 +161,13 @@ public class MyService {
 
         //Build one client per thread, or use CDI Injection.
         ResteasyClient client = new ResteasyClientBuilder()
-                // Register your Custom Logging here.
-                //.register(CustomLoggingFilter.class)
+                // Example, you can customize a connections.
+                // Add proxy.
+                //.defaultProxy("192.168.56.67", 3456)
+                // Change connection Pool size.
+                //.connectionPoolSize(3)
+                // Change connection TTL.
+                //.connectionTTL(30, TimeUnit.MINUTES)
                 .build();
 
         FocusNFeV2Repository repository = new FocusNFeV2RepositoryImpl(client, auth);
@@ -263,7 +292,7 @@ NFeEmailResponse response = repository.enviarEmail(reference, bodyRequest);
 
 #### GET - Consultar NF-e NFC-e
 ```java
- NFeConsultarResponse response = repository.consultar(reference);
+NFeConsultarResponse response = repository.consultar(reference);
 ```
 
 #### GET - ConsultarNFeCompleta NF-e NFC-e
