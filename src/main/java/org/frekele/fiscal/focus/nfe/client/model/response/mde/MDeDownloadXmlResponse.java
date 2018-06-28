@@ -7,6 +7,7 @@ import org.jboss.resteasy.annotations.Status;
 
 import javax.ws.rs.HeaderParam;
 import javax.ws.rs.core.Response;
+import java.io.InputStream;
 
 /**
  * ResponseObject Download Xml MD-e.
@@ -50,7 +51,7 @@ public interface MDeDownloadXmlResponse extends FocusNFeEntity {
      * Corpo da Resposta.
      */
     @Body
-    String getBody();
+    InputStream getBody();
 
     /**
      * Corpo da Resposta em String.
