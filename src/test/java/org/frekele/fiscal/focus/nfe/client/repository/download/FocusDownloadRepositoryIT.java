@@ -19,6 +19,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 
+import java.io.InputStream;
 import java.util.List;
 
 /**
@@ -65,7 +66,7 @@ public class FocusDownloadRepositoryIT {
         String reference = "27415e72-81a9-49fc-a381-d81247ede6f3";
         String pathXmlNFe = nfeRepository.consultar(reference).getBody().getCaminhoXmlNotaFiscal();
         DownloadFileResponse response = repository.downloadXml(pathXmlNFe);
-        response.getBody();
+        InputStream inputStream = response.getBody();
     }
 
     //@Test(dependsOnMethods = "testDownloadXml")
@@ -73,7 +74,7 @@ public class FocusDownloadRepositoryIT {
         String reference = "27415e72-81a9-49fc-a381-d81247ede6f3";
         String pathDanfeNFe = nfeRepository.consultar(reference).getBody().getCaminhoDanfe();
         DownloadFileResponse response = repository.downloadPdf(pathDanfeNFe);
-        response.getBody();
+        InputStream inputStream = response.getBody();
     }
 
     //@Test(dependsOnMethods = "testDownloadPdf")
@@ -81,7 +82,7 @@ public class FocusDownloadRepositoryIT {
         String reference = "3b098972-9072-4385-ac11-d19c3039efb2";
         String pathDanfeNFCe = nfceRepository.consultar(reference).getBody().getCaminhoDanfe();
         DownloadFileResponse response = repository.downloadHtml(pathDanfeNFCe);
-        response.getBody();
+        InputStream inputStream = response.getBody();
     }
 
     //@Test(dependsOnMethods = "testDownloadHtml")
@@ -92,7 +93,7 @@ public class FocusDownloadRepositoryIT {
             if (backup != null && backup.getDanfes() != null && !backup.getDanfes().isEmpty()) {
                 String pathBackupDanfes = backup.getDanfes();
                 DownloadFileResponse response = repository.downloadZip(pathBackupDanfes);
-                response.getBody();
+                InputStream inputStream = response.getBody();
             }
         }
     }
