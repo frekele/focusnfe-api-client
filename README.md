@@ -375,7 +375,7 @@ WebHookConsultarResponse response = repository.consultar(webHookId);
 WebHookConsultarTodosResponse response = repository.consultarTodos();
 ```
 
-#### GET - Excluir
+#### DELETE - Excluir
 ```java
 WebHookExcluirResponse response = repository.excluir(webHookId);
 ```
@@ -462,6 +462,37 @@ public class CustomLoggingFilter implements ClientResponseFilter, ClientRequestF
 
 ### If you need to convert Json or Objects manually, do so:
 
+
+#### Json --> JsonNode
+```java
+JsonNode jsonNode = FocusNFeUtils.parseJsonToJsonNode(content);
+```
+
+#### Json --> Object
+```java
+String content = "{ ..... }";
+Class classType = MDeManifesto.class;
+MDeManifesto manifesto = FocusNFeUtils.parseJsonTo(content, classType);
+```
+
+#### JsonNode --> String
+```java
+String jsonString = FocusNFeUtils.parseJsonToString(jsonNode);
+
+//with pretty printer
+String jsonString = FocusNFeUtils.parseJsonToString(jsonNode, true);
+```
+
+#### Xml --> JsonNode
+```java
+JsonNode jsonNode = FocusNFeUtils.parseXmlToJsonNode(content);
+```
+
+#### Xml --> Document
+```java
+Document document = FocusNFeUtils.parseXmlToDocument(content);
+```
+
 #### Json --> Object
 ```java
 ObjectMapper mapper = new ObjectMapper();
@@ -492,31 +523,7 @@ manifestos.add(manifesto2);
 String jsonArray = mapper.writeValueAsString(manifestos);
 ```
 
-#### Json --> Object
-```java
-MDeManifesto manifesto = FocusNFeUtils.parseJsonToJsonNode(content, classType);
-```
-
-#### Json --> JsonNode
-```java
-JsonNode jsonNode = FocusNFeUtils.parseJsonToJsonNode(content);
-```
-
-#### JsonNode --> String
-```java
-String jsonString = FocusNFeUtils.parseJsonToString(jsonNode);
-String jsonString = FocusNFeUtils.parseJsonToString(jsonNode, true);
-```
-
-#### Xml --> JsonNode
-```java
-JsonNode jsonNode = FocusNFeUtils.parseXmlToJsonNode(content);
-```
-
-#### Xml --> Document
-```java
-Document document = FocusNFeUtils.parseXmlToDocument(content);
-```
+### Compile:
 
 #### Compile with Maven:
 ```
