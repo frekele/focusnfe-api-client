@@ -60,6 +60,9 @@ public class NFeProtocoloCancelamento implements FocusNFeEntity {
     @JsonProperty("cnpj")
     private String cnpj;
 
+    @JsonProperty("cpf")
+    private String cpf;
+
     public NFeProtocoloCancelamento() {
         super();
     }
@@ -77,6 +80,7 @@ public class NFeProtocoloCancelamento implements FocusNFeEntity {
         setDataEvento(builder.dataEvento);
         setNumeroProtocolo(builder.numeroProtocolo);
         setCnpj(builder.cnpj);
+        setCpf(builder.cpf);
     }
 
     public static Builder newBuilder() {
@@ -179,6 +183,14 @@ public class NFeProtocoloCancelamento implements FocusNFeEntity {
         this.cnpj = cnpj;
     }
 
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
     /**
      * NFeProtocoloCancelamento Builder Pattern.
      */
@@ -207,6 +219,8 @@ public class NFeProtocoloCancelamento implements FocusNFeEntity {
         private String numeroProtocolo;
 
         private String cnpj;
+
+        private String cpf;
 
         private Builder() {
         }
@@ -268,6 +282,11 @@ public class NFeProtocoloCancelamento implements FocusNFeEntity {
 
         public Builder withCnpj(String val) {
             cnpj = val;
+            return this;
+        }
+
+        public Builder withCpf(String val) {
+            cpf = val;
             return this;
         }
 

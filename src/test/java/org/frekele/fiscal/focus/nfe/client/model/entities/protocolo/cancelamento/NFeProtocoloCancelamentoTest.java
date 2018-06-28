@@ -27,7 +27,8 @@ public class NFeProtocoloCancelamentoTest {
         String descricaoEvento = "Cancelamento";
         OffsetDateTime dataEvento = OffsetDateTime.now();
         String numeroProtocolo = "143180007240354";
-        String cnpj="00549100030551";
+        String cnpj = "00549100030551";
+        String cpf = "89761234567";
 
         NFeProtocoloCancelamento entity = new NFeProtocoloCancelamento();
         entity.setVersao(versao);
@@ -42,6 +43,7 @@ public class NFeProtocoloCancelamentoTest {
         entity.setDataEvento(dataEvento);
         entity.setNumeroProtocolo(numeroProtocolo);
         entity.setCnpj(cnpj);
+        entity.setCpf(cpf);
 
         assertNotNull(entity);
         assertEquals(versao, entity.getVersao());
@@ -56,6 +58,7 @@ public class NFeProtocoloCancelamentoTest {
         assertEquals(dataEvento, entity.getDataEvento());
         assertEquals(numeroProtocolo, entity.getNumeroProtocolo());
         assertEquals(cnpj, entity.getCnpj());
+        assertEquals(cpf, entity.getCpf());
 
         entity = NFeProtocoloCancelamento.newBuilder()
             .withVersao(versao)
@@ -70,6 +73,7 @@ public class NFeProtocoloCancelamentoTest {
             .withDataEvento(dataEvento)
             .withNumeroProtocolo(numeroProtocolo)
             .withCnpj(cnpj)
+            .withCpf(cpf)
             .build();
 
         assertNotNull(entity);
@@ -85,5 +89,6 @@ public class NFeProtocoloCancelamentoTest {
         assertEquals(dataEvento, entity.getDataEvento());
         assertEquals(numeroProtocolo, entity.getNumeroProtocolo());
         assertEquals(cnpj, entity.getCnpj());
+        assertEquals(cpf, entity.getCpf());
     }
 }
