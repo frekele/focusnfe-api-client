@@ -75,8 +75,8 @@ public class FocusNFeV2RepositoryIT {
 
     @AfterMethod
     public void afterMethod() throws Exception {
-        //After Method Sleep 2 seg, for prevent Error.
-        FocusTestNGUtils.sleep(2);
+        //After Method Sleep 3 seg, for prevent Error.
+        FocusTestNGUtils.sleep(3);
     }
 
     @Test
