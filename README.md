@@ -16,12 +16,8 @@
 
 Built-based on the documentation: [https://focusnfe.com.br/doc/](https://focusnfe.com.br/doc/)
 
-Project built with RESTEasy 3.5.x + Jackson 2.x.x.
-
-
 #### Supported Java Versions:
 - requires Java 8 (or higher) at runtime.
-
 
 #### Maven dependency:
 ```xml
@@ -36,6 +32,9 @@ Project built with RESTEasy 3.5.x + Jackson 2.x.x.
 ```gradle
 compile 'org.frekele.fiscal:focusnfe-api-client:1.0.2'
 ```
+
+[Java Documetation](https://www.javadoc.io/doc/org.frekele.fiscal/focusnfe-api-client) 
+
 
 #### Repositories:
 
