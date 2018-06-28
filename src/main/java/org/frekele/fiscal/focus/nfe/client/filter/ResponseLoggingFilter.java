@@ -37,9 +37,15 @@ public class ResponseLoggingFilter implements ClientResponseFilter {
             if (responseContext.hasEntity()) {
                 String body = FocusNFeUtils.responseBodyToString(responseContext);
                 if (body != null && !body.trim().isEmpty()) {
-                    if (responseContext.getMediaType() != null && responseContext.getMediaType().getSubtype().equals("json")) {
-                        JsonNode jsonNode = FocusNFeUtils.parseJsonToJsonNode(body);
-                        body = FocusNFeUtils.parseJsonToString(jsonNode, true);
+                    if (responseContext.getMediaType() != null) {
+                        String subtype = responseContext.getMediaType().getSubtype();
+                        if (subtype.equalsIgnoreCase("json")) {
+                            JsonNode jsonNode = FocusNFeUtils.parseJsonToJsonNode(body);
+                            body = FocusNFeUtils.parseJsonToString(jsonNode, true);
+                        } else if (subtype.equalsIgnoreCase("pdf") || subtype.equalsIgnoreCase("zip")) {
+                            //if contain .pdf ou .zip file not insert into logging.
+                            body = "contain a file ..................";
+                        }
                     }
                     sb.append(body);
                     sb.append("\n");
