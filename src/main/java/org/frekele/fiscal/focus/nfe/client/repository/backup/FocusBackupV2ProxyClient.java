@@ -16,10 +16,10 @@ import java.io.Serializable;
  *
  * @author frekele - Leandro Kersting de Freitas
  */
-@Path("/")
+@Path("/v2")
 @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
 @Consumes({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-interface FocusBackupProxyClient extends Serializable {
+interface FocusBackupV2ProxyClient extends Serializable {
 
     /**
      * GET - Consultar os Backups disponíveis.

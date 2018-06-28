@@ -31,7 +31,7 @@ public class BackupConsultarBodyResponse implements FocusNFeEntity {
     /**
      * Lista de backups.
      */
-    @JsonProperty("backups")
+    @JsonProperty("arrayValues")
     private List<NFeBackup> backups;
 
     public BackupConsultarBodyResponse() {

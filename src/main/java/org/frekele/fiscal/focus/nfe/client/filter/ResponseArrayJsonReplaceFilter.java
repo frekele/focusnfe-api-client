@@ -25,6 +25,8 @@ public class ResponseArrayJsonReplaceFilter implements ClientResponseFilter {
 
     private static final String CONSULTAR_NCM_REL_PATH = "/v2/ncms";
 
+    private static final String CONSULTAR_BACKUPS_REL_PATH = "/v2/backups/";
+
     @Override
     public void filter(ClientRequestContext requestContext, ClientResponseContext responseContext) throws IOException {
         if (requestContext.getMethod() != null && requestContext.getUri() != null && requestContext.getUri().getSchemeSpecificPart() != null) {
@@ -33,7 +35,8 @@ public class ResponseArrayJsonReplaceFilter implements ClientResponseFilter {
             if ("GET".equalsIgnoreCase(method)) {
                 if (relativePath.contains(CONSULTAR_MANIFESTOS_REL_PATH) ||
                     relativePath.contains(CONSULTAR_WEB_HOOKS_REL_PATH) ||
-                    relativePath.contains(CONSULTAR_NCM_REL_PATH)) {
+                    relativePath.contains(CONSULTAR_NCM_REL_PATH) ||
+                    relativePath.contains(CONSULTAR_BACKUPS_REL_PATH)) {
                     FocusNFeUtils.replaceResponseBodyJsonArrayToJsonObject(responseContext);
                     this.getLogger().debug("replaceResponseBodyJsonArrayToJsonObject --> [.....] to { arrayValues : [.....] }");
                 }

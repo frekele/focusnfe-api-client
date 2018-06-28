@@ -9,7 +9,7 @@ import java.io.Serializable;
  *
  * @author frekele - Leandro Kersting de Freitas
  */
-public interface FocusBackupRepository extends Serializable {
+public interface FocusBackupV2Repository extends Serializable {
 
     /**
      * GET - Consultar os Backups disponíveis.

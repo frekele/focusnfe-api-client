@@ -4,6 +4,7 @@ import org.frekele.fiscal.focus.nfe.client.auth.FocusNFeAuth;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFe;
 import org.frekele.fiscal.focus.nfe.client.filter.RequestHeaderInfoFilter;
 import org.frekele.fiscal.focus.nfe.client.filter.RequestLoggingFilter;
+import org.frekele.fiscal.focus.nfe.client.filter.ResponseArrayJsonReplaceFilter;
 import org.frekele.fiscal.focus.nfe.client.filter.ResponseLoggingFilter;
 import org.frekele.fiscal.focus.nfe.client.model.response.backup.BackupConsultaResponse;
 import org.frekele.fiscal.focus.nfe.client.util.FocusNFeUtils;
@@ -18,7 +19,7 @@ import javax.inject.Inject;
  * @author frekele - Leandro Kersting de Freitas
  */
 @FocusNFe
-public class FocusBackupRepositoryImpl implements FocusBackupRepository {
+public class FocusBackupV2RepositoryImpl implements FocusBackupV2Repository {
 
     private static final long serialVersionUID = 1L;
 
@@ -27,13 +28,14 @@ public class FocusBackupRepositoryImpl implements FocusBackupRepository {
     private final FocusNFeAuth auth;
 
     @Inject
-    public FocusBackupRepositoryImpl(@FocusNFe ResteasyClient client, @FocusNFe FocusNFeAuth auth) {
+    public FocusBackupV2RepositoryImpl(@FocusNFe ResteasyClient client, @FocusNFe FocusNFeAuth auth) {
         FocusNFeUtils.throwInjection(client, auth);
         FocusNFeUtils.throwAuth(auth);
         this.client = client
             .register(RequestLoggingFilter.class)
             .register(ResponseLoggingFilter.class)
-            .register(RequestHeaderInfoFilter.class);
+            .register(RequestHeaderInfoFilter.class)
+            .register(ResponseArrayJsonReplaceFilter.class);
         this.auth = auth;
     }
 
@@ -45,10 +47,10 @@ public class FocusBackupRepositoryImpl implements FocusBackupRepository {
         return auth;
     }
 
-    private FocusBackupProxyClient getProxyClient() {
+    private FocusBackupV2ProxyClient getProxyClient() {
         ResteasyClient client = this.getClient();
         ResteasyWebTarget webTarget = client.target(this.getAuth().getEnvironment().getTargetUrl());
-        return webTarget.proxy(FocusBackupProxyClient.class);
+        return webTarget.proxy(FocusBackupV2ProxyClient.class);
     }
 
     /**
@@ -58,7 +60,7 @@ public class FocusBackupRepositoryImpl implements FocusBackupRepository {
     @Override
     public BackupConsultaResponse consultarTodos(String cnpj) {
         FocusNFeUtils.throwObject(cnpj, "cnpj");
-        FocusBackupProxyClient proxyClient = this.getProxyClient();
+        FocusBackupV2ProxyClient proxyClient = this.getProxyClient();
         return proxyClient.consultarTodos(this.getAuth().getBasicAuthorization(), cnpj);
     }
 }

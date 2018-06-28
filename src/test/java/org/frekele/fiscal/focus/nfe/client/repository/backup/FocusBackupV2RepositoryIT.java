@@ -12,14 +12,15 @@ import org.mockito.MockitoAnnotations;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
 
 /**
  * @author frekele - Leandro Kersting de Freitas
  */
 @Listeners(InvokedMethodListener.class)
-public class FocusBackupRepositoryIT {
+public class FocusBackupV2RepositoryIT {
 
-    private FocusBackupRepository repository;
+    private FocusBackupV2Repository repository;
 
     private String cnpjEmitente;
 
@@ -34,7 +35,7 @@ public class FocusBackupRepositoryIT {
             .withEnvironment(environment)
             .build();
         ResteasyClient client = new ResteasyClientBuilder().build();
-        repository = new FocusBackupRepositoryImpl(client, auth);
+        repository = new FocusBackupV2RepositoryImpl(client, auth);
     }
 
     @AfterMethod
@@ -43,7 +44,7 @@ public class FocusBackupRepositoryIT {
         FocusTestNGUtils.sleep(2);
     }
 
-    //@Test
+    @Test
     public void testConsultarTodos() throws Exception {
         BackupConsultaResponse response = repository.consultarTodos(cnpjEmitente);
         System.out.println("RateLimitLimit: " + response.getRateLimitLimit());
