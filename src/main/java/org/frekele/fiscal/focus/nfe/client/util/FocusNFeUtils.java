@@ -17,6 +17,7 @@ import javax.ws.rs.core.MediaType;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
@@ -243,5 +244,21 @@ public final class FocusNFeUtils {
      */
     public static Document parseXmlToDocument(InputStream xml) throws ParserConfigurationException, IOException, SAXException {
         return DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(xml);
+    }
+
+    /**
+     * Converte InputStream para byte[].
+     */
+    public static byte[] parseToByteArray(InputStream inputStream) throws IOException {
+        return IOUtils.toByteArray(inputStream);
+    }
+
+    /**
+     * Converte InputStream para ByteArrayOutputStream.
+     */
+    public static ByteArrayOutputStream parseToByteArrayOutputStream(InputStream inputStream) throws IOException {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        IOUtils.copy(inputStream, outputStream);
+        return outputStream;
     }
 }

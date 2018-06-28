@@ -16,6 +16,7 @@ import javax.validation.ConstraintViolationException;
 import javax.ws.rs.client.ClientResponseContext;
 import javax.ws.rs.core.MediaType;
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.math.BigDecimal;
 import java.nio.charset.Charset;
 
@@ -385,5 +386,21 @@ public class FocusNFeUtilsTest {
         assertEquals(element.getElementsByTagName("xMotivo").item(0).getFirstChild().getNodeValue(), "Evento registrado e vinculado a NF-e");
         assertEquals(element.getElementsByTagName("xEvento").item(0).getFirstChild().getNodeValue(), "Carta de Correcao");
         assertEquals(element.getElementsByTagName("nProt").item(0).getFirstChild().getNodeValue(), "141100004846601");
+    }
+
+    @Test
+    public void testParseToByteArray() throws Exception {
+        byte[] expectedValue = "{\"codigo\":\"123\",\"mensagem\":\"teste\"}".getBytes("UTF-8");
+        byte[] value = FocusNFeUtils.parseToByteArray(new ByteArrayInputStream(expectedValue));
+        assertNotNull(value);
+        assertEquals(value, expectedValue);
+    }
+
+    @Test
+    public void testParseToByteArrayOutputStream() throws Exception {
+        byte[] expectedValue = "{\"codigo\":\"123\",\"mensagem\":\"teste\"}".getBytes("UTF-8");
+        ByteArrayOutputStream value = FocusNFeUtils.parseToByteArrayOutputStream(new ByteArrayInputStream(expectedValue));
+        assertNotNull(value);
+        assertEquals(value.toByteArray(), expectedValue);
     }
 }
