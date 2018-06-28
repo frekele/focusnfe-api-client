@@ -68,7 +68,7 @@ compile 'org.frekele.fiscal:focusnfe-api-client:1.0.2'
 
 
 
-#### Example
+#### Sample Example
 
 ```java
 public class MyMainExample {
@@ -80,16 +80,21 @@ public class MyMainExample {
             .withEnvironment(EnvironmentFocusNFeEnum.HOMOLOGATION)
             .build();
 
-        FocusNFeV2Repository repository = new FocusNFeV2RepositoryImpl(client, auth);
+        FocusNFeV2Repository nfeRepository = new FocusNFeV2RepositoryImpl(client, auth);
 
         String reference = "your-nfe-reference";
-        NFeConsultarBodyResponse bodyResponse = repository.consultarNFeCompleta(reference).getBody();
+        NFeConsultarBodyResponse bodyResponse = nfeRepository.consultarNFeCompleta(reference).getBody();
 
-        NFeProtocoloNotaFiscal protocoloNotaFiscal = bodyResponse.getProtocoloNotaFiscal();
         NFeRetornoRequisicaoNotaFiscal requisicaoNotaFiscal = bodyResponse.getRequisicaoNotaFiscal();
+        NFeProtocoloNotaFiscal protocoloNotaFiscal = bodyResponse.getProtocoloNotaFiscal();
         String chaveNfe = requisicaoNotaFiscal.getChaveNfe();
+        String numeroProtocolo = protocoloNotaFiscal.getNumeroProtocolo();
         String pathXmlNFe = bodyResponse.getCaminhoXmlNotaFiscal();
         String pathDanfeNFe = bodyResponse.getCaminhoDanfe();
+
+        FocusDownloadRepository downloadRepository = new FocusDownloadRepositoryImpl(client, auth);
+        InputStream xmlInputStream = downloadRepository.downloadXml(pathXmlNFe).getBody();
+        InputStream pdfInputStream = downloadRepository.downloadPdf(pathDanfeNFe).getBody();
     }
 }
 ```
