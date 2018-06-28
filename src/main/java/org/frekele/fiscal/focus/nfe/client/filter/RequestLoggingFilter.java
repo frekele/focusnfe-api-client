@@ -34,7 +34,7 @@ public class RequestLoggingFilter implements ClientRequestFilter {
                 sb.append("--> Request - EntityClass = " + requestContext.getEntityClass());
                 sb.append("\n");
                 String body = null;
-                if (requestContext.getMediaType() != null && requestContext.getMediaType().getSubtype().equals("json")) {
+                if (requestContext.getMediaType() != null && requestContext.getMediaType().getSubtype().equalsIgnoreCase("json")) {
                     body = FocusNFeUtils.parseJsonToString(requestContext.getEntity(), true);
                 }
                 if (body == null) {
