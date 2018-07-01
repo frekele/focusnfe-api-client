@@ -12,7 +12,7 @@
 
 <img src="./docs/img/focusnfe-fiscal-man.svg" height="300" width="450">
 
-### REST Client - FocusNFe Brazilian fiscal Issuer NF-e NFC-e MD-e API
+### Java Connector - FocusNFe Brazilian fiscal Issuer NF-e NFC-e MD-e API
 
 Built-based on the documentation: [https://focusnfe.com.br/doc/](https://focusnfe.com.br/doc/)
 
