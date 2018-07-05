@@ -24,13 +24,13 @@ Built-based on the documentation: [https://focusnfe.com.br/doc/](https://focusnf
 <dependency>
     <groupId>org.frekele.fiscal</groupId>
     <artifactId>focusnfe-api-client</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
 </dependency>
 ```
 
 #### Gradle dependency:
 ```gradle
-compile 'org.frekele.fiscal:focusnfe-api-client:1.0.2'
+compile 'org.frekele.fiscal:focusnfe-api-client:1.0.3'
 ```
 
 [Java Documetation](https://www.javadoc.io/doc/org.frekele.fiscal/focusnfe-api-client) 
