@@ -105,13 +105,13 @@ public class FocusMDeV2RepositoryIT {
 
     @Test(dependsOnMethods = "testConsultarManifestosPendentes")
     public void testConsultarManifestosPendentesWithVersao() throws Exception {
-        //MDeConsultarManifestosResponse response = repository.consultarManifestosPendentes(cnpjEmitente, 40);
-        //System.out.println("RateLimitLimit: " + response.getRateLimitLimit());
-        //System.out.println("RateLimitRemaining: " + response.getRateLimitRemaining());
-        //System.out.println("RateLimitReset: " + response.getRateLimitReset());
-        //System.out.println("Status: " + response.getStatus());
-        //MDeConsultarManifestosBodyResponse bodyResponse = response.getBody();
-        //System.out.println("Body.Manifestos.size: " + bodyResponse.getManifestos().size());
+        MDeConsultarManifestosResponse response = repository.consultarManifestosPendentes(cnpjEmitente, 40);
+        System.out.println("RateLimitLimit: " + response.getRateLimitLimit());
+        System.out.println("RateLimitRemaining: " + response.getRateLimitRemaining());
+        System.out.println("RateLimitReset: " + response.getRateLimitReset());
+        System.out.println("Status: " + response.getStatus());
+        MDeConsultarManifestosBodyResponse bodyResponse = response.getBody();
+        System.out.println("Body.Manifestos.size: " + bodyResponse.getManifestos().size());
     }
 
     @Test(dependsOnMethods = "testConsultarManifestosPendentesWithVersao")
