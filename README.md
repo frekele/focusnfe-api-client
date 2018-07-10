@@ -87,12 +87,14 @@ public class MyMainExample {
 
         NFeRetornoRequisicaoNotaFiscal requisicaoNotaFiscal = bodyResponse.getRequisicaoNotaFiscal();
         NFeProtocoloNotaFiscal protocoloNotaFiscal = bodyResponse.getProtocoloNotaFiscal();
+        
         String chaveNfe = requisicaoNotaFiscal.getChaveNfe();
         String numeroProtocolo = protocoloNotaFiscal.getNumeroProtocolo();
         String pathXmlNFe = bodyResponse.getCaminhoXmlNotaFiscal();
         String pathDanfeNFe = bodyResponse.getCaminhoDanfe();
 
         FocusDownloadRepository downloadRepository = new FocusDownloadRepositoryImpl(client, auth);
+        
         InputStream xmlInputStream = downloadRepository.downloadXml(pathXmlNFe).getBody();
         InputStream pdfInputStream = downloadRepository.downloadPdf(pathDanfeNFe).getBody();
     }
