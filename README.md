@@ -503,8 +503,44 @@ InputStream inputStream = response.getBody();
 ```
 
 
+### Working with RestEasy (JAX-RS) Exceptions
 
-#### Custom Logging for Response and Request
+```java
+try {
+    MDeManifestarResponse response = repository.manifestar(chaveNFe, bodyRequest);
+    MDeManifestarBodyResponse bodyResponse = response.getBody();
+} catch (NotAuthorizedException e) {
+    throw new FocusNFeException("User not Authorized!", e);
+} catch (ClientErrorException e) {
+    NFeErro nFeErro = e.getResponse().readEntity(NFeErro.class);
+    throw new FocusNFeException("[ " + nFeErro.getCodigo() + " ] - " + nFeErro.getMensagem(), e);
+} catch (WebApplicationException e) {
+    int statusCode = e.getResponse().getStatus();
+    String bodyError = e.getResponse().readEntity(String.class);
+    throw new FocusNFeException(e);
+}
+```
+
+| HTTP Status Codes    | Expected RestEasy (JAX-RS) throw Exceptions          |
+| -------------------- | ---------------------------------------------------- |
+| >= 200 && < 300      |  OK - Without exception.                             |
+| >= 300 && < 400      |  throw new RedirectionException(response)            |
+| 400                  |  throw new BadRequestException(response)             |
+| 401                  |  throw new NotAuthorizedException(response)          |
+| 403                  |  throw new ForbiddenException(response)              |
+| 404                  |  throw new NotFoundException(response)               |
+| 405                  |  throw new NotAllowedException(response)             |
+| 406                  |  throw new NotAcceptableException(response)          |
+| 415                  |  throw new NotSupportedException(response)           |
+| 500                  |  throw new InternalServerErrorException(response)    |
+| 503                  |  throw new ServiceUnavailableException(response)     |
+| >= 400 && < 500      |  throw new ClientErrorException(response)            |
+| >= 500               |  throw new ServerErrorException(response)            |
+| Others               |  throw new WebApplicationException(response)         |
+
+
+
+### Custom Logging for Response and Request
 
 With the filter you can intercept all requests during sending and receiving responses.
 Everything before the Jackson conversion (json to Object) and (Object to Json).
