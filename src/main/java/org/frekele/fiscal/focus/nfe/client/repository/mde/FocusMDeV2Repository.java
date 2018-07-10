@@ -1,6 +1,8 @@
 package org.frekele.fiscal.focus.nfe.client.repository.mde;
 
 import org.frekele.fiscal.focus.nfe.client.model.request.mde.body.MDeManifestarBodyRequest;
+import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarCCeResponse;
+import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarCancelamentoResponse;
 import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarManifestosResponse;
 import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarNFeResponse;
 import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarUltimoManifestoResponse;
@@ -63,6 +65,30 @@ public interface FocusMDeV2Repository extends Serializable {
      * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/nfes_recebidas/CHAVE.json?completa=1
      */
     MDeConsultarNFeResponse consultarNFeCompleta(String chaveNFe);
+
+    /**
+     * GET - Se existir, Consulta as informações de cancelamento da nota fiscal informada.
+     * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/nfes_recebidas/CHAVE/cancelamento.json
+     */
+    MDeConsultarCancelamentoResponse consultarCancelamento(String chaveNFe);
+
+    /**
+     * GET - Se existir, Consulta as informações de cancelamento da nota fiscal informada.
+     * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/nfes_recebidas/CHAVE/cancelamento.json?completa=(0|1)
+     */
+    MDeConsultarCancelamentoResponse consultarCancelamentoCompleto(String chaveNFe);
+
+    /**
+     * GET - Se existir, Consulta as informações de carta de correção da nota fiscal informada.
+     * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/nfes_recebidas/CHAVE/carta_correcao.json
+     */
+    MDeConsultarCCeResponse consultarCCe(String chaveNFe);
+
+    /**
+     * GET - Se existir, Consulta as informações de carta de correção da nota fiscal informada.
+     * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/nfes_recebidas/CHAVE/carta_correcao.json?completa=(0|1)
+     */
+    MDeConsultarCCeResponse consultarCCeCompleta(String chaveNFe);
 
     /**
      * GET - Baixar o XML de uma nota fiscal especifica:

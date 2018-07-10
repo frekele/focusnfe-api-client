@@ -7,6 +7,8 @@ import org.frekele.fiscal.focus.nfe.client.filter.RequestLoggingFilter;
 import org.frekele.fiscal.focus.nfe.client.filter.ResponseArrayJsonReplaceFilter;
 import org.frekele.fiscal.focus.nfe.client.filter.ResponseLoggingFilter;
 import org.frekele.fiscal.focus.nfe.client.model.request.mde.body.MDeManifestarBodyRequest;
+import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarCCeResponse;
+import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarCancelamentoResponse;
 import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarManifestosResponse;
 import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarNFeResponse;
 import org.frekele.fiscal.focus.nfe.client.model.response.mde.MDeConsultarUltimoManifestoResponse;
@@ -148,6 +150,50 @@ public class FocusMDeV2RepositoryImpl implements FocusMDeV2Repository {
         FocusNFeUtils.throwObject(chaveNFe, "chaveNFe");
         FocusMDeV2ProxyClient proxyClient = this.getProxyClient();
         return proxyClient.consultarNFe(this.getAuth().getBasicAuthorization(), chaveNFe, 1);
+    }
+
+    /**
+     * GET - Se existir, Consulta as informações de cancelamento da nota fiscal informada.
+     * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/nfes_recebidas/CHAVE/cancelamento.json
+     */
+    @Override
+    public MDeConsultarCancelamentoResponse consultarCancelamento(String chaveNFe) {
+        FocusNFeUtils.throwObject(chaveNFe, "chaveNFe");
+        FocusMDeV2ProxyClient proxyClient = this.getProxyClient();
+        return proxyClient.consultarCancelamento(this.getAuth().getBasicAuthorization(), chaveNFe);
+    }
+
+    /**
+     * GET - Se existir, Consulta as informações de cancelamento da nota fiscal informada.
+     * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/nfes_recebidas/CHAVE/cancelamento.json?completa=(0|1)
+     */
+    @Override
+    public MDeConsultarCancelamentoResponse consultarCancelamentoCompleto(String chaveNFe) {
+        FocusNFeUtils.throwObject(chaveNFe, "chaveNFe");
+        FocusMDeV2ProxyClient proxyClient = this.getProxyClient();
+        return proxyClient.consultarCancelamento(this.getAuth().getBasicAuthorization(), chaveNFe, 1);
+    }
+
+    /**
+     * GET - Se existir, Consulta as informações de carta de correção da nota fiscal informada.
+     * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/nfes_recebidas/CHAVE/carta_correcao.json
+     */
+    @Override
+    public MDeConsultarCCeResponse consultarCCe(String chaveNFe) {
+        FocusNFeUtils.throwObject(chaveNFe, "chaveNFe");
+        FocusMDeV2ProxyClient proxyClient = this.getProxyClient();
+        return proxyClient.consultarCCe(this.getAuth().getBasicAuthorization(), chaveNFe);
+    }
+
+    /**
+     * GET - Se existir, Consulta as informações de carta de correção da nota fiscal informada.
+     * Exemplo de requisição: GET https://api.focusnfe.com.br/v2/nfes_recebidas/CHAVE/carta_correcao.json?completa=(0|1)
+     */
+    @Override
+    public MDeConsultarCCeResponse consultarCCeCompleta(String chaveNFe) {
+        FocusNFeUtils.throwObject(chaveNFe, "chaveNFe");
+        FocusMDeV2ProxyClient proxyClient = this.getProxyClient();
+        return proxyClient.consultarCCe(this.getAuth().getBasicAuthorization(), chaveNFe, 1);
     }
 
     /**
